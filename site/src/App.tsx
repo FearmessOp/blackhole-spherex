@@ -1,5 +1,6 @@
-import { useEffect, useState, type FormEvent } from 'react'
+import { useEffect, useRef, useState, type FormEvent } from 'react'
 import BlinkView from './BlinkView'
+import FindMover from './FindMover'
 import QuickLookView, { type Query } from './QuickLookView'
 import ValidationPanel from './ValidationPanel'
 import type { TargetEntry } from './types'
@@ -9,11 +10,12 @@ type IndexState =
     | { status: 'empty' }
     | { status: 'ready'; targets: TargetEntry[] }
 
-// What the page shows is written in the URL: ?target=<name> or ?ra=<deg>&dec=<deg>.
+// What the page shows is written in the URL: ?target=<name>, ?ra=<deg>&dec=<deg> or ?guide=1.
 type Route =
     | { kind: 'none' }
     | { kind: 'name'; name: string }
     | { kind: 'pos'; ra: number; dec: number }
+    | { kind: 'guide' }
     | { kind: 'bad' }
 
 const INDEX_URL = `${import.meta.env.BASE_URL}data/index.json`
@@ -24,6 +26,7 @@ const validPos = (ra: number, dec: number) =>
 
 function readRoute(): Route {
     const q = new URLSearchParams(window.location.search)
+    if (q.has('guide')) return { kind: 'guide' }
     const name = (q.get('target') ?? '').trim()
     if (name) return { kind: 'name', name }
     if (!q.has('ra') && !q.has('dec')) return { kind: 'none' }
@@ -34,6 +37,7 @@ function readRoute(): Route {
 
 function routeUrl(r: Route): string {
     const path = window.location.pathname
+    if (r.kind === 'guide') return `${path}?guide=1`
     if (r.kind === 'name') return `${path}?target=${encodeURIComponent(r.name)}`
     if (r.kind === 'pos') return `${path}?ra=${r.ra}&dec=${r.dec}`
     return path
@@ -44,6 +48,7 @@ export default function App() {
     const [route, setRoute] = useState<Route>(readRoute)
     const [text, setText] = useState('')
     const [inputError, setInputError] = useState<string | null>(null)
+    const searchInput = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
         let cancelled = false
@@ -77,6 +82,15 @@ export default function App() {
     const go = (r: Route) => {
         window.history.pushState(null, '', routeUrl(r))
         setRoute(r)
+    }
+
+    // Leaving the guide shows the tool as it opens; its last screen sends the visitor to the search box.
+    const leaveGuide = (toSearch: boolean) => {
+        go({ kind: 'none' })
+        if (toSearch) {
+            window.scrollTo({ top: 0 })
+            searchInput.current?.focus()
+        }
     }
 
     const submit = (ev: FormEvent) => {
@@ -118,11 +132,18 @@ export default function App() {
                 <span className="scale">1 pixel = 6.15 arcsec</span>
             </header>
             <main className="stage">
+                {route.kind !== 'guide' && (
+                    <button className="guide-start" onClick={() => go({ kind: 'guide' })}>
+                        <b>Find the mover</b>
+                        <span>New here? Spot three real moving objects in about a minute.</span>
+                    </button>
+                )}
                 <form className="search" onSubmit={submit}>
                     <label htmlFor="search-input">Any star or position</label>
                     <div className="row">
                         <input
                             id="search-input"
+                            ref={searchInput}
                             type="text"
                             value={text}
                             onChange={(e) => setText(e.target.value)}
@@ -153,6 +174,7 @@ export default function App() {
                 )}
                 {index.status === 'loading' && <p className="note">Loading target list…</p>}
                 {route.kind === 'bad' && <p className="warn">The address of this page holds no usable position. {BAD_POS}</p>}
+                {route.kind === 'guide' && <FindMover onExit={leaveGuide} />}
                 {prepared && <BlinkView key={prepared.slug} slug={prepared.slug} />}
                 {query && <QuickLookView key={JSON.stringify(query)} query={query} />}
                 {index.status === 'empty' && route.kind === 'none' && (

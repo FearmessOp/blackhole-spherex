@@ -573,3 +573,92 @@ button:disabled:hover {
 .validation a {
     color: var(--accent);
 }
+
+/* Guided mode "Find the mover" */
+.guide-start {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border-color: var(--accent);
+    text-align: left;
+}
+
+.guide-start b {
+    color: var(--accent);
+    font-size: 15px;
+}
+
+.guide-start span {
+    color: var(--muted);
+}
+
+.guide {
+    margin-bottom: 8px;
+}
+
+.guide-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 16px;
+    margin-bottom: 10px;
+}
+
+.guide-head h2 {
+    margin: 0;
+}
+
+.guide-count {
+    flex: 1 1 auto;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 13px;
+}
+
+.guide-ask {
+    max-width: 760px;
+    margin: 0 0 10px;
+    font-size: 15px;
+}
+
+.guide-feedback {
+    max-width: 760px;
+    margin: 0 0 10px;
+    padding: 8px 12px;
+    border-left: 3px solid var(--muted);
+    background: var(--panel);
+    font-size: 14px;
+}
+
+.guide-feedback.hit {
+    border-left-color: var(--accent);
+}
+
+.guide-actions {
+    margin-bottom: 14px;
+}
+
+.guide-next {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.view.pickable {
+    cursor: crosshair;
+}
+
+/* The visitor's click: off-white ring with a dark casing. */
+.pick circle {
+    fill: none;
+    stroke: var(--text);
+    stroke-width: 0.14;
+}
+
+.pick .case {
+    stroke: #000;
+    stroke-width: 0.36;
+}

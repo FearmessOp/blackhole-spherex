@@ -10,6 +10,8 @@ type Props = {
     neighbour?: XY | null // a catalogue star that is not the target
     neighbourLabel?: string
     arrow?: Arrow | null
+    onPick?: (x: number, y: number) => void // click on the image, in grid pixels (pixel centres at whole numbers)
+    pick?: XY | null // the last click, drawn as a small ring
     background?: React.CSSProperties // sprite-sheet frame (raw playback)
     children?: ReactNode // stacked <img> layers
     caption: ReactNode
@@ -33,6 +35,10 @@ export default function SkyPanel(p: Props) {
         const half = 0.27 * font * text.length
         return Math.min(n - half - u, Math.max(half + u, x))
     }
+    // The arrow label sits under the arrow tip; if that is the line of the marker label, it moves one line down.
+    const markerLabelY = p.marker && p.markerLabel ? p.marker.y + 0.5 + 3 + 1.2 * font : null
+    let arrowLabelY = a ? a.y + 0.5 + ARROW_SCALE * a.dy + 6 * u : 0
+    if (a && markerLabelY !== null && Math.abs(arrowLabelY - markerLabelY) < 1.3 * font) arrowLabelY = markerLabelY + 1.3 * font
     const nb = p.neighbour
     // The pointer to the neighbour comes from above, on the side away from the target marker.
     const side = nb && p.marker && nb.x < p.marker.x ? -1 : 1
@@ -40,9 +46,26 @@ export default function SkyPanel(p: Props) {
     return (
         <figure className="fig">
             <figcaption>{p.title}</figcaption>
-            <div className="view sky" style={p.background}>
+            <div
+                className={`view sky${p.onPick ? ' pickable' : ''}`}
+                style={p.background}
+                onClick={
+                    p.onPick
+                        ? (ev) => {
+                            const r = ev.currentTarget.getBoundingClientRect()
+                            p.onPick?.(((ev.clientX - r.left) / r.width) * n - 0.5, ((ev.clientY - r.top) / r.height) * n - 0.5)
+                        }
+                        : undefined
+                }
+            >
                 {p.children}
                 <svg className="overlay" viewBox={`0 0 ${n} ${n}`}>
+                    {p.pick && (
+                        <g className="pick" transform={`translate(${p.pick.x + 0.5} ${p.pick.y + 0.5})`}>
+                            <circle className="case" r={0.7} />
+                            <circle r={0.7} />
+                        </g>
+                    )}
                     {p.marker && (
                         <g className="marker" transform={`translate(${p.marker.x + 0.5} ${p.marker.y + 0.5})`}>
                             <line x1={-3} y1={0} x2={-1.5} y2={0} />
@@ -96,7 +119,7 @@ export default function SkyPanel(p: Props) {
                             <text
                                 className="arrow-label"
                                 x={a.x + 0.5 + ARROW_SCALE * a.dx}
-                                y={a.y + 0.5 + ARROW_SCALE * a.dy + 6 * u}
+                                y={arrowLabelY}
                                 fontSize={font}
                                 textAnchor="middle"
                             >
