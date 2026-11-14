@@ -1,0 +1,19 @@
+== live site 
+index http=200 type=text/html; charset=utf-8 bytes=576 url=https://blackhole-spherex.vercel.app/
+{
+ "targets": [
+  {
+   "slug": "barnard",
+   "name": "Barnard's Star"
+  }
+ ]
+}
+index.json http=200 type=application/json; charset=utf-8
+all_e0.png http=200 type=image/png bytes=727
+== meta.json n_exposures 
+ "n_exposures": 364,
+ "n_missing": 0,
+   "n_exposures": 118,
+   "n_exposures": 122,
+   "n_exposures": 124,
+== end

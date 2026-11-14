@@ -10,7 +10,9 @@ See [PROGRESS.md](PROGRESS.md) for what is done and verified so far.
 
 ## Live site
 
-Not deployed yet.
+https://blackhole-spherex.vercel.app
+
+The site is deployed by Vercel from the `site/` directory on every push to `main`.
 
 ## Test targets
 
