@@ -71,21 +71,21 @@ export default function ResultsPanel({ r }: { r: Results }) {
                             <tr>
                                 <td>Proper motion east (mas/yr)</td>
                                 {fit.methods.map((m) => (
-                                    <td key={m.id}>{f(m.pm_east)} ± {f(m.pm_east_err)}</td>
+                                    <td key={m.id}><span className="pair">{f(m.pm_east)} ± {f(m.pm_east_err)}</span></td>
                                 ))}
                                 <td>{f(fit.reference.pm_east)}</td>
                             </tr>
                             <tr>
                                 <td>Proper motion north (mas/yr)</td>
                                 {fit.methods.map((m) => (
-                                    <td key={m.id}>{f(m.pm_north)} ± {f(m.pm_north_err)}</td>
+                                    <td key={m.id}><span className="pair">{f(m.pm_north)} ± {f(m.pm_north_err)}</span></td>
                                 ))}
                                 <td>{f(fit.reference.pm_north)}</td>
                             </tr>
                             <tr>
                                 <td>Parallax (mas)</td>
                                 {fit.methods.map((m) => (
-                                    <td key={m.id}>{f(m.plx)} ± {f(m.plx_err)}</td>
+                                    <td key={m.id}><span className="pair">{f(m.plx)} ± {f(m.plx_err)}</span></td>
                                 ))}
                                 <td>{f(fit.reference.plx)}</td>
                             </tr>
@@ -113,7 +113,7 @@ export default function ResultsPanel({ r }: { r: Results }) {
 
             {sm && (
                 <>
-                    <table>
+                    <table className="motion">
                         <thead>
                             <tr>
                                 <th>Motion (east / north, arcsec)</th>
@@ -127,9 +127,11 @@ export default function ResultsPanel({ r }: { r: Results }) {
                             {sm.pairs.map((p) => (
                                 <tr key={`${p.from}-${p.to}`}>
                                     <td>Epoch {p.from + 1} → {p.to + 1}</td>
-                                    <td>{s(p.predicted.east)} / {s(p.predicted.north)}</td>
+                                    <td data-label="SIMBAD prediction">
+                                        <span className="pair">{s(p.predicted.east)} / {s(p.predicted.north)}</span>
+                                    </td>
                                     {p.methods.map((m) => (
-                                        <td key={m.id}>
+                                        <td key={m.id} data-label={m.label}>
                                             <span className="pair">{s(m.east)} ± {f(m.east_err, 2)} /</span>{' '}
                                             <span className="pair">{s(m.north)} ± {f(m.north_err, 2)}</span>
                                         </td>
@@ -162,9 +164,9 @@ export default function ResultsPanel({ r }: { r: Results }) {
                                 })
                                 .join(', ')}{' '}
                             of the target's amplitude (16–84% bootstrap range in brackets) and pulls a single-source
-                            measurement towards itself. The last column fits both sources, with the star fixed at its
-                            Gaia position and one shared width; where the range is wide the two sources are not well
-                            separated.
+                            measurement towards itself. The measurement labelled <i>Gaussian fit, neighbour modelled</i>{' '}
+                            fits both sources, with the star fixed at its Gaia position and one shared width; where the
+                            range is wide the two sources are not well separated.
                         </p>
                     )}
                 </>

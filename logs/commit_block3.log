@@ -1,0 +1,73 @@
+warning: in the working copy of 'logs/site_build.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/precommit_status.log', LF will be replaced by CRLF the next time Git touches it
+[main 7268457] Results panel, D1-3 and D5+6 bands, saturation and flicker for all five targets, WISE 0855 neighbour star test
+ 94 files changed, 7727 insertions(+), 275 deletions(-)
+ create mode 100644 data/astrometry/r-dra_target.csv
+ create mode 100644 data/astrometry/rw-aur_target.csv
+ create mode 100644 data/astrometry/saturation_check.json
+ create mode 100644 data/astrometry/wise-0855_neighbour_test.json
+ create mode 100644 data/astrometry/wise-0855_neighbours.json
+ create mode 100644 data/flicker/r-dra.json
+ create mode 100644 data/flicker/rw-aur.json
+ create mode 100644 logs/build_results.log
+ create mode 100644 logs/commit_block3.log
+ create mode 100644 logs/disk_usage.log
+ create mode 100644 logs/download_stderr.log
+ create mode 100644 logs/download_wide_end.log
+ create mode 100644 logs/download_wide_progress.log
+ create mode 100644 logs/download_wide_stdout.log
+ create mode 100644 logs/flicker_r-dra.log
+ create mode 100644 logs/flicker_rw-aur.log
+ create mode 100644 logs/inventory.log
+ create mode 100644 logs/neighbour_test_wise-0855.log
+ create mode 100644 logs/neighbours_wise-0855.log
+ create mode 100644 logs/precommit_status.log
+ create mode 100644 logs/saturation_check.log
+ create mode 100644 logs/target_astrometry_r-dra.log
+ create mode 100644 logs/target_astrometry_rw-aur.log
+ create mode 100644 pipeline/build_results.py
+ create mode 100644 pipeline/neighbour_test.py
+ create mode 100644 pipeline/neighbours.py
+ create mode 100644 pipeline/saturation_check.py
+ create mode 100644 site/public/data/barnard/d123_e0.png
+ create mode 100644 site/public/data/barnard/d123_e1.png
+ create mode 100644 site/public/data/barnard/d123_e2.png
+ create mode 100644 site/public/data/barnard/d56_e0.png
+ create mode 100644 site/public/data/barnard/d56_e1.png
+ create mode 100644 site/public/data/barnard/d56_e2.png
+ create mode 100644 site/public/data/barnard/results.json
+ create mode 100644 site/public/data/eps-indi-b/d123_e0.png
+ create mode 100644 site/public/data/eps-indi-b/d123_e1.png
+ create mode 100644 site/public/data/eps-indi-b/d123_e2.png
+ create mode 100644 site/public/data/eps-indi-b/d123_e3.png
+ create mode 100644 site/public/data/eps-indi-b/d56_e0.png
+ create mode 100644 site/public/data/eps-indi-b/d56_e1.png
+ create mode 100644 site/public/data/eps-indi-b/d56_e2.png
+ create mode 100644 site/public/data/eps-indi-b/d56_e3.png
+ create mode 100644 site/public/data/eps-indi-b/results.json
+ create mode 100644 site/public/data/r-dra/d123_e0.png
+ create mode 100644 site/public/data/r-dra/d123_e1.png
+ create mode 100644 site/public/data/r-dra/d123_e2.png
+ create mode 100644 site/public/data/r-dra/d56_e0.png
+ create mode 100644 site/public/data/r-dra/d56_e1.png
+ create mode 100644 site/public/data/r-dra/d56_e2.png
+ create mode 100644 site/public/data/r-dra/results.json
+ create mode 100644 site/public/data/rw-aur/d123_e0.png
+ create mode 100644 site/public/data/rw-aur/d123_e1.png
+ create mode 100644 site/public/data/rw-aur/d123_e2.png
+ create mode 100644 site/public/data/rw-aur/d56_e0.png
+ create mode 100644 site/public/data/rw-aur/d56_e1.png
+ create mode 100644 site/public/data/rw-aur/d56_e2.png
+ create mode 100644 site/public/data/rw-aur/results.json
+ create mode 100644 site/public/data/wise-0855/d123_e0.png
+ create mode 100644 site/public/data/wise-0855/d123_e1.png
+ create mode 100644 site/public/data/wise-0855/d123_e2.png
+ create mode 100644 site/public/data/wise-0855/d56_e0.png
+ create mode 100644 site/public/data/wise-0855/d56_e1.png
+ create mode 100644 site/public/data/wise-0855/d56_e2.png
+ create mode 100644 site/public/data/wise-0855/results.json
+ create mode 100644 site/src/ResultsPanel.tsx
+ create mode 100644 site/src/SkyPanel.tsx
+ create mode 100644 site/src/types.ts
+7268457 Results panel, D1-3 and D5+6 bands, saturation and flicker for all five targets, WISE 0855 neighbour star test
+ M logs/commit_block3.log

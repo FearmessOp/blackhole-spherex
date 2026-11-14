@@ -330,4 +330,45 @@ button.on {
     .results {
         overflow-x: auto;
     }
+
+    /* Motion table on a narrow screen: one block per epoch pair, one line per method. */
+    .motion thead {
+        display: none;
+    }
+
+    .motion,
+    .motion tbody,
+    .motion tr,
+    .motion td {
+        display: block;
+    }
+
+    .motion tr {
+        padding: 8px 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .motion td {
+        padding: 3px 0;
+        border-bottom: 0;
+    }
+
+    .motion td:first-child {
+        font-weight: 600;
+    }
+
+    /* The header row is hidden, so the unit moves next to the epoch pair. */
+    .motion td:first-child::after {
+        content: ' (east / north, arcsec)';
+        color: var(--muted);
+        font-weight: 400;
+    }
+
+    .motion td[data-label]::before {
+        content: attr(data-label);
+        display: block;
+        color: var(--muted);
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        font-size: 12px;
+    }
 }
