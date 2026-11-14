@@ -159,7 +159,8 @@ def main():
         res = {"slug": slug, "saturation": saturation(slug), "fit": motion_fit(slug, meta),
                "stack_motion": sm, "per_exposure_fit": per_exposure_attempt(slug),
                "flicker": load(ROOT / "data" / "flicker" / f"{slug}.json"),
-               "raw_dropped": {"dropped": raw["n_dropped"], "total": raw["n_total"]},
+               "raw_dropped": {"dropped": raw["n_dropped"], "total": raw["n_total"],
+                               "max_masked_fraction": raw["max_masked_fraction"]},
                # faint cold target measured on the long-wavelength stack: show that stack first
                "default_band": "d56" if sm else "all",
                "compare_bands": ["d123", "d56"] if sm else None}

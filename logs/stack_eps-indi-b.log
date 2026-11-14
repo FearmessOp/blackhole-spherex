@@ -52,6 +52,6 @@ band d6 epoch 1: n=22 wave=4.4235..4.9898 um min_coverage=20 -> d6_e1.png
 band d6 epoch 2: n=11 wave=4.428..4.9399 um min_coverage=10 -> d6_e2.png
 band d6 epoch 3: n=36 wave=4.4076..5.0111 um min_coverage=34 -> d6_e3.png
 band d6 scale: vmin=-0.02988 vmax=5.988 soft=0.04607 MJy/sr
-raw playback: dropped 6 of 467 exposures with more than 50% of the pixels masked
-raw playback: 461 exposures -> raw.png (456x380 px, 24 per row), raw.json; scale vmin=-0.05206 vmax=15.44 soft=0.08054 MJy/sr
+raw playback: dropped 9 of 467 exposures with more than 20% of the pixels masked
+raw playback: 458 exposures -> raw.png (456x380 px, 24 per row), raw.json; scale vmin=-0.05203 vmax=15.51 soft=0.08051 MJy/sr
 wrote C:\Users\user\blackhole-spherex\site\public\data\eps-indi-b\meta.json and C:\Users\user\blackhole-spherex\site\public\data\index.json

@@ -44,6 +44,6 @@ band d6 epoch 0: n=17 wave=4.4183..5.0008 um min_coverage=10 -> d6_e0.png
 band d6 epoch 1: n=24 wave=4.412..5.0022 um min_coverage=22 -> d6_e1.png
 band d6 epoch 2: n=19 wave=4.4024..4.9774 um min_coverage=14 -> d6_e2.png
 band d6 scale: vmin=-0.2614 vmax=1061 soft=0.4516 MJy/sr
-raw playback: dropped 4 of 364 exposures with more than 50% of the pixels masked
-raw playback: 360 exposures -> raw.png (600x375 px, 24 per row), raw.json; scale vmin=-0.5203 vmax=1190 soft=0.9416 MJy/sr
+raw playback: dropped 7 of 364 exposures with more than 20% of the pixels masked
+raw playback: 357 exposures -> raw.png (600x375 px, 24 per row), raw.json; scale vmin=-0.5207 vmax=1188 soft=0.9424 MJy/sr
 wrote C:\Users\user\blackhole-spherex\site\public\data\barnard\meta.json and C:\Users\user\blackhole-spherex\site\public\data\index.json

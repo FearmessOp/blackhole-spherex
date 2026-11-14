@@ -8,6 +8,7 @@ const pct = (v: number) => (100 * v).toFixed(1) + '%'
 // Flicker line shown under the two image panels.
 export function FlickerNote({ r }: { r: Results }) {
     const fl = r.flicker
+    const maskPct = (100 * r.raw_dropped.max_masked_fraction).toFixed(0)
     return (
         <p className="flicker">
             {fl ? (
@@ -23,8 +24,17 @@ export function FlickerNote({ r }: { r: Results }) {
                     <b>Flicker.</b> Not measured for this field yet.
                 </>
             )}{' '}
-            Raw playback leaves out {r.raw_dropped.dropped} of {r.raw_dropped.total} exposures that have more
-            than half of their pixels masked.
+            {r.raw_dropped.dropped > 0 ? (
+                <>
+                    Raw playback leaves out {r.raw_dropped.dropped} of {r.raw_dropped.total} exposures: those with
+                    more than {maskPct}% of their pixels masked. They are still part of the stacks.
+                </>
+            ) : (
+                <>
+                    Raw playback shows all {r.raw_dropped.total} exposures; none has more than {maskPct}% of its
+                    pixels masked.
+                </>
+            )}
         </p>
     )
 }

@@ -108,7 +108,7 @@ export type Results = {
     stack_motion: StackMotion | null
     per_exposure_fit: PerExposureFit | null
     flicker: Flicker | null
-    raw_dropped: { dropped: number; total: number }
+    raw_dropped: { dropped: number; total: number; max_masked_fraction: number }
     default_band: string
     compare_bands: string[] | null
 }

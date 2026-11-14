@@ -47,7 +47,12 @@ BAND_DETS = {"all": None, "d123": {1, 2, 3}, "d56": {5, 6},
 BAND_LABELS = {"all": "All detectors", "d123": "Detectors 1-3 (short wavelength)",
                "d56": "Detectors 5+6 (long wavelength)",
                **{f"d{i}": f"Detector {i}" for i in range(1, 7)}}
-RAW_MAX_MASKED = 0.5  # raw frames with a larger masked fraction are left out of the playback
+# Raw frames with a larger masked fraction are left out of the playback. Measured
+# at the earlier value of 0.5 (logs/raw_masked_fraction.log): 17 of 1950 frames
+# kept in the five playbacks had more than 0.2 of the grid empty; the median
+# was 0.002 to 0.03. A fully empty 3x3 core alone is 2.5% of the smallest grid
+# (19x19 px), so frames that only lack a saturated core are kept.
+RAW_MAX_MASKED = 0.2
 
 warnings.simplefilter("ignore")
 
@@ -327,7 +332,7 @@ def main():
 
     # Raw playback: single exposures on the same cropped grid, in time order,
     # packed into one sprite sheet. All raw frames of a target share one scale.
-    # Exposures that are mostly masked are left out (they stay in the stacks).
+    # Exposures with a large masked part are left out (they stay in the stacks).
     n_all = len(frames)
     raw_sel = [f for f in frames if np.mean(~np.isfinite(f["img"])) <= RAW_MAX_MASKED]
     n_dropped = n_all - len(raw_sel)

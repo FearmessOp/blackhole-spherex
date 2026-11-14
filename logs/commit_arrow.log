@@ -1,0 +1,7 @@
+[main 6cccbd5] Site: motion arrow drawn 4x with label, outlined overlay text
+ 5 files changed, 52 insertions(+), 14 deletions(-)
+6cccbd5 Site: motion arrow drawn 4x with label, outlined overlay text
+85a7bf9 Narrow screens: motion table as one block per epoch pair, value and error kept on one line
+7268457 Results panel, D1-3 and D5+6 bands, saturation and flicker for all five targets, WISE 0855 neighbour star test
+be4f2a0 Flicker number: brightness change of constant Gaia stars between raw exposures and between epoch means (three fields)
+?? logs/commit_arrow.log

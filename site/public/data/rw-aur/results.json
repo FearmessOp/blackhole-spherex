@@ -114,8 +114,9 @@
   ]
  },
  "raw_dropped": {
-  "dropped": 2,
-  "total": 336
+  "dropped": 4,
+  "total": 336,
+  "max_masked_fraction": 0.2
  },
  "default_band": "all",
  "compare_bands": null

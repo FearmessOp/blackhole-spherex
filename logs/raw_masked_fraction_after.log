@@ -1,0 +1,85 @@
+== barnard: 357 frames in playback, 7 of 364 already dropped at threshold 0.2, grid 25x25 px
+   empty fraction: median=0.0048 p90=0.0096 max=0.1728
+   frames with no empty pixel: 30
+   empty fraction in (0.00, 0.02]: 323
+   empty fraction in (0.02, 0.05]: 3
+   empty fraction in (0.05, 0.10]: 0
+   empty fraction in (0.10, 0.20]: 1
+   empty fraction in (0.20, 0.30]: 0
+   empty fraction in (0.30, 0.40]: 0
+   empty fraction in (0.40, 0.50]: 0
+   threshold 0.05: would drop 1 more (8 of 364 in total)
+   threshold 0.10: would drop 1 more (8 of 364 in total)
+   threshold 0.20: would drop 0 more (7 of 364 in total)
+   threshold 0.30: would drop 0 more (7 of 364 in total)
+   threshold 0.40: would drop 0 more (7 of 364 in total)
+   threshold 0.50: would drop 0 more (7 of 364 in total)
+   frames with empty pixels in the central 3x3: 236 (all nine empty: 0)
+== eps-indi-b: 458 frames in playback, 9 of 467 already dropped at threshold 0.2, grid 19x19 px
+   empty fraction: median=0.0028 p90=0.0055 max=0.1219
+   frames with no empty pixel: 197
+   empty fraction in (0.00, 0.02]: 256
+   empty fraction in (0.02, 0.05]: 0
+   empty fraction in (0.05, 0.10]: 4
+   empty fraction in (0.10, 0.20]: 1
+   empty fraction in (0.20, 0.30]: 0
+   empty fraction in (0.30, 0.40]: 0
+   empty fraction in (0.40, 0.50]: 0
+   threshold 0.05: would drop 5 more (14 of 467 in total)
+   threshold 0.10: would drop 1 more (10 of 467 in total)
+   threshold 0.20: would drop 0 more (9 of 467 in total)
+   threshold 0.30: would drop 0 more (9 of 467 in total)
+   threshold 0.40: would drop 0 more (9 of 467 in total)
+   threshold 0.50: would drop 0 more (9 of 467 in total)
+   frames with empty pixels in the central 3x3: 10 (all nine empty: 0)
+== wise-0855: 258 frames in playback, 0 of 258 already dropped at threshold 0.2, grid 21x21 px
+   empty fraction: median=0.0023 p90=0.0045 max=0.0181
+   frames with no empty pixel: 94
+   empty fraction in (0.00, 0.02]: 164
+   empty fraction in (0.02, 0.05]: 0
+   empty fraction in (0.05, 0.10]: 0
+   empty fraction in (0.10, 0.20]: 0
+   empty fraction in (0.20, 0.30]: 0
+   empty fraction in (0.30, 0.40]: 0
+   empty fraction in (0.40, 0.50]: 0
+   threshold 0.05: would drop 0 more (0 of 258 in total)
+   threshold 0.10: would drop 0 more (0 of 258 in total)
+   threshold 0.20: would drop 0 more (0 of 258 in total)
+   threshold 0.30: would drop 0 more (0 of 258 in total)
+   threshold 0.40: would drop 0 more (0 of 258 in total)
+   threshold 0.50: would drop 0 more (0 of 258 in total)
+   frames with empty pixels in the central 3x3: 7 (all nine empty: 0)
+== rw-aur: 332 frames in playback, 4 of 336 already dropped at threshold 0.2, grid 25x25 px
+   empty fraction: median=0.0016 p90=0.0048 max=0.1472
+   frames with no empty pixel: 109
+   empty fraction in (0.00, 0.02]: 219
+   empty fraction in (0.02, 0.05]: 2
+   empty fraction in (0.05, 0.10]: 1
+   empty fraction in (0.10, 0.20]: 1
+   empty fraction in (0.20, 0.30]: 0
+   empty fraction in (0.30, 0.40]: 0
+   empty fraction in (0.40, 0.50]: 0
+   threshold 0.05: would drop 2 more (6 of 336 in total)
+   threshold 0.10: would drop 1 more (5 of 336 in total)
+   threshold 0.20: would drop 0 more (4 of 336 in total)
+   threshold 0.30: would drop 0 more (4 of 336 in total)
+   threshold 0.40: would drop 0 more (4 of 336 in total)
+   threshold 0.50: would drop 0 more (4 of 336 in total)
+   frames with empty pixels in the central 3x3: 5 (all nine empty: 0)
+== r-dra: 528 frames in playback, 20 of 548 already dropped at threshold 0.2, grid 19x19 px
+   empty fraction: median=0.0277 p90=0.0720 max=0.1634
+   frames with no empty pixel: 2
+   empty fraction in (0.00, 0.02]: 156
+   empty fraction in (0.02, 0.05]: 229
+   empty fraction in (0.05, 0.10]: 131
+   empty fraction in (0.10, 0.20]: 10
+   empty fraction in (0.20, 0.30]: 0
+   empty fraction in (0.30, 0.40]: 0
+   empty fraction in (0.40, 0.50]: 0
+   threshold 0.05: would drop 141 more (161 of 548 in total)
+   threshold 0.10: would drop 10 more (30 of 548 in total)
+   threshold 0.20: would drop 0 more (20 of 548 in total)
+   threshold 0.30: would drop 0 more (20 of 548 in total)
+   threshold 0.40: would drop 0 more (20 of 548 in total)
+   threshold 0.50: would drop 0 more (20 of 548 in total)
+   frames with empty pixels in the central 3x3: 522 (all nine empty: 268)
