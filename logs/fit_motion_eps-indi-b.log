@@ -1,0 +1,29 @@
+eps-indi-b: input=eps-indi-b_target.csv exposures=399 detectors=all epochs=[0, 1, 2, 3] span=60789.9..61315.5 MJD t0=2026.0209
+reference (SIMBAD, 2020yCat.1350....0G): pm_east=3981.977 pm_north=-2466.832 mas/yr plx=270.658 mas
+--- method=win: used=390 of 399 (clipped 9); residual rms east=264 north=302 mas
+e0_mas = +170.2 +- 13.0
+n0_mas = -475.9 +- 15.9
+pm_east_masyr = +3940.7 +- 25.0   SIMBAD +3982.0   difference -41.3 (1.7 x bootstrap error)
+pm_north_masyr = -2460.9 +- 26.9   SIMBAD -2466.8   difference +5.9 (0.2 x bootstrap error)
+plx_mas = +426.0 +- 14.5   SIMBAD +270.7   difference +155.4 (10.7 x bootstrap error)
+leave-one-epoch-out pm_east_masyr: +3924.6 +3950.3 +3945.4 +3899.4   (min +3899.4, max +3950.3)
+leave-one-epoch-out pm_north_masyr: -2439.8 -2473.2 -2478.3 -2413.5   (min -2478.3, max -2413.5)
+leave-one-epoch-out plx_mas: +432.2 +426.1 +419.1 +424.1   (min +419.1, max +432.2)
+epoch 0: n=105 mean residual east=-9 north=+14 mas
+epoch 1: n=109 mean residual east=+24 north=-35 mas
+epoch 2: n=69 mean residual east=-48 north=+61 mas
+epoch 3: n=107 mean residual east=+15 north=-17 mas
+--- method=psf: used=387 of 399 (clipped 12); residual rms east=242 north=219 mas
+e0_mas = +241.9 +- 12.2
+n0_mas = -572.8 +- 11.6
+pm_east_masyr = +3940.9 +- 24.4   SIMBAD +3982.0   difference -41.1 (1.7 x bootstrap error)
+pm_north_masyr = -2451.0 +- 20.0   SIMBAD -2466.8   difference +15.8 (0.8 x bootstrap error)
+plx_mas = +237.8 +- 14.9   SIMBAD +270.7   difference -32.8 (2.2 x bootstrap error)
+leave-one-epoch-out pm_east_masyr: +3912.2 +3989.3 +3930.5 +3945.1   (min +3912.2, max +3989.3)
+leave-one-epoch-out pm_north_masyr: -2460.8 -2437.2 -2484.8 -2388.6   (min -2484.8, max -2388.6)
+leave-one-epoch-out plx_mas: +250.4 +274.9 +214.2 +229.1   (min +214.2, max +274.9)
+epoch 0: n=100 mean residual east=-22 north=+2 mas
+epoch 1: n=112 mean residual east=+27 north=-10 mas
+epoch 2: n=67 mean residual east=-24 north=+65 mas
+epoch 3: n=108 mean residual east=+1 north=-25 mas
+wrote C:\Users\user\blackhole-spherex\data\astrometry\eps-indi-b_fit.json

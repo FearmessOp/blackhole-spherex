@@ -1,0 +1,32 @@
+alignment: eps-indi-b_field_wide.csv; exposures with at least 5 field stars: 455 of 456; target exposures kept 390 of 399
+eps-indi-b: input=eps-indi-b_target.csv exposures=390 detectors=all epochs=[0, 1, 2, 3] span=60789.9..61315.5 MJD t0=2026.0126
+reference (SIMBAD, 2020yCat.1350....0G): pm_east=3981.977 pm_north=-2466.832 mas/yr plx=270.658 mas
+alignment applied (win): median correction east=-158 north=-66 mas; scatter between exposures east=219 north=251 mas
+--- method=win: used=380 of 390 (clipped 10); residual rms east=291 north=338 mas
+e0_mas = +349.2 +- 15.1
+n0_mas = -437.6 +- 17.3
+pm_east_masyr = +3966.2 +- 28.9   SIMBAD +3982.0   difference -15.7 (0.5 x bootstrap error)
+pm_north_masyr = -2465.2 +- 31.7   SIMBAD -2466.8   difference +1.6 (0.1 x bootstrap error)
+plx_mas = +327.3 +- 16.4   SIMBAD +270.7   difference +56.6 (3.4 x bootstrap error)
+leave-one-epoch-out pm_east_masyr: +3968.6 +3997.9 +3983.5 +3860.1   (min +3860.1, max +3997.9)
+leave-one-epoch-out pm_north_masyr: -2500.6 -2451.5 -2498.8 -2325.8   (min -2500.6, max -2325.8)
+leave-one-epoch-out plx_mas: +333.1 +351.6 +320.0 +318.8   (min +318.8, max +351.6)
+epoch 0: n=104 mean residual east=+2 north=-19 mas
+epoch 1: n=108 mean residual east=+22 north=-9 mas
+epoch 2: n=67 mean residual east=-98 north=+124 mas
+epoch 3: n=101 mean residual east=+40 north=-53 mas
+alignment applied (psf): median correction east=-18 north=+5 mas; scatter between exposures east=143 north=152 mas
+--- method=psf: used=378 of 390 (clipped 12); residual rms east=234 north=209 mas
+e0_mas = +261.4 +- 12.2
+n0_mas = -560.8 +- 11.1
+pm_east_masyr = +3937.0 +- 24.6   SIMBAD +3982.0   difference -45.0 (1.8 x bootstrap error)
+pm_north_masyr = -2446.3 +- 20.8   SIMBAD -2466.8   difference +20.5 (1.0 x bootstrap error)
+plx_mas = +299.6 +- 14.3   SIMBAD +270.7   difference +28.9 (2.0 x bootstrap error)
+leave-one-epoch-out pm_east_masyr: +3921.0 +3965.1 +3926.6 +3932.1   (min +3921.0, max +3965.1)
+leave-one-epoch-out pm_north_masyr: -2458.5 -2430.7 -2465.7 -2397.9   (min -2465.7, max -2397.9)
+leave-one-epoch-out plx_mas: +308.2 +324.4 +283.0 +294.3   (min +283.0, max +324.4)
+epoch 0: n=100 mean residual east=-8 north=-7 mas
+epoch 1: n=110 mean residual east=+15 north=-3 mas
+epoch 2: n=64 mean residual east=-16 north=+43 mas
+epoch 3: n=104 mean residual east=+1 north=-17 mas
+wrote C:\Users\user\blackhole-spherex\data\astrometry\eps-indi-b_fit_aligned.json

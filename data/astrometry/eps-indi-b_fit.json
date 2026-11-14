@@ -1,0 +1,83 @@
+{
+ "slug": "eps-indi-b",
+ "t0_year": 2026.0209,
+ "reference": [
+  3981.977,
+  -2466.832,
+  270.658
+ ],
+ "win": {
+  "n_used": 390,
+  "values": {
+   "e0_mas": 170.22,
+   "n0_mas": -475.91,
+   "pm_east_masyr": 3940.68,
+   "pm_north_masyr": -2460.94,
+   "plx_mas": 426.01
+  },
+  "bootstrap_err": {
+   "e0_mas": 12.98,
+   "n0_mas": 15.86,
+   "pm_east_masyr": 24.98,
+   "pm_north_masyr": 26.88,
+   "plx_mas": 14.47
+  },
+  "leave_one_epoch_out": {
+   "pm_east_masyr": [
+    3924.57,
+    3950.33,
+    3945.42,
+    3899.44
+   ],
+   "pm_north_masyr": [
+    -2439.79,
+    -2473.18,
+    -2478.32,
+    -2413.48
+   ],
+   "plx_mas": [
+    432.18,
+    426.12,
+    419.08,
+    424.07
+   ]
+  }
+ },
+ "psf": {
+  "n_used": 387,
+  "values": {
+   "e0_mas": 241.87,
+   "n0_mas": -572.76,
+   "pm_east_masyr": 3940.86,
+   "pm_north_masyr": -2451.02,
+   "plx_mas": 237.84
+  },
+  "bootstrap_err": {
+   "e0_mas": 12.19,
+   "n0_mas": 11.56,
+   "pm_east_masyr": 24.35,
+   "pm_north_masyr": 19.98,
+   "plx_mas": 14.88
+  },
+  "leave_one_epoch_out": {
+   "pm_east_masyr": [
+    3912.17,
+    3989.31,
+    3930.5,
+    3945.12
+   ],
+   "pm_north_masyr": [
+    -2460.81,
+    -2437.19,
+    -2484.78,
+    -2388.59
+   ],
+   "plx_mas": [
+    250.44,
+    274.87,
+    214.21,
+    229.07
+   ]
+  }
+ }
+}
