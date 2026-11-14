@@ -1,0 +1,17 @@
+barnard: manifest=364 on_disk=364; starting point = SIMBAD pm=(-801.551, 10362.394) mas/yr plx=546.9759 mas
+wings mode: 'win' columns = point-symmetric masked centroid, 'psf' columns = ePSF fit to unflagged pixels only; clean = measured by both
+exposures=364 -> C:\Users\user\blackhole-spherex\data\astrometry\barnard_target_wings.csv
+flags in the central 3x3 px (exposures with the flag): {'SOURCE': 358, 'OVERFLOW': 357, 'BLOOM': 353, 'TRANSIENT': 353, 'SUR_ERROR': 351, 'NONFUNC': 17, 'PERSIST': 11, 'HOT': 7, 'DICHROIC': 3, 'HALO': 1}
+saturation: OVERFLOW in 357 of 364 exposures; clean core (none of ['OVERFLOW', 'SUR_ERROR', 'NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'NONLINEAR', 'SNOWBALL', 'TRANSIENT'], no NaN): 0 of 364; usable rows (clean=1): 149; of these measured by both methods within 1.5 px of the starting point: 72
+--- by epoch and collection: offset from the starting point, arcsec, median (1.4826 MAD)
+(0, 'spherex_dr1'): exposures=118 usable=21 median_snr=210 de_win=+0.212 (2.194) dn_win=-0.982 (1.706) de_psf=-0.886 (6.872) dn_psf=+0.333 (6.907)
+(1, 'spherex_dr1'): exposures=122 usable=28 median_snr=210 de_win=+0.425 (1.142) dn_win=-0.692 (1.910) de_psf=+1.477 (5.092) dn_psf=-0.507 (5.942)
+(2, 'spherex_qr3'): exposures=124 usable=23 median_snr=212 de_win=-0.171 (2.563) dn_win=-1.142 (2.239) de_psf=-0.599 (5.957) dn_psf=+0.088 (6.902)
+--- by detector: offset from the starting point, arcsec, median (1.4826 MAD)
+D1: exposures=60 usable=4 median_snr=175 de_win=+0.272 (0.786) dn_win=+0.915 (1.159) de_psf=-1.022 (4.017) dn_psf=-2.928 (6.775)
+D2: exposures=62 usable=1
+D3: exposures=61 usable=4 median_snr=178 de_win=+1.217 (1.005) dn_win=-0.680 (1.502) de_psf=+1.071 (1.981) dn_psf=+2.186 (3.759)
+D4: exposures=59 usable=1
+D5: exposures=62 usable=23 median_snr=212 de_win=+0.219 (1.597) dn_win=-1.136 (2.652) de_psf=+0.816 (7.506) dn_psf=-1.718 (7.452)
+D6: exposures=60 usable=39 median_snr=211 de_win=+0.042 (2.216) dn_win=-0.982 (1.859) de_psf=-0.460 (6.085) dn_psf=+0.088 (5.975)
+windowed centroid versus ePSF fit, same exposure: median separation 6.764 arcsec, 90th percentile 10.466

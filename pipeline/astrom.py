@@ -161,3 +161,83 @@ def pix_to_sky(cut, x, y):
 def sky_to_pix(cut, ra_deg, dec_deg):
     x, y = cut["wcs"].all_world2pix(ra_deg, dec_deg, 0)
     return float(x), float(y)
+
+def good_pixels(cut):
+    """Pixels that are finite and carry none of the CORE_BAD flags."""
+    bad = np.zeros(cut["img"].shape, bool)
+    for n in CORE_BAD:
+        if n in cut["bits"]:
+            bad |= (cut["flags"] & cut["bits"][n]) != 0
+    return ~bad & np.isfinite(cut["img"]) & np.isfinite(cut["var"]) & (cut["var"] > 0)
+
+def fit_epsf_wings(cut, x0, y0, half=3, min_pix=16):
+    """ePSF fit that ignores flagged (saturated) pixels: only unflagged pixels are used.
+
+    Returns (x, y, flux, ex, ey, n_pixels_used) or None.
+    """
+    img, hdr = cut["img"], cut["hdr"]
+    ny, nx = img.shape
+    xi, yi = int(round(x0)), int(round(y0))
+    if not (half <= xi < nx - half and half <= yi < ny - half):
+        return None
+    xdet = x0 + 1.0 - hdr["CRPIX1A"] + hdr["CRVAL1A"]
+    ydet = y0 + 1.0 - hdr["CRPIX2A"] + hdr["CRVAL2A"]
+    zone = int(np.argmin((cut["zx"] - xdet) ** 2 + (cut["zy"] - ydet) ** 2))
+    off = (np.arange(33) - 16) / EPSF_OVERSAMPLE
+    psf = RectBivariateSpline(off, off, cut["epsf"][zone], kx=3, ky=3)
+    sl = (slice(yi - half, yi + half + 1), slice(xi - half, xi + half + 1))
+    jj, ii = np.mgrid[sl]
+    sub = img[sl]
+    sig = np.sqrt(cut["var"][sl])
+    good = good_pixels(cut)[sl]
+    if good.sum() < min_pix:
+        return None
+    bg0 = local_background(img, xi, yi, r_in=6, r_out=9)
+
+    def resid(p):
+        dx, dy = ii - p[0], jj - p[1]
+        # The ePSF table spans +-3.2 px; pixels outside it are not modelled.
+        use = good & (np.abs(dx) <= 3.2) & (np.abs(dy) <= 3.2)
+        model = p[2] * psf.ev(np.clip(dy, -3.2, 3.2), np.clip(dx, -3.2, 3.2)) + p[3]
+        return np.where(use, (sub - model) / np.where(good, sig, 1.0), 0.0).ravel()
+
+    flux0 = max(float(np.sum(np.where(good, sub - bg0, 0.0))), 1e-6)
+    try:
+        fit = least_squares(resid, [x0, y0, flux0, bg0],
+                            bounds=([x0 - 1.5, y0 - 1.5, 0, -np.inf],
+                                    [x0 + 1.5, y0 + 1.5, np.inf, np.inf]))
+        cov = np.linalg.inv(fit.jac.T @ fit.jac)
+    except Exception:  # noqa: BLE001
+        return None
+    chi2 = float((fit.fun ** 2).sum() / max(1, int(good.sum()) - 4))
+    ex, ey = (math.sqrt(max(cov[k, k], 0.0) * max(chi2, 1.0)) for k in (0, 1))
+    return float(fit.x[0]), float(fit.x[1]), float(fit.x[2]), ex, ey, int(good.sum())
+
+def sym_centroid(cut, x0, y0, half=4, n_iter=6):
+    """Centroid from unflagged pixels only, with a point-symmetric mask.
+
+    A pixel is used only if its mirror pixel about the current centre pixel is
+    also unflagged, so that masked (saturated) pixels do not pull the centroid
+    to one side. The mask is symmetric about a whole pixel, which can bias the
+    result towards the pixel centre. Returns (x, y, n_pixels_used) or None.
+    """
+    img = cut["img"]
+    ny, nx = img.shape
+    good = good_pixels(cut)
+    bg = local_background(img, int(round(x0)), int(round(y0)), r_in=6, r_out=9)
+    x, y = float(x0), float(y0)
+    for _ in range(n_iter):
+        xi, yi = int(round(x)), int(round(y))
+        if not (half <= xi < nx - half and half <= yi < ny - half):
+            return None
+        sl = (slice(yi - half, yi + half + 1), slice(xi - half, xi + half + 1))
+        g = good[sl] & good[sl][::-1, ::-1]
+        if g.sum() < 12:
+            return None
+        jj, ii = np.mgrid[sl]
+        val = np.where(g, img[sl] - bg, 0.0)
+        tot = val.sum()
+        if tot <= 0:
+            return None
+        x, y = float((val * ii).sum() / tot), float((val * jj).sum() / tot)
+    return x, y, int(g.sum())

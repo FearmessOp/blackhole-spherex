@@ -1,0 +1,12 @@
+rows 364
+psf fit returned 149 n_pix median 33 min 16 max 45 of 49 px in the 7x7 window
+psf within 1.5 px of start 72
+psf kept with |east| or |north| > 6 arcsec 35
+sym centroid within 1.5 px of start 284
+sym centroid returned nothing or far 80
+D1 psf_returned 14 psf_kept 4 win_kept 57 median n_pix 21.0
+D2 psf_returned 8 psf_kept 1 win_kept 53 median n_pix 19.0
+D3 psf_returned 7 psf_kept 4 win_kept 46 median n_pix 20
+D4 psf_returned 1 psf_kept 1 win_kept 9 median n_pix 27
+D5 psf_returned 61 psf_kept 23 win_kept 61 median n_pix 31
+D6 psf_returned 58 psf_kept 39 win_kept 58 median n_pix 37.0

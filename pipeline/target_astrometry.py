@@ -29,6 +29,9 @@ def med_mad(v):
 def main():
     args = sys.argv[1:]
     tag = ""
+    wings = "--wings" in args  # saturated target: use unflagged pixels only
+    if wings:
+        args.remove("--wings")
     if "--tag" in args:
         i = args.index("--tag")
         tag = "_" + args[i + 1]
@@ -40,7 +43,11 @@ def main():
     have = [j for j in jobs if (ROOT / j["path"]).exists()]
     print(f"{slug}{tag}: manifest={len(jobs)} on_disk={len(have)}; starting point = SIMBAD "
           f"pm=({t['pmra_masyr']}, {t['pmdec_masyr']}) mas/yr plx={t['plx_mas']} mas")
+    if wings:
+        print("wings mode: 'win' columns = point-symmetric masked centroid, 'psf' columns = "
+              "ePSF fit to unflagged pixels only; clean = measured by both")
     rows, epoch, last, flag_count = [], -1, None, {}
+    n_core_clean = 0
     for j in have:
         if last is None or j["t_mid_mjd"] - last > GAP_DAYS:
             epoch += 1
@@ -63,12 +70,18 @@ def main():
         for n in names:
             flag_count[n] = flag_count.get(n, 0) + 1
         bad = astrom.core_flags(cut, x, y)
+        n_core_clean += int(not bad)
         bg = astrom.local_background(cut["img"], xi, yi)
         peak = cut["img"][yi - 1:yi + 2, xi - 1:xi + 2]
         snr = float(np.nanmax((peak - bg) / np.sqrt(cut["var"][yi - 1:yi + 2, xi - 1:xi + 2])))
         row.update(flags="+".join(names), clean=int(not bad), snr_peak=round(snr, 1))
-        win = astrom.win_centroid(cut, x, y)
-        psf = astrom.fit_epsf(cut, x, y)
+        if wings:
+            win = astrom.sym_centroid(cut, x, y)
+            psf = astrom.fit_epsf_wings(cut, x, y)
+            row.update(clean=int(bool(win and psf)), n_pix=psf[5] if psf else 0)
+        else:
+            win = astrom.win_centroid(cut, x, y)
+            psf = astrom.fit_epsf(cut, x, y)
         for key, m in (("win", win), ("psf", psf)):
             if m and math.hypot(m[0] - x, m[1] - y) <= MAX_PIX:
                 mra, mdec = astrom.pix_to_sky(cut, m[0], m[1])
@@ -80,8 +93,8 @@ def main():
         rows.append(row)
     fields = ["file", "collection", "epoch", "detector", "mjd", "ra_start", "dec_start", "flags",
               "clean", "snr_peak", "ra_win", "dec_win", "de_win", "dn_win", "ra_psf", "dec_psf",
-              "de_psf", "dn_psf", "err_psf_arcsec"]
-    out = ROOT / "data" / "astrometry" / f"{slug}_target{tag}.csv"
+              "de_psf", "dn_psf", "err_psf_arcsec", "n_pix"]
+    out = ROOT / "data" / "astrometry" / f"{slug}_target{tag}{'_wings' if wings else ''}.csv"
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
@@ -94,8 +107,9 @@ def main():
     print(f"flags in the central 3x3 px (exposures with the flag): "
           f"{dict(sorted(flag_count.items(), key=lambda kv: -kv[1]))}")
     print(f"saturation: OVERFLOW in {flag_count.get('OVERFLOW', 0)} of {n} exposures; "
-          f"clean core (none of {astrom.CORE_BAD}, no NaN): {len(clean)} of {n}; "
-          f"clean and measured by both methods: {len(both)}")
+          f"clean core (none of {astrom.CORE_BAD}, no NaN): {n_core_clean} of {n}; "
+          f"usable rows (clean=1): {len(clean)}; of these measured by both methods "
+          f"within {MAX_PIX} px of the starting point: {len(both)}")
     if not both:
         return 1
 

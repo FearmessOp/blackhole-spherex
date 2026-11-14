@@ -39,6 +39,18 @@ def residuals(p, t, fe, fn, east, north):
 def main():
     args = sys.argv[1:]
     tag, dets, align = "", None, None
+    methods, align_with = ("win", "psf"), None
+    ignore_clean = "--ignore-clean" in args  # wings files: saturation is handled by the estimator
+    if ignore_clean:
+        args.remove("--ignore-clean")
+    if "--methods" in args:  # e.g. --methods win
+        i = args.index("--methods")
+        methods = tuple(args[i + 1].split(","))
+        del args[i:i + 2]
+    if "--align-with" in args:  # field-star estimator used for the correction, e.g. psf
+        i = args.index("--align-with")
+        align_with = args[i + 1]
+        del args[i:i + 2]
     if "--align" in args:  # tag of the field-star file, e.g. --align wide
         i = args.index("--align")
         align = args[i + 1]
@@ -56,8 +68,10 @@ def main():
         (ROOT / "data" / "targets.json").read_text(encoding="utf-8"))}[slug]
     src = ROOT / "data" / "astrometry" / f"{slug}_target{tag}.csv"
     rows = [r for r in csv.DictReader(src.open(encoding="utf-8"))
-            if r["clean"] == "1" and r["ra_win"] and r["ra_psf"]
+            if (ignore_clean or r["clean"] == "1") and all(r[f"ra_{m}"] for m in methods)
             and (dets is None or int(r["detector"]) in dets)]
+    print(f"methods={methods} ignore_clean={ignore_clean} align={align} "
+          f"align_with={align_with or 'same estimator'}")
     corr = {}
     if align:
         # Per-exposure correction: median offset (measured minus Gaia) of the field
@@ -90,13 +104,14 @@ def main():
           f"plx={ref[2]} mas")
     out = {"slug": slug, "t0_year": round(astrom.year_of(t0_mjd), 4), "reference": ref}
     rng = np.random.default_rng(20261114)
-    for m in ("win", "psf"):
+    for m in methods:
         off = [astrom.sky_offset(float(r[f"ra_{m}"]), float(r[f"dec_{m}"]), ra0, dec0)
                for r in rows]
         east, north = (np.array(v) * 1000.0 for v in zip(*off))  # mas
         if align:
-            ce = np.array([corr[r["file"]][m][0] for r in rows]) * 1000.0
-            cn = np.array([corr[r["file"]][m][1] for r in rows]) * 1000.0
+            am = align_with or m
+            ce = np.array([corr[r["file"]][am][0] for r in rows]) * 1000.0
+            cn = np.array([corr[r["file"]][am][1] for r in rows]) * 1000.0
             east, north = east - ce, north - cn
             print(f"alignment applied ({m}): median correction east={np.median(ce):+.0f} "
                   f"north={np.median(cn):+.0f} mas; scatter between exposures "
