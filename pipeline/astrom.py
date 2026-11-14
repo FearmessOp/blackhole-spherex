@@ -47,20 +47,28 @@ def year_of(mjd):
     return 2000.0 + (mjd - 51544.5) / 365.25
 
 def open_cutout(path):
-    """Image, flags, variance, WCS, flag bits and the ePSF zone table of one cutout."""
+    """Image, flags, variance, WCS, flag bits and the ePSF zone table of one cutout.
+
+    Files downloaded with "download_cutouts.py --strip-epsf" have no EPSF HDU;
+    for them the stored table of the detector is used (stored_epsf).
+    """
     with fits.open(path) as hdul:
         hdr = hdul["IMAGE"].header
         fh = hdul["FLAGS"].header
         bits = {str(fh[k]).strip(): int(fh["MSKM" + k[4:]]) for k in fh["MSKN*"]}
-        ep = hdul["EPSF"].data
+        if "EPSF" in hdul:
+            ep = hdul["EPSF"].data
+            table = {"zx": np.array(ep["XCENTER"], float),
+                     "zy": np.array(ep["YCENTER"], float),
+                     "epsf": np.array(ep["EPSF"], float)}
+        else:
+            table = stored_epsf(hdr["DETECTOR"])
         return {"img": hdul["IMAGE"].data.astype(float),
                 "flags": hdul["FLAGS"].data.copy(),
                 "var": hdul["VARIANCE"].data.astype(float),
                 "hdr": hdr, "wcs": WCS(hdr), "bits": bits,
                 "mjd": float(hdr["MJD-AVG"]),
-                "zx": np.array(ep["XCENTER"], float),
-                "zy": np.array(ep["YCENTER"], float),
-                "epsf": np.array(ep["EPSF"], float)}
+                "zx": table["zx"], "zy": table["zy"], "epsf": table["epsf"]}
 
 def core_flags(cut, x, y):
     """Names of CORE_BAD flags (and NaN) found in the 3x3 pixels around (x, y)."""

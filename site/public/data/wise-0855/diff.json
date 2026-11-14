@@ -1,0 +1,74 @@
+{
+ "from_epoch": 0,
+ "to_epoch": 2,
+ "label": "bright = where it is now, dark = where it was",
+ "stretch": "linear, zero = mid grey, symmetric",
+ "source": "data/diff/wise-0855.json",
+ "bands": [
+  {
+   "id": "d56",
+   "png": "diff_d56.png",
+   "dets_used": [
+    5,
+    6
+   ],
+   "n_first": 11,
+   "n_last": 36,
+   "vmax": 0.12020170278183251,
+   "unit": "MJy/sr",
+   "distinct": true,
+   "n_stars": 8,
+   "star_ratio_median": 0.151,
+   "star_ratio_p90": 0.24,
+   "lobe_bright_ratio": 0.882,
+   "lobe_dark_ratio": 0.792,
+   "lobe_bright_sigma": 7.8,
+   "lobe_dark_sigma": 7.0
+  },
+  {
+   "id": "d123",
+   "png": "diff_d123.png",
+   "dets_used": [
+    1,
+    2,
+    3
+   ],
+   "n_first": 15,
+   "n_last": 50,
+   "vmax": 0.03146594082929945,
+   "unit": "MJy/sr",
+   "distinct": false,
+   "n_stars": 25,
+   "star_ratio_median": 0.1,
+   "star_ratio_p90": 0.208,
+   "lobe_bright_ratio": 0.089,
+   "lobe_dark_ratio": 0.021,
+   "lobe_bright_sigma": 4.0,
+   "lobe_dark_sigma": 0.9
+  },
+  {
+   "id": "all",
+   "png": "diff_all.png",
+   "dets_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "n_first": 30,
+   "n_last": 100,
+   "vmax": 0.05287049926855503,
+   "unit": "MJy/sr",
+   "distinct": true,
+   "n_stars": 22,
+   "star_ratio_median": 0.108,
+   "star_ratio_p90": 0.179,
+   "lobe_bright_ratio": 0.363,
+   "lobe_dark_ratio": 0.227,
+   "lobe_bright_sigma": 8.6,
+   "lobe_dark_sigma": 5.4
+  }
+ ]
+}

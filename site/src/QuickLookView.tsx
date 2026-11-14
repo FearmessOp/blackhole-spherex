@@ -3,6 +3,8 @@ import SkyPanel from './SkyPanel'
 import {
     SCALE_ARCSEC,
     clippedMean,
+    diffRgba,
+    diffStack,
     measureEpoch,
     motionBetween,
     pickBalanced,
@@ -93,7 +95,9 @@ type EpochView = {
 // Motion between two epochs: catalogue prediction (if there is a catalogue entry) and rough measurement.
 type MotionRow = { from: number; to: number; predicted: { east: number; north: number } | null; motion: Motion | null }
 type Stats = { listed: number; read: number; failed: number; offDetector: number; requests: number; bytes: number; seconds: number }
-type Scene = { epochs: EpochView[]; stats: Stats; motions: MotionRow[] }
+// Last epoch with frames minus first epoch with frames, from the detectors read in both.
+type SceneDiff = { from: number; to: number; rgba: Uint8ClampedArray; vmax: number; dets: number[]; nFirst: number; nLast: number }
+type Scene = { epochs: EpochView[]; stats: Stats; motions: MotionRow[]; diff: SceneDiff | null }
 type Progress = { done: number; total: number; bytes: number }
 
 const day = (mjd: number) => new Date((mjd - 40587) * 86400000).toISOString().slice(0, 10)
@@ -186,6 +190,17 @@ async function buildScene(l: Lookup, band: Band, onProgress: (p: Progress) => vo
             })
         }
     }
+    let diff: SceneDiff | null = null
+    const withFrames = frames.map((f, k) => (f.length ? k : -1)).filter((k) => k >= 0)
+    if (withFrames.length >= 2) {
+        const a = withFrames[0]
+        const b = withFrames[withFrames.length - 1]
+        const d = diffStack(frames[a], set.det[a], frames[b], set.det[b])
+        if (d) {
+            const { rgba, vmax } = diffRgba(d.diff)
+            diff = { from: a, to: b, rgba, vmax, dets: d.dets, nFirst: d.nFirst, nLast: d.nLast }
+        }
+    }
     const stats: Stats = {
         listed: exposures.length,
         read: frames.reduce((s, f) => s + f.length, 0),
@@ -195,7 +210,7 @@ async function buildScene(l: Lookup, band: Band, onProgress: (p: Progress) => vo
         bytes: counter.bytes,
         seconds: (performance.now() - t0) / 1000
     }
-    return { epochs: views, stats, motions }
+    return { epochs: views, stats, motions, diff }
 }
 
 // One stacked epoch, drawn pixel for pixel; all epochs stay mounted so that blinking does not flash.
@@ -224,6 +239,7 @@ export default function QuickLookView({ query }: { query: Query }) {
     const [playing, setPlaying] = useState(true)
     const [ms, setMs] = useState(600)
     const [marker, setMarker] = useState(true)
+    const [view, setView] = useState<'blink' | 'diff'>('blink')
 
     // 1. name -> position, and the exposure list
     useEffect(() => {
@@ -315,6 +331,8 @@ export default function QuickLookView({ query }: { query: Query }) {
 
     const cur = count ? shown[pos % count] : null
     const st = scene?.stats
+    const dif = scene?.diff ?? null
+    const showDiff = view === 'diff' && dif !== null
     const partial = lookup.data.collections.filter((c) => !c.ok).map((c) => c.id)
     return (
         <div className="target">
@@ -334,18 +352,31 @@ export default function QuickLookView({ query }: { query: Query }) {
             )}
             {scene && cur && (
                 <div className="views">
-                    <SkyPanel
-                        title={`Stacked per epoch: ${band.label}`}
-                        n={NPIX}
-                        scaleArcsec={6.15}
-                        marker={marker ? cur.marker : null}
-                        caption={`Epoch ${cur.index + 1} of ${scene.epochs.length}: ${cur.tStart} to ${cur.tEnd}`}
-                        detail={`${cur.nUsed} of ${cur.nInBand} exposures of this epoch read and stacked`}
-                    >
-                        {shown.map((e) => (
-                            <EpochCanvas key={e.index} rgba={e.rgba!} visible={e === cur} />
-                        ))}
-                    </SkyPanel>
+                    {showDiff && dif ? (
+                        <SkyPanel
+                            title={`Difference: epoch ${dif.to + 1} minus epoch ${dif.from + 1}, ${band.label}`}
+                            n={NPIX}
+                            scaleArcsec={6.15}
+                            marker={marker ? scene.epochs[dif.to].marker : null}
+                            caption="bright = where it is now, dark = where it was"
+                            detail={`Detectors ${dif.dets.join(', ')} (those read in both epochs), ${dif.nFirst} and ${dif.nLast} exposures. Linear scale, zero is mid grey, ±${dif.vmax.toPrecision(3)} MJy/sr. Unmasked and made from a few exposures: bad pixels and brightness changes of constant stars also show up, and this image was not checked against field stars.`}
+                        >
+                            <EpochCanvas rgba={dif.rgba} visible />
+                        </SkyPanel>
+                    ) : (
+                        <SkyPanel
+                            title={`Stacked per epoch: ${band.label}`}
+                            n={NPIX}
+                            scaleArcsec={6.15}
+                            marker={marker ? cur.marker : null}
+                            caption={`Epoch ${cur.index + 1} of ${scene.epochs.length}: ${cur.tStart} to ${cur.tEnd}`}
+                            detail={`${cur.nUsed} of ${cur.nInBand} exposures of this epoch read and stacked`}
+                        >
+                            {shown.map((e) => (
+                                <EpochCanvas key={e.index} rgba={e.rgba!} visible={e === cur} />
+                            ))}
+                        </SkyPanel>
+                    )}
                     <div className="quick-side">
                         {st && (
                             <p className="detail">
@@ -373,6 +404,24 @@ export default function QuickLookView({ query }: { query: Query }) {
                         </button>
                     </div>
                 </div>
+                {scene && count >= 2 && (
+                    <div className="group">
+                        <h4>View</h4>
+                        <div className="row">
+                            <button className={showDiff ? '' : 'on'} onClick={() => setView('blink')}>
+                                Blink epochs
+                            </button>
+                            <button
+                                className={showDiff ? 'on' : ''}
+                                disabled={!dif}
+                                title={dif ? 'Last epoch minus first epoch' : 'No detector was read in both the first and the last epoch'}
+                                onClick={() => setView('diff')}
+                            >
+                                Difference
+                            </button>
+                        </div>
+                    </div>
+                )}
                 <div className="group">
                     <h4>Epoch</h4>
                     <div className="row">

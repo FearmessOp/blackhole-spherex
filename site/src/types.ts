@@ -97,6 +97,26 @@ export type Flicker = {
     epoch_std_median: number
 }
 
+// Difference image of one detector selection (pipeline/diff_image.py, logs/diff_image_<slug>.log).
+export type DiffBand = {
+    id: string
+    png: string
+    dets_used: number[] // detectors with exposures in both epochs
+    n_first: number
+    n_last: number
+    vmax: number // the grey scale runs from -vmax to +vmax, MJy/sr
+    distinct: boolean // the target's bright-dark pair stands out from the field-star residuals
+    n_stars: number
+    star_ratio_median: number | null // |residual| / own peak of constant field stars
+    star_ratio_p90: number | null
+    lobe_bright_ratio: number // the target's bright and dark side / its own peak
+    lobe_dark_ratio: number
+    lobe_bright_sigma: number
+    lobe_dark_sigma: number
+}
+
+export type Diff = { from_epoch: number; to_epoch: number; label: string; bands: DiffBand[] }
+
 export type Results = {
     saturation: {
         overflow: number

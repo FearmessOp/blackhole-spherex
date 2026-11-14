@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import RawView from './RawView'
 import ResultsPanel, { FlickerNote, NeighbourNote } from './ResultsPanel'
 import SkyPanel from './SkyPanel'
-import type { Arrow, Band, Meta, Results, XY } from './types'
+import type { Arrow, Band, Diff, Meta, Results, XY } from './types'
 
 const SPEEDS = [
     { label: 'Slow', ms: 1200 },
@@ -11,6 +11,8 @@ const SPEEDS = [
 
 const bandName = (id: string) =>
     id === 'all' ? 'All' : id === 'd123' ? 'D1–3' : id === 'd56' ? 'D5+6' : id.toUpperCase()
+
+const pct = (v: number | null) => (v === null ? 'n/a' : `${(100 * v).toFixed(0)}%`)
 
 type StackProps = {
     base: string
@@ -55,9 +57,10 @@ function StackPanel({ base, meta, band, epoch, title, marker, markerLabel, neigh
 
 export default function BlinkView({ slug }: { slug: string }) {
     const base = `${import.meta.env.BASE_URL}data/${slug}/`
-    const [data, setData] = useState<{ meta: Meta; res: Results } | null>(null)
+    const [data, setData] = useState<{ meta: Meta; res: Results; diff: Diff | null } | null>(null)
     const [failed, setFailed] = useState(false)
     const [bandId, setBandId] = useState<string | null>(null)
+    const [view, setView] = useState<'blink' | 'diff'>('blink')
     const [pos, setPos] = useState(0)
     const [playing, setPlaying] = useState(true)
     const [ms, setMs] = useState(600)
@@ -67,9 +70,14 @@ export default function BlinkView({ slug }: { slug: string }) {
         let cancelled = false
         const get = (name: string) =>
             fetch(base + name).then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-        Promise.all([get('meta.json'), get('results.json')])
-            .then(([meta, res]) => {
-                if (!cancelled) setData({ meta, res })
+        // Only some targets have a difference image; a missing file is not an error.
+        const getOptional = (name: string) =>
+            fetch(base + name)
+                .then((r) => (r.ok ? r.json() : null))
+                .catch(() => null)
+        Promise.all([get('meta.json'), get('results.json'), getOptional('diff.json')])
+            .then(([meta, res, diff]) => {
+                if (!cancelled) setData({ meta, res, diff: diff && Array.isArray(diff.bands) ? diff : null })
             })
             .catch(() => {
                 if (!cancelled) setFailed(true)
@@ -95,6 +103,10 @@ export default function BlinkView({ slug }: { slug: string }) {
     if (!meta || !res || !band) return <p className="note">Loading…</p>
 
     const epoch = band.frames[pos % nFrames].epoch
+    const diff = data?.diff ?? null
+    // Offered only where the check found the target's bright-dark pair distinct (logs/diff_image_<slug>.log).
+    const diffBand = diff?.bands.find((b) => b.id === band.id && b.distinct) ?? null
+    const showDiff = view === 'diff' && diff !== null && diffBand !== null
     const compare = (res.compare_bands ?? [])
         .map((id) => meta.bands.find((b) => b.id === id))
         .filter((b): b is Band => Boolean(b))
@@ -106,15 +118,38 @@ export default function BlinkView({ slug }: { slug: string }) {
             <h2>{meta.name}</h2>
 
             <div className="views">
-                <StackPanel
-                    base={base}
-                    meta={meta}
-                    band={band}
-                    epoch={epoch}
-                    title={`Stacked per epoch: ${band.label}`}
-                    marker={marker}
-                    arrow={res.fit?.arrow}
-                />
+                {showDiff && diff && diffBand ? (
+                    <SkyPanel
+                        title={`Difference: epoch ${diff.to_epoch + 1} minus epoch ${diff.from_epoch + 1}, ${band.label}`}
+                        n={meta.grid.npix}
+                        scaleArcsec={meta.grid.scale_arcsec}
+                        marker={marker ? meta.epochs[diff.to_epoch].predicted : null}
+                        caption={diff.label}
+                        detail={
+                            <>
+                                Detectors {diffBand.dets_used.join(', ')} (those with exposures in both epochs),{' '}
+                                {diffBand.n_first} and {diffBand.n_last} exposures. Linear scale, zero is mid grey, ±
+                                {diffBand.vmax.toPrecision(3)} MJy/sr. Check: {diffBand.n_stars} constant field stars leave{' '}
+                                {pct(diffBand.star_ratio_median)} (median) and {pct(diffBand.star_ratio_p90)} (90th
+                                percentile) of their own peak in this image; the bright and the dark side of the target
+                                are {pct(diffBand.lobe_bright_ratio)} and {pct(diffBand.lobe_dark_ratio)} of its peak.
+                                The amber marker is the catalogue position in the last epoch.
+                            </>
+                        }
+                    >
+                        <img src={base + diffBand.png} alt="" />
+                    </SkyPanel>
+                ) : (
+                    <StackPanel
+                        base={base}
+                        meta={meta}
+                        band={band}
+                        epoch={epoch}
+                        title={`Stacked per epoch: ${band.label}`}
+                        marker={marker}
+                        arrow={res.fit?.arrow}
+                    />
+                )}
                 <RawView
                     base={base}
                     scaleArcsec={meta.grid.scale_arcsec}
@@ -135,6 +170,28 @@ export default function BlinkView({ slug }: { slug: string }) {
                         </button>
                     </div>
                 </div>
+                {diff && (
+                    <div className="group">
+                        <h4>View</h4>
+                        <div className="row">
+                            <button className={showDiff ? '' : 'on'} onClick={() => setView('blink')}>
+                                Blink epochs
+                            </button>
+                            <button
+                                className={showDiff ? 'on' : ''}
+                                disabled={!diffBand}
+                                title={
+                                    diffBand
+                                        ? 'Last epoch minus first epoch'
+                                        : 'No usable difference image for this detector selection'
+                                }
+                                onClick={() => setView('diff')}
+                            >
+                                Difference
+                            </button>
+                        </div>
+                    </div>
+                )}
                 <div className="group">
                     <h4>Epoch</h4>
                     <div className="row">

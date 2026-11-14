@@ -1,0 +1,27 @@
+D1 spherex_dr1 cutouts: 232 files in group, sampled 4
+D1 spherex_dr1 cutouts_wide: 232 files in group, sampled 4
+D1 spherex_qr3 cutouts: 60 files in group, sampled 4
+D1 spherex_qr3 cutouts_wide: 60 files in group, sampled 4
+D2 spherex_dr1 cutouts: 264 files in group, sampled 4
+D2 spherex_dr1 cutouts_wide: 264 files in group, sampled 4
+D2 spherex_qr3 cutouts: 87 files in group, sampled 4
+D2 spherex_qr3 cutouts_wide: 87 files in group, sampled 4
+D3 spherex_dr1 cutouts: 259 files in group, sampled 4
+D3 spherex_dr1 cutouts_wide: 259 files in group, sampled 4
+D3 spherex_qr3 cutouts: 93 files in group, sampled 4
+D3 spherex_qr3 cutouts_wide: 93 files in group, sampled 4
+D4 spherex_dr1 cutouts: 227 files in group, sampled 4
+D4 spherex_dr1 cutouts_wide: 227 files in group, sampled 4
+D4 spherex_qr3 cutouts: 59 files in group, sampled 4
+D4 spherex_qr3 cutouts_wide: 59 files in group, sampled 4
+D5 spherex_dr1 cutouts: 258 files in group, sampled 4
+D5 spherex_dr1 cutouts_wide: 258 files in group, sampled 4
+D5 spherex_qr3 cutouts: 87 files in group, sampled 4
+D5 spherex_qr3 cutouts_wide: 87 files in group, sampled 4
+D6 spherex_dr1 cutouts: 253 files in group, sampled 4
+D6 spherex_dr1 cutouts_wide: 253 files in group, sampled 4
+D6 spherex_qr3 cutouts: 94 files in group, sampled 4
+D6 spherex_qr3 cutouts_wide: 94 files in group, sampled 4
+
+files compared: 96; stored table identical to the file's table: 96 of 96
+fit_epsf ran in 92 files; identical result with the stored table: 92 of 92

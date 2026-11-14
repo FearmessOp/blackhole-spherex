@@ -463,7 +463,7 @@ export function toRgba(stack: Float32Array, scale: Scale): Uint8ClampedArray {
 // ---------------------------------------------------------------- reading the frames of a scene
 
 export type FrameJob = { k: number; e: Exposure } // k = epoch index
-export type FrameSet = { frames: Float32Array[][]; mjd: number[][]; failed: number; offDetector: number }
+export type FrameSet = { frames: Float32Array[][]; mjd: number[][]; det: number[][]; failed: number; offDetector: number }
 
 // Reads the exposures with `parallel` requests at a time and resamples each onto the grid.
 // The frames of an epoch are returned in the order of `jobs`, whatever the arrival order.
@@ -483,6 +483,7 @@ export async function readFrames(
     const out: FrameSet = {
         frames: Array.from({ length: nEpochs }, () => []),
         mjd: Array.from({ length: nEpochs }, () => []),
+        det: Array.from({ length: nEpochs }, () => []),
         failed: 0,
         offDetector: 0
     }
@@ -509,8 +510,63 @@ export async function readFrames(
         if (!frame) return
         out.frames[job.k].push(frame)
         out.mjd[job.k].push(job.e.mjd)
+        out.det[job.k].push(job.e.detector)
     })
     return out
+}
+
+// ---------------------------------------------------------------- difference image
+
+export type DiffStack = { diff: Float32Array; dets: number[]; nFirst: number; nLast: number }
+
+// Last epoch minus first epoch, from the same detectors: every detector that has frames
+// in both epochs is averaged on its own in each epoch, and the difference is the mean of
+// the per-detector differences (same rule as pipeline/diff_image.py, which asks for 3
+// frames per detector; the quick look reads 1 to 4, so one frame is enough here).
+// Null if no detector has frames in both epochs.
+export function diffStack(first: Float32Array[], firstDet: number[], last: Float32Array[], lastDet: number[]): DiffStack | null {
+    const dets = Array.from(new Set(firstDet))
+        .filter((d) => lastDet.includes(d))
+        .sort((p, q) => p - q)
+    if (!dets.length) return null
+    const n = first[0].length
+    const sum = new Float64Array(n)
+    const cnt = new Uint16Array(n)
+    let nFirst = 0
+    let nLast = 0
+    for (const d of dets) {
+        const a = first.filter((_, i) => firstDet[i] === d)
+        const b = last.filter((_, i) => lastDet[i] === d)
+        nFirst += a.length
+        nLast += b.length
+        const sa = clippedMean(a).stack
+        const sb = clippedMean(b).stack
+        for (let k = 0; k < n; k++) {
+            const v = sb[k] - sa[k]
+            if (!Number.isFinite(v)) continue
+            sum[k] += v
+            cnt[k] += 1
+        }
+    }
+    const diff = new Float32Array(n).fill(NaN)
+    for (let k = 0; k < n; k++) if (cnt[k]) diff[k] = sum[k] / cnt[k]
+    return { diff, dets, nFirst, nLast }
+}
+
+// Grey RGBA bytes of a difference image: linear, zero = mid grey, symmetric about zero;
+// the scale ends at the largest |difference|. Pixels without data are transparent.
+export function diffRgba(diff: Float32Array): { rgba: Uint8ClampedArray; vmax: number } {
+    let vmax = 0
+    for (const v of diff) if (Number.isFinite(v) && Math.abs(v) > vmax) vmax = Math.abs(v)
+    const rgba = new Uint8ClampedArray(diff.length * 4)
+    for (let k = 0; k < diff.length; k++) {
+        const v = diff[k]
+        if (!Number.isFinite(v)) continue
+        const g = Math.round(127.5 + 127.5 * (vmax > 0 ? Math.max(-1, Math.min(1, v / vmax)) : 0))
+        rgba[4 * k] = rgba[4 * k + 1] = rgba[4 * k + 2] = g
+        rgba[4 * k + 3] = 255
+    }
+    return { rgba, vmax }
 }
 
 // ---------------------------------------------------------------- catalogue prediction
