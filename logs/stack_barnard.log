@@ -1,40 +1,38 @@
-barnard: manifest=364 on_disk=362 missing=2
-  missing: level2_2025W35_2A_0474_1D4_spx_l2b-v27-2026-231.fits
-  missing: level2_2026W34_1A_0176_2D6_spx_l2b-v27-2026-243.fits
-grid: 29x29 px, 6.15 arcsec/px, centre=(269.4462284, 4.7687216) at MJD 61106.619; masked flags=['NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'SNOWBALL']
-frames loaded=362 of 362; wavelength outside SIA detector range: 0
+barnard: manifest=364 on_disk=364 missing=0
+grid: 29x29 px, 6.15 arcsec/px, centre=(269.4462284, 4.7687211) at MJD 61106.549; masked flags=['NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'SNOWBALL']
+frames loaded=364 of 364; wavelength outside SIA detector range: 0
 files where a masked flag plane is not declared in the header: {'SNOWBALL': 29}
-epoch 0: 2025-08-15T20:46 .. 2025-10-01T06:23 n=117 predicted_px=(13.93, 13.12) measured_px=(13.86, 13.15) offset_arcsec={'east': 0.47, 'north': 0.16, 'total': 0.5}
-epoch 1: 2026-03-11T02:12 .. 2026-05-05T02:00 n=122 predicted_px=(14.00, 14.06) measured_px=(13.91, 14.1) offset_arcsec={'east': 0.57, 'north': 0.23, 'total': 0.61}
-epoch 2: 2026-08-16T15:07 .. 2026-09-22T15:05 n=123 predicted_px=(14.06, 14.78) measured_px=(14.15, 14.75) offset_arcsec={'east': -0.56, 'north': -0.15, 'total': 0.58}
-shift epoch 0 -> 2 (measured): east=-1.82 north=9.88 total=10.04 arcsec
+epoch 0: 2025-08-15T20:46 .. 2025-10-01T06:23 n=118 predicted_px=(13.93, 13.12) measured_px=(13.86, 13.15) offset_arcsec={'east': 0.44, 'north': 0.16, 'total': 0.47}
+epoch 1: 2026-03-11T02:12 .. 2026-05-05T02:00 n=122 predicted_px=(14.00, 14.06) measured_px=(13.91, 14.1) offset_arcsec={'east': 0.57, 'north': 0.22, 'total': 0.61}
+epoch 2: 2026-08-16T15:07 .. 2026-09-22T15:05 n=124 predicted_px=(14.06, 14.78) measured_px=(14.15, 14.75) offset_arcsec={'east': -0.56, 'north': -0.14, 'total': 0.58}
+shift epoch 0 -> 2 (measured): east=-1.79 north=9.88 total=10.04 arcsec
 shift epoch 0 -> 2 (predicted): east=-0.79 north=10.18 total=10.21 arcsec
-band all epoch 0: n=117 wave=0.7501..5.0008 um min_coverage=0 -> all_e0.png
+band all epoch 0: n=118 wave=0.7501..5.0008 um min_coverage=0 -> all_e0.png
 band all epoch 1: n=122 wave=0.7449..5.0022 um min_coverage=7 -> all_e1.png
-band all epoch 2: n=123 wave=0.7414..4.9774 um min_coverage=0 -> all_e2.png
-band all scale: vmin=-0.5142 vmax=1048 soft=0.7753 MJy/sr
+band all epoch 2: n=124 wave=0.7414..4.9774 um min_coverage=0 -> all_e2.png
+band all scale: vmin=-0.511 vmax=1047 soft=0.7708 MJy/sr
 band d1 epoch 0: n=24 wave=0.7501..1.1072 um min_coverage=0 -> d1_e0.png
 band d1 epoch 1: n=18 wave=0.7449..1.0918 um min_coverage=0 -> d1_e1.png
 band d1 epoch 2: n=18 wave=0.7414..1.0972 um min_coverage=0 -> d1_e2.png
-band d1 scale: vmin=-0.6205 vmax=935.3 soft=0.9563 MJy/sr
+band d1 scale: vmin=-0.6206 vmax=935.3 soft=0.9565 MJy/sr
 band d2 epoch 0: n=18 wave=1.101..1.6289 um min_coverage=0 -> d2_e0.png
 band d2 epoch 1: n=19 wave=1.0925..1.6291 um min_coverage=0 -> d2_e1.png
 band d2 epoch 2: n=25 wave=1.0879..1.6609 um min_coverage=0 -> d2_e2.png
-band d2 scale: vmin=-0.7189 vmax=1196 soft=1.105 MJy/sr
+band d2 scale: vmin=-0.7188 vmax=1196 soft=1.104 MJy/sr
 band d3 epoch 0: n=18 wave=1.632..2.4106 um min_coverage=0 -> d3_e0.png
 band d3 epoch 1: n=24 wave=1.6246..2.4115 um min_coverage=0 -> d3_e1.png
 band d3 epoch 2: n=19 wave=1.6504..2.423 um min_coverage=0 -> d3_e2.png
 band d3 scale: vmin=-0.7557 vmax=1260 soft=1.163 MJy/sr
-band d4 epoch 0: n=22 wave=2.4409..3.8001 um min_coverage=0 -> d4_e0.png
+band d4 epoch 0: n=23 wave=2.4409..3.8001 um min_coverage=0 -> d4_e0.png
 band d4 epoch 1: n=18 wave=2.4297..3.7384 um min_coverage=0 -> d4_e1.png
 band d4 epoch 2: n=18 wave=2.419..3.7623 um min_coverage=0 -> d4_e2.png
-band d4 scale: vmin=-0.4502 vmax=800.8 soft=0.6889 MJy/sr
+band d4 scale: vmin=-0.4506 vmax=800.8 soft=0.6895 MJy/sr
 band d5 epoch 0: n=18 wave=3.8214..4.4069 um min_coverage=0 -> d5_e0.png
 band d5 epoch 1: n=19 wave=3.8105..4.4074 um min_coverage=0 -> d5_e1.png
 band d5 epoch 2: n=25 wave=3.8043..4.4333 um min_coverage=0 -> d5_e2.png
 band d5 scale: vmin=-0.2723 vmax=1156 soft=0.3988 MJy/sr
 band d6 epoch 0: n=17 wave=4.4183..5.0008 um min_coverage=0 -> d6_e0.png
 band d6 epoch 1: n=24 wave=4.412..5.0022 um min_coverage=2 -> d6_e1.png
-band d6 epoch 2: n=18 wave=4.4024..4.9774 um min_coverage=0 -> d6_e2.png
-band d6 scale: vmin=-0.2192 vmax=908.3 soft=0.313 MJy/sr
+band d6 epoch 2: n=19 wave=4.4024..4.9774 um min_coverage=0 -> d6_e2.png
+band d6 scale: vmin=-0.2193 vmax=906.8 soft=0.3124 MJy/sr
 wrote C:\Users\user\blackhole-spherex\site\public\data\barnard\meta.json and C:\Users\user\blackhole-spherex\site\public\data\index.json
