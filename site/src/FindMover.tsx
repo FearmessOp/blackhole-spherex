@@ -36,7 +36,9 @@ type Feedback = { kind: 'hit' | 'miss' | 'neighbour' | 'band' | 'shown'; arcsec:
 const signed = (v: number, digits = 1) => (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(digits)
 
 function useTarget(slug: string): Data | 'failed' | null {
-    const [state, setState] = useState<Data | 'failed' | null>(null)
+    // The data is kept with its slug: after a step change the previous target's data must not be
+    // shown under the new slug (its frame names would be asked for in the wrong folder).
+    const [state, setState] = useState<{ slug: string; data: Data | 'failed' } | null>(null)
     useEffect(() => {
         let cancelled = false
         const base = `${import.meta.env.BASE_URL}data/${slug}/`
@@ -52,16 +54,16 @@ function useTarget(slug: string): Data | 'failed' | null {
                 (res.has_diff ? optional('diff.json') : Promise.resolve(null)).then((diff) => [meta, res, diff])
             )
             .then(([meta, res, diff]) => {
-                if (!cancelled) setState({ meta, res, diff: diff && Array.isArray(diff.bands) ? diff : null })
+                if (!cancelled) setState({ slug, data: { meta, res, diff: diff && Array.isArray(diff.bands) ? diff : null } })
             })
             .catch(() => {
-                if (!cancelled) setState('failed')
+                if (!cancelled) setState({ slug, data: 'failed' })
             })
         return () => {
             cancelled = true
         }
     }, [slug])
-    return state
+    return state && state.slug === slug ? state.data : null
 }
 
 function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLast: boolean; onNext: () => void }) {

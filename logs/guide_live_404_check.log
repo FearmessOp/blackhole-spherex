@@ -1,0 +1,7 @@
+step 1
+step 2
+step 3
+  status 404 https://blackhole-spherex.vercel.app/data/wise-0855/d123_e3.png
+  console error Failed to load resource: the server responded with a status of 404 ()
+step 3 long
+done
