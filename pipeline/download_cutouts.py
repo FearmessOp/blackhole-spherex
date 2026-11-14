@@ -28,6 +28,7 @@ CACHE = ROOT / "cache" / "cutouts"
 MANIFEST = ROOT / "cache" / "manifest"
 LOG = ROOT / "logs" / "download.log"
 SIZE_DEG = 0.05
+TAG = ""  # "--tag wide" keeps a second set of cutouts in cache/cutouts_wide
 WORKERS = 8
 MAX_TRIES = 6
 MIN_FREE_GB = 5.0
@@ -85,7 +86,7 @@ def build_jobs(target):
                 "center_ra_deg": round(ra, 7),
                 "center_dec_deg": round(dec, 7),
                 "file": name,
-                "path": f"cache/cutouts/{slug}/{coll}/{name}",
+                "path": f"cache/cutouts{TAG}/{slug}/{coll}/{name}",
                 "url": f"{r['access_url']}?center={ra:.7f},{dec:.7f}&size={SIZE_DEG}"})
     jobs.sort(key=lambda j: j["t_mid_mjd"])
     return jobs
@@ -121,7 +122,17 @@ def fetch(job):
     return job, "FAILED", 0, 0.0, err
 
 def main():
+    global SIZE_DEG, TAG, LOG
     args = sys.argv[1:]
+    if "--size" in args:
+        i = args.index("--size")
+        SIZE_DEG = float(args[i + 1])
+        del args[i:i + 2]
+    if "--tag" in args:
+        i = args.index("--tag")
+        TAG = "_" + args[i + 1]
+        LOG = ROOT / "logs" / f"download{TAG}.log"
+        del args[i:i + 2]
     limit = None
     if "--limit" in args:
         i = args.index("--limit")
@@ -138,7 +149,7 @@ def main():
     jobs = []
     for slug in slugs:
         tj = build_jobs(targets[slug])
-        (MANIFEST / f"{slug}.json").write_text(json.dumps(tj, indent=1), encoding="utf-8")
+        (MANIFEST / f"{slug}{TAG}.json").write_text(json.dumps(tj, indent=1), encoding="utf-8")
         log(f"PLAN {slug}: {len(tj)} cutouts")
         jobs += tj[:limit] if limit else tj
     if jobs:
