@@ -200,6 +200,20 @@ button.on {
     fill: var(--muted);
 }
 
+.arrow-label {
+    fill: var(--text);
+}
+
+/* Dark outline under overlay text keeps it readable on bright or noisy pixels. */
+.compass,
+.scalebar text,
+.arrow-label {
+    paint-order: stroke;
+    stroke: #000;
+    stroke-width: 0.12;
+    stroke-linejoin: round;
+}
+
 .scalebar line {
     stroke: var(--text);
     stroke-width: 0.12;

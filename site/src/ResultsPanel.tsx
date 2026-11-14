@@ -1,3 +1,4 @@
+import { ARROW_SCALE } from './SkyPanel'
 import type { Results } from './types'
 
 const f = (v: number, d = 1) => v.toFixed(d)
@@ -106,7 +107,9 @@ export default function ResultsPanel({ r }: { r: Results }) {
                     </p>
                     <p className="detail">
                         Positions are aligned to Gaia DR3 field stars exposure by exposure. The arrow on the stacked
-                        image is the measured proper motion (ePSF fit) over the {f(fit.arrow.span_years, 2)} years of data.
+                        image is the measured proper motion (ePSF fit) over the {f(fit.arrow.span_years, 2)} years of
+                        data, drawn {ARROW_SCALE} times longer than the real motion (
+                        {f(Math.hypot(fit.arrow.dx, fit.arrow.dy), 2)} pixels) so that its direction can be read.
                     </p>
                 </>
             )}

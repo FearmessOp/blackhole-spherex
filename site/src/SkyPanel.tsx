@@ -14,6 +14,8 @@ type Props = {
 }
 
 const BAR_ARCSEC = 30
+// The measured motion is about one pixel long; the arrow is drawn enlarged and labelled as such.
+export const ARROW_SCALE = 4
 
 // One square sky image with its overlays. All overlay coordinates are grid pixels.
 export default function SkyPanel(p: Props) {
@@ -21,7 +23,7 @@ export default function SkyPanel(p: Props) {
     const u = n / 100 // 1% of the panel, in grid pixels
     const bar = BAR_ARCSEC / p.scaleArcsec
     const a = p.arrow
-    const len = a ? Math.hypot(a.dx, a.dy) : 0
+    const len = a ? ARROW_SCALE * Math.hypot(a.dx, a.dy) : 0
 
     return (
         <figure className="fig">
@@ -38,16 +40,27 @@ export default function SkyPanel(p: Props) {
                         </g>
                     )}
                     {a && len > 0 && (
-                        <g
-                            className="arrow"
-                            transform={`translate(${a.x + 0.5} ${a.y + 0.5}) rotate(${(Math.atan2(a.dy, a.dx) * 180) / Math.PI})`}
-                        >
-                            {/* dark casing first, so the arrow stays visible on bright pixels */}
-                            <line className="case" x1={0} y1={0} x2={len} y2={0} />
-                            <polygon className="case" points={`${len + 0.35},0 ${len - 0.25},-0.3 ${len - 0.25},0.3`} />
-                            <line x1={0} y1={0} x2={len} y2={0} />
-                            <polygon points={`${len + 0.35},0 ${len - 0.25},-0.3 ${len - 0.25},0.3`} />
-                        </g>
+                        <>
+                            <g
+                                className="arrow"
+                                transform={`translate(${a.x + 0.5} ${a.y + 0.5}) rotate(${(Math.atan2(a.dy, a.dx) * 180) / Math.PI})`}
+                            >
+                                {/* dark casing first, so the arrow stays visible on bright pixels */}
+                                <line className="case" x1={0} y1={0} x2={len} y2={0} />
+                                <polygon className="case" points={`${len + 0.5},0 ${len - 0.4},-0.4 ${len - 0.4},0.4`} />
+                                <line x1={0} y1={0} x2={len} y2={0} />
+                                <polygon points={`${len + 0.5},0 ${len - 0.4},-0.4 ${len - 0.4},0.4`} />
+                            </g>
+                            <text
+                                className="arrow-label"
+                                x={a.x + 0.5 + ARROW_SCALE * a.dx}
+                                y={a.y + 0.5 + ARROW_SCALE * a.dy + 6 * u}
+                                fontSize={3.4 * u}
+                                textAnchor="middle"
+                            >
+                                motion ×{ARROW_SCALE}
+                            </text>
+                        </>
                     )}
                     <text className="compass" x={2 * u} y={5 * u} fontSize={3.4 * u}>
                         N up, E left

@@ -1,0 +1,8 @@
+warning: in the working copy of 'logs/commit_block3.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/site_build.log', LF will be replaced by CRLF the next time Git touches it
+[main 85a7bf9] Narrow screens: motion table as one block per epoch pair, value and error kept on one line
+ 5 files changed, 128 insertions(+), 12 deletions(-)
+ create mode 100644 logs/commit_narrow.log
+85a7bf9 Narrow screens: motion table as one block per epoch pair, value and error kept on one line
+7268457 Results panel, D1-3 and D5+6 bands, saturation and flicker for all five targets, WISE 0855 neighbour star test
+ M logs/commit_narrow.log
