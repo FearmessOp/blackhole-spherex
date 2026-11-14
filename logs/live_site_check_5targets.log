@@ -1,0 +1,46 @@
+== index.json 
+{
+ "targets": [
+  {
+   "slug": "barnard",
+   "name": "Barnard's Star"
+  },
+  {
+   "slug": "wise-0855",
+   "name": "WISE 0855-0714"
+  },
+  {
+   "slug": "eps-indi-b",
+   "name": "Epsilon Indi B"
+  },
+  {
+   "slug": "rw-aur",
+   "name": "RW Aurigae"
+  },
+  {
+   "slug": "r-dra",
+   "name": "R Draconis"
+  }
+ ]
+}
+index.json http=200
+barnard meta.json http=200 bytes=7311
+barnard all_e0.png http=200 type=image/png
+  "npix": 25,
+== end
+wise-0855 meta.json http=200 bytes=7380
+wise-0855 all_e0.png http=200 type=image/png
+  "npix": 21,
+== end
+eps-indi-b meta.json http=200 bytes=8734
+eps-indi-b all_e0.png http=200 type=image/png
+  "npix": 19,
+== end
+rw-aur meta.json http=200 bytes=7315
+rw-aur all_e0.png http=200 type=image/png
+  "npix": 25,
+== end
+r-dra meta.json http=200 bytes=7260
+r-dra all_e0.png http=200 type=image/png
+  "npix": 19,
+== end

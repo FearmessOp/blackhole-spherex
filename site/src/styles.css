@@ -104,6 +104,25 @@ button.on {
     gap: 20px;
 }
 
+.fig {
+    margin: 0;
+    max-width: 100%;
+}
+
+.fig figcaption {
+    margin: 0 0 6px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.fig .epoch {
+    margin-top: 8px;
+}
+
+.fig .detail {
+    max-width: 340px;
+}
+
 .view {
     position: relative;
     flex: none;
@@ -124,10 +143,10 @@ button.on {
 }
 
 /* Sky images are shown pixel for pixel: never smoothed. */
-img.sky,
-canvas.sky {
+.sky {
     image-rendering: crisp-edges;
     image-rendering: pixelated;
+    background-repeat: no-repeat;
 }
 
 .overlay {

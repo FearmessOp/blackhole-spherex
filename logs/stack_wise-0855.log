@@ -34,4 +34,5 @@ band d6 epoch 0: n=3 wave=4.8599..5.0035 um min_coverage=2 -> d6_e0.png
 band d6 epoch 1: n=21 wave=4.4178..4.9821 um min_coverage=19 -> d6_e1.png
 band d6 epoch 2: n=21 wave=4.4237..4.9673 um min_coverage=19 -> d6_e2.png
 band d6 scale: vmin=-0.02809 vmax=0.1593 soft=0.04324 MJy/sr
+raw playback: 258 exposures -> raw.png (504x231 px, 24 per row), raw.json; scale vmin=-0.03565 vmax=0.5477 soft=0.05409 MJy/sr
 wrote C:\Users\user\blackhole-spherex\site\public\data\wise-0855\meta.json and C:\Users\user\blackhole-spherex\site\public\data\index.json

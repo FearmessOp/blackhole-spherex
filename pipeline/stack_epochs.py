@@ -155,8 +155,8 @@ def band_scale(stacks):
     vmax = max(float(np.percentile(vals, 99.9)), vmin + 2.0 * soft)
     return {"stretch": "asinh", "vmin": vmin, "vmax": vmax, "soft": soft, "unit": "MJy/sr"}
 
-def write_png(stack, scale, path):
-    """Grey + alpha PNG, north up, east left; pixels without data are transparent."""
+def to_la(stack, scale):
+    """Grey + alpha array, north up, east left; pixels without data are transparent."""
     v = (stack - scale["vmin"]) / scale["soft"]
     top = np.arcsinh((scale["vmax"] - scale["vmin"]) / scale["soft"])
     g = np.clip(np.arcsinh(np.clip(v, 0, None)) / top, 0, 1) * 255.0
@@ -164,7 +164,10 @@ def write_png(stack, scale, path):
     la = np.zeros(stack.shape + (2,), dtype=np.uint8)
     la[..., 0] = np.where(finite, np.round(np.nan_to_num(g)), 0)
     la[..., 1] = np.where(finite, 255, 0)
-    Image.fromarray(np.flipud(la)).save(path)  # grid row 0 is south -> flip
+    return np.flipud(la)  # grid row 0 is south -> flip
+
+def write_png(stack, scale, path):
+    Image.fromarray(to_la(stack, scale)).save(path)
 
 def main():
     slug = sys.argv[1] if len(sys.argv) > 1 else "barnard"
@@ -239,6 +242,8 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
     epoch_meta, stacks = [], {b: {} for b in BANDS}
     for k, ep in enumerate(epochs):
+        for f in ep:
+            f["epoch"] = k
         mjd = [f["job"]["t_mid_mjd"] for f in ep]
         mjd_mean = float(np.mean(mjd))
         for b in BANDS:
@@ -308,6 +313,29 @@ def main():
         print(f"band {b} scale: vmin={scale['vmin']:.4g} vmax={scale['vmax']:.4g} "
               f"soft={scale['soft']:.4g} MJy/sr")
 
+    # Raw playback: every single exposure on the same cropped grid, in time order,
+    # packed into one sprite sheet. All raw frames of a target share one scale.
+    raw_scale = band_scale([f["img"] for f in frames])
+    sheet_cols = 24
+    sheet_rows = math.ceil(len(frames) / sheet_cols)
+    sheet = np.zeros((sheet_rows * npix, sheet_cols * npix, 2), dtype=np.uint8)
+    raw_frames = []
+    for i, f in enumerate(frames):
+        r, q = divmod(i, sheet_cols)
+        sheet[r * npix:(r + 1) * npix, q * npix:(q + 1) * npix] = to_la(f["img"], raw_scale)
+        raw_frames.append({"t": Time(f["job"]["t_mid_mjd"], format="mjd").isot[:16],
+                           "epoch": f["epoch"], "det": f["job"]["detector"],
+                           "wave_um": round(f["wave"], 3),
+                           "release": f["job"]["collection"].replace("spherex_", "")})
+    Image.fromarray(sheet).save(out_dir / "raw.png")
+    (out_dir / "raw.json").write_text(json.dumps(
+        {"sheet": "raw.png", "cols": sheet_cols, "npix": npix, "scale": raw_scale,
+         "frames": raw_frames}), encoding="utf-8")
+    print(f"raw playback: {len(raw_frames)} exposures -> raw.png "
+          f"({sheet.shape[1]}x{sheet.shape[0]} px, {sheet_cols} per row), raw.json; "
+          f"scale vmin={raw_scale['vmin']:.4g} vmax={raw_scale['vmax']:.4g} "
+          f"soft={raw_scale['soft']:.4g} MJy/sr")
+
     meta = {"slug": slug, "name": target["name"], "simbad_id": target["main_id"],
             "grid": {"npix": npix, "scale_arcsec": SCALE_ARCSEC, "orientation": "north up, east left",
                      "center_ra_deg": round(ra0, 7), "center_dec_deg": round(dec0, 7)},
@@ -315,7 +343,8 @@ def main():
                           "pmdec_masyr": target["pmdec_masyr"], "plx_mas": target["plx_mas"],
                           "pm_bibcode": target["pm_bibcode"]},
             "n_exposures": len(frames), "n_missing": len(jobs) - len(frames),
-            "masked_flags": MASK_FLAGS, "epochs": epoch_meta, "bands": band_meta}
+            "masked_flags": MASK_FLAGS, "epochs": epoch_meta, "bands": band_meta,
+            "raw": "raw.json"}
     (out_dir / "meta.json").write_text(json.dumps(meta, indent=1), encoding="utf-8")
     index_path = SITE_DATA / "index.json"
     index = (json.loads(index_path.read_text(encoding="utf-8"))

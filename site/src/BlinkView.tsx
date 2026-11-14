@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import RawView from './RawView'
 
 type Epoch = {
     index: number
@@ -21,7 +22,7 @@ type Meta = {
     bands: Band[]
 }
 
-const VIEW_PX = 480 // largest width of the image panel; the zoom factor is a whole number
+const VIEW_PX = 340 // largest width of one image panel; the zoom factor is a whole number
 const SPEEDS = [
     { label: 'Slow', ms: 1200 },
     { label: 'Normal', ms: 600 },
@@ -73,28 +74,46 @@ export default function BlinkView({ slug }: { slug: string }) {
 
     return (
         <div className="blink">
-            <div className="view" style={{ width: size }}>
-                {band.frames.map((f) => (
-                    <img
-                        key={f.png}
-                        className="sky"
-                        src={base + f.png}
-                        alt=""
-                        style={{ visibility: f === frame ? 'visible' : 'hidden' }}
-                    />
-                ))}
-                <svg className="overlay" viewBox={`0 0 ${n} ${n}`}>
-                    {marker && (
-                        <g className="marker" transform={`translate(${epoch.predicted.x + 0.5} ${epoch.predicted.y + 0.5})`}>
-                            <line x1="-3" y1="0" x2="-1.5" y2="0" />
-                            <line x1="1.5" y1="0" x2="3" y2="0" />
-                            <line x1="0" y1="-3" x2="0" y2="-1.5" />
-                            <line x1="0" y1="1.5" x2="0" y2="3" />
-                        </g>
-                    )}
-                    <text className="compass" x="0.6" y="1.6">N up, E left</text>
-                </svg>
-            </div>
+            <figure className="fig">
+                <figcaption>Stacked per epoch</figcaption>
+                <div className="view" style={{ width: size }}>
+                    {band.frames.map((f) => (
+                        <img
+                            key={f.png}
+                            className="sky"
+                            src={base + f.png}
+                            alt=""
+                            style={{ visibility: f === frame ? 'visible' : 'hidden' }}
+                        />
+                    ))}
+                    <svg className="overlay" viewBox={`0 0 ${n} ${n}`}>
+                        {marker && (
+                            <g className="marker" transform={`translate(${epoch.predicted.x + 0.5} ${epoch.predicted.y + 0.5})`}>
+                                <line x1="-3" y1="0" x2="-1.5" y2="0" />
+                                <line x1="1.5" y1="0" x2="3" y2="0" />
+                                <line x1="0" y1="-3" x2="0" y2="-1.5" />
+                                <line x1="0" y1="1.5" x2="0" y2="3" />
+                            </g>
+                        )}
+                        <text className="compass" x="0.6" y="1.6">N up, E left</text>
+                    </svg>
+                </div>
+                <p className="epoch">
+                    Epoch {frame.epoch + 1} of {meta.epochs.length}
+                </p>
+                <p className="detail">
+                    {frame.n_frames} exposures, {frame.wave_min_um.toFixed(2)}–{frame.wave_max_um.toFixed(2)} µm
+                </p>
+            </figure>
+
+            <RawView
+                base={base}
+                size={size}
+                playing={playing}
+                marker={marker}
+                det={band.id === 'all' ? null : Number(band.id.slice(1))}
+                predicted={meta.epochs.map((e) => e.predicted)}
+            />
 
             <div className="panel">
                 <h2>{meta.name}</h2>
