@@ -1,0 +1,27 @@
+=== barnard | query id Barnard's star
+--- raw response begin
+NAME Barnard's star|269.4520769586187|+04.6933649665767|2020yCat.1350....0G|-801.551 |10362.394 |2020yCat.1350....0G|546.9759 |2020yCat.1350....0G|-110.11|M4V|BYDraV*
+--- raw response end
+  parsed: {"main_id": "NAME Barnard's star", "ra_deg": 269.4520769586187, "dec_deg": 4.6933649665767, "coo_bibcode": "2020yCat.1350....0G", "pmra_masyr": -801.551, "pmdec_masyr": 10362.394, "pm_bibcode": "2020yCat.1350....0G", "plx_mas": 546.9759, "plx_bibcode": "2020yCat.1350....0G", "rv_kms": -110.11, "sp_type": "M4V", "otype": "BYDraV*", "slug": "barnard", "name": "Barnard's Star", "simbad_query": "Barnard's star", "coord_epoch": "J2000.0 (ICRS, as returned by SIMBAD)", "query_epoch": 2025.9, "ra_query_deg": 269.4462908, "dec_query_deg": 4.7679166, "shift_arcsec": 269.19, "source": "https://simbad.harvard.edu/simbad/sim-script"}
+=== eps-indi-b | query id eps Ind B
+--- raw response begin
+* eps Ind B|331.0441465885213|-56.7828441951161|2020yCat.1350....0G|3981.977 |-2466.832 |2020yCat.1350....0G|270.6580 |2020yCat.1350....0G|~|T1V+T6V|BrownD*
+--- raw response end
+  parsed: {"main_id": "* eps Ind B", "ra_deg": 331.0441465885213, "dec_deg": -56.7828441951161, "coo_bibcode": "2020yCat.1350....0G", "pmra_masyr": 3981.977, "pmdec_masyr": -2466.832, "pm_bibcode": "2020yCat.1350....0G", "plx_mas": 270.658, "plx_bibcode": "2020yCat.1350....0G", "rv_kms": null, "sp_type": "T1V+T6V", "otype": "BrownD*", "slug": "eps-indi-b", "name": "Epsilon Indi B", "simbad_query": "eps Ind B", "coord_epoch": "J2000.0 (ICRS, as returned by SIMBAD)", "query_epoch": 2025.9, "ra_query_deg": 331.0964419, "dec_query_deg": -56.8005917, "shift_arcsec": 121.32, "source": "https://simbad.harvard.edu/simbad/sim-script"}
+=== wise-0855 | query id WISE J085510.83-071442.5
+--- raw response begin
+WISEA J085510.74-071442.5|133.81890825|-07.24704800|2021ApJS..253....7K|-8123.7 |673.2 |2021ApJS..253....7K|439.0 |2021ApJS..253....7K|~|Y2|BrownD*
+--- raw response end
+  parsed: {"main_id": "WISEA J085510.74-071442.5", "ra_deg": 133.81890825, "dec_deg": -7.247048, "coo_bibcode": "2021ApJS..253....7K", "pmra_masyr": -8123.7, "pmdec_masyr": 673.2, "pm_bibcode": "2021ApJS..253....7K", "plx_mas": 439.0, "plx_bibcode": "2021ApJS..253....7K", "rv_kms": null, "sp_type": "Y2", "otype": "BrownD*", "slug": "wise-0855", "name": "WISE 0855-0714", "simbad_query": "WISE J085510.83-071442.5", "coord_epoch": "J2000.0 (ICRS, as returned by SIMBAD)", "query_epoch": 2025.9, "ra_query_deg": 133.7599921, "dec_query_deg": -7.2422047, "shift_arcsec": 211.13, "source": "https://simbad.harvard.edu/simbad/sim-script"}
+=== rw-aur | query id RW Aur
+--- raw response begin
+V* RW Aur|076.9565260346|+30.4014381739|2007A&A...474..653V|7.23 |-20.33 |2007A&A...474..653V|15.42 |2007A&A...474..653V|15.000|K1/5e+K5e|TTauri*
+--- raw response end
+  parsed: {"main_id": "V* RW Aur", "ra_deg": 76.9565260346, "dec_deg": 30.4014381739, "coo_bibcode": "2007A&A...474..653V", "pmra_masyr": 7.23, "pmdec_masyr": -20.33, "pm_bibcode": "2007A&A...474..653V", "plx_mas": 15.42, "plx_bibcode": "2007A&A...474..653V", "rv_kms": 15.0, "sp_type": "K1/5e+K5e", "otype": "TTauri*", "slug": "rw-aur", "name": "RW Aurigae", "simbad_query": "RW Aur", "coord_epoch": "J2000.0 (ICRS, as returned by SIMBAD)", "query_epoch": 2025.9, "ra_query_deg": 76.9565863, "dec_query_deg": 30.4012919, "shift_arcsec": 0.56, "source": "https://simbad.harvard.edu/simbad/sim-script"}
+=== r-dra | query id R Dra
+--- raw response begin
+V* R Dra|248.1676108329500|+66.7549794172200|2020yCat.1350....0G|-20.643 |6.149 |2020yCat.1350....0G|1.2509 |2020yCat.1350....0G|-132.8|M4.5-6+e|Mira
+--- raw response end
+  parsed: {"main_id": "V* R Dra", "ra_deg": 248.16761083295, "dec_deg": 66.75497941722, "coo_bibcode": "2020yCat.1350....0G", "pmra_masyr": -20.643, "pmdec_masyr": 6.149, "pm_bibcode": "2020yCat.1350....0G", "plx_mas": 1.2509, "plx_bibcode": "2020yCat.1350....0G", "rv_kms": -132.8, "sp_type": "M4.5-6+e", "otype": "Mira", "slug": "r-dra", "name": "R Draconis", "simbad_query": "R Dra", "coord_epoch": "J2000.0 (ICRS, as returned by SIMBAD)", "query_epoch": 2025.9, "ra_query_deg": 248.1672345, "dec_query_deg": 66.7550237, "shift_arcsec": 0.56, "source": "https://simbad.harvard.edu/simbad/sim-script"}
+
+wrote C:\Users\user\blackhole-spherex\data\targets.json with 5 targets; failed: []
