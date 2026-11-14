@@ -1,0 +1,33 @@
+Initialized empty Git repository in C:/Users/user/blackhole-spherex/.git/
+Using CPython 3.13.2 interpreter at: C:\Python313\python.exe
+Creating virtual environment at: .venv
+Activate with: .venv\Scripts\activate
+Resolved 14 packages in 560ms
+Downloading pyvo (1.1MiB)
+ Downloaded pyvo
+Prepared 1 package in 448ms
+Installed 14 packages in 1.42s
+ + astropy==8.0.2
+ + astropy-iers-data==0.2026.11.9.0.35.9
+ + certifi==2026.10.23
+ + charset-normalizer==3.5.2
+ + idna==3.20
+ + numpy==2.5.4
+ + packaging==26.3
+ + pillow==13.0.0
+ + pyerfa==2.0.1.5
+ + pyvo==1.10.0
+ + pyyaml==6.0.3
+ + requests==2.34.2
+ + scipy==1.18.1
+ + urllib3==2.8.0
+c:\Users\user\blackhole-spherex\.venv\Scripts\python.exe
+astropy 8.0.2 numpy 2.5.4 scipy 1.18.1 pyvo 1.10.0 requests 2.34.2 pillow 13.0.0
+---- second uv ----  
+uv 0.12.5 (210d1f678 2026-08-14 x86_64-pc-windows-msvc)
+---- pyvenv.cfg ----  
+home = C:\Python313
+implementation = CPython
+uv = 0.12.5
+version_info = 3.13.2
+include-system-site-packages = false

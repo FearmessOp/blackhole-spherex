@@ -1,0 +1,186 @@
+astrom.py
+build_results.py
+download_cutouts.py
+field_astrometry.py
+fit_motion.py
+flicker.py
+flicker_diag.py
+gaia_field.py
+hash_site_data.py
+inspect_fits.py
+neighbours.py
+neighbour_test.py
+parallax_check.py
+raw_masked_fraction.py
+resolve_targets.py
+saturation_check.py
+sia_query.py
+stack_astrometry.py
+stack_epochs.py
+target_astrometry.py
+pipeline\astrom.py:5:import math
+pipeline\astrom.py:6:import warnings
+pipeline\astrom.py:8:import numpy as np
+pipeline\astrom.py:9:from astropy.coordinates import get_body_barycentric
+pipeline\astrom.py:10:from astropy.io import fits
+pipeline\astrom.py:11:from astropy.time import Time
+pipeline\astrom.py:12:from astropy.wcs import WCS
+pipeline\astrom.py:13:from scipy.interpolate import RectBivariateSpline
+pipeline\astrom.py:14:from scipy.optimize import least_squares
+pipeline\build_results.py:8:import csv
+pipeline\build_results.py:9:import json
+pipeline\build_results.py:10:import math
+pipeline\build_results.py:11:import statistics
+pipeline\build_results.py:12:import sys
+pipeline\build_results.py:13:from pathlib import Path
+pipeline\download_cutouts.py:11:import json
+pipeline\download_cutouts.py:12:import math
+pipeline\download_cutouts.py:13:import os
+pipeline\download_cutouts.py:14:import shutil
+pipeline\download_cutouts.py:15:import sys
+pipeline\download_cutouts.py:16:import threading
+pipeline\download_cutouts.py:17:import time
+pipeline\download_cutouts.py:18:from concurrent.futures import ThreadPoolExecutor, as_completed
+pipeline\download_cutouts.py:19:from pathlib import Path
+pipeline\download_cutouts.py:21:import requests
+pipeline\download_cutouts.py:23:from sia_query import COLLECTIONS, read_rows
+pipeline\field_astrometry.py:10:import csv
+pipeline\field_astrometry.py:11:import json
+pipeline\field_astrometry.py:12:import math
+pipeline\field_astrometry.py:13:import sys
+pipeline\field_astrometry.py:14:from pathlib import Path
+pipeline\field_astrometry.py:16:import numpy as np
+pipeline\field_astrometry.py:18:import astrom
+pipeline\fit_motion.py:14:import csv
+pipeline\fit_motion.py:15:import json
+pipeline\fit_motion.py:16:import math
+pipeline\fit_motion.py:17:import sys
+pipeline\fit_motion.py:18:from pathlib import Path
+pipeline\fit_motion.py:20:import numpy as np
+pipeline\fit_motion.py:22:import astrom
+pipeline\flicker.py:22:import json
+pipeline\flicker.py:23:import math
+pipeline\flicker.py:24:import sys
+pipeline\flicker.py:25:from pathlib import Path
+pipeline\flicker.py:27:import numpy as np
+pipeline\flicker.py:29:import astrom
+pipeline\flicker.py:30:import field_astrometry as fa
+pipeline\flicker_diag.py:15:import csv
+pipeline\flicker_diag.py:16:import json
+pipeline\flicker_diag.py:17:import math
+pipeline\flicker_diag.py:18:import sys
+pipeline\flicker_diag.py:19:from pathlib import Path
+pipeline\flicker_diag.py:21:import numpy as np
+pipeline\flicker_diag.py:23:import astrom
+pipeline\flicker_diag.py:24:import field_astrometry as fa
+pipeline\flicker_diag.py:25:import flicker
+pipeline\gaia_field.py:8:import csv
+pipeline\gaia_field.py:9:import io
+pipeline\gaia_field.py:10:import json
+pipeline\gaia_field.py:11:import sys
+pipeline\gaia_field.py:12:import time
+pipeline\gaia_field.py:13:from pathlib import Path
+pipeline\gaia_field.py:15:import requests
+pipeline\hash_site_data.py:9:import hashlib
+pipeline\hash_site_data.py:10:import sys
+pipeline\hash_site_data.py:11:from pathlib import Path
+pipeline\inspect_fits.py:5:import json
+pipeline\inspect_fits.py:6:import sys
+pipeline\inspect_fits.py:7:import warnings
+pipeline\inspect_fits.py:8:from pathlib import Path
+pipeline\inspect_fits.py:10:import numpy as np
+pipeline\inspect_fits.py:11:from astropy.io import fits
+pipeline\inspect_fits.py:12:from astropy.wcs import WCS
+pipeline\neighbours.py:12:import csv
+pipeline\neighbours.py:13:import json
+pipeline\neighbours.py:14:import math
+pipeline\neighbours.py:15:import sys
+pipeline\neighbours.py:16:from pathlib import Path
+pipeline\neighbours.py:18:import astrom
+pipeline\neighbour_test.py:15:import csv
+pipeline\neighbour_test.py:16:import json
+pipeline\neighbour_test.py:17:import math
+pipeline\neighbour_test.py:18:import sys
+pipeline\neighbour_test.py:19:from pathlib import Path
+pipeline\neighbour_test.py:21:import numpy as np
+pipeline\neighbour_test.py:22:from scipy.optimize import least_squares
+pipeline\neighbour_test.py:24:import astrom
+pipeline\neighbour_test.py:25:import stack_astrometry as sa
+pipeline\neighbour_test.py:26:import stack_epochs as se
+pipeline\parallax_check.py:10:import json
+pipeline\parallax_check.py:11:import sys
+pipeline\parallax_check.py:12:from pathlib import Path
+pipeline\parallax_check.py:14:import numpy as np
+pipeline\parallax_check.py:16:import astrom
+pipeline\raw_masked_fraction.py:10:import json
+pipeline\raw_masked_fraction.py:11:import sys
+pipeline\raw_masked_fraction.py:12:from pathlib import Path
+pipeline\raw_masked_fraction.py:14:import numpy as np
+pipeline\raw_masked_fraction.py:15:from PIL import Image
+pipeline\resolve_targets.py:9:import json
+pipeline\resolve_targets.py:10:import math
+pipeline\resolve_targets.py:11:import sys
+pipeline\resolve_targets.py:12:import time
+pipeline\resolve_targets.py:13:from pathlib import Path
+pipeline\resolve_targets.py:15:import requests
+pipeline\saturation_check.py:11:import json
+pipeline\saturation_check.py:12:import sys
+pipeline\saturation_check.py:13:from pathlib import Path
+pipeline\saturation_check.py:15:import numpy as np
+pipeline\saturation_check.py:17:import astrom
+pipeline\sia_query.py:11:import csv
+pipeline\sia_query.py:12:import io
+pipeline\sia_query.py:13:import json
+pipeline\sia_query.py:14:import sys
+pipeline\sia_query.py:15:import time
+pipeline\sia_query.py:16:from concurrent.futures import ThreadPoolExecutor
+pipeline\sia_query.py:17:from pathlib import Path
+pipeline\sia_query.py:19:import requests
+pipeline\sia_query.py:20:from astropy.time import Time
+pipeline\stack_astrometry.py:12:import json
+pipeline\stack_astrometry.py:13:import math
+pipeline\stack_astrometry.py:14:import sys
+pipeline\stack_astrometry.py:15:from pathlib import Path
+pipeline\stack_astrometry.py:17:import numpy as np
+pipeline\stack_astrometry.py:18:from scipy.optimize import least_squares
+pipeline\stack_astrometry.py:20:import astrom
+pipeline\stack_astrometry.py:21:import stack_epochs as se
+pipeline\stack_epochs.py:18:import json
+pipeline\stack_epochs.py:19:import math
+pipeline\stack_epochs.py:20:import sys
+pipeline\stack_epochs.py:21:import warnings
+pipeline\stack_epochs.py:22:from pathlib import Path
+pipeline\stack_epochs.py:24:import numpy as np
+pipeline\stack_epochs.py:25:from astropy.io import fits
+pipeline\stack_epochs.py:26:from astropy.time import Time
+pipeline\stack_epochs.py:27:from astropy.wcs import WCS
+pipeline\stack_epochs.py:28:from PIL import Image
+pipeline\stack_epochs.py:29:from scipy.interpolate import RegularGridInterpolator
+pipeline\stack_epochs.py:30:from scipy.ndimage import map_coordinates
+pipeline\target_astrometry.py:10:import csv
+pipeline\target_astrometry.py:11:import json
+pipeline\target_astrometry.py:12:import math
+pipeline\target_astrometry.py:13:import sys
+pipeline\target_astrometry.py:14:from pathlib import Path
+pipeline\target_astrometry.py:16:import numpy as np
+pipeline\target_astrometry.py:18:import astrom
+pipeline\build_results.py:6:Usage: .venv/Scripts/python.exe pipeline/build_results.py > logs/build_results.log 2>&1
+pipeline\download_cutouts.py:9:Usage: .venv/Scripts/python.exe pipeline/download_cutouts.py [--limit N] [slug ...]
+pipeline\field_astrometry.py:8:Usage:  .venv/Scripts/python.exe pipeline/field_astrometry.py barnard > logs/field_astrometry_barnard.log 2>&1
+pipeline\fit_motion.py:12:Usage: .venv/Scripts/python.exe pipeline/fit_motion.py eps-indi-b [--tag wide] [--det 5,6] > logs/fit_motion_eps-indi-b.log 2>&1
+pipeline\flicker.py:20:Usage:  .venv/Scripts/python.exe pipeline/flicker.py eps-indi-b > logs/flicker_eps-indi-b.log 2>&1
+pipeline\flicker_diag.py:12:Usage: .venv/Scripts/python.exe pipeline/flicker_diag.py r-dra > logs/flicker_diag_r-dra.log 2>&1
+pipeline\gaia_field.py:6:Usage: .venv/Scripts/python.exe pipeline/gaia_field.py > logs/gaia_field.log 2>&1
+pipeline\hash_site_data.py:5:Usage: .venv/Scripts/python.exe pipeline/hash_site_data.py > logs/site_data_hash_before.log 2>&1
+pipeline\hash_site_data.py:6:       .venv/Scripts/python.exe pipeline/hash_site_data.py logs/site_data_hash_before.log > logs/site_data_hash_diff.log 2>&1
+pipeline\inspect_fits.py:3:Usage: .venv/Scripts/python.exe pipeline/inspect_fits.py [slug] [n] > logs/inspect_fits.log 2>&1
+pipeline\neighbours.py:10:Usage:  .venv/Scripts/python.exe pipeline/neighbours.py wise-0855 [radius_arcsec] > logs/neighbours_wise-0855.log 2>&1
+pipeline\neighbour_test.py:13:Usage:  .venv/Scripts/python.exe pipeline/neighbour_test.py wise-0855 5756956644387831296 > logs/neighbour_test_wise-0855.log 2>&1
+pipeline\parallax_check.py:8:Usage: .venv/Scripts/python.exe pipeline/parallax_check.py barnard > logs/parallax_check_barnard.log 2>&1
+pipeline\raw_masked_fraction.py:8:Usage: .venv/Scripts/python.exe pipeline/raw_masked_fraction.py > logs/raw_masked_fraction.log 2>&1
+pipeline\resolve_targets.py:7:Usage:  .venv/Scripts/python.exe pipeline/resolve_targets.py > logs/resolve_targets.log 2>&1
+pipeline\saturation_check.py:9:Usage:  .venv/Scripts/python.exe pipeline/saturation_check.py > logs/saturation_check.log 2>&1
+pipeline\sia_query.py:9:Usage: .venv/Scripts/python.exe pipeline/sia_query.py > logs/sia_query.log 2>&1
+pipeline\stack_astrometry.py:10:Usage: .venv/Scripts/python.exe pipeline/stack_astrometry.py wise-0855 5,6 > logs/stack_astrometry_wise-0855.log 2>&1
+pipeline\stack_epochs.py:16:Usage: .venv/Scripts/python.exe pipeline/stack_epochs.py barnard > logs/stack_barnard.log 2>&1
+pipeline\target_astrometry.py:8:Usage:  .venv/Scripts/python.exe pipeline/target_astrometry.py eps-indi-b [--tag wide] > logs/target_astrometry_eps-indi-b.log 2>&1

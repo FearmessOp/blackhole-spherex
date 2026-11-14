@@ -1,0 +1,7 @@
+7:2026-11-14 12:31:14 DONE ok=2 cached=0 failed=0 total=2 bytes=8426880 elapsed_s=15 free_gb=20.5
+2431:2026-11-14 13:32:05 DONE ok=1039 cached=2 failed=48 total=1089 bytes=4352947200 elapsed_s=3607 free_gb=15.8
+3570:2026-11-14 13:40:15 DONE ok=47 cached=1041 failed=1 total=1089 bytes=4549723200 elapsed_s=183 free_gb=15.6
+4042:2026-11-14 13:41:51 DONE ok=1 cached=466 failed=0 total=467 bytes=1952464320 elapsed_s=11 free_gb=15.6
+5251:2026-11-14 15:11:54 DONE ok=583 cached=0 failed=301 total=884 bytes=2431350720 elapsed_s=798 free_gb=4.6
+6317:2026-11-14 15:59:06 DONE ok=299 cached=583 failed=2 total=884 bytes=3682448640 elapsed_s=517 free_gb=7.9
+7206:2026-11-14 16:00:20 DONE ok=2 cached=882 failed=0 total=884 bytes=3690794880 elapsed_s=14 free_gb=7.9

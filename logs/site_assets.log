@@ -1,0 +1,27 @@
+---- font / import / url in css ---- 
+26:    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+49:    font-family: var(--mono);
+225:    font-family: var(--mono);
+245:    font-family: var(--mono);
+322:    font-family: var(--mono);
+326:    font-family: inherit;
+385:        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+---- index.html ---- 
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Blink SPHEREx images of a patch of sky in time order to spot moving and variable objects." />
+    <link rel="icon" href="data:," />
+    <title>SPHEREx motion viewer</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>---- http in site src ---- 

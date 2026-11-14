@@ -1,0 +1,17 @@
+data/gaia/barnard.csv
+data/gaia/barnard_wide.csv
+data/gaia/eps-indi-b.csv
+data/gaia/eps-indi-b_wide.csv
+data/gaia/r-dra.csv
+data/gaia/r-dra_wide.csv
+data/gaia/rw-aur.csv
+data/gaia/rw-aur_wide.csv
+data/gaia/wise-0855.csv
+data/gaia/wise-0855_wide.csv
+logs\check_terms.log:138:   version: uv 0.12.17 (635500036 2026-09-18 x86_64-pc-windows-msvc)
+logs\check_terms.log:140:   version: git version 2.49.0.windows.1
+C:\Users\user\AppData\Local\hermes\bin\uv.exe
+C:\Users\user\.local\bin\uv.exe
+C:\Program Files\Git\cmd\git.exe
+uv 0.12.17 (635500036 2026-09-18 x86_64-pc-windows-msvc)
+git version 2.49.0.windows.1

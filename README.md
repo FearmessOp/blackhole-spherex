@@ -3,27 +3,170 @@
 Entry for the NASA Space Apps Challenge 2026, challenge "Planet X and SPHEREx".
 
 A public web tool that shows SPHEREx images of a patch of sky in time order, so
-that moving and variable objects are easy to spot.
+that moving objects are easy to spot. For each target it blinks one stacked
+image per observing epoch next to the raw exposures, and reports what could be
+measured from the images.
 
 **Status:** work in progress (hackathon weekend, 14–15 November 2026).
-See [PROGRESS.md](PROGRESS.md) for what is done and verified so far.
+The site shows five prepared targets. **It does not yet accept coordinates:**
+entering RA/Dec, coordinates in the URL, click-for-spectrum and a search for
+movers are not implemented. See [Known limitations](#known-limitations) and
+[PROGRESS.md](PROGRESS.md).
 
 ## Live site
 
 https://blackhole-spherex.vercel.app
 
 The site is deployed by Vercel from the `site/` directory on every push to `main`.
+It is a static site: it reads PNG and JSON files and calls no other service.
 
-## Test targets
+## What the site shows
 
-Barnard's Star, Epsilon Indi B, WISE 0855-0714, RW Aurigae, R Draconis.
+For each of the five test targets (Barnard's Star, Epsilon Indi B,
+WISE 0855-0714, RW Aurigae, R Draconis):
+
+- **Stacked per epoch.** All exposures of one observing epoch (exposures more
+  than 30 days apart start a new epoch) are resampled onto one fixed sky grid,
+  north up, east left, 6.15 arcsec per pixel, and combined with a clipped mean.
+  The epochs are blinked; the grid does not follow the target, so a moving
+  target changes pixel.
+- **Raw exposures.** The single exposures on the same grid, in time order. Every
+  exposure is taken at a different wavelength, so the brightness jumps from frame
+  to frame; this is why the stacks are shown next to them.
+- **Detector selection.** All detectors, detectors 1–3 (short wavelength),
+  detectors 5+6 (long wavelength) or one detector. Cold objects such as
+  WISE 0855 are only seen at long wavelength.
+- **Catalogue position.** The SIMBAD position moved with the SIMBAD proper
+  motion to each epoch, as an overlay.
+- **Flicker.** How much constant Gaia stars of the same field change between
+  raw exposures and between epoch means.
+- **Measured.** Position and motion measurements where they could be made, next
+  to the catalogue values, and a warning where they could not.
+
+All brightness scales are fixed per target and band; pixels are not smoothed.
+
+## Results so far
+
+Every number is copied by `pipeline/build_results.py` from the pipeline outputs
+(`logs/build_results.log`); none is typed into the site.
+
+| Target | Exposures / epochs | Result |
+|---|---|---|
+| Epsilon Indi B | 467 / 4 | Proper motion and parallax fitted, two position methods |
+| WISE 0855-0714 | 258 / 3 | Motion between epochs measured on long-wavelength stacks |
+| Barnard's Star | 364 / 3 | Saturated, no motion measured |
+| RW Aurigae | 336 / 3 | Saturated, no motion measured |
+| R Draconis | 548 / 3 | Saturated, no motion measured |
+
+**Epsilon Indi B** (positions aligned to Gaia DR3 field stars exposure by
+exposure; errors are bootstrap over exposures):
+
+| | Windowed centroid | ePSF fit | SIMBAD |
+|---|---|---|---|
+| Proper motion east (mas/yr) | 3966.7 ± 29.1 | 3939.6 ± 24.6 | 3982.0 |
+| Proper motion north (mas/yr) | −2462.6 ± 30.7 | −2440.7 ± 20.8 | −2466.8 |
+| Parallax (mas) | 329.1 ± 16.3 | 300.4 ± 14.8 | 270.7 |
+| Exposures used | 388 | 384 | |
+
+**WISE 0855-0714** (motion between epoch stacks of detectors 5 and 6,
+east / north in arcsec; errors are bootstrap over frames):
+
+| Epochs | SIMBAD prediction | Windowed centroid | Gaussian fit | Gaussian fit, neighbour modelled |
+|---|---|---|---|---|
+| 1 → 2 | −3.49 / +0.09 | −3.02 ± 0.85 / −0.12 ± 0.76 | −3.98 ± 0.81 / +0.12 ± 0.58 | −3.74 ± 0.66 / −0.28 ± 0.44 |
+| 1 → 3 | −8.01 / +0.65 | −6.50 ± 0.84 / +0.71 ± 0.76 | −7.24 ± 0.77 / +1.01 ± 0.54 | −7.97 ± 0.68 / +1.08 ± 0.55 |
+| 2 → 3 | −4.52 / +0.56 | −3.48 ± 0.49 / +0.83 ± 0.48 | −3.26 ± 0.33 / +0.89 ± 0.31 | −4.23 ± 0.48 / +1.36 ± 0.49 |
+
+**Flicker** of five constant Gaia stars per field (medians of the per-star
+values; `logs/flicker_<slug>.log`):
+
+| Field | Between raw exposures | Between epoch means, detector by detector |
+|---|---|---|
+| Barnard's Star | 77.8% | 1.1% |
+| Epsilon Indi B | 94.3% | 2.1% |
+| WISE 0855-0714 | 97.7% | 2.4% |
+| RW Aurigae | 74.7% | 0.8% |
+| R Draconis | 96.4% | 0.9% |
+
+## Known limitations
+
+**Scope**
+
+- Only the five prepared targets can be viewed. There is no coordinate entry, no
+  coordinate in the URL, no spectrum on click, no search for movers, no Gaia or
+  WISE catalogue overlay, no frame subtraction and no choice of field size.
+- No brightness measurement of the targets is made. RW Aurigae and R Draconis
+  are variable stars, but the site shows no light curve for them.
+
+**Saturated targets**
+
+- The OVERFLOW flag is set at the target position in 357 of 364 exposures of
+  Barnard's Star, 305 of 336 of RW Aurigae and 534 of 548 of R Draconis. No
+  motion is shown for these three. A fit for Barnard's Star was tried on the
+  unsaturated wings and is not usable ([PROGRESS.md](PROGRESS.md)).
+- Saturated pixels that still carry a value are drawn as they are (all 305
+  saturated exposures of RW Aurigae); their brightness is not reliable. Empty
+  cores show as black in the raw playback (532 exposures of R Draconis, 237 of
+  Barnard's Star). The stacked core of R Draconis is affected as well.
+
+**Epsilon Indi B**
+
+- The measured parallax is 11% (ePSF fit) and 22% (windowed centroid) above the
+  SIMBAD value. The quoted errors are statistical only; leaving one epoch out
+  moves the parallax between 284 and 325 mas (ePSF) and between 320 and 355 mas
+  (centroid).
+- The target is an unresolved pair of brown dwarfs; the fit treats it as one
+  source.
+
+**WISE 0855-0714**
+
+- Three epochs only, so no proper motion + parallax fit; the table gives motion
+  between epochs. The measurement is not aligned to field stars. A fit on single
+  exposures did not work (44 usable exposures, median S/N 4.5).
+- A Gaia star (DR3 5756956644387831296, G = 16.31) lies 11.4, 8.2 and 4.3 arcsec
+  from the predicted target position in the three epochs and pulls a
+  single-source measurement towards itself. The two-source fit keeps the star
+  fixed at its Gaia position and uses one shared width. In the last epoch the two
+  are 0.7 pixel apart and the star's share is poorly constrained (0.22 of the
+  target's amplitude, 16–84% range 0.01–0.43).
+- With the two-source fit the east motion agrees with the prediction within the
+  errors; the north motion from epoch 2 to 3 is +1.36 ± 0.49 against +0.56 arcsec.
+
+**Astrometry of field stars**
+
+- Measured minus Gaia positions of field stars alternate by about 0.1 arcsec in
+  the east direction from epoch to epoch in the three fields that were checked.
+  The cause has not been identified ([PROGRESS.md](PROGRESS.md)).
+
+**Flicker number**
+
+- Epoch means are compared detector by detector, because a mean over all
+  detectors depends on how many exposures each detector contributes to an epoch.
+  Within one detector the wavelength still changes with position on the detector;
+  this is not corrected.
+- A detector is used if it has at least 5 exposures of the star in every epoch.
+  Other values of this limit were not tried.
+- Not explained: in the Epsilon Indi B field all five stars are brighter in the
+  first epoch (1.7% to 4.4% above their mean), and in the WISE 0855 field four of
+  five stars are fainter in the first epoch (2.8% to 4.5% below).
+
+**Raw playback**
+
+- Exposures with more than 20% of the grid masked are left out of the playback:
+  Barnard's Star 7 of 364, Epsilon Indi B 9 of 467, WISE 0855 0 of 258,
+  RW Aurigae 4 of 336, R Draconis 20 of 548. They remain in the stacks.
+
+**Reference values**
+
+- The reference proper motion and parallax of RW Aurigae come from the 2007
+  Hipparcos reduction (bibcode `2007A&A...474..653V`), not from Gaia.
 
 ## Repository layout
 
 | Path | Content |
 |---|---|
-| `pipeline/` | Python data pipeline (target resolution, archive query, cutout download, inspection, epoch stacking) |
-| `data/` | Small derived inputs: resolved target list, raw archive query responses |
+| `pipeline/` | Python data pipeline, one script per step |
+| `data/` | Small inputs and measurement results: target list, Gaia field stars, astrometry, flicker |
 | `site/` | Vite + React + TypeScript site; reads static PNG + JSON from `site/public/data/` |
 | `logs/` | Log files; every number reported by this project is traceable to one of them |
 | `cache/` | Downloaded cutouts (not in git, re-creatable) |
@@ -35,15 +178,26 @@ Requires [uv](https://docs.astral.sh/uv/) and Python 3.13.
 ```
 uv venv .venv --python 3.13
 uv pip install --python .venv/Scripts/python.exe astropy numpy scipy pyvo requests pillow
-
-.venv/Scripts/python.exe pipeline/resolve_targets.py  > logs/resolve_targets.log 2>&1
-.venv/Scripts/python.exe pipeline/sia_query.py        > logs/sia_query.log 2>&1
-.venv/Scripts/python.exe pipeline/download_cutouts.py
-.venv/Scripts/python.exe pipeline/stack_epochs.py barnard > logs/stack_barnard.log 2>&1
 ```
 
-The download step is resumable: files already in `cache/` are skipped.
-So far the stacking step has only been run for Barnard's Star.
+Each script starts with a description and its usage line. Output goes to a log
+file in `logs/`.
+
+| Step | Script | What it does |
+|---|---|---|
+| 1 | `resolve_targets.py` | Target positions, proper motions and parallaxes from SIMBAD |
+| 2 | `sia_query.py` | List of SPHEREx exposures per target from IRSA |
+| 3 | `download_cutouts.py` | Cutouts of 0.05 deg; with `--size 0.2 --tag wide` cutouts of 0.2 deg for the field stars. Resumable: files already in `cache/` are skipped |
+| 4 | `gaia_field.py` | Gaia DR3 stars around each target |
+| 5 | `stack_epochs.py <slug>` | Epoch stacks, raw playback sprite sheet and metadata for the site |
+| 6 | `field_astrometry.py`, `target_astrometry.py`, `fit_motion.py` | Positions of field stars and target per exposure; proper motion + parallax fit |
+| 7 | `stack_astrometry.py`, `neighbours.py`, `neighbour_test.py` | Target position on epoch stacks; nearby Gaia stars; two-source fit |
+| 8 | `saturation_check.py`, `flicker.py <slug>` | Saturated cores per target; flicker of constant stars |
+| 9 | `build_results.py` | Copies all measured numbers into `site/public/data/<slug>/results.json` |
+
+Checks that change nothing: `inspect_fits.py`, `parallax_check.py`,
+`raw_masked_fraction.py`, `flicker_diag.py`, `hash_site_data.py`,
+`check_terms.py`, `npm_licenses.py`.
 
 ## Running the site locally
 
@@ -58,10 +212,31 @@ npx vite preview
 
 ## Data and sources
 
-All data, libraries and tools used are listed with their licenses in
-[SOURCES.md](SOURCES.md).
+All data, libraries and tools used are listed with their licences in
+[SOURCES.md](SOURCES.md), together with the acknowledgements the data providers
+ask for. The Gaia DR3 rows in `data/gaia/` are under CC BY-NC 3.0 IGO, not under
+the licence of this repository.
+
+No NASA or SPHEREx logo or emblem is used. Every image on the site is computed
+from SPHEREx data by `pipeline/stack_epochs.py`.
 
 ## Use of SI
+
+This project was built with a synthetic-intelligence (SI) coding assistant.
+The team member set the task and its rules.
+
+- **Code written with SI:** all Python scripts in `pipeline/`, and the site code
+  in `site/` (`site/src/*.tsx`, `*.ts`, `styles.css`, `index.html` and the build
+  configuration).
+- **Text written with SI:** `README.md`, `SOURCES.md`, `PROGRESS.md` and the text
+  shown on the site.
+- **Other work done by SI:** running the pipeline, reading the logs, and looking
+  at the site in a browser.
+- **Not made with SI:** no image is SI-generated. The SPHEREx, SIMBAD and Gaia
+  data are used as served by their archives.
+- The site does not call any SI service when it runs.
+
+The tool is listed in [SOURCES.md](SOURCES.md).
 
 ## License
 

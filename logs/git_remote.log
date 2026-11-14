@@ -1,0 +1,18 @@
+origin	https://github.com/FearmessOp/blackhole-spherex.git (fetch)
+origin	https://github.com/FearmessOp/blackhole-spherex.git (push)
+## main...origin/main [ahead 5]
+?? logs/check_terms.log
+?? logs/commit_flicker.log
+?? logs/git_remote.log
+?? logs/pipeline_inventory.log
+?? logs/sources_check.log
+?? logs/sources_check2.log
+?? pipeline/check_terms.py
+licenses_node.log
+licenses_python.log
+push_block2.log
+push_remote.log
+push_verify.log
+live_site_check.log
+live_site_check_5targets.log
+live_site_check_raw.log

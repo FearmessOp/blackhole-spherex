@@ -1,0 +1,20 @@
+lockfileVersion=3
+packages in the lock file: 75 (not dev: 3, dev only: 72)
+
+== not dev (shipped in the site bundle or needed at run time): 3
+      3  MIT
+
+== dev only (build tools, not shipped): 72
+     35  MIT
+     22  Apache-2.0
+     12  MPL-2.0
+      1  ISC
+      1  BSD-3-Clause
+      1  0BSD
+
+== not dev, one by one
+   react 19.3.1  MIT  (lock file)
+   react-dom 19.3.1  MIT  (lock file)
+   scheduler 0.28.0  MIT  (lock file)
+
+== packages without a licence field in the lock file: 0

@@ -1,0 +1,17 @@
+ M PROGRESS.md
+ M README.md
+ M SOURCES.md
+?? logs/check_terms.log
+?? logs/commit_flicker.log
+?? logs/download_wide_done.log
+?? logs/git_remote.log
+?? logs/npm_licenses.log
+?? logs/pipeline_inventory.log
+?? logs/precommit_docs.log
+?? logs/site_assets.log
+?? logs/sources_check.log
+?? logs/sources_check2.log
+?? logs/targets_bibcodes.log
+?? logs/tools_used.log
+?? pipeline/check_terms.py
+?? pipeline/npm_licenses.py

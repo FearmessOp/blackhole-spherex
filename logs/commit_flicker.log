@@ -1,0 +1,15 @@
+[main 819c627] Flicker: epoch means compared detector by detector (mixed-detector means depended on the detector mix of each epoch)
+ 28 files changed, 1781 insertions(+), 440 deletions(-)
+ create mode 100644 logs/build_results_gitdiff_flicker.log
+ create mode 100644 logs/commit_raw.log
+ create mode 100644 logs/flicker_diag_barnard.log
+ create mode 100644 logs/flicker_diag_eps-indi-b.log
+ create mode 100644 logs/flicker_diag_r-dra.log
+ create mode 100644 logs/flicker_diag_rw-aur.log
+ create mode 100644 logs/flicker_diag_wise-0855.log
+ create mode 100644 logs/precommit_flicker.log
+ create mode 100644 pipeline/flicker_diag.py
+819c627 Flicker: epoch means compared detector by detector (mixed-detector means depended on the detector mix of each epoch)
+e5d8110 Raw playback: leave out exposures with more than 20% of the grid masked (was 50%), threshold shown from data
+6cccbd5 Site: motion arrow drawn 4x with label, outlined overlay text
+?? logs/commit_flicker.log

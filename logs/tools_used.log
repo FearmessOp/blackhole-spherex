@@ -1,0 +1,23 @@
+---- playwright / chromium ---- 
+logs\tools_used.log
+---- ffmpeg ---- 
+logs\tools_used.log
+---- gh cli ---- 
+---- vercel ---- 
+logs\live_site_check.log
+logs\precommit_progress.log
+logs\prepush_secrets.log
+logs\tools_used.log
+---- site config files ---- 
+dist
+index.html
+node_modules
+package-lock.json
+package.json
+public
+src
+tsconfig.json
+vite.config.ts
+---- .vercel ---- 
+File Not Found
+File Not Found

@@ -1,0 +1,257 @@
+== IRSA data use terms: https://irsa.ipac.caltech.edu/data_use_terms.html -> HTTP 200, final URL https://irsa.ipac.caltech.edu/data_use_terms.html, 3420 characters
+   title: Terms of Use of Data Hosted By IRSA
+   all 30 text lines (first 120 shown)
+   | Terms of Use of Data Hosted By IRSA
+   | Terms of Use of Data Hosted by IRSA
+   | Terms of Use
+   | Public Data
+   | Proprietary/Exclusive Access Data
+   | Copyrighted Data
+   | Acknowledgments & Citations
+   | 1. Terms of Use
+   | The terms of use depend on whether a data set is public, proprietary /
+   | exclusive access, or copyrighted. See the appropriate section below for more
+   | information on these three categories.
+   | 1.1 Public Data
+   | Most data served by IRSA is public, with no usage restrictions.
+   | 1.2 Proprietary / Exclusive Access Data
+   | Some data sets served by IRSA should only be accessed by persons with
+   | explicit rights to the data. Users with data rights can access proprietary or
+   | exclusive access data at IRSA after logging in. IRSA systems will not allow
+   | previews or downloads of proprietary or exclusive access data for unauthorized
+   | users or for authorized users who are not logged in. Questions about
+   | authorization to access proprietary or exclusive access data should be directed
+   | to the IRSA helpdesk.
+   | 1.3 Copyrighted Data
+   | Digital Sky Survey data are copyrighted:
+   | https://archive.stsci.edu/dss/copyright.html
+   | 2. Acknowledgments & Citations
+   | It is best practice for users of data hosted at IRSA to include the
+   | appropriate acknowledgements and citations in any publications. See
+   | https://irsa.ipac.caltech.edu/ack.html
+   | for more details.
+   | Last updated: 2023-02-08
+== IRSA acknowledgement: https://irsa.ipac.caltech.edu/ack.html -> HTTP 200, final URL https://irsa.ipac.caltech.edu/ack.html, 3674 characters
+   title: Acknowledging IRSA
+   all 26 text lines (first 120 shown)
+   | Acknowledging IRSA
+   | IRSA Acknowledgement
+   | If you use IRSA data or services in your research, please include the
+   | appropriate citations, facilities keywords, and acknowledgements in your paper:
+   | 1. Include "IRSA" as a facilities keyword if you are submitting to any
+   | AAS journal. Also include the facilities keywords corresponding to
+   | individual missions used. More information about facilities keywords
+   | can be found at http://journals.aas.org/authors/aastex/facility.html
+   | Below is a AASTex example for a paper that uses many
+   | facilities:
+   | \facility {IRSA, Spitzer, WISE, Herschel, Planck,
+   | SOFIA, IRTF, IRAS, MSX}
+   | 2. Include the following statement in the acknowledgments, in addition
+   | to any further acknowledgments required by individual missions and
+   | data providers.
+   | "This research has made use of the
+   | NASA/IPAC Infrared Science Archive, which is funded by the National
+   | Aeronautics and Space Administration and operated by the California
+   | Institute of Technology."
+   | 3. In addition to the above, each data set has its own Digital Object
+   | Identifier (DOI) for the specific data set and nearly always has a
+   | canonical paper to cite. Please include both of those things in your
+   | paper. These can be found on the page corresponding to the data set,
+   | e.g., this for
+   | MIPSGAL. The service you used may also have its own DOI. A full list of
+   | DOIs curated by IPAC can be found here .
+== IRSA SPHEREx mission page: https://irsa.ipac.caltech.edu/Missions/spherex.html -> HTTP 200, final URL https://irsa.ipac.caltech.edu/Missions/spherex.html, 9985 characters
+   title: IRSA - SPHEREx
+   lines with a keyword: 1 (first 14 shown; '+' = one of the 4 lines after a keyword line)
+   | Please include the following acknowledgement in any published material that makes use of SPHEREx data products:
+   + "This publication makes use of data products from the Spectro-Photometer for the History of the Universe, Epoch of Reionization and Ices Explorer (SPHEREx), which is a joint project of the Jet Propulsion Laboratory and the California Institute of Technology, and is funded by the National Aeronautics and Space Administration."
+   + Canonical Papers:
+   + Mission: Bock et al (2026)
+   + Pipeline: Akeson et al (2026)
+== SIMBAD Harvard mirror front page: https://simbad.harvard.edu/simbad/ -> HTTP 200, final URL https://simbad.harvard.edu/simbad/, 22610 characters
+   title: None
+   lines with a keyword: 4 (first 14 shown; '+' = one of the 4 lines after a keyword line)
+   | Use of SIMBAD service is free without any registration under ODbL licence. We request that
+   + users cite the original paper reference.
+   + Basic search
+   + identifier, coordinates (radius=10 arcmin), or bibcode
+   + help
+   + Install the Simbad basic search in your tool bar
+   | the following acknowledgment would be appreciated:
+   + This research has made use of the SIMBAD database,
+   + operated at CDS, Strasbourg, France
+   + 2000,A&AS,143,9
+   + , "The SIMBAD astronomical database", Wenger et al.
+   | citations of objects in papers
+   + 15,885
+   + acronyms described for Simbad
+   + SIMBAD on the Web is the WWW interface to the SIMBAD database. It offers
+   + the following functionalities:
+== Gaia DR3 credit and citation instructions: https://gea.esac.esa.int/archive/documentation/GDR3/Miscellaneous/sec_credit_and_citation_instructions/ -> HTTP 200, final URL https://gea.esac.esa.int/archive/documentation/GDR3/Miscellaneous/sec_credit_and_citation_instructions/, 27300 characters
+   title: Credit and citation instructions‣ Miscellaneous ‣ Gaia Data Release 3 Documentation release 1.3
+   lines with a keyword: 9 (first 14 shown; '+' = one of the 4 lines after a keyword line)
+   | Credit and citation instructions‣ Miscellaneous ‣ Gaia Data Release 3 Documentation release 1.3
+   + skip to main content
+   + → European Space Agency
+   + About
+   + ESAC
+   | Credit and citation instructions
+   + Colophon
+   + Acronyms
+   + Documentation change log
+   + Bibliography
+   | Miscellaneous Acknowledgements Colophon
+   + Credit and citation instructions
+   + If you have used Gaia DR3 data in your research, please use the following acknowledgement:
+   + This work has made use of data from the European Space Agency (ESA) mission Gaia ( https://www.cosmos.esa.int/gaia ), processed by the Gaia Data Processing and Analysis Consortium (DPAC, https://www.cosmos.esa.int/web/gaia/dpac/consortium ). Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the Gaia Multilateral Agreement.
+   + The LaTeX version is:
+   + This work has made use of data from the European Space Agency (ESA) mission
+   + {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia}
+   | If you have used Gaia DR3 data in your research, please cite both the Gaia mission paper and the Gaia DR3 release paper:
+   + •
+   + Gaia Collaboration et al. ( 2016b ) : The Gaia mission (provides a description of the Gaia mission including spacecraft, instruments, survey and measurement principles, and operations);
+   + •
+   + Gaia Collaboration et al. ( 2023j ) : Gaia DR3: Summary of the contents and survey properties.
+   | In addition, please cite (some of) the following papers that describe the data release contents and DPAC data processing and validation in more detail, as appropriate:
+   + •
+   + Babusiaux et al. ( 2023 ) : Gaia DR3: Catalogue validation;
+   + •
+   + Please consult the entire list of official Gaia DR3 papers on https://www.cosmos.esa.int/web/gaia/dr3-papers .
+   | The Gaia data are open and free to use, provided credit is given to ‘ESA/Gaia/DPAC’. In general, access to, and use of, ESA’s Gaia archive (hereafter called ‘the website’) constitutes acceptance of the following, general terms and conditions. Neither ESA nor any other party involved in creating, producing, or delivering the website shall be liable for any direct, incidental, consequential, indirect, or punitive damages arising out of user access to, or use of, the website. The website does not guarantee the accuracy of information provided by external sources and accepts no responsibility or liability for any consequences arising from the use of such data.
+   + Acknowledgements Bibliography Colophon
+   + (Cookie policy) Generated on Sat Jul 15 11:29:14 2023 by LaTeXML
+== Gaia credits: https://www.cosmos.esa.int/web/gaia-users/credits -> HTTP 200, final URL https://www.cosmos.esa.int/web/gaia-users/credits, 79461 characters
+   title: COSMOS Credits - Gaia Users - Cosmos
+   lines with a keyword: 13 (first 14 shown; '+' = one of the 0 lines after a keyword line)
+   | COSMOS Credits - Gaia Users - Cosmos
+   | Gaia data credits and acknowledgements
+   | When using Gaia data, please acknowledge the people and institutes that were involved in making the data available to you. Each Data Release comes with its own acknowledgements and its own credit and citation instructions. Below, links are given to guide you the respective information. For any question, please contact the Gaia Helpdesk .
+   | Credit and Citation instructions
+   | How to cite chapters of the data release documentation
+   | Credit and Citation instructions
+   | How to cite chapters of the data release documentation
+   | Credit and Citation instructions
+   | How to cite chapters of the data release documentation
+   | Credit and Citation instructions
+   | How to cite chapters of the data release documentation
+   | Credit and Citation instructions
+   | How to cite chapters of the data release documentation
+== Gaia license: https://www.cosmos.esa.int/web/gaia-users/license -> HTTP 200, final URL https://www.cosmos.esa.int/web/gaia-users/license, 70791 characters
+   title: COSMOS License - Gaia Users - Cosmos
+   lines with a keyword: 2 (first 14 shown; '+' = one of the 4 lines after a keyword line)
+   | COSMOS License - Gaia Users - Cosmos
+   + Navigation
+   + Skip to Content
+   + SIGN IN
+   + Science missions
+   | Gaia data are distributed under the CC BY-NC 3.0 IGO license. For details and guidelines concerning commercial use of the Gaia data, please see the Terms and Conditions for the use of data in the ESA space science archives.
+   + Hidden
+   + My account
+   + placeholder PeopleEditorPersonalDetails portlet
+   + Close
+== Python license: https://docs.python.org/3/license.html -> HTTP 200, final URL https://docs.python.org/3/license.html, 95023 characters
+   title: History and License &#8212; Python 3.15.2 documentation
+   lines with a keyword: 269 (first 14 shown; '+' = one of the 0 lines after a keyword line)
+   | History and License — Python 3.15.2 documentation
+   | PYTHON SOFTWARE FOUNDATION LICENSE VERSION 2
+   | BEOPEN.COM LICENSE AGREEMENT FOR PYTHON 2.0
+   | CNRI LICENSE AGREEMENT FOR PYTHON 1.6.1
+   | CWI LICENSE AGREEMENT FOR PYTHON 0.9.0 THROUGH 1.2
+   | ZERO-CLAUSE BSD LICENSE FOR CODE IN THE PYTHON DOCUMENTATION
+   | Licenses and Acknowledgements for Incorporated Software
+   | All Python licenses, unlike the GPL, let you distribute a modified version
+   | without making your changes open source. The GPL-compatible licenses make
+   | According to Richard Stallman, 1.6.1 is not GPL-compatible, because its license
+   | Python software and documentation are licensed under the
+   | Python Software Foundation License Version 2.
+   | the documentation are dual licensed under the PSF License Version 2
+   | and the Zero-Clause BSD license .
+== curl copyright: https://curl.se/docs/copyright.html -> HTTP 200, final URL https://curl.se/docs/copyright.html, 7650 characters
+   title: curl - copyright
+   lines with a keyword: 8 (first 14 shown; '+' = one of the 0 lines after a keyword line)
+   | curl / Docs / Who and Why / Copyright
+   | curl and libcurl are licensed under the license below, which is inspired by MIT/X,
+   | COPYRIGHT AND PERMISSION NOTICE
+   | Copyright (c) 1996 - 2026, Daniel Stenberg, daniel@haxx.se , and many contributors, see the THANKS file.
+   | Permission to use, copy, modify, and distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+   | THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+   | Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization of the copyright holder.
+   | The curl license is specified using the SPDX
+== uv LICENSE-MIT: https://raw.githubusercontent.com/astral-sh/uv/main/LICENSE-MIT -> HTTP 200, final URL https://raw.githubusercontent.com/astral-sh/uv/main/LICENSE-MIT, 1077 characters
+   | MIT License
+   | Copyright (c) 2025 Astral Software Inc.
+   | Permission is hereby granted, free of charge, to any person obtaining a copy
+   | of this software and associated documentation files (the "Software"), to deal
+   | in the Software without restriction, including without limitation the rights
+   | to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   | copies of the Software, and to permit persons to whom the Software is
+   | furnished to do so, subject to the following conditions:
+== uv LICENSE-APACHE: https://raw.githubusercontent.com/astral-sh/uv/main/LICENSE-APACHE -> HTTP 200, final URL https://raw.githubusercontent.com/astral-sh/uv/main/LICENSE-APACHE, 11357 characters
+   | Apache License
+   | Version 2.0, January 2004
+   | http://www.apache.org/licenses/
+   | TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+   | 1. Definitions.
+   | "License" shall mean the terms and conditions for use, reproduction,
+   | and distribution as defined by Sections 1 through 9 of this document.
+   | "Licensor" shall mean the copyright owner or entity authorized by
+== git COPYING: https://raw.githubusercontent.com/git/git/master/COPYING -> HTTP 200, final URL https://raw.githubusercontent.com/git/git/master/COPYING, 18765 characters
+   | Note that the only valid version of the GPL as far as this project
+   | is concerned is _this_ particular version of the license (ie v2, not
+   | v2.2 or v3.x or whatever), unless explicitly otherwise stated.
+   | HOWEVER, in order to allow a migration to GPLv3 if that seems like
+   | a good idea, I also ask that people involved with the project make
+   | their preferences known. In particular, if you trust me to make that
+   | decision, you might note so in your copyright message, ie something
+   | like
+== Node.js LICENSE: https://raw.githubusercontent.com/nodejs/node/main/LICENSE -> HTTP 200, final URL https://raw.githubusercontent.com/nodejs/node/main/LICENSE, 154603 characters
+   | Node.js is licensed for use as follows:
+   | """
+   | Copyright Node.js contributors. All rights reserved.
+   | Permission is hereby granted, free of charge, to any person obtaining a copy
+   | of this software and associated documentation files (the "Software"), to
+   | deal in the Software without restriction, including without limitation the
+   | rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+   | sell copies of the Software, and to permit persons to whom the Software is
+== npm LICENSE: https://raw.githubusercontent.com/npm/cli/latest/LICENSE -> HTTP 200, final URL https://raw.githubusercontent.com/npm/cli/latest/LICENSE, 9742 characters
+   | The npm application
+   | Copyright (c) npm, Inc. and Contributors
+   | Licensed on the terms of The Artistic License 2.0
+   | Node package dependencies of the npm application
+   | Copyright (c) their respective copyright owners
+   | Licensed on their respective license terms
+   | The npm public registry at https://registry.npmjs.org
+   | and the npm website at https://www.npmjs.com
+
+== local tools
+python: 3.13.2 base_prefix=C:\Python313
+== local: Python LICENSE: C:\Python313\LICENSE.txt
+   | A. HISTORY OF THE SOFTWARE
+   | ==========================
+   | Python was created in the early 1990s by Guido van Rossum at Stichting
+   | Mathematisch Centrum (CWI, see https://www.cwi.nl) in the Netherlands
+   | as a successor of a language called ABC.  Guido remains Python's
+   | principal author, although it includes many contributions from others.
+uv: C:\Users\user\AppData\Local\hermes\bin\uv.EXE
+   version: uv 0.12.17 (635500036 2026-09-18 x86_64-pc-windows-msvc)
+git: C:\Program Files\Git\cmd\git.EXE
+   version: git version 2.49.0.windows.1
+== local: Git for Windows LICENSE: C:\Program Files\Git\LICENSE.txt
+   | Note that the only valid version of the GPL as far as this project
+   | is concerned is _this_ particular version of the license (ie v2, not
+   | v2.2 or v3.x or whatever), unless explicitly otherwise stated.
+   | HOWEVER, in order to allow a migration to GPLv3 if that seems like
+   | a good idea, I also ask that people involved with the project make
+   | their preferences known. In particular, if you trust me to make that
+curl: C:\WINDOWS\system32\curl.EXE
+   version: curl 8.21.0 (Windows) libcurl/8.21.0 Schannel zlib/1.3.2 WinIDN WinLDAP
+node: C:\nvm4w\nodejs\node.EXE
+   version: v22.23.2
+== local: Node.js LICENSE: C:\Users\user\AppData\Local\nvm\v22.23.2\LICENSE
+   | Node.js is licensed for use as follows:
+   | """
+   | Copyright Node.js contributors. All rights reserved.
+   | Permission is hereby granted, free of charge, to any person obtaining a copy
+== local: npm package.json: version=10.9.8 license=Artistic-2.0
+npm: C:\Users\user\AppData\Roaming\npm\npm.CMD
+   version: 11.4.2
