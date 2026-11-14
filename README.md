@@ -20,8 +20,9 @@ Barnard's Star, Epsilon Indi B, WISE 0855-0714, RW Aurigae, R Draconis.
 
 | Path | Content |
 |---|---|
-| `pipeline/` | Python data pipeline (target resolution, archive query, cutout download, inspection) |
+| `pipeline/` | Python data pipeline (target resolution, archive query, cutout download, inspection, epoch stacking) |
 | `data/` | Small derived inputs: resolved target list, raw archive query responses |
+| `site/` | Vite + React + TypeScript site; reads static PNG + JSON from `site/public/data/` |
 | `logs/` | Log files; every number reported by this project is traceable to one of them |
 | `cache/` | Downloaded cutouts (not in git, re-creatable) |
 
@@ -36,9 +37,22 @@ uv pip install --python .venv/Scripts/python.exe astropy numpy scipy pyvo reques
 .venv/Scripts/python.exe pipeline/resolve_targets.py  > logs/resolve_targets.log 2>&1
 .venv/Scripts/python.exe pipeline/sia_query.py        > logs/sia_query.log 2>&1
 .venv/Scripts/python.exe pipeline/download_cutouts.py
+.venv/Scripts/python.exe pipeline/stack_epochs.py barnard > logs/stack_barnard.log 2>&1
 ```
 
 The download step is resumable: files already in `cache/` are skipped.
+So far the stacking step has only been run for Barnard's Star.
+
+## Running the site locally
+
+Requires Node.js 22.
+
+```
+cd site
+npm install
+npm run build
+npx vite preview
+```
 
 ## Data and sources
 

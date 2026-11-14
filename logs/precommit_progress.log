@@ -1,0 +1,45 @@
+== git status --short 
+ M PROGRESS.md
+ M README.md
+ M SOURCES.md
+ M logs/download.log
+ M logs/site_build.log
+ M logs/stack_barnard.log
+ M site/public/data/barnard/all_e0.png
+ M site/public/data/barnard/all_e1.png
+ M site/public/data/barnard/all_e2.png
+ M site/public/data/barnard/d1_e0.png
+ M site/public/data/barnard/d1_e1.png
+ M site/public/data/barnard/d1_e2.png
+ M site/public/data/barnard/d2_e0.png
+ M site/public/data/barnard/d2_e1.png
+ M site/public/data/barnard/d2_e2.png
+ M site/public/data/barnard/d3_e0.png
+ M site/public/data/barnard/d3_e1.png
+ M site/public/data/barnard/d3_e2.png
+ M site/public/data/barnard/d4_e0.png
+ M site/public/data/barnard/d4_e1.png
+ M site/public/data/barnard/d4_e2.png
+ M site/public/data/barnard/d5_e0.png
+ M site/public/data/barnard/d5_e1.png
+ M site/public/data/barnard/d5_e2.png
+ M site/public/data/barnard/d6_e0.png
+ M site/public/data/barnard/d6_e1.png
+ M site/public/data/barnard/d6_e2.png
+ M site/public/data/barnard/meta.json
+?? logs/licenses_node.log
+?? logs/precommit_progress.log
+== README Use of SI section 
+README.md:62:## Use of SI
+README.md-63-
+README.md-64-## License
+== secret keywords in changed files 
+PROGRESS.md:78:- Vercel: the stored CLI token is invalid, `vercel login` is required. Nothing
+== e-mail addresses in all files 
+== sizes 
+files 30
+619188 logs/download.log
+7610 site/public/data/barnard/meta.json
+5822 PROGRESS.md
+4030 SOURCES.md
+== end

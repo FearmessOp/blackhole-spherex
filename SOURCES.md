@@ -25,10 +25,10 @@ Versions from `logs/setup_env.log`, licenses from `logs/licenses_python.log`.
 |---|---|---|---|
 | astropy | 8.0.2 | BSD-3-Clause | FITS, WCS, time |
 | numpy | 2.5.4 | BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0 | arrays |
-| scipy | 1.18.1 | BSD (classifier "BSD License") | installed, not used yet |
+| scipy | 1.18.1 | BSD (classifier "BSD License") | resampling, interpolation |
 | pyvo | 1.10.0 | BSD-3-Clause | installed, not used yet |
 | requests | 2.34.2 | Apache-2.0 | HTTP |
-| pillow | 13.0.0 | MIT-CMU | installed, not used yet |
+| pillow | 13.0.0 | MIT-CMU | PNG output |
 | astropy-iers-data | 0.2026.11.9.0.35.9 | BSD-3-Clause | dependency of astropy |
 | pyerfa | 2.0.1.5 | BSD 3-Clause | dependency of astropy |
 | PyYAML | 6.0.3 | MIT | dependency of astropy |
@@ -38,6 +38,28 @@ Versions from `logs/setup_env.log`, licenses from `logs/licenses_python.log`.
 | idna | 3.20 | BSD-3-Clause | dependency of requests |
 | urllib3 | 2.8.0 | MIT | dependency of requests |
 
+## npm packages (site)
+
+Versions and licenses from the installed packages' own `package.json`
+(`logs/licenses_node.log`). Transitive dependencies are pinned in
+`site/package-lock.json` and have not been checked one by one yet.
+
+| Package | Version | License (package.json) | Role |
+|---|---|---|---|
+| react | 19.3.1 | MIT | user interface |
+| react-dom | 19.3.1 | MIT | user interface |
+| vite | 8.3.8 | MIT | build tool (development only) |
+| @vitejs/plugin-react | 6.3.0 | MIT | build tool (development only) |
+| typescript | 7.0.2 | Apache-2.0 | type checking (development only) |
+| @types/react | 19.3.0 | MIT | type definitions (development only) |
+| @types/react-dom | 19.3.0 | MIT | type definitions (development only) |
+
+## Images
+
+The PNG files under `site/public/data/` are produced by
+`pipeline/stack_epochs.py` from the SPHEREx cutouts listed above. The site
+contains no other images, logos or icons.
+
 ## Tools
 
 | Tool | Version | Used for | License |
@@ -46,6 +68,8 @@ Versions from `logs/setup_env.log`, licenses from `logs/licenses_python.log`.
 | uv | 0.12.5 | virtual environment and package install | not yet verified |
 | git | 2.43.0 | version control | not yet verified |
 | curl | system version | fetching the license text, TAP query | not yet verified |
+| Node.js | v22.23.2 | site build | not yet verified |
+| npm | 11.4.2 | site package install | not yet verified |
 
 ## License text
 
