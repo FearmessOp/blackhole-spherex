@@ -1,0 +1,59 @@
+queries finished in 2.6s
+=== barnard | spherex_dr1 | http 200 attempt 1 url https://irsa.ipac.caltech.edu/SIA?COLLECTION=spherex_dr1&POS=circle+269.4462908+4.7679166+0.01&RESPONSEFORMAT=CSV
+  rows=240 bytes=219355 columns=51
+  first row={"obs_id": "2025W33_2C_0321_1", "energy_bandpassname": "SPHEREx-D6", "em_min": "4.41150e-06", "em_max": "5.00960e-06", "t_min": "60902.864715", "t_exptime": "113.582600", "access_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/level2/2025W33_2C/l2b-v27-2026-228/6/level2_2025W33_2C_0321_1D6_spx_l2b-v27-2026-228.fits", "access_estsize": "64953", "obs_release_date": "2026-10-04 05:45:39", "cloud_access": "{\"aws\": {\"bucket_name\": \"nasa-irsa-spherex\", \"key\":\"dr1/level2/2025W33_2C/l2b-v27-2026-228/6/level2_2025W33_2C_0321_1D6_spx_l2b-v27-2026-228.fits\", \"region\": \"us-east-1\"}}", "upload_row_id": "1"}
+  per detector={"SPHEREx-D1": 42, "SPHEREx-D2": 37, "SPHEREx-D3": 42, "SPHEREx-D4": 41, "SPHEREx-D5": 37, "SPHEREx-D6": 41}
+  epoch 0: n=118 2025-08-15T20:45 .. 2025-10-01T06:22 (MJD 60902.865 .. 60949.266)
+  epoch 1: n=122 2026-03-11T02:11 .. 2026-05-05T01:59 (MJD 61110.091 .. 61165.083)
+=== barnard | spherex_qr3 | cached
+  rows=124 bytes=113575 columns=51
+  first row={"obs_id": "2026W33_2A_0594_3", "energy_bandpassname": "SPHEREx-D6", "em_min": "4.41150e-06", "em_max": "5.00960e-06", "t_min": "61268.629319", "t_exptime": "113.582600", "access_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/qr3/level2/2026W33_2A/l2b-v27-2026-241/6/level2_2026W33_2A_0594_3D6_spx_l2b-v27-2026-241.fits", "access_estsize": "64982", "obs_release_date": "2026-09-23 01:04:17", "cloud_access": "{\"aws\": {\"bucket_name\": \"nasa-irsa-spherex\", \"key\":\"qr3/level2/2026W33_2A/l2b-v27-2026-241/6/level2_2026W33_2A_0594_3D6_spx_l2b-v27-2026-241.fits\", \"region\": \"us-east-1\"}}", "upload_row_id": "1"}
+  per detector={"SPHEREx-D1": 18, "SPHEREx-D2": 25, "SPHEREx-D3": 19, "SPHEREx-D4": 18, "SPHEREx-D5": 25, "SPHEREx-D6": 19}
+  epoch 0: n=124 2026-08-16T15:06 .. 2026-09-22T15:04 (MJD 61268.629 .. 61305.628)
+=== eps-indi-b | spherex_dr1 | http 200 attempt 1 url https://irsa.ipac.caltech.edu/SIA?COLLECTION=spherex_dr1&POS=circle+331.0964419+-56.8005917+0.01&RESPONSEFORMAT=CSV
+  rows=347 bytes=318822 columns=51
+  first row={"obs_id": "2025W18_1B_0081_1", "energy_bandpassname": "SPHEREx-D6", "em_min": "4.41150e-06", "em_max": "5.00960e-06", "t_min": "60794.063320", "t_exptime": "113.582600", "access_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0081_1D6_spx_l2b-v27-2026-196.fits", "access_estsize": "65722", "obs_release_date": "2026-09-27 23:59:28", "cloud_access": "{\"aws\": {\"bucket_name\": \"nasa-irsa-spherex\", \"key\":\"dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0081_1D6_spx_l2b-v27-2026-196.fits\", \"region\": \"us-east-1\"}}", "upload_row_id": "1"}
+  per detector={"SPHEREx-D1": 48, "SPHEREx-D2": 69, "SPHEREx-D3": 63, "SPHEREx-D4": 46, "SPHEREx-D5": 62, "SPHEREx-D6": 59}
+  epoch 0: n=125 2025-04-24T20:31 .. 2025-06-10T04:33 (MJD 60789.856 .. 60836.190)
+  epoch 1: n=146 2025-09-28T23:08 .. 2025-11-12T20:34 (MJD 60946.964 .. 60991.858)
+  epoch 2: n=76 2026-04-18T20:16 .. 2026-05-04T02:48 (MJD 61148.845 .. 61164.117)
+=== eps-indi-b | spherex_qr3 | cached
+  rows=120 bytes=110723 columns=51
+  first row={"obs_id": "2026W39_1A_0276_2", "energy_bandpassname": "SPHEREx-D3", "em_min": "1.63010e-06", "em_max": "2.43460e-06", "t_min": "61305.228398", "t_exptime": "113.582600", "access_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/qr3/level2/2026W39_1A/l2b-v27-2026-268/3/level2_2026W39_1A_0276_2D3_spx_l2b-v27-2026-268.fits", "access_estsize": "65996", "obs_release_date": "2026-10-28 22:18:56", "cloud_access": "{\"aws\": {\"bucket_name\": \"nasa-irsa-spherex\", \"key\":\"qr3/level2/2026W39_1A/l2b-v27-2026-268/3/level2_2026W39_1A_0276_2D3_spx_l2b-v27-2026-268.fits\", \"region\": \"us-east-1\"}}", "upload_row_id": "1"}
+  per detector={"SPHEREx-D2": 24, "SPHEREx-D3": 36, "SPHEREx-D5": 24, "SPHEREx-D6": 36}
+  epoch 0: n=120 2026-09-22T05:26 .. 2026-10-02T11:28 (MJD 61305.227 .. 61315.478)
+=== wise-0855 | spherex_dr1 | http 200 attempt 1 url https://irsa.ipac.caltech.edu/SIA?COLLECTION=spherex_dr1&POS=circle+133.7599921+-7.2422047+0.01&RESPONSEFORMAT=CSV
+  rows=258 bytes=237559 columns=51
+  first row={"obs_id": "2025W19_1B_0116_1", "energy_bandpassname": "SPHEREx-D3", "em_min": "1.63010e-06", "em_max": "2.43460e-06", "t_min": "60800.700028", "t_exptime": "113.582600", "access_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/level2/2025W19_1B/l2b-v27-2026-197/3/level2_2025W19_1B_0116_1D3_spx_l2b-v27-2026-197.fits", "access_estsize": "65791", "obs_release_date": "2026-09-27 23:59:28", "cloud_access": "{\"aws\": {\"bucket_name\": \"nasa-irsa-spherex\", \"key\":\"dr1/level2/2025W19_1B/l2b-v27-2026-197/3/level2_2025W19_1B_0116_1D3_spx_l2b-v27-2026-197.fits\", \"region\": \"us-east-1\"}}", "upload_row_id": "1"}
+  per detector={"SPHEREx-D1": 36, "SPHEREx-D2": 48, "SPHEREx-D3": 45, "SPHEREx-D4": 36, "SPHEREx-D5": 48, "SPHEREx-D6": 45}
+  epoch 0: n=30 2025-05-05T16:48 .. 2025-05-06T12:26 (MJD 60800.700 .. 60801.519)
+  epoch 1: n=128 2025-10-31T17:20 .. 2025-12-13T08:50 (MJD 60979.723 .. 61022.368)
+  epoch 2: n=100 2026-04-21T04:45 .. 2026-05-14T06:53 (MJD 61151.198 .. 61174.287)
+=== wise-0855 | spherex_qr3 | cached
+  rows=0 bytes=641 columns=51
+  first 120 chars: 's_ra,s_dec,facility_name,instrument_name,dataproduct_subtype,calib_level,dataproduct_type,energy_bandpassname,energy_emb'
+=== rw-aur | spherex_dr1 | http 200 attempt 1 url https://irsa.ipac.caltech.edu/SIA?COLLECTION=spherex_dr1&POS=circle+76.9565863+30.4012919+0.01&RESPONSEFORMAT=CSV
+  rows=226 bytes=206302 columns=51
+  first row={"obs_id": "2025W36_1A_0095_1", "energy_bandpassname": "SPHEREx-D1", "em_min": "7.45500e-07", "em_max": "1.11670e-06", "t_min": "60919.419647", "t_exptime": "113.582600", "access_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/level2/2025W36_1A/l2b-v27-2026-232/1/level2_2025W36_1A_0095_1D1_spx_l2b-v27-2026-232.fits", "access_estsize": "65613", "obs_release_date": "2026-10-04 14:04:49", "cloud_access": "{\"aws\": {\"bucket_name\": \"nasa-irsa-spherex\", \"key\":\"dr1/level2/2025W36_1A/l2b-v27-2026-232/1/level2_2025W36_1A_0095_1D1_spx_l2b-v27-2026-232.fits\", \"region\": \"us-east-1\"}}", "upload_row_id": "1"}
+  per detector={"SPHEREx-D1": 38, "SPHEREx-D2": 37, "SPHEREx-D3": 38, "SPHEREx-D4": 38, "SPHEREx-D5": 37, "SPHEREx-D6": 38}
+  epoch 0: n=112 2025-09-01T10:04 .. 2025-09-20T05:34 (MJD 60919.420 .. 60938.232)
+  epoch 1: n=114 2026-02-20T17:16 .. 2026-03-12T00:03 (MJD 61091.720 .. 61111.002)
+=== rw-aur | spherex_qr3 | cached
+  rows=110 bytes=100757 columns=51
+  first row={"obs_id": "2026W36_1A_0476_1", "energy_bandpassname": "SPHEREx-D1", "em_min": "7.45500e-07", "em_max": "1.11670e-06", "t_min": "61285.097169", "t_exptime": "113.582600", "access_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/qr3/level2/2026W36_1A/l2b-v27-2026-252/1/level2_2026W36_1A_0476_1D1_spx_l2b-v27-2026-252.fits", "access_estsize": "65639", "obs_release_date": "2026-10-12 22:31:00", "cloud_access": "{\"aws\": {\"bucket_name\": \"nasa-irsa-spherex\", \"key\":\"qr3/level2/2026W36_1A/l2b-v27-2026-252/1/level2_2026W36_1A_0476_1D1_spx_l2b-v27-2026-252.fits\", \"region\": \"us-east-1\"}}", "upload_row_id": "1"}
+  per detector={"SPHEREx-D1": 18, "SPHEREx-D2": 19, "SPHEREx-D3": 18, "SPHEREx-D4": 18, "SPHEREx-D5": 19, "SPHEREx-D6": 18}
+  epoch 0: n=110 2026-09-02T02:19 .. 2026-09-16T21:30 (MJD 61285.097 .. 61299.896)
+=== r-dra | spherex_dr1 | http 200 attempt 1 url https://irsa.ipac.caltech.edu/SIA?COLLECTION=spherex_dr1&POS=circle+248.1672345+66.7550237+0.01&RESPONSEFORMAT=CSV
+  rows=422 bytes=384987 columns=51
+  first row={"obs_id": "2025W20_2D_0243_1", "energy_bandpassname": "SPHEREx-D6", "em_min": "4.41150e-06", "em_max": "5.00960e-06", "t_min": "60811.955829", "t_exptime": "113.582600", "access_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/level2/2025W20_2D/l2b-v27-2026-198/6/level2_2025W20_2D_0243_1D6_spx_l2b-v27-2026-198.fits", "access_estsize": "65664", "obs_release_date": "2026-09-28 07:20:04", "cloud_access": "{\"aws\": {\"bucket_name\": \"nasa-irsa-spherex\", \"key\":\"dr1/level2/2025W20_2D/l2b-v27-2026-198/6/level2_2025W20_2D_0243_1D6_spx_l2b-v27-2026-198.fits\", \"region\": \"us-east-1\"}}", "upload_row_id": "1"}
+  per detector={"SPHEREx-D1": 68, "SPHEREx-D2": 73, "SPHEREx-D3": 71, "SPHEREx-D4": 66, "SPHEREx-D5": 74, "SPHEREx-D6": 70}
+  epoch 0: n=161 2025-05-16T22:56 .. 2025-07-22T14:35 (MJD 60811.956 .. 60878.608)
+  epoch 1: n=213 2025-10-17T14:44 .. 2026-01-13T09:57 (MJD 60965.615 .. 61053.415)
+  epoch 2: n=48 2026-04-22T07:56 .. 2026-05-13T05:55 (MJD 61152.331 .. 61173.247)
+=== r-dra | spherex_qr3 | cached
+  rows=126 bytes=115384 columns=51
+  first row={"obs_id": "2026W20_2A_0294_4", "energy_bandpassname": "SPHEREx-D3", "em_min": "1.63010e-06", "em_max": "2.43460e-06", "t_min": "61176.366728", "t_exptime": "113.582600", "access_url": "https://irsa.ipac.caltech.edu/ibe/data/spherex/qr3/level2/2026W20_2A/l2b-v27-2026-267/3/level2_2026W20_2A_0294_4D3_spx_l2b-v27-2026-267.fits", "access_estsize": "65929", "obs_release_date": "2026-10-10 15:57:41", "cloud_access": "{\"aws\": {\"bucket_name\": \"nasa-irsa-spherex\", \"key\":\"qr3/level2/2026W20_2A/l2b-v27-2026-267/3/level2_2026W20_2A_0294_4D3_spx_l2b-v27-2026-267.fits\", \"region\": \"us-east-1\"}}", "upload_row_id": "1"}
+  per detector={"SPHEREx-D1": 24, "SPHEREx-D2": 19, "SPHEREx-D3": 20, "SPHEREx-D4": 23, "SPHEREx-D5": 19, "SPHEREx-D6": 21}
+  epoch 0: n=126 2026-05-16T08:43 .. 2026-07-16T20:57 (MJD 61176.364 .. 61237.873)
+
+done; failed queries: 0
