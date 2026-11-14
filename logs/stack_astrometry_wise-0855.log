@@ -1,0 +1,8 @@
+wise-0855: detectors=[5, 6] frames per epoch=[11, 46, 36]; prediction = SIMBAD pm + parallax (439.0 mas); 300 bootstrap resamples
+epoch 0: n=11 mean MJD=60801.1 peak S/N at prediction=11.3 | win: measured-predicted east=-2.26+-0.77 north=+1.03+-0.68 arcsec (bootstrap kept 300/300) | gauss: measured-predicted east=-1.39+-0.76 north=+0.78+-0.51 arcsec (bootstrap kept 300/300)
+epoch 1: n=46 mean MJD=60995.5 peak S/N at prediction=19.7 | win: measured-predicted east=-1.79+-0.36 north=+0.83+-0.34 arcsec (bootstrap kept 300/300) | gauss: measured-predicted east=-1.88+-0.29 north=+0.81+-0.26 arcsec (bootstrap kept 300/300)
+epoch 2: n=36 mean MJD=61161.2 peak S/N at prediction=20.1 | win: measured-predicted east=-0.75+-0.32 north=+1.10+-0.34 arcsec (bootstrap kept 300/300) | gauss: measured-predicted east=-0.62+-0.16 north=+1.14+-0.17 arcsec (bootstrap kept 300/300)
+motion epoch 0 -> 1: predicted east=-3.49 north=+0.09 arcsec | win: east=-3.02+-0.85 north=-0.12+-0.76 | gauss: east=-3.98+-0.81 north=+0.12+-0.58
+motion epoch 0 -> 2: predicted east=-8.01 north=+0.65 arcsec | win: east=-6.50+-0.84 north=+0.71+-0.76 | gauss: east=-7.24+-0.77 north=+1.01+-0.54
+motion epoch 1 -> 2: predicted east=-4.52 north=+0.56 arcsec | win: east=-3.48+-0.49 north=+0.83+-0.48 | gauss: east=-3.26+-0.33 north=+0.89+-0.31
+wrote C:\Users\user\blackhole-spherex\data\astrometry\wise-0855_stack_d56.json
