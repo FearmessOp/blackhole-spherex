@@ -6,6 +6,9 @@ type Props = {
     n: number // grid size in pixels
     scaleArcsec: number
     marker?: XY | null
+    markerLabel?: string // written under the catalogue marker
+    neighbour?: XY | null // a catalogue star that is not the target
+    neighbourLabel?: string
     arrow?: Arrow | null
     background?: React.CSSProperties // sprite-sheet frame (raw playback)
     children?: ReactNode // stacked <img> layers
@@ -21,9 +24,18 @@ export const ARROW_SCALE = 4
 export default function SkyPanel(p: Props) {
     const n = p.n
     const u = n / 100 // 1% of the panel, in grid pixels
+    const font = 3.4 * u
     const bar = BAR_ARCSEC / p.scaleArcsec
     const a = p.arrow
     const len = a ? ARROW_SCALE * Math.hypot(a.dx, a.dy) : 0
+    // Keeps a centred label inside the panel (rough width: 0.27 em per character on each side).
+    const clampX = (x: number, text: string) => {
+        const half = 0.27 * font * text.length
+        return Math.min(n - half - u, Math.max(half + u, x))
+    }
+    const nb = p.neighbour
+    // The pointer to the neighbour comes from above, on the side away from the target marker.
+    const side = nb && p.marker && nb.x < p.marker.x ? -1 : 1
 
     return (
         <figure className="fig">
@@ -38,6 +50,36 @@ export default function SkyPanel(p: Props) {
                             <line x1={0} y1={-3} x2={0} y2={-1.5} />
                             <line x1={0} y1={1.5} x2={0} y2={3} />
                         </g>
+                    )}
+                    {p.marker && p.markerLabel && (
+                        <text
+                            className="marker-label"
+                            x={clampX(p.marker.x + 0.5, p.markerLabel)}
+                            y={p.marker.y + 0.5 + 3 + 1.2 * font}
+                            fontSize={font}
+                            textAnchor="middle"
+                        >
+                            {p.markerLabel}
+                        </text>
+                    )}
+                    {nb && (
+                        <>
+                            <g className="neighbour" transform={`translate(${nb.x + 0.5} ${nb.y + 0.5})`}>
+                                <line className="case" x1={side * 0.9} y1={-0.9} x2={side * 3.2} y2={-3.2} />
+                                <line x1={side * 0.9} y1={-0.9} x2={side * 3.2} y2={-3.2} />
+                            </g>
+                            {p.neighbourLabel && (
+                                <text
+                                    className="neighbour-label"
+                                    x={clampX(nb.x + 0.5 + side * 3.2, p.neighbourLabel)}
+                                    y={nb.y + 0.5 - 3.2 - 0.5 * font}
+                                    fontSize={font}
+                                    textAnchor="middle"
+                                >
+                                    {p.neighbourLabel}
+                                </text>
+                            )}
+                        </>
                     )}
                     {a && len > 0 && (
                         <>
@@ -55,19 +97,19 @@ export default function SkyPanel(p: Props) {
                                 className="arrow-label"
                                 x={a.x + 0.5 + ARROW_SCALE * a.dx}
                                 y={a.y + 0.5 + ARROW_SCALE * a.dy + 6 * u}
-                                fontSize={3.4 * u}
+                                fontSize={font}
                                 textAnchor="middle"
                             >
                                 motion ×{ARROW_SCALE}
                             </text>
                         </>
                     )}
-                    <text className="compass" x={2 * u} y={5 * u} fontSize={3.4 * u}>
+                    <text className="compass" x={2 * u} y={5 * u} fontSize={font}>
                         N up, E left
                     </text>
                     <g className="scalebar">
                         <line x1={n - 3 * u - bar} y1={n - 4 * u} x2={n - 3 * u} y2={n - 4 * u} />
-                        <text x={n - 3 * u - bar / 2} y={n - 6 * u} fontSize={3.4 * u} textAnchor="middle">
+                        <text x={n - 3 * u - bar / 2} y={n - 6 * u} fontSize={font} textAnchor="middle">
                             {BAR_ARCSEC}″
                         </text>
                     </g>

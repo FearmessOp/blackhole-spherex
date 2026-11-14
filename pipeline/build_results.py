@@ -116,8 +116,12 @@ def stack_motion(slug):
         g = next((s["g"] for e in nb for s in e["neighbours"]
                   if s["source_id"] == test["gaia_id"]), None)
         short = [s for s in test["short"] if "east" in s]
+        # Gaia position of the star on the display grid, one entry per epoch (neighbours.py)
+        xy = [next(({"x": s["x"], "y": s["y"]} for s in e["neighbours"]
+                    if s["source_id"] == test["gaia_id"]), None) for e in nb]
         res["neighbour"] = {
             "gaia_id": test["gaia_id"], "g": None if g is None else round(g, 2),
+            "xy": xy if len(xy) == len(rows) and all(xy) else None,
             "sep_arcsec": [round(math.hypot(r["neighbour"]["east"], r["neighbour"]["north"]), 1)
                            for r in L],
             "amp_ratio": [round(r["two"]["amp_ratio"], 2) for r in L],

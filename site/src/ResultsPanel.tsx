@@ -1,5 +1,5 @@
 import { ARROW_SCALE } from './SkyPanel'
-import type { Results } from './types'
+import type { Neighbour, Results } from './types'
 
 const f = (v: number, d = 1) => v.toFixed(d)
 const s = (v: number, d = 2) => (v >= 0 ? '+' : '') + v.toFixed(d)
@@ -40,6 +40,32 @@ export function FlickerNote({ r }: { r: Results }) {
     )
 }
 
+// Shown directly under the short / long wavelength panels.
+export function NeighbourNote({ nb }: { nb: Neighbour }) {
+    return (
+        <p className="warn">
+            <b>The source next to the amber marker in the short-wavelength stack is not the target.</b> It is the
+            star Gaia DR3 {nb.gaia_id}
+            {nb.g !== null && <> (G = {f(nb.g, 2)})</>}
+            {nb.short_offset_max_arcsec !== null && (
+                <>, fitted within {f(nb.short_offset_max_arcsec, 2)} arcsec of its Gaia position</>
+            )}
+            . It lies {nb.sep_arcsec.map((v) => f(v)).join(', ')} arcsec from the predicted target position in the{' '}
+            {nb.sep_arcsec.length} epochs; the target is moving towards it. On the long-wavelength stacks the star has{' '}
+            {nb.amp_ratio
+                .map((v, i) => {
+                    const [lo, hi] = nb.amp_ratio_range[i]
+                    return `${f(v, 2)} (${f(lo, 2)}–${f(hi, 2)})`
+                })
+                .join(', ')}{' '}
+            of the target's amplitude (16–84% bootstrap range in brackets) and pulls a single-source measurement
+            towards itself. The measurement labelled <i>Gaussian fit, neighbour modelled</i> in the table below fits
+            both sources, with the star fixed at its Gaia position and one shared width; where the range is wide the
+            two sources are not well separated.
+        </p>
+    )
+}
+
 export default function ResultsPanel({ r }: { r: Results }) {
     const sat = r.saturation
     const saturated = sat !== null && sat.overflow > sat.exposures / 2
@@ -56,12 +82,26 @@ export default function ResultsPanel({ r }: { r: Results }) {
                     Saturated target: the OVERFLOW flag is set at the target position in {sat.overflow} of{' '}
                     {sat.exposures} exposures. Too few exposures have an unsaturated core to measure a motion,
                     so no motion measurement is shown for this target. The amber marker is the catalogue position.
-                    {sat.core_empty !== null && sat.core_filled !== null && (
+                    {sat.core_empty !== null && sat.core_filled !== null && sat.core_empty > 0 && sat.core_filled > 0 && (
                         <>
                             {' '}
                             In {sat.core_empty} of these exposures at least one of the central 3×3 pixels is empty
                             and shows as black in the raw playback; in {sat.core_filled} all nine pixels still carry
                             a value and are drawn as they are, but their brightness is not reliable.
+                        </>
+                    )}
+                    {sat.core_empty === 0 && sat.core_filled !== null && sat.core_filled > 0 && (
+                        <>
+                            {' '}
+                            In all {sat.core_filled} of these exposures the central 3×3 pixels still carry a value
+                            and are drawn as they are, but their brightness is not reliable.
+                        </>
+                    )}
+                    {sat.core_filled === 0 && sat.core_empty !== null && sat.core_empty > 0 && (
+                        <>
+                            {' '}
+                            In all {sat.core_empty} of these exposures at least one of the central 3×3 pixels is
+                            empty and shows as black in the raw playback.
                         </>
                     )}
                 </p>
@@ -146,8 +186,9 @@ export default function ResultsPanel({ r }: { r: Results }) {
                                     </td>
                                     {p.methods.map((m) => (
                                         <td key={m.id} data-label={m.label}>
-                                            <span className="pair">{s(m.east)} ± {f(m.east_err, 2)} /</span>{' '}
-                                            <span className="pair">{s(m.north)} ± {f(m.north_err, 2)}</span>
+                                            <span className="pair">
+                                                {s(m.east)} ± {f(m.east_err, 2)} / {s(m.north)} ± {f(m.north_err, 2)}
+                                            </span>
                                         </td>
                                     ))}
                                 </tr>
@@ -160,29 +201,6 @@ export default function ResultsPanel({ r }: { r: Results }) {
                         {sm.epochs.length} epochs a proper motion + parallax fit is not constrained. Not aligned to
                         field stars; errors are bootstrap over frames.
                     </p>
-                    {sm.neighbour && (
-                        <p className="warn">
-                            Nearby star: Gaia DR3 {sm.neighbour.gaia_id}
-                            {sm.neighbour.g !== null && <> (G = {f(sm.neighbour.g, 2)})</>} lies{' '}
-                            {sm.neighbour.sep_arcsec.map((v) => f(v)).join(', ')} arcsec from the predicted target
-                            position in the {sm.neighbour.sep_arcsec.length} epochs; the target is moving towards it.
-                            It is the bright source next to the marker in the short-wavelength stack
-                            {sm.neighbour.short_offset_max_arcsec !== null && (
-                                <> (fitted within {f(sm.neighbour.short_offset_max_arcsec, 2)} arcsec of its Gaia position)</>
-                            )}
-                            . On the long-wavelength stacks it has{' '}
-                            {sm.neighbour.amp_ratio
-                                .map((v, i) => {
-                                    const [lo, hi] = sm.neighbour!.amp_ratio_range[i]
-                                    return `${f(v, 2)} (${f(lo, 2)}–${f(hi, 2)})`
-                                })
-                                .join(', ')}{' '}
-                            of the target's amplitude (16–84% bootstrap range in brackets) and pulls a single-source
-                            measurement towards itself. The measurement labelled <i>Gaussian fit, neighbour modelled</i>{' '}
-                            fits both sources, with the star fixed at its Gaia position and one shared width; where the
-                            range is wide the two sources are not well separated.
-                        </p>
-                    )}
                 </>
             )}
 

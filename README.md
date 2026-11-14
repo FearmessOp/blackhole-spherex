@@ -225,7 +225,7 @@ from SPHEREx data by `pipeline/stack_epochs.py`.
 *Draft: this section was written by the SI tool itself and has not yet been
 confirmed by the team.*
 
-This project was built with a synthetic-intelligence (SI) coding assistant.
+This project was built with a Super Intelligence (SI) coding assistant.
 The team member set the task and its rules.
 
 - **Code written with SI:** all Python scripts in `pipeline/`, and the site code
@@ -244,3 +244,6 @@ The tool is listed in [SOURCES.md](SOURCES.md).
 ## License
 
 Apache License 2.0, see [LICENSE](LICENSE).
+
+The files `data/gaia/*.csv` are not covered by the Apache License 2.0. Their
+licences are listed in [SOURCES.md](SOURCES.md).

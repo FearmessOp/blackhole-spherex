@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import RawView from './RawView'
-import ResultsPanel, { FlickerNote } from './ResultsPanel'
+import ResultsPanel, { FlickerNote, NeighbourNote } from './ResultsPanel'
 import SkyPanel from './SkyPanel'
-import type { Arrow, Band, Meta, Results } from './types'
+import type { Arrow, Band, Meta, Results, XY } from './types'
 
 const SPEEDS = [
     { label: 'Slow', ms: 1200 },
@@ -19,11 +19,14 @@ type StackProps = {
     epoch: number
     title: string
     marker: boolean
+    markerLabel?: string
+    neighbour?: XY | null
+    neighbourLabel?: string
     arrow?: Arrow | null
 }
 
 // One band at one epoch. All frames of the band stay loaded so that blinking does not flash.
-function StackPanel({ base, meta, band, epoch, title, marker, arrow }: StackProps) {
+function StackPanel({ base, meta, band, epoch, title, marker, markerLabel, neighbour, neighbourLabel, arrow }: StackProps) {
     const frame = band.frames.find((f) => f.epoch === epoch)
     const ep = meta.epochs[epoch]
     return (
@@ -32,6 +35,9 @@ function StackPanel({ base, meta, band, epoch, title, marker, arrow }: StackProp
             n={meta.grid.npix}
             scaleArcsec={meta.grid.scale_arcsec}
             marker={marker ? ep.predicted : null}
+            markerLabel={markerLabel}
+            neighbour={neighbour}
+            neighbourLabel={neighbourLabel}
             arrow={arrow}
             caption={`Epoch ${epoch + 1} of ${meta.epochs.length}: ${ep.t_start.slice(0, 10)} to ${ep.t_end.slice(0, 10)}`}
             detail={
@@ -92,6 +98,8 @@ export default function BlinkView({ slug }: { slug: string }) {
     const compare = (res.compare_bands ?? [])
         .map((id) => meta.bands.find((b) => b.id === id))
         .filter((b): b is Band => Boolean(b))
+    const neighbour = res.stack_motion?.neighbour ?? null
+    const neighbourXY = neighbour?.xy?.[epoch] ?? null
 
     return (
         <div className="target">
@@ -120,9 +128,16 @@ export default function BlinkView({ slug }: { slug: string }) {
 
             <div className="controls">
                 <div className="group">
+                    <h4>Playback</h4>
+                    <div className="row">
+                        <button className="play" onClick={() => setPlaying(!playing)}>
+                            {playing ? 'Pause' : 'Play'}
+                        </button>
+                    </div>
+                </div>
+                <div className="group">
                     <h4>Epoch</h4>
                     <div className="row">
-                        <button onClick={() => setPlaying(!playing)}>{playing ? 'Pause' : 'Play'}</button>
                         {band.frames.map((f, i) => (
                             <button
                                 key={f.png}
@@ -179,13 +194,25 @@ export default function BlinkView({ slug }: { slug: string }) {
                     <h3>Short versus long wavelength</h3>
                     <p className="detail">
                         The same epoch in two stacks. Each band has its own brightness scale; the amber marker is the
-                        catalogue position.
+                        catalogue position of the target.
                     </p>
                     <div className="views">
                         {compare.map((b) => (
-                            <StackPanel key={b.id} base={base} meta={meta} band={b} epoch={epoch} title={b.label} marker={marker} />
+                            <StackPanel
+                                key={b.id}
+                                base={base}
+                                meta={meta}
+                                band={b}
+                                epoch={epoch}
+                                title={b.label}
+                                marker={marker}
+                                markerLabel="target, catalogue position"
+                                neighbour={marker ? neighbourXY : null}
+                                neighbourLabel="Gaia neighbour, not the target"
+                            />
                         ))}
                     </div>
+                    {neighbour && <NeighbourNote nb={neighbour} />}
                 </section>
             )}
 

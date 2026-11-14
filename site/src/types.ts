@@ -70,6 +70,7 @@ export type MotionPair = {
 export type Neighbour = {
     gaia_id: string
     g: number | null
+    xy: XY[] | null // per epoch, Gaia position of the star on the display grid
     sep_arcsec: number[] // per epoch, from the predicted target position
     amp_ratio: number[] // per epoch, neighbour / target amplitude on the D5+D6 stack
     amp_ratio_range: [number, number][] // 16-84% bootstrap range

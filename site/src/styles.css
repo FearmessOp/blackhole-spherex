@@ -3,7 +3,7 @@
     --panel: #111d36;
     --line: #24345a;
     --text: #ece8dd;
-    --muted: #9aa3b5;
+    --muted: #bcc4d4;
     --accent: #ffb000;
     --mono: ui-monospace, Consolas, 'Courier New', monospace;
     color-scheme: dark;
@@ -179,12 +179,32 @@ button.on {
 }
 
 .arrow line {
-    stroke: var(--text);
+    stroke: var(--accent);
     stroke-width: 0.12;
 }
 
 .arrow polygon {
+    fill: var(--accent);
+}
+
+/* A catalogue star that is not the target: off-white pointer, never amber. */
+.neighbour line {
+    stroke: var(--text);
+    stroke-width: 0.12;
+}
+
+.neighbour .case {
+    stroke: #000;
+    stroke-width: 0.34;
+    stroke-linecap: round;
+}
+
+.neighbour-label {
     fill: var(--text);
+}
+
+.marker-label {
+    fill: var(--accent);
 }
 
 /* Dark casing under the arrow keeps it readable on bright pixels. */
@@ -201,13 +221,15 @@ button.on {
 }
 
 .arrow-label {
-    fill: var(--text);
+    fill: var(--accent);
 }
 
 /* Dark outline under overlay text keeps it readable on bright or noisy pixels. */
 .compass,
 .scalebar text,
-.arrow-label {
+.arrow-label,
+.marker-label,
+.neighbour-label {
     paint-order: stroke;
     stroke: #000;
     stroke-width: 0.12;
@@ -277,6 +299,11 @@ button.on {
     background: var(--bg);
 }
 
+.controls .play {
+    min-width: 72px;
+    border-color: var(--muted);
+}
+
 .check {
     display: flex;
     align-items: center;
@@ -294,10 +321,7 @@ button.on {
     margin-bottom: 24px;
 }
 
-.results {
-    max-width: 900px;
-}
-
+/* Tables and notes take the full width of the two image panels. */
 .results table {
     width: 100%;
     margin-bottom: 12px;
@@ -326,7 +350,7 @@ button.on {
     font-family: inherit;
 }
 
-/* "value ± error" stays on one line; a cell may only wrap between east and north. */
+/* "value ± error" and east / north pairs stay on one line. */
 .results .pair {
     display: inline-block;
     white-space: nowrap;
