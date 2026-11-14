@@ -1,0 +1,27 @@
+== references in dist/index.html 
+  <script type="module" crossorigin src="./assets/index-DRoKMHxZ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Cz6nDzci.css">
+== requests 
+favicon.ico http=404
+meta.json http=200 bytes=7608
+all_e0.png http=200 bytes=727
+all_e1.png http=200 bytes=720
+all_e2.png http=200 bytes=735
+d1_e0.png http=200 bytes=719
+d1_e1.png http=200 bytes=750
+d1_e2.png http=200 bytes=732
+d2_e0.png http=200 bytes=722
+d2_e1.png http=200 bytes=746
+d2_e2.png http=200 bytes=745
+d3_e0.png http=200 bytes=733
+d3_e1.png http=200 bytes=733
+d3_e2.png http=200 bytes=735
+d4_e0.png http=200 bytes=707
+d4_e1.png http=200 bytes=719
+d4_e2.png http=200 bytes=723
+d5_e0.png http=200 bytes=695
+d5_e1.png http=200 bytes=717
+d5_e2.png http=200 bytes=702
+d6_e0.png http=200 bytes=714
+d6_e1.png http=200 bytes=708
+d6_e2.png http=200 bytes=728

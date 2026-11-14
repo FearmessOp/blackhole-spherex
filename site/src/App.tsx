@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import BlinkView from './BlinkView'
 
 type TargetEntry = {
     slug: string
@@ -14,6 +15,7 @@ const INDEX_URL = `${import.meta.env.BASE_URL}data/index.json`
 
 export default function App() {
     const [index, setIndex] = useState<IndexState>({ status: 'loading' })
+    const [slug, setSlug] = useState<string | null>(null)
 
     useEffect(() => {
         let cancelled = false
@@ -50,11 +52,20 @@ export default function App() {
                     <p className="note">No processed targets are available yet.</p>
                 )}
                 {index.status === 'ready' && (
-                    <ul className="targets">
-                        {index.targets.map((t) => (
-                            <li key={t.slug}>{t.name}</li>
-                        ))}
-                    </ul>
+                    <>
+                        <nav className="row targets">
+                            {index.targets.map((t) => (
+                                <button
+                                    key={t.slug}
+                                    className={t.slug === (slug ?? index.targets[0].slug) ? 'on' : ''}
+                                    onClick={() => setSlug(t.slug)}
+                                >
+                                    {t.name}
+                                </button>
+                            ))}
+                        </nav>
+                        <BlinkView key={slug ?? index.targets[0].slug} slug={slug ?? index.targets[0].slug} />
+                    </>
                 )}
             </main>
         </div>
