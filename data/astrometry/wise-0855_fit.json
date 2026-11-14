@@ -1,0 +1,44 @@
+{
+ "slug": "wise-0855",
+ "t0_year": 2026.0324,
+ "reference": [
+  -8123.7,
+  673.2,
+  439.0
+ ],
+ "win": {
+  "n_used": 44,
+  "values": {
+   "e0_mas": -635.3,
+   "n0_mas": 1224.23,
+   "pm_east_masyr": -6658.36,
+   "pm_north_masyr": -228.94,
+   "plx_mas": 686.59
+  },
+  "bootstrap_err": {
+   "e0_mas": 289.81,
+   "n0_mas": 338.92,
+   "pm_east_masyr": 890.68,
+   "pm_north_masyr": 1208.69,
+   "plx_mas": 312.81
+  }
+ },
+ "psf": {
+  "n_used": 43,
+  "values": {
+   "e0_mas": -897.65,
+   "n0_mas": 764.41,
+   "pm_east_masyr": -9542.78,
+   "pm_north_masyr": 2110.03,
+   "plx_mas": -196.63
+  },
+  "bootstrap_err": {
+   "e0_mas": 196.18,
+   "n0_mas": 124.83,
+   "pm_east_masyr": 862.01,
+   "pm_north_masyr": 413.81,
+   "plx_mas": 256.52
+  }
+ },
+ "aligned_to_field_stars": false
+}

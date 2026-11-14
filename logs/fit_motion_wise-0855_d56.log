@@ -1,0 +1,24 @@
+methods=('win', 'psf') ignore_clean=False align=None align_with=same estimator
+wise-0855: input=wise-0855_target.csv exposures=44 detectors={5, 6} epochs=[0, 1, 2] span=60800.8..61174.3 MJD t0=2026.0324
+reference (SIMBAD, 2021ApJS..253....7K): pm_east=-8123.7 pm_north=673.2 mas/yr plx=439.0 mas
+--- method=win: used=44 of 44 (clipped 0); residual rms east=1704 north=2198 mas
+e0_mas = -635.3 +- 289.8
+n0_mas = +1224.2 +- 338.9
+pm_east_masyr = -6658.4 +- 890.7   SIMBAD -8123.7   difference +1465.3 (1.6 x bootstrap error)
+pm_north_masyr = -228.9 +- 1208.7   SIMBAD +673.2   difference -902.1 (0.7 x bootstrap error)
+plx_mas = +686.6 +- 312.8   SIMBAD +439.0   difference +247.6 (0.8 x bootstrap error)
+leave-one-epoch-out: not done, only 3 epochs
+epoch 0: n=5 mean residual east=-65 north=-498 mas
+epoch 1: n=18 mean residual east=+57 north=+306 mas
+epoch 2: n=21 mean residual east=-33 north=-144 mas
+--- method=psf: used=43 of 44 (clipped 1); residual rms east=1088 north=775 mas
+e0_mas = -897.7 +- 196.2
+n0_mas = +764.4 +- 124.8
+pm_east_masyr = -9542.8 +- 862.0   SIMBAD -8123.7   difference -1419.1 (1.6 x bootstrap error)
+pm_north_masyr = +2110.0 +- 413.8   SIMBAD +673.2   difference +1436.8 (3.5 x bootstrap error)
+plx_mas = -196.6 +- 256.5   SIMBAD +439.0   difference -635.6 (2.5 x bootstrap error)
+leave-one-epoch-out: not done, only 3 epochs
+epoch 0: n=5 mean residual east=+119 north=+362 mas
+epoch 1: n=17 mean residual east=-73 north=-233 mas
+epoch 2: n=21 mean residual east=+31 north=+102 mas
+wrote C:\Users\user\blackhole-spherex\data\astrometry\wise-0855_fit.json
