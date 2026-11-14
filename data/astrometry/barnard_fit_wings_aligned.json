@@ -1,26 +1,26 @@
 {
  "slug": "barnard",
- "t0_year": 2026.1641,
+ "t0_year": 2026.1753,
  "reference": [
   -801.551,
   10362.394,
   546.9759
  ],
  "win": {
-  "n_used": 263,
+  "n_used": 284,
   "values": {
-   "e0_mas": 381.66,
-   "n0_mas": 180.53,
-   "pm_east_masyr": -1614.36,
-   "pm_north_masyr": 10151.06,
-   "plx_mas": 929.94
+   "e0_mas": 305.06,
+   "n0_mas": 156.57,
+   "pm_east_masyr": -1517.22,
+   "pm_north_masyr": 10140.06,
+   "plx_mas": 803.5
   },
   "bootstrap_err": {
-   "e0_mas": 153.38,
-   "n0_mas": 144.81,
-   "pm_east_masyr": 355.56,
-   "pm_north_masyr": 320.51,
-   "plx_mas": 163.31
+   "e0_mas": 145.14,
+   "n0_mas": 133.3,
+   "pm_east_masyr": 338.95,
+   "pm_north_masyr": 321.29,
+   "plx_mas": 161.48
   }
  },
  "aligned_to_field_stars": true
