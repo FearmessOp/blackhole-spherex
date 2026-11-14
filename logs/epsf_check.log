@@ -1,0 +1,30 @@
+disk free at start: 8.20 GB
+cutout files found: 3946
+  500 files read, 6 s
+  1000 files read, 11 s
+  1500 files read, 16 s
+  2000 files read, 21 s
+  2500 files read, 25 s
+  3000 files read, 30 s
+  3500 files read, 34 s
+read 3946 files, 0 errors, 37 s
+
+distinct EPSF data tables: 6 over detectors [1, 2, 3, 4, 5, 6]
+D1 md5=9990cf280b8cf4d7f83dd5d80df8eb8e rows=441 files=584 collections={'spherex_dr1': 464, 'spherex_qr3': 120} mjd=60790.262..61292.905 headers=1 kinds=['cutouts', 'cutouts_wide'] formats=['J', 'J', 'E', 'E', 'E', 'E', 'J', 'E', 'E', 'E', '1089D'] stored=3870720 bytes
+D2 md5=bf880b79109715857c597a8d8764deb3 rows=441 files=702 collections={'spherex_dr1': 528, 'spherex_qr3': 174} mjd=60789.856..61315.479 headers=1 kinds=['cutouts', 'cutouts_wide'] formats=['J', 'J', 'E', 'E', 'E', 'E', 'J', 'E', 'E', 'E', '1089D'] stored=3870720 bytes
+D3 md5=e07f14595dcddde4f928eee1fcfc8041 rows=451 files=704 collections={'spherex_dr1': 518, 'spherex_qr3': 186} mjd=60794.065..61311.337 headers=1 kinds=['cutouts', 'cutouts_wide'] formats=['J', 'J', 'E', 'E', 'E', 'E', 'J', 'E', 'E', 'E', '1089D'] stored=3957120 bytes
+D4 md5=4eacaca9be441c0bb5e99837f1452847 rows=441 files=572 collections={'spherex_dr1': 454, 'spherex_qr3': 118} mjd=60790.262..61292.905 headers=1 kinds=['cutouts', 'cutouts_wide'] formats=['J', 'J', 'E', 'E', 'E', 'E', 'J', 'E', 'E', 'E', '1089D'] stored=3870720 bytes
+D5 md5=e3d8e18d3f9c99436e2dedf75564d280 rows=441 files=690 collections={'spherex_dr1': 516, 'spherex_qr3': 174} mjd=60789.856..61315.479 headers=1 kinds=['cutouts', 'cutouts_wide'] formats=['J', 'J', 'E', 'E', 'E', 'E', 'J', 'E', 'E', 'E', '1089D'] stored=3870720 bytes
+D6 md5=559c690ed1459773d5b332ca17c3ef19 rows=441 files=694 collections={'spherex_dr1': 506, 'spherex_qr3': 188} mjd=60794.064..61311.337 headers=1 kinds=['cutouts', 'cutouts_wide'] formats=['J', 'J', 'E', 'E', 'E', 'E', 'J', 'E', 'E', 'E', '1089D'] stored=3870720 bytes
+
+per detector:
+D1: 1 distinct table(s), 584 files
+D2: 1 distinct table(s), 702 files
+D3: 1 distinct table(s), 704 files
+D4: 1 distinct table(s), 572 files
+D5: 1 distinct table(s), 690 files
+D6: 1 distinct table(s), 694 files
+
+one table per detector in all cached files: True
+wrote data/epsf/index.json, data/epsf/epsf_check.csv; tables in cache/epsf/: 23310720 bytes
+disk free at end: 8.17 GB, 38 s

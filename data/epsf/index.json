@@ -1,0 +1,211 @@
+{
+ "n_files": 3946,
+ "n_errors": 0,
+ "one_table_per_detector": true,
+ "tables": [
+  {
+   "detector": 1,
+   "data_md5": "9990cf280b8cf4d7f83dd5d80df8eb8e",
+   "rows": 441,
+   "row_bytes": 8752,
+   "n_files": 584,
+   "collections": {
+    "spherex_dr1": 464,
+    "spherex_qr3": 120
+   },
+   "mjd_min": 60790.262,
+   "mjd_max": 61292.905,
+   "header_md5_count": 1,
+   "kinds": [
+    "cutouts",
+    "cutouts_wide"
+   ],
+   "stored_as": "cache/epsf/epsf_D1_441_9990cf28.fits",
+   "stored_bytes": 3870720,
+   "example": "cache/cutouts/barnard/spherex_dr1/level2_2025W35_1A_0432_4D1_spx_l2b-v27-2026-230.fits",
+   "column_formats": [
+    "J",
+    "J",
+    "E",
+    "E",
+    "E",
+    "E",
+    "J",
+    "E",
+    "E",
+    "E",
+    "1089D"
+   ]
+  },
+  {
+   "detector": 2,
+   "data_md5": "bf880b79109715857c597a8d8764deb3",
+   "rows": 441,
+   "row_bytes": 8752,
+   "n_files": 702,
+   "collections": {
+    "spherex_dr1": 528,
+    "spherex_qr3": 174
+   },
+   "mjd_min": 60789.856,
+   "mjd_max": 61315.479,
+   "header_md5_count": 1,
+   "kinds": [
+    "cutouts",
+    "cutouts_wide"
+   ],
+   "stored_as": "cache/epsf/epsf_D2_441_bf880b79.fits",
+   "stored_bytes": 3870720,
+   "example": "cache/cutouts/barnard/spherex_dr1/level2_2025W34_2B_0090_4D2_spx_l2b-v27-2026-229.fits",
+   "column_formats": [
+    "J",
+    "J",
+    "E",
+    "E",
+    "E",
+    "E",
+    "J",
+    "E",
+    "E",
+    "E",
+    "1089D"
+   ]
+  },
+  {
+   "detector": 3,
+   "data_md5": "e07f14595dcddde4f928eee1fcfc8041",
+   "rows": 451,
+   "row_bytes": 8752,
+   "n_files": 704,
+   "collections": {
+    "spherex_dr1": 518,
+    "spherex_qr3": 186
+   },
+   "mjd_min": 60794.065,
+   "mjd_max": 61311.337,
+   "header_md5_count": 1,
+   "kinds": [
+    "cutouts",
+    "cutouts_wide"
+   ],
+   "stored_as": "cache/epsf/epsf_D3_451_e07f1459.fits",
+   "stored_bytes": 3957120,
+   "example": "cache/cutouts/barnard/spherex_dr1/level2_2025W33_2C_0321_1D3_spx_l2b-v27-2026-228.fits",
+   "column_formats": [
+    "J",
+    "J",
+    "E",
+    "E",
+    "E",
+    "E",
+    "J",
+    "E",
+    "E",
+    "E",
+    "1089D"
+   ]
+  },
+  {
+   "detector": 4,
+   "data_md5": "4eacaca9be441c0bb5e99837f1452847",
+   "rows": 441,
+   "row_bytes": 8752,
+   "n_files": 572,
+   "collections": {
+    "spherex_dr1": 454,
+    "spherex_qr3": 118
+   },
+   "mjd_min": 60790.262,
+   "mjd_max": 61292.905,
+   "header_md5_count": 1,
+   "kinds": [
+    "cutouts",
+    "cutouts_wide"
+   ],
+   "stored_as": "cache/epsf/epsf_D4_441_4eacaca9.fits",
+   "stored_bytes": 3870720,
+   "example": "cache/cutouts/barnard/spherex_dr1/level2_2025W35_1A_0432_4D4_spx_l2b-v27-2026-230.fits",
+   "column_formats": [
+    "J",
+    "J",
+    "E",
+    "E",
+    "E",
+    "E",
+    "J",
+    "E",
+    "E",
+    "E",
+    "1089D"
+   ]
+  },
+  {
+   "detector": 5,
+   "data_md5": "e3d8e18d3f9c99436e2dedf75564d280",
+   "rows": 441,
+   "row_bytes": 8752,
+   "n_files": 690,
+   "collections": {
+    "spherex_dr1": 516,
+    "spherex_qr3": 174
+   },
+   "mjd_min": 60789.856,
+   "mjd_max": 61315.479,
+   "header_md5_count": 1,
+   "kinds": [
+    "cutouts",
+    "cutouts_wide"
+   ],
+   "stored_as": "cache/epsf/epsf_D5_441_e3d8e18d.fits",
+   "stored_bytes": 3870720,
+   "example": "cache/cutouts/barnard/spherex_dr1/level2_2025W34_2B_0090_4D5_spx_l2b-v27-2026-229.fits",
+   "column_formats": [
+    "J",
+    "J",
+    "E",
+    "E",
+    "E",
+    "E",
+    "J",
+    "E",
+    "E",
+    "E",
+    "1089D"
+   ]
+  },
+  {
+   "detector": 6,
+   "data_md5": "559c690ed1459773d5b332ca17c3ef19",
+   "rows": 441,
+   "row_bytes": 8752,
+   "n_files": 694,
+   "collections": {
+    "spherex_dr1": 506,
+    "spherex_qr3": 188
+   },
+   "mjd_min": 60794.064,
+   "mjd_max": 61311.337,
+   "header_md5_count": 1,
+   "kinds": [
+    "cutouts",
+    "cutouts_wide"
+   ],
+   "stored_as": "cache/epsf/epsf_D6_441_559c690e.fits",
+   "stored_bytes": 3870720,
+   "example": "cache/cutouts/barnard/spherex_dr1/level2_2025W33_2C_0321_1D6_spx_l2b-v27-2026-228.fits",
+   "column_formats": [
+    "J",
+    "J",
+    "E",
+    "E",
+    "E",
+    "E",
+    "J",
+    "E",
+    "E",
+    "E",
+    "1089D"
+   ]
+  }
+ ]
+}

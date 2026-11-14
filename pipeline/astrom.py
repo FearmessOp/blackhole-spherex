@@ -2,8 +2,10 @@
 
 Pixel coordinates are 0-based cutout pixels (x = column, y = row).
 """
+import json
 import math
 import warnings
+from pathlib import Path
 
 import numpy as np
 from astropy.coordinates import get_body_barycentric
@@ -18,6 +20,28 @@ warnings.simplefilter("ignore")
 CORE_BAD = ["OVERFLOW", "SUR_ERROR", "NONFUNC", "MISSING_DATA", "HOT", "COLD",
             "NONLINEAR", "SNOWBALL", "TRANSIENT"]
 EPSF_OVERSAMPLE = 5  # OVSMPX / OVSMPY in the EPSF header
+ROOT = Path(__file__).resolve().parent.parent
+_EPSF = {}
+
+def stored_epsf(detector):
+    """ePSF zone table of one detector: {"zx", "zy", "epsf"}, as open_cutout returns them.
+
+    epsf_check.py found one table per detector in all 3946 cached cutouts (both
+    collections, logs/epsf_check.log) and stored each once in cache/epsf/. This
+    reads the stored copy, so a new target needs no EPSF download per exposure.
+    """
+    det = int(detector)
+    if det not in _EPSF:
+        index = json.loads((ROOT / "data" / "epsf" / "index.json").read_text(encoding="utf-8"))
+        own = [t for t in index["tables"] if t["detector"] == det]
+        if len(own) != 1:
+            raise ValueError(f"{len(own)} stored EPSF tables for detector {det}; expected 1")
+        with fits.open(ROOT / own[0]["stored_as"]) as hdul:
+            ep = hdul["EPSF"].data
+            _EPSF[det] = {"zx": np.array(ep["XCENTER"], float),
+                          "zy": np.array(ep["YCENTER"], float),
+                          "epsf": np.array(ep["EPSF"], float)}
+    return _EPSF[det]
 
 def year_of(mjd):
     return 2000.0 + (mjd - 51544.5) / 365.25
