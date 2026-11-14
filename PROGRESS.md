@@ -3,9 +3,56 @@
 Team Blackhole 102, NASA Space Apps Challenge 2026, "Planet X and SPHEREx".
 Times are local (UTC+3). Every number below comes from the log file named next to it.
 
-## Status at 2026-11-14 19:05
+## Status at 2026-11-14 20:20
 
 Live site: https://blackhole-spherex.vercel.app (deployed by Vercel on every push to `main`).
+Last pushed commit before this entry: `1dad231` (remote hash equal to local, checked
+with `git ls-remote`).
+
+### Block A: small fixes (commits `aa50678`, `1dad231`, pushed)
+
+Changed:
+
+- `README.md`: the term in "Use of SI" is now "Super Intelligence (SI)"; the draft
+  line stays. The section is not to be edited again without text from the team.
+  The License section says that `data/gaia/*.csv` is not covered by Apache-2.0.
+- WISE 0855, short versus long wavelength: the Gaia star has its own off-white
+  pointer and the label "Gaia neighbour, not the target"; the amber marker is
+  labelled "target, catalogue position"; the explanation sits directly under the
+  two panels and starts with "The source next to the amber marker in the
+  short-wavelength stack is not the target." The star's grid position comes from
+  `data/astrometry/wise-0855_neighbours.json` through `build_results.py`
+  (`logs/build_results.log`, "neighbour:" line); only the WISE 0855
+  `results.json` changed.
+- Tables: an east / north pair stays on one line; tables and notes are as wide as
+  the two panels. The motion arrow and its label are amber. Secondary text colour
+  changed from `#9aa3b5` to `#bcc4d4` (the contrast ratio was not computed).
+  "Pause" has its own group, "Playback".
+- RW Aurigae warning: "In all 305 of these exposures the central 3×3 pixels still
+  carry a value and are drawn as they are, but their brightness is not reliable."
+- Build: type check clean, 20 modules (`logs/site_build.log`).
+
+Looked at in a browser, no console errors:
+
+- Local preview, 900 px: WISE 0855 (comparison panels, note, motion table),
+  Epsilon Indi B (top of the page, arrow), RW Aurigae (lower part, warning).
+- Live site, 390 px, whole page: Barnard's Star, Epsilon Indi B, WISE 0855.
+  RW Aurigae down to the first lines of the warning; its last line was not
+  scrolled to. No defect was found on these pages.
+- Live site, 900 px, whole page: R Draconis.
+- Not opened after these changes: R Draconis at 390 px; on the live site at
+  900 px the lower part of the other four targets.
+
+Seen and left as it is:
+
+- In the third epoch the Gaia star is 4.3 arcsec (0.7 px) from the catalogue
+  position, so its pointer ends inside the amber marker. That the bright source is
+  not the target is then carried by the label and the note, not by the position.
+- Two preview servers are running on this machine (ports 4173 and 4174,
+  `logs/preview.log`).
+
+## Status at 2026-11-14 19:05
+
 The commits listed below were pushed (`be4f2a0..6fb46ee`, `logs/push_block3.log`).
 The live site serves the same bundle as the local build and the new data files
 (`logs/live_site_check_block3.log`) and was opened in a browser, see below.
@@ -259,17 +306,16 @@ Gaia. No release-dependent shift was measured.
   the statement that all code was written with SI and the name of the tool.
 - `SOURCES.md`: terms of IRSA, SIMBAD and Gaia and the licences of the tools filled
   in from `logs/check_terms.log`. The Gaia DR3 rows in `data/gaia/*.csv` are under
-  CC BY-NC 3.0 IGO (non-commercial), which is stated there; whether these files
-  stay in an Apache-2.0 repository is a decision for the team.
+  CC BY-NC 3.0 IGO (non-commercial), which is stated there. Team decision
+  (block A): the files stay in the repository; the README License section says
+  they are not covered by Apache-2.0.
 - Still "not checked" in `SOURCES.md`: terms of GitHub, Vercel, Visual Studio Code
   and the SI tool; the DOI of the SPHEREx data set.
 
 ### Open
 
-- Live site at 390 px: lower part of the page for Barnard's Star, Epsilon Indi B
-  and RW Aurigae not opened (same layout code as the two targets that were).
-- Team decisions: confirm the "Use of SI" text and the name of the SI tool; decide
-  whether `data/gaia/*.csv` (CC BY-NC 3.0 IGO) stays in the Apache-2.0 repository.
+- Team: the "Use of SI" text is still a draft and waits for text from the team;
+  the exact name and version of the SI tool are still missing in `SOURCES.md`.
 - Challenge features not implemented: coordinate entry and coordinates in the URL,
   spectrum on click, "find the mover", catalogue overlays, frame subtraction, field
   size. No light curve for the two variable stars.
