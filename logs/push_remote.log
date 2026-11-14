@@ -1,0 +1,10 @@
+== remotes 
+origin	https://github.com/FearmessOp/blackhole-spherex.git (fetch)
+origin	https://github.com/FearmessOp/blackhole-spherex.git (push)
+== ls-remote origin 
+ls-remote-ok 
+== local branches and head 
+* main de17116 Add Vite + React + TypeScript site shell
+== ignored check 
+.gitignore:32:logs/prepush_author.log	"logs\\prepush_author.log"
+== end

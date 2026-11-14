@@ -1,0 +1,26 @@
+== path or name matches 
+logs/resolve_targets.log:27:wrote C:\Users\user\blackhole-spherex\data\targets.json with 5 targets; failed: []
+logs/setup_env.log:1:Initialized empty Git repository in C:/Users/user/blackhole-spherex/.git/
+logs/setup_env.log:24:c:\Users\user\blackhole-spherex\.venv\Scripts\python.exe
+logs/site_setup.log:1:Wrote to c:\Users\user\blackhole-spherex\site\package.json:
+logs/site_setup.log:30:site@1.0.0 c:\Users\user\blackhole-spherex\site
+== LICENSE at root 
+LICENSE
+2:                                 Apache License
+3:                           Version 2.0, January 2004
+179:   APPENDIX: How to apply the Apache License to your work.
+181:      To apply the Apache License to your work, attach the following
+192:   Licensed under the Apache License, Version 2.0 (the "License");
+== README Use of SI section 
+README.md:48:## Use of SI
+README.md-49-
+README.md-50-## License
+README.md-51-
+== README non-ASCII lines 
+lines 52
+1 '# Blackhole 102 — SPHEREx motion viewer'
+8 '**Status:** work in progress (hackathon weekend, 14–15 November 2026).'
+== commit author metadata 
+%h %an <%ae>
+%h %an <%ae>
+== end

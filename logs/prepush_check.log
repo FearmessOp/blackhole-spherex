@@ -1,0 +1,31 @@
+== check-ignore 
+.gitignore:7:cache/	cache
+.gitignore:2:.venv/	.venv
+.gitignore:23:node_modules/	"site\\node_modules"
+.gitignore:24:dist/	"site\\dist"
+.gitignore:9:*.fits	x.fits
+.gitignore:13:.env	.env
+.gitignore:14:.env.*	.env.local
+.gitignore:28:logs/download.pid	"logs\\download.pid"
+== git status --short 
+ M .gitignore
+ M logs/download.log
+?? logs/prepush_check.log
+?? pipeline/stack_epochs.py
+== git add -n . 
+add '.gitignore'
+add 'logs/download.log'
+add 'logs/prepush_check.log'
+add 'pipeline/stack_epochs.py'
+== sizes 
+files 50 total_bytes 2409064
+384987 data/sia/r-dra_spherex_dr1.csv
+373508 logs/download.log
+318822 data/sia/eps-indi-b_spherex_dr1.csv
+237559 data/sia/wise-0855_spherex_dr1.csv
+219355 data/sia/barnard_spherex_dr1.csv
+206302 data/sia/rw-aur_spherex_dr1.csv
+115384 data/sia/r-dra_spherex_qr3.csv
+113575 data/sia/barnard_spherex_qr3.csv
+over_5MB []
+symlink_or_outside []

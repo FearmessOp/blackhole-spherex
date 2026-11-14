@@ -1,0 +1,13 @@
+* Host www.spaceappschallenge.org:443 was resolved.
+* IPv6: (none)
+* IPv4: 172.66.146.49, 104.20.46.121
+*   Trying 172.66.146.49:443...
+* schannel: disabled automatic use of client certificate
+* schannel: SEC_E_UNTRUSTED_ROOT (0x80090325) - Sertifika zinciri güvenilmeyen bir yetkili tarafýndan verildi.
+* closing connection #0
+curl: (60) schannel: SEC_E_UNTRUSTED_ROOT (0x80090325) - Sertifika zinciri güvenilmeyen bir yetkili tarafýndan verildi.
+More details here: https://curl.se/docs/sslcerts.html
+
+curl failed to verify the legitimacy of the server and therefore could not
+establish a secure connection to it. To learn more about this situation and
+how to fix it, please visit the webpage mentioned above.
