@@ -1,0 +1,17 @@
+== README Use of SI section 
+README.md:64:## Use of SI
+README.md-65-
+README.md-66-## License
+== e-mail addresses in tracked and new files 
+== commit and push 
+To https://github.com/FearmessOp/blackhole-spherex.git
+   809d89b..0091dcf  main -> main
+== local head 
+0091dcffb68ec6841b70d7062c6a2989affaf841
+== ls-remote 
+0091dcffb68ec6841b70d7062c6a2989affaf841	HEAD
+0091dcffb68ec6841b70d7062c6a2989affaf841	refs/heads/main
+== status 
+## main...origin/main
+?? logs/download_stderr.log
+?? logs/push_block2.log

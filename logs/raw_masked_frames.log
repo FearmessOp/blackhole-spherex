@@ -1,0 +1,28 @@
+barnard frames 364 median masked fraction 0.005 frames with >10%% masked 8 with >50%% masked 4
+   index 203 masked 0.84 {'t': '2026-03-21T13:11', 'epoch': 1, 'det': 2, 'wave_um': 1.093, 'release': 'dr1'}
+   index 240 masked 0.87 {'t': '2026-08-16T15:07', 'epoch': 2, 'det': 6, 'wave_um': 4.402, 'release': 'qr3'}
+   index 283 masked 0.61 {'t': '2026-08-19T08:15', 'epoch': 2, 'det': 5, 'wave_um': 4.433, 'release': 'qr3'}
+   index 361 masked 0.86 {'t': '2026-09-22T05:16', 'epoch': 2, 'det': 6, 'wave_um': 4.403, 'release': 'qr3'}
+wise-0855 frames 258 median masked fraction 0.002 frames with >10%% masked 0 with >50%% masked 0
+eps-indi-b frames 467 median masked fraction 0.003 frames with >10%% masked 10 with >50%% masked 6
+   index 4 masked 1.00 {'t': '2025-04-24T22:08', 'epoch': 0, 'det': 5, 'wave_um': 3.796, 'release': 'dr1'}
+   index 9 masked 0.80 {'t': '2025-04-25T06:16', 'epoch': 0, 'det': 1, 'wave_um': 0.739, 'release': 'dr1'}
+   index 40 masked 1.00 {'t': '2025-04-29T01:32', 'epoch': 0, 'det': 6, 'wave_um': 4.399, 'release': 'dr1'}
+   index 70 masked 1.00 {'t': '2025-05-01T13:54', 'epoch': 0, 'det': 6, 'wave_um': 4.399, 'release': 'dr1'}
+   index 275 masked 0.81 {'t': '2026-04-20T19:36', 'epoch': 2, 'det': 1, 'wave_um': 0.739, 'release': 'dr1'}
+   index 306 masked 1.00 {'t': '2026-04-24T21:18', 'epoch': 2, 'det': 5, 'wave_um': 3.796, 'release': 'dr1'}
+rw-aur frames 336 median masked fraction 0.002 frames with >10%% masked 5 with >50%% masked 2
+   index 182 masked 0.51 {'t': '2026-03-05T10:02', 'epoch': 1, 'det': 2, 'wave_um': 1.094, 'release': 'dr1'}
+   index 271 masked 0.67 {'t': '2026-09-11T21:00', 'epoch': 2, 'det': 2, 'wave_um': 1.096, 'release': 'qr3'}
+r-dra frames 548 median masked fraction 0.030 frames with >10%% masked 30 with >50%% masked 11
+   index 85 masked 0.65 {'t': '2025-06-21T16:45', 'epoch': 0, 'det': 5, 'wave_um': 4.332, 'release': 'dr1'}
+   index 86 masked 0.64 {'t': '2025-06-21T16:45', 'epoch': 0, 'det': 2, 'wave_um': 1.553, 'release': 'dr1'}
+   index 87 masked 0.70 {'t': '2025-06-21T16:47', 'epoch': 0, 'det': 5, 'wave_um': 4.369, 'release': 'dr1'}
+   index 88 masked 0.67 {'t': '2025-06-21T16:47', 'epoch': 0, 'det': 2, 'wave_um': 1.59, 'release': 'dr1'}
+   index 89 masked 0.79 {'t': '2025-06-21T16:49', 'epoch': 0, 'det': 5, 'wave_um': 4.406, 'release': 'dr1'}
+   index 90 masked 0.74 {'t': '2025-06-21T16:49', 'epoch': 0, 'det': 2, 'wave_um': 1.629, 'release': 'dr1'}
+   index 91 masked 0.93 {'t': '2025-06-22T15:32', 'epoch': 0, 'det': 5, 'wave_um': 3.799, 'release': 'dr1'}
+   index 106 masked 0.53 {'t': '2025-06-25T15:21', 'epoch': 0, 'det': 2, 'wave_um': 1.517, 'release': 'dr1'}
+   index 169 masked 0.71 {'t': '2025-10-18T21:41', 'epoch': 1, 'det': 4, 'wave_um': 2.424, 'release': 'dr1'}
+   index 265 masked 0.86 {'t': '2025-11-30T11:34', 'epoch': 1, 'det': 5, 'wave_um': 3.797, 'release': 'dr1'}
+   index 318 masked 0.60 {'t': '2025-12-12T15:20', 'epoch': 1, 'det': 5, 'wave_um': 4.43, 'release': 'dr1'}

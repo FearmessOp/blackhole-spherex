@@ -125,9 +125,13 @@ Gaia. No release-dependent shift was measured.
   (`logs/stack_r-dra.log`), probably the saturated core; not looked at.
 - The site still labels the stack centroid offset without parallax; the fit results
   above are not shown on the site.
-- The side-by-side view was checked on the local preview at desktop width only, not
-  at phone width and not in a browser on the live site (the live data files and
-  build were checked with curl).
+- The side-by-side view was opened in a browser on the live site at desktop width
+  and at 390 px width for Barnard's Star only (no overflow, no console errors).
+  The other targets were not opened in this view.
+- Some raw exposures are mostly masked and show as an almost black panel during
+  playback: frames with more than half of the pixels masked are 4 (Barnard's Star),
+  6 (Epsilon Indi B), 2 (RW Aurigae), 11 (R Draconis), 0 (WISE 0855)
+  (`logs/raw_masked_frames.log`). They are not filtered out.
 - RW Aurigae reference values are from 2007 (Hipparcos reduction), not Gaia.
 - README "Use of SI": heading only, text pending from the team.
 - SOURCES.md: the IRSA, SIMBAD and Gaia archive terms and several tool licenses are
