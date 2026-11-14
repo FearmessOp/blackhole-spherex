@@ -6,6 +6,7 @@ type Epoch = {
     t_end: string
     n_exposures: number
     predicted: { x: number; y: number }
+    on_target?: boolean
     measured?: { x: number; y: number }
     offset_arcsec?: { east: number; north: number; total: number }
 }
@@ -20,7 +21,7 @@ type Meta = {
     bands: Band[]
 }
 
-const ZOOM = 16
+const VIEW_PX = 480 // largest width of the image panel; the zoom factor is a whole number
 const SPEEDS = [
     { label: 'Slow', ms: 1200 },
     { label: 'Normal', ms: 600 },
@@ -68,23 +69,21 @@ export default function BlinkView({ slug }: { slug: string }) {
     const frame = band.frames[pos % nFrames]
     const epoch = meta.epochs[frame.epoch]
     const n = meta.grid.npix
-    const size = n * ZOOM
+    const size = n * Math.max(1, Math.floor(VIEW_PX / n))
 
     return (
         <div className="blink">
-            <div className="view" style={{ width: size, height: size }}>
+            <div className="view" style={{ width: size }}>
                 {band.frames.map((f) => (
                     <img
                         key={f.png}
                         className="sky"
                         src={base + f.png}
-                        width={size}
-                        height={size}
                         alt=""
                         style={{ visibility: f === frame ? 'visible' : 'hidden' }}
                     />
                 ))}
-                <svg className="overlay" viewBox={`0 0 ${n} ${n}`} width={size} height={size}>
+                <svg className="overlay" viewBox={`0 0 ${n} ${n}`}>
                     {marker && (
                         <g className="marker" transform={`translate(${epoch.predicted.x + 0.5} ${epoch.predicted.y + 0.5})`}>
                             <line x1="-3" y1="0" x2="-1.5" y2="0" />
@@ -150,10 +149,16 @@ export default function BlinkView({ slug }: { slug: string }) {
                     Mark catalogue position (SIMBAD position + proper motion)
                 </label>
 
-                {epoch.offset_arcsec && (
+                {epoch.on_target && epoch.offset_arcsec && (
                     <p className="detail">
                         Measured centroid is {epoch.offset_arcsec.total.toFixed(2)}″ from the catalogue prediction
                         (all-detector stack, parallax not included).
+                    </p>
+                )}
+                {epoch.on_target === false && (
+                    <p className="detail">
+                        No source was measured within 3″ of the catalogue position in the all-detector stack of
+                        this epoch. The marker shows where the catalogue puts the target.
                     </p>
                 )}
                 <p className="detail">
