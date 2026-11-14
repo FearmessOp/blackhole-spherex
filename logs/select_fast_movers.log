@@ -1,0 +1,47 @@
+criteria: pm > 1000.0 mas/yr; parallax listed; 9.0 <= K <= 12.0; not a challenge target; one per system (60.0 arcsec, brightest K); top 10 by total proper motion
+=== K of the five challenge targets
+SELECT b.main_id, f.J, f.H, f.K, f.G, f.V FROM basic AS b JOIN allfluxes AS f ON f.oidref = b.oid WHERE b.main_id IN ('NAME Barnard''s star','* eps Ind B','WISEA J085510.74-071442.5','V* RW Aur','V* R Dra')
+  TAP status=200 bytes=240 attempt=1
+main_id,J,H,K,G,V
+"* eps Ind B",11.908,11.306,11.208,18.056162,24.12
+"NAME Barnard's star",5.244,4.83,4.524,8.193974,9.511
+"V* R Dra",3.71,3.125,2.23,6.374379,9.03
+"V* RW Aur",8.378,7.621,7.02,,9.6
+"WISEA J085510.74-071442.5",25.0,23.83,,,
+=== candidates
+SELECT b.main_id, b.ra, b.dec, b.pmra, b.pmdec, b.pm_bibcode, b.plx_value, b.plx_bibcode, b.sp_type, b.otype, f.J, f.H, f.K, f.G, f.V FROM basic AS b JOIN allfluxes AS f ON f.oidref = b.oid WHERE b.pmra*b.pmra + b.pmdec*b.pmdec > 1000000 AND b.plx_value IS NOT NULL AND f.K >= 9.0 AND f.K <= 12.0
+  TAP status=200 bytes=27388 attempt=1
+rows returned: 164; columns: ['main_id', 'ra', 'dec', 'pmra', 'pmdec', 'pm_bibcode', 'plx_value', 'plx_bibcode', 'sp_type', 'otype', 'J', 'H', 'K', 'G', 'V']
+candidates with position, proper motion and K: 164; dropped: 4; first 30 by proper motion:
+  drop * eps Ind B                  pm= 4684.2 K=11.21 plx=270.658 sp=T1V+T6V otype=BD* ra=331.04415 dec=-56.78284 challenge target eps-indi-b
+  PICK * omi02 Eri B                pm= 4018.6 K= 9.86 plx=199.6911 sp=DA2.9 otype=WD* ra=63.84082 dec=-7.65811 
+  PICK SSSPM J1444-2019             pm= 3507.9 K=11.93 plx=58.1427 sp=sdL0 otype=BD* ra=221.08474 dec=-20.32375 
+  PICK Wolf   28                    pm= 2978.4 K=11.50 plx=231.78 sp=DZ7.5 otype=WD* ra=12.29124 dec=+5.38861 
+  PICK LAWD 37                      pm= 2683.9 K=11.10 plx=215.6753 sp=DQ otype=WD* ra=176.42882 dec=-64.84152 
+  PICK G 275-92                     pm= 2564.0 K= 9.37 plx=34.4234 sp=sdK7 otype=PM* ra=355.81974 dec=-24.18789 
+  PICK LP  651-7                    pm= 2529.5 K=10.15 plx=59.8398 sp=M6V otype=LM* ra=41.56215 dec=-4.98904 
+  PICK LEHPM 3396                   pm= 2409.5 K=10.39 plx=112.61 sp=M9 otype=LM* ra=53.55091 dec=-49.89223 
+  PICK LSR J1826+3014               pm= 2390.5 K=10.81 plx=90.0858 sp=M8.5V otype=LM* ra=276.54585 dec=+30.23858 
+  PICK 2MASS J02511490-0352459      pm= 2162.1 K=11.66 plx=86.2932 sp=L3 otype=BD* ra=42.81250 dec=-3.88002 
+  PICK G 221-5                      pm= 2118.6 K= 9.08 plx=82.6606 sp=M5V otype=PM* ra=47.74293 dec=+73.77214 
+       Wolf 1106                    pm= 2100.4 K= 9.39 plx=41.3504 sp=sdM1.5 otype=LM* ra=316.98082 dec=+59.72204 
+       G 130-43                     pm= 1894.9 K= 9.46 plx=47.3641 sp=M3.5V otype=PM* ra=1.86129 dec=+29.24243 
+       G  34-15                     pm= 1811.5 K= 9.91 plx=46.6171 sp=M4V otype=PM* ra=19.12166 dec=+24.32410 
+       LP  741-20                   pm= 1736.1 K=11.06 plx=25.0778 sp=M1.0VI otype=PM* ra=223.89929 dec=-15.56226 
+       G 260-1                      pm= 1726.4 K=10.04 plx=52.9382 sp=M5.0V otype=PM* ra=274.31255 dec=+68.55527 
+       CD-32  5613                  pm= 1713.9 K=11.55 plx=117.3961 sp=DA5.5 otype=WD* ra=130.38512 dec=-32.94248 
+       Wolf  134                    pm= 1667.7 K=10.82 plx=25.2832 sp=esdK7 otype=LM* ra=48.35095 dec=+18.82713 
+       PM J16230-6905               pm= 1649.5 K=10.54 plx=54.9688 sp= otype=PM* ra=245.76147 dec=-69.09359 
+       Wolf 1037                    pm= 1645.9 K=10.93 plx=20.6754 sp=usdK7 otype=LM* ra=337.20430 dec=+5.80390 
+       NAME L 362-29 BC             pm= 1640.8 K=11.40 plx=82.3466 sp=L5+L5 otype=BD* ra=1.14528 dec=-40.73513 
+       SIPS J1540-2613              pm= 1613.0 K=10.73 plx=67.2738 sp=M7.0 otype=LM* ra=235.12338 dec=-26.22860 
+       LP  624-55                   pm= 1598.3 K=10.16 plx=33.2271 sp=dM4.5 otype=PM* ra=243.60955 dec=+2.24698 
+       LP  257-24                   pm= 1585.8 K=10.74 plx=37.5813 sp=dM5.0 otype=PM* ra=120.77550 dec=+34.94854 
+       Ross  585                    pm= 1579.8 K= 9.14 plx=36.6544 sp=sdM0 otype=PM* ra=52.68675 dec=+34.01866 
+       LP  681-23                   pm= 1570.1 K=11.24 plx=24.8895 sp=M3.5VI otype=PM* ra=222.62030 dec=-8.64354 
+       G 135-67                     pm= 1569.7 K=10.38 plx=26.3429 sp=M3.5V otype=PM* ra=218.78697 dec=+16.89845 
+       LP  653-13                   pm= 1554.7 K= 9.46 plx=76.6131 sp=M5.5V otype=PM* ra=53.91089 dec=-8.48967 
+       LP  323-239                  pm= 1551.5 K=10.48 plx=40.8058 sp=M4.5V otype=PM* ra=205.29775 dec=+30.02395 
+       LSR J0419+4233               pm= 1535.5 K= 9.90 plx=97.449 sp=M8/9V otype=PM* ra=64.96721 dec=+42.55845 
+
+wrote data/fast_movers.json with 10 targets: ['omi02-eri-b', 'ssspm-j1444-2019', 'wolf-28', 'lawd-37', 'g-275-92', 'lp-651-7', 'lehpm-3396', 'lsr-j1826-3014', '2mass-j02511490-0352459', 'g-221-5']
