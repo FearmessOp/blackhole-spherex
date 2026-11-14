@@ -317,7 +317,7 @@ export default function QuickLookView({ query }: { query: Query }) {
                         <p className="detail">
                             The grid is fixed on the sky (north up, east left) and all epochs share one brightness scale.
                             {data?.target
-                                ? ` The amber marker is the SIMBAD position moved with the SIMBAD proper motion (${data.target.source}).`
+                                ? ` The amber marker is the catalogue position moved with the catalogue proper motion; both are from ${data.target.source}.`
                                 : ' The amber marker is the position that was entered.'}
                         </p>
                     </div>
