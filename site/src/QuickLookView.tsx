@@ -1,23 +1,30 @@
 import { useEffect, useRef, useState } from 'react'
 import SkyPanel from './SkyPanel'
 import {
+    SCALE_ARCSEC,
     clippedMean,
+    measureEpoch,
+    motionBetween,
     pickBalanced,
-    readCutout,
-    resample,
+    predictPosition,
+    readFrames,
     sceneScale,
     splitEpochs,
     toRgba,
     worldToGrid,
+    type Catalogue,
     type Counter,
     type Exposure,
-    type Grid
+    type Grid,
+    type Motion,
+    type StackPosition
 } from './quicklook'
 import type { XY } from './types'
 
 // Quick look at any position: exposure list from /api/lookup, image rows read by the
-// browser from the public cloud copy, stacked per epoch here. Nothing is masked and
-// nothing is measured.
+// browser from the public cloud copy, stacked per epoch here. Nothing is masked. The only
+// numbers taken from these images are rough motions between epochs (compared with the
+// full pipeline in scripts/test_motion.mjs, logs/test_motion.log).
 
 export type Query = { target: string } | { ra: number; dec: number }
 
@@ -27,6 +34,7 @@ type SimbadTarget = {
     dec_deg: number
     pmra_masyr: number | null
     pmdec_masyr: number | null
+    plx_mas: number | null
     sp_type: string | null
     source: string
 }
@@ -78,13 +86,18 @@ type EpochView = {
     nUsed: number // exposures read and stacked
     rgba: Uint8ClampedArray | null
     marker: XY
+    measured: StackPosition | null // rough position on this stack
+    predicted: { east: number; north: number } | null // catalogue position, arcsec from the grid centre
 }
 
+// Motion between two epochs: catalogue prediction (if there is a catalogue entry) and rough measurement.
+type MotionRow = { from: number; to: number; predicted: { east: number; north: number } | null; motion: Motion | null }
 type Stats = { listed: number; read: number; failed: number; offDetector: number; requests: number; bytes: number; seconds: number }
-type Scene = { epochs: EpochView[]; stats: Stats }
+type Scene = { epochs: EpochView[]; stats: Stats; motions: MotionRow[] }
 type Progress = { done: number; total: number; bytes: number }
 
 const day = (mjd: number) => new Date((mjd - 40587) * 86400000).toISOString().slice(0, 10)
+const signed = (v: number) => (v >= 0 ? '+' : '') + v.toFixed(2)
 
 // SIMBAD J2000 position moved with the SIMBAD proper motion (no parallax). A position
 // that was entered as coordinates stays where it is.
@@ -107,34 +120,43 @@ async function buildScene(l: Lookup, band: Band, onProgress: (p: Progress) => vo
     const grid: Grid = { ra0, dec0, npix: NPIX }
     const counter: Counter = { requests: 0, bytes: 0 }
     const jobs = epochs.flatMap((ep, k) => pickBalanced(ep, band.dets, band.total).map((e) => ({ k, e })))
-    const frames: Float32Array[][] = epochs.map(() => [])
-    let next = 0
-    let done = 0
-    let failed = 0
-    let offDetector = 0
-    const worker = async () => {
-        while (next < jobs.length) {
-            const job = jobs[next++]
-            try {
-                const cut = await readCutout(job.e.key, ra0, dec0, HALF, counter, signal)
-                if (cut) frames[job.k].push(resample(cut, grid))
-                else offDetector++
-            } catch (err) {
-                if (signal.aborted) throw err
-                failed++
-            }
-            done++
-            onProgress({ done, total: jobs.length, bytes: counter.bytes })
-        }
-    }
-    await Promise.all(Array.from({ length: PARALLEL }, worker))
+    const set = await readFrames(
+        jobs,
+        epochs.length,
+        ra0,
+        dec0,
+        grid,
+        HALF,
+        PARALLEL,
+        counter,
+        (done, total) => onProgress({ done, total, bytes: counter.bytes }),
+        signal
+    )
+    const frames = set.frames
     const stacks = frames.map((f) => (f.length ? clippedMean(f).stack : null))
     const scale = sceneScale(stacks.filter((s): s is Float32Array => s !== null))
+    const t = l.target
+    const cat: Catalogue | null = t
+        ? { ra: t.ra_deg, dec: t.dec_deg, pmra: t.pmra_masyr ?? 0, pmdec: t.pmdec_masyr ?? 0, plx: t.plx_mas ?? 0 }
+        : null
+    const c = (NPIX - 1) / 2
     const views: EpochView[] = epochs.map((ep, k) => {
         const mid = ep.reduce((s, e) => s + e.mjd, 0) / ep.length
         const [ra, dec] = positionAt(l, mid)
         const [x, y] = worldToGrid(grid, ra, dec)
         const stack = stacks[k]
+        // Rough position: looked for near the catalogue position (proper motion + parallax)
+        // at the mean date of the exposures that were read, or near the entered position.
+        let measured: StackPosition | null = null
+        let predicted: { east: number; north: number } | null = null
+        const mjds = set.mjd[k]
+        if (mjds.length) {
+            const when = mjds.reduce((s, v) => s + v, 0) / mjds.length
+            const [pra, pdec] = cat ? predictPosition(cat, when) : [l.pos.ra_deg, l.pos.dec_deg]
+            const [px, py] = worldToGrid(grid, pra, pdec)
+            if (cat) predicted = { east: (c - px) * SCALE_ARCSEC, north: (c - py) * SCALE_ARCSEC }
+            measured = measureEpoch(frames[k], NPIX, px, py, k + 1)
+        }
         return {
             index: k,
             tStart: day(ep[0].mjd),
@@ -142,20 +164,38 @@ async function buildScene(l: Lookup, band: Band, onProgress: (p: Progress) => vo
             nInBand: ep.filter((e) => band.dets.includes(e.detector)).length,
             nUsed: frames[k].length,
             rgba: stack ? toRgba(stack, scale) : null,
-            marker: { x, y }
+            marker: { x, y },
+            measured,
+            predicted
         }
     })
-    const read = frames.reduce((s, f) => s + f.length, 0)
+    const motions: MotionRow[] = []
+    for (let a = 0; a < views.length; a++) {
+        for (let b = a + 1; b < views.length; b++) {
+            const A = views[a]
+            const B = views[b]
+            if (!A.rgba || !B.rgba) continue
+            motions.push({
+                from: a,
+                to: b,
+                predicted:
+                    A.predicted && B.predicted
+                        ? { east: B.predicted.east - A.predicted.east, north: B.predicted.north - A.predicted.north }
+                        : null,
+                motion: A.measured && B.measured ? motionBetween(A.measured, B.measured) : null
+            })
+        }
+    }
     const stats: Stats = {
         listed: exposures.length,
-        read,
-        failed,
-        offDetector,
+        read: frames.reduce((s, f) => s + f.length, 0),
+        failed: set.failed,
+        offDetector: set.offDetector,
         requests: counter.requests,
         bytes: counter.bytes,
         seconds: (performance.now() - t0) / 1000
     }
-    return { epochs: views, stats }
+    return { epochs: views, stats, motions }
 }
 
 // One stacked epoch, drawn pixel for pixel; all epochs stay mounted so that blinking does not flash.
@@ -250,7 +290,8 @@ export default function QuickLookView({ query }: { query: Query }) {
     const banner = (
         <p className="quick-banner">
             <b>Quick look, unmasked, no measurement.</b> A few exposures per epoch are read straight from the archive and
-            stacked in your browser. Flagged pixels are not removed and nothing is measured on these images.
+            stacked in your browser. Flagged pixels are not removed. The only numbers taken from these images are the
+            rough motions listed below the image; they are not a measurement of the full data.
         </p>
     )
 
@@ -377,6 +418,61 @@ export default function QuickLookView({ query }: { query: Query }) {
                     </label>
                 </div>
             </div>
+            {scene && scene.motions.length > 0 && (
+                <section className="results">
+                    <h3>Rough motion between epochs</h3>
+                    <table className="motion">
+                        <thead>
+                            <tr>
+                                <th>Motion (east / north, arcsec)</th>
+                                {data?.target && <th>Catalogue prediction</th>}
+                                <th>Rough measurement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {scene.motions.map((r) => (
+                                <tr key={`${r.from}-${r.to}`}>
+                                    <td>
+                                        Epoch {r.from + 1} → {r.to + 1}
+                                    </td>
+                                    {data?.target && (
+                                        <td data-label="Catalogue prediction">
+                                            {r.predicted ? (
+                                                <span className="pair">
+                                                    {signed(r.predicted.east)} / {signed(r.predicted.north)}
+                                                </span>
+                                            ) : (
+                                                'not available'
+                                            )}
+                                        </td>
+                                    )}
+                                    <td data-label="Rough measurement">
+                                        {!r.motion ? (
+                                            'not measured'
+                                        ) : !r.motion.measurable ? (
+                                            'too slow to measure with this data'
+                                        ) : (
+                                            <span className="pair">
+                                                {signed(r.motion.east)} ± {r.motion.eastErr.toFixed(2)} / {signed(r.motion.north)} ±{' '}
+                                                {r.motion.northErr.toFixed(2)}
+                                            </span>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                    <p className="detail">
+                        Rough: windowed centroid on the stacks shown above (a few unmasked exposures per epoch), looked for
+                        within 1.5 pixels of the{' '}
+                        {data?.target ? 'catalogue position (proper motion and parallax)' : 'entered position'}. Errors are
+                        a bootstrap over the exposures; nothing is aligned to field stars. A number is only given when the
+                        motion is larger than its error; otherwise the line reads “too slow to measure with this data”,
+                        which also covers a source that is too faint in these few exposures. “Not measured” means that no
+                        source was found at that place in one of the two epochs.
+                    </p>
+                </section>
+            )}
         </div>
     )
 }

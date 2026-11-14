@@ -399,18 +399,29 @@ export function splitEpochs(exposures: Exposure[]): Exposure[][] {
     return epochs
 }
 
+// `n` items of a list, evenly spread over it.
+function spread<T>(list: T[], n: number): T[] {
+    const idx = new Set<number>()
+    for (let k = 0; k < n; k++) idx.add(Math.round(((k + 0.5) * list.length) / n - 0.5))
+    return Array.from(idx, (i) => list[i])
+}
+
 // About `total` exposures of one epoch, the same number from each detector of the band,
 // evenly spread in time. Equal detector shares keep the epochs comparable in brightness.
+// A detector with too few exposures in the epoch leaves the selection short; it is then
+// filled up from the other detectors of the band (first test without this:
+// logs/test_motion_run1.log, an epoch with 4 instead of 6 exposures).
 export function pickBalanced(epoch: Exposure[], dets: number[], total: number): Exposure[] {
     const per = Math.max(1, Math.round(total / dets.length))
     const out: Exposure[] = []
     for (const d of dets) {
         const sel = epoch.filter((e) => e.detector === d)
-        if (!sel.length) continue
-        const n = Math.min(per, sel.length)
-        const idx = new Set<number>()
-        for (let k = 0; k < n; k++) idx.add(Math.round(((k + 0.5) * sel.length) / n - 0.5))
-        for (const i of idx) out.push(sel[i])
+        if (sel.length) out.push(...spread(sel, Math.min(per, sel.length)))
+    }
+    const missing = per * dets.length - out.length
+    if (missing > 0) {
+        const rest = epoch.filter((e) => dets.includes(e.detector) && !out.includes(e))
+        if (rest.length) out.push(...spread(rest, Math.min(missing, rest.length)))
     }
     return out.sort((p, q) => p.mjd - q.mjd)
 }
@@ -447,4 +458,188 @@ export function toRgba(stack: Float32Array, scale: Scale): Uint8ClampedArray {
         out[4 * k + 3] = 255
     }
     return out
+}
+
+// ---------------------------------------------------------------- reading the frames of a scene
+
+export type FrameJob = { k: number; e: Exposure } // k = epoch index
+export type FrameSet = { frames: Float32Array[][]; mjd: number[][]; failed: number; offDetector: number }
+
+// Reads the exposures with `parallel` requests at a time and resamples each onto the grid.
+// The frames of an epoch are returned in the order of `jobs`, whatever the arrival order.
+export async function readFrames(
+    jobs: FrameJob[],
+    nEpochs: number,
+    ra0: number,
+    dec0: number,
+    grid: Grid,
+    half: number,
+    parallel: number,
+    counter: Counter,
+    onProgress?: (done: number, total: number) => void,
+    signal?: AbortSignal
+): Promise<FrameSet> {
+    const results: (Float32Array | null)[] = jobs.map(() => null)
+    const out: FrameSet = {
+        frames: Array.from({ length: nEpochs }, () => []),
+        mjd: Array.from({ length: nEpochs }, () => []),
+        failed: 0,
+        offDetector: 0
+    }
+    let next = 0
+    let done = 0
+    const worker = async () => {
+        while (next < jobs.length) {
+            const i = next++
+            try {
+                const cut = await readCutout(jobs[i].e.key, ra0, dec0, half, counter, signal)
+                if (cut) results[i] = resample(cut, grid)
+                else out.offDetector++
+            } catch (err) {
+                if (signal?.aborted) throw err
+                out.failed++
+            }
+            done++
+            onProgress?.(done, jobs.length)
+        }
+    }
+    await Promise.all(Array.from({ length: parallel }, worker))
+    jobs.forEach((job, i) => {
+        const frame = results[i]
+        if (!frame) return
+        out.frames[job.k].push(frame)
+        out.mjd[job.k].push(job.e.mjd)
+    })
+    return out
+}
+
+// ---------------------------------------------------------------- catalogue prediction
+
+// J2000 position (degrees), proper motion (mas/yr) and parallax (mas) of a catalogue entry.
+export type Catalogue = { ra: number; dec: number; pmra: number; pmdec: number; plx: number }
+
+// Position of the Earth relative to the Sun in au, equatorial axes, from a low-precision
+// formula for the Sun (mean equinox of date; the Sun is taken as the barycentre). The
+// predicted motions it gives are compared with the astropy-based pipeline in
+// scripts/test_motion.mjs (logs/test_motion.log).
+export function earthPosition(mjd: number): [number, number, number] {
+    const n = mjd - 51544.5
+    const g = (357.528 + 0.9856003 * n) * D2R
+    const lam = (280.46 + 0.9856474 * n + 1.915 * Math.sin(g) + 0.02 * Math.sin(2 * g)) * D2R
+    const eps = (23.439 - 0.0000004 * n) * D2R
+    const r = 1.00014 - 0.01671 * Math.cos(g) - 0.00014 * Math.cos(2 * g)
+    return [-r * Math.cos(lam), -r * Math.cos(eps) * Math.sin(lam), -r * Math.sin(eps) * Math.sin(lam)]
+}
+
+// Catalogue position at a date: proper motion from J2000 plus parallax. Degrees.
+export function predictPosition(c: Catalogue, mjd: number): [number, number] {
+    const dt = (mjd - 51544.5) / 365.25
+    const a = c.ra * D2R
+    const d = c.dec * D2R
+    const [X, Y, Z] = earthPosition(mjd)
+    const east = c.pmra * dt + c.plx * (X * Math.sin(a) - Y * Math.cos(a)) // mas
+    const north = c.pmdec * dt + c.plx * (X * Math.cos(a) * Math.sin(d) + Y * Math.sin(a) * Math.sin(d) - Z * Math.cos(d))
+    return [(((c.ra + east / 3.6e6 / Math.cos(d)) % 360) + 360) % 360, c.dec + north / 3.6e6]
+}
+
+// ---------------------------------------------------------------- rough position on an epoch stack
+
+const MAX_PIX = 1.5 // a result further than this from the starting point is not the source looked for
+const N_BOOT = 200
+const MIN_FRAMES = 3
+
+// Gaussian-windowed centroid near (x0, y0), grid pixels (same method as win_cen in
+// pipeline/stack_astrometry.py: 7x7 box, sigma 1.5 px, 8 iterations).
+export function winCen(img: Float32Array, n: number, x0: number, y0: number, half = 3, sigma = 1.5): [number, number] | null {
+    const finite: number[] = []
+    for (const v of img) if (Number.isFinite(v)) finite.push(v)
+    if (!finite.length) return null
+    const bg = median(finite)
+    let x = x0
+    let y = y0
+    for (let it = 0; it < 8; it++) {
+        const xi = Math.round(x)
+        const yi = Math.round(y)
+        if (!(xi >= half && xi < n - half && yi >= half && yi < n - half)) return null
+        let sum = 0
+        let sx = 0
+        let sy = 0
+        for (let jj = yi - half; jj <= yi + half; jj++) {
+            for (let ii = xi - half; ii <= xi + half; ii++) {
+                const v = img[jj * n + ii]
+                if (!Number.isFinite(v)) continue
+                const val = (v - bg) * Math.exp(-((ii - x) ** 2 + (jj - y) ** 2) / (2 * sigma ** 2))
+                sum += val
+                sx += val * ii
+                sy += val * jj
+            }
+        }
+        if (!(sum > 0)) return null
+        x += 2 * (sx / sum - x)
+        y += 2 * (sy / sum - y)
+    }
+    return [x, y]
+}
+
+// Small seeded generator, so that the bootstrap gives the same errors on every run.
+function mulberry32(seed: number): () => number {
+    let a = seed >>> 0
+    return () => {
+        a = (a + 0x6d2b79f5) >>> 0
+        let t = a
+        t = Math.imul(t ^ (t >>> 15), t | 1)
+        t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+    }
+}
+
+// Arcsec east and north of the grid centre; errors are the scatter of a bootstrap over frames.
+export type StackPosition = { east: number; north: number; eastErr: number; northErr: number; bootKept: number }
+
+// Position of the source nearest to the grid pixel (px, py) on the clipped-mean stack of
+// `frames`. Null if there are too few frames, if nothing is found within MAX_PIX of the
+// starting point, or if the bootstrap does not give an error.
+export function measureEpoch(frames: Float32Array[], npix: number, px: number, py: number, seed = 1): StackPosition | null {
+    if (frames.length < MIN_FRAMES) return null
+    const near = (m: [number, number] | null): m is [number, number] => m !== null && Math.hypot(m[0] - px, m[1] - py) <= MAX_PIX
+    const m = winCen(clippedMean(frames).stack, npix, px, py)
+    if (!near(m)) return null
+    const rand = mulberry32(seed)
+    const xs: number[] = []
+    const ys: number[] = []
+    for (let b = 0; b < N_BOOT; b++) {
+        const sample = frames.map(() => frames[Math.floor(rand() * frames.length)])
+        const r = winCen(clippedMean(sample).stack, npix, px, py)
+        if (near(r)) {
+            xs.push(r[0])
+            ys.push(r[1])
+        }
+    }
+    if (xs.length <= 10) return null
+    const std = (v: number[]) => {
+        const mean = v.reduce((s, q) => s + q, 0) / v.length
+        return Math.sqrt(v.reduce((s, q) => s + (q - mean) ** 2, 0) / v.length)
+    }
+    const c = (npix - 1) / 2
+    return {
+        east: (c - m[0]) * SCALE_ARCSEC,
+        north: (c - m[1]) * SCALE_ARCSEC,
+        eastErr: std(xs) * SCALE_ARCSEC,
+        northErr: std(ys) * SCALE_ARCSEC,
+        bootKept: xs.length
+    }
+}
+
+// Motion between two epoch positions in arcsec; the errors of the two epochs are added in
+// quadrature. `measurable` is false when the total error is not smaller than the motion.
+export type Motion = { east: number; north: number; eastErr: number; northErr: number; total: number; totalErr: number; measurable: boolean }
+
+export function motionBetween(a: StackPosition, b: StackPosition): Motion {
+    const east = b.east - a.east
+    const north = b.north - a.north
+    const eastErr = Math.hypot(a.eastErr, b.eastErr)
+    const northErr = Math.hypot(a.northErr, b.northErr)
+    const total = Math.hypot(east, north)
+    const totalErr = Math.hypot(eastErr, northErr)
+    return { east, north, eastErr, northErr, total, totalErr, measurable: total > totalErr }
 }
