@@ -222,6 +222,9 @@ from SPHEREx data by `pipeline/stack_epochs.py`.
 
 ## Use of SI
 
+*Draft: this section was written by the SI tool itself and has not yet been
+confirmed by the team.*
+
 This project was built with a synthetic-intelligence (SI) coding assistant.
 The team member set the task and its rules.
 

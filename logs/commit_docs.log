@@ -1,0 +1,21 @@
+[main 826259d] Docs: README with results, known limitations and Use of SI draft; SOURCES with provider terms and licences read from their pages; PROGRESS updated
+ 17 files changed, 1320 insertions(+), 85 deletions(-)
+ create mode 100644 logs/check_terms.log
+ create mode 100644 logs/commit_flicker.log
+ create mode 100644 logs/download_wide_done.log
+ create mode 100644 logs/git_remote.log
+ create mode 100644 logs/npm_licenses.log
+ create mode 100644 logs/pipeline_inventory.log
+ create mode 100644 logs/precommit_docs.log
+ create mode 100644 logs/site_assets.log
+ create mode 100644 logs/sources_check.log
+ create mode 100644 logs/sources_check2.log
+ create mode 100644 logs/targets_bibcodes.log
+ create mode 100644 logs/tools_used.log
+ create mode 100644 pipeline/check_terms.py
+ create mode 100644 pipeline/npm_licenses.py
+826259d Docs: README with results, known limitations and Use of SI draft; SOURCES with provider terms and licences read from their pages; PROGRESS updated
+819c627 Flicker: epoch means compared detector by detector (mixed-detector means depended on the detector mix of each epoch)
+e5d8110 Raw playback: leave out exposures with more than 20% of the grid masked (was 50%), threshold shown from data
+## main...origin/main [ahead 6]
+?? logs/commit_docs.log
