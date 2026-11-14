@@ -1,0 +1,37 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Downloaded SPHEREx cutouts (about 8 GB, re-creatable with pipeline/download_cutouts.py)
+cache/
+*.part
+*.fits
+*.fits.gz
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+.npmrc
+.netrc
+
+# Node / build
+node_modules/
+dist/
+.vercel/
+
+# Local process files
+logs/download.pid
+logs/download_stdout.log
+
+# Local check output that contains the committer e-mail address
+logs/prepush_author.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
