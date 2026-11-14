@@ -1,0 +1,302 @@
+{
+ "slug": "wise-0855",
+ "saturation": {
+  "overflow": 0,
+  "exposures": 258,
+  "source": "data/astrometry/wise-0855_target.csv",
+  "core_empty": 0,
+  "core_filled": 0,
+  "check_source": "data/astrometry/saturation_check.json"
+ },
+ "fit": null,
+ "stack_motion": {
+  "band": "d56",
+  "epochs": [
+   {
+    "epoch": 0,
+    "n_frames": 11,
+    "snr_peak": 11.3
+   },
+   {
+    "epoch": 1,
+    "n_frames": 46,
+    "snr_peak": 19.7
+   },
+   {
+    "epoch": 2,
+    "n_frames": 36,
+    "snr_peak": 20.1
+   }
+  ],
+  "pairs": [
+   {
+    "from": 0,
+    "to": 1,
+    "predicted": {
+     "east": -3.49,
+     "north": 0.09
+    },
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "east": -3.02,
+      "east_err": 0.85,
+      "north": -0.12,
+      "north_err": 0.76
+     },
+     {
+      "id": "gauss",
+      "label": "Gaussian fit",
+      "east": -3.98,
+      "east_err": 0.81,
+      "north": 0.12,
+      "north_err": 0.58
+     },
+     {
+      "id": "two",
+      "label": "Gaussian fit, neighbour modelled",
+      "east": -3.74,
+      "east_err": 0.66,
+      "north": -0.28,
+      "north_err": 0.44
+     }
+    ]
+   },
+   {
+    "from": 0,
+    "to": 2,
+    "predicted": {
+     "east": -8.01,
+     "north": 0.65
+    },
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "east": -6.5,
+      "east_err": 0.84,
+      "north": 0.71,
+      "north_err": 0.76
+     },
+     {
+      "id": "gauss",
+      "label": "Gaussian fit",
+      "east": -7.24,
+      "east_err": 0.77,
+      "north": 1.01,
+      "north_err": 0.54
+     },
+     {
+      "id": "two",
+      "label": "Gaussian fit, neighbour modelled",
+      "east": -7.97,
+      "east_err": 0.68,
+      "north": 1.08,
+      "north_err": 0.55
+     }
+    ]
+   },
+   {
+    "from": 1,
+    "to": 2,
+    "predicted": {
+     "east": -4.52,
+     "north": 0.56
+    },
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "east": -3.48,
+      "east_err": 0.49,
+      "north": 0.83,
+      "north_err": 0.48
+     },
+     {
+      "id": "gauss",
+      "label": "Gaussian fit",
+      "east": -3.26,
+      "east_err": 0.33,
+      "north": 0.89,
+      "north_err": 0.31
+     },
+     {
+      "id": "two",
+      "label": "Gaussian fit, neighbour modelled",
+      "east": -4.23,
+      "east_err": 0.48,
+      "north": 1.36,
+      "north_err": 0.49
+     }
+    ]
+   }
+  ],
+  "neighbour": {
+   "gaia_id": "5756956644387831296",
+   "g": 16.31,
+   "sep_arcsec": [
+    11.4,
+    8.2,
+    4.3
+   ],
+   "amp_ratio": [
+    0.4,
+    0.39,
+    0.22
+   ],
+   "amp_ratio_range": [
+    [
+     0.28,
+     0.55
+    ],
+    [
+     0.3,
+     0.49
+    ],
+    [
+     0.01,
+     0.43
+    ]
+   ],
+   "short_offset_max_arcsec": 0.19,
+   "short_snr_min": 60.3,
+   "source": "data/astrometry/wise-0855_neighbour_test.json, data/astrometry/wise-0855_neighbours.json"
+  },
+  "source": "data/astrometry/wise-0855_stack_d56.json"
+ },
+ "per_exposure_fit": {
+  "usable": false,
+  "detectors": [
+   5,
+   6
+  ],
+  "n_exposures": 44,
+  "median_snr": 4.5,
+  "plx": [
+   {
+    "label": "Windowed centroid",
+    "value": 686.59,
+    "err": 312.81
+   },
+   {
+    "label": "ePSF fit",
+    "value": -196.63,
+    "err": 256.52
+   }
+  ],
+  "reference_plx": 439.0,
+  "source": "data/astrometry/wise-0855_fit.json, data/astrometry/wise-0855_target.csv"
+ },
+ "flicker": {
+  "slug": "wise-0855",
+  "n_exposures": 258,
+  "n_epochs": 3,
+  "n_stars": 5,
+  "aperture_px": 5,
+  "raw_scatter_median": 0.9774,
+  "epoch_std_median": 0.0209,
+  "epoch_half_range_median": 0.0256,
+  "stars": [
+   {
+    "source_id": "5756862120747649024",
+    "g": 10.25,
+    "n_exposures": 87,
+    "n_per_epoch": [
+     12,
+     44,
+     31
+    ],
+    "raw_scatter": 0.2556,
+    "epoch_std": 0.0209,
+    "epoch_half_range": 0.0256,
+    "epoch_means": [
+     113.4481,
+     110.6586,
+     107.7857
+    ]
+   },
+   {
+    "source_id": "5756956330854206592",
+    "g": 12.25,
+    "n_exposures": 241,
+    "n_per_epoch": [
+     28,
+     122,
+     91
+    ],
+    "raw_scatter": 0.7949,
+    "epoch_std": 0.0342,
+    "epoch_half_range": 0.0417,
+    "epoch_means": [
+     52.545,
+     50.7999,
+     48.3306
+    ]
+   },
+   {
+    "source_id": "5756955785394371328",
+    "g": 13.3,
+    "n_exposures": 245,
+    "n_per_epoch": [
+     26,
+     124,
+     95
+    ],
+    "raw_scatter": 1.0118,
+    "epoch_std": 0.0349,
+    "epoch_half_range": 0.0381,
+    "epoch_means": [
+     13.4618,
+     12.5419,
+     12.4831
+    ]
+   },
+   {
+    "source_id": "5756959491950135168",
+    "g": 13.87,
+    "n_exposures": 248,
+    "n_per_epoch": [
+     29,
+     122,
+     97
+    ],
+    "raw_scatter": 1.0118,
+    "epoch_std": 0.0194,
+    "epoch_half_range": 0.0227,
+    "epoch_means": [
+     7.4983,
+     7.8477,
+     7.7659
+    ]
+   },
+   {
+    "source_id": "5756960355239574528",
+    "g": 14.03,
+    "n_exposures": 244,
+    "n_per_epoch": [
+     28,
+     120,
+     96
+    ],
+    "raw_scatter": 0.9774,
+    "epoch_std": 0.0183,
+    "epoch_half_range": 0.0222,
+    "epoch_means": [
+     5.6547,
+     5.8092,
+     5.5567
+    ]
+   }
+  ]
+ },
+ "raw_dropped": {
+  "dropped": 0,
+  "total": 258
+ },
+ "default_band": "d56",
+ "compare_bands": [
+  "d123",
+  "d56"
+ ]
+}

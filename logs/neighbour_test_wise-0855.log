@@ -1,0 +1,13 @@
+wise-0855: neighbour Gaia DR3 5756956644387831296 G=16.31 RP=15.87; window 9x9 px; 200 bootstrap resamples
+--- detectors 1-3: single Gaussian fitted at the Gaia position of the neighbour
+epoch 0: n=15 peak S/N at the Gaia position=60.3 fitted minus Gaia: east=-0.17 north=-0.08 arcsec
+epoch 1: n=64 peak S/N at the Gaia position=86.7 fitted minus Gaia: east=+0.00 north=-0.13 arcsec
+epoch 2: n=50 peak S/N at the Gaia position=78.1 fitted minus Gaia: east=-0.12 north=-0.13 arcsec
+--- detectors 5+6: target measured minus predicted (SIMBAD pm + parallax), arcsec
+epoch 0: n=11 neighbour at east=-10.62 north=+4.04 (sep 11.36) from the predicted target | one source: east=-1.39 north=+0.78 | two sources: east=-0.27+-0.58 north=+0.27+-0.35, amplitude neighbour/target=0.40 (16-84%: 0.28..0.55), sigma=0.69 px, bootstrap kept 200/200
+epoch 1: n=46 neighbour at east=-7.13 north=+3.96 (sep 8.16) from the predicted target | one source: east=-1.88 north=+0.81 | two sources: east=-0.52+-0.32 north=-0.09+-0.26, amplitude neighbour/target=0.39 (16-84%: 0.30..0.49), sigma=0.74 px, bootstrap kept 200/200
+epoch 2: n=36 neighbour at east=-2.61 north=+3.40 (sep 4.29) from the predicted target | one source: east=-0.62 north=+1.14 | two sources: east=-0.23+-0.36 north=+0.71+-0.42, amplitude neighbour/target=0.22 (16-84%: 0.01..0.43), sigma=0.66 px, bootstrap kept 200/200
+motion epoch 0 -> 1: predicted east=-3.49 north=+0.09 | one source: east=-3.98 north=+0.12 | two sources: east=-3.74+-0.66 north=-0.28+-0.44
+motion epoch 0 -> 2: predicted east=-8.01 north=+0.65 | one source: east=-7.24 north=+1.01 | two sources: east=-7.97+-0.68 north=+1.08+-0.55
+motion epoch 1 -> 2: predicted east=-4.52 north=+0.56 | one source: east=-3.26 north=+0.89 | two sources: east=-4.23+-0.48 north=+1.36+-0.49
+wrote C:\Users\user\blackhole-spherex\data\astrometry\wise-0855_neighbour_test.json

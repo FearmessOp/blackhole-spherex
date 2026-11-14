@@ -115,6 +115,7 @@
   {
    "id": "all",
    "label": "All detectors",
+   "dets": null,
    "scale": {
     "stretch": "asinh",
     "vmin": -0.09439877768310685,
@@ -150,8 +151,94 @@
    ]
   },
   {
+   "id": "d123",
+   "label": "Detectors 1-3 (short wavelength)",
+   "dets": [
+    1,
+    2,
+    3
+   ],
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.06063765533833456,
+    "vmax": 120.41384208126054,
+    "soft": 0.09029785924135994,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "d123_e0.png",
+     "n_frames": 56,
+     "wave_min_um": 0.7469,
+     "wave_max_um": 2.4057,
+     "min_coverage": 53
+    },
+    {
+     "epoch": 1,
+     "png": "d123_e1.png",
+     "n_frames": 57,
+     "wave_min_um": 0.7409,
+     "wave_max_um": 2.4212,
+     "min_coverage": 55
+    },
+    {
+     "epoch": 2,
+     "png": "d123_e2.png",
+     "n_frames": 55,
+     "wave_min_um": 0.7537,
+     "wave_max_um": 2.3848,
+     "min_coverage": 52
+    }
+   ]
+  },
+  {
+   "id": "d56",
+   "label": "Detectors 5+6 (long wavelength)",
+   "dets": [
+    5,
+    6
+   ],
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.1406804454136632,
+    "vmax": 443.66045685451354,
+    "soft": 0.21745712548330418,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "d56_e0.png",
+     "n_frames": 37,
+     "wave_min_um": 3.8271,
+     "wave_max_um": 4.9964,
+     "min_coverage": 35
+    },
+    {
+     "epoch": 1,
+     "png": "d56_e1.png",
+     "n_frames": 38,
+     "wave_min_um": 3.8129,
+     "wave_max_um": 5.0116,
+     "min_coverage": 34
+    },
+    {
+     "epoch": 2,
+     "png": "d56_e2.png",
+     "n_frames": 37,
+     "wave_min_um": 3.8149,
+     "wave_max_um": 4.9813,
+     "min_coverage": 35
+    }
+   ]
+  },
+  {
    "id": "d1",
    "label": "Detector 1",
+   "dets": [
+    1
+   ],
    "scale": {
     "stretch": "asinh",
     "vmin": -0.049677380138917586,
@@ -189,6 +276,9 @@
   {
    "id": "d2",
    "label": "Detector 2",
+   "dets": [
+    2
+   ],
    "scale": {
     "stretch": "asinh",
     "vmin": -0.062392533614236856,
@@ -226,6 +316,9 @@
   {
    "id": "d3",
    "label": "Detector 3",
+   "dets": [
+    3
+   ],
    "scale": {
     "stretch": "asinh",
     "vmin": -0.07051330958693083,
@@ -263,6 +356,9 @@
   {
    "id": "d4",
    "label": "Detector 4",
+   "dets": [
+    4
+   ],
    "scale": {
     "stretch": "asinh",
     "vmin": -0.09165624412150199,
@@ -300,6 +396,9 @@
   {
    "id": "d5",
    "label": "Detector 5",
+   "dets": [
+    5
+   ],
    "scale": {
     "stretch": "asinh",
     "vmin": -0.1218363936688472,
@@ -337,6 +436,9 @@
   {
    "id": "d6",
    "label": "Detector 6",
+   "dets": [
+    6
+   ],
    "scale": {
     "stretch": "asinh",
     "vmin": -0.1592963119415667,

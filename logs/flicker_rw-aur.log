@@ -1,0 +1,9 @@
+rw-aur: wide cutouts on_disk=336 of 336; candidate stars=40 (isolated Gaia DR3, G 8.69..14.30)
+epochs=3; stars with at least 8 clean exposures in every epoch, brightest 5 kept: 5
+  G=9.9 id=156336779511773440 n=57 per_epoch=[19, 22, 16] raw scatter=4.5% epoch std=0.4% epoch half-range=0.5%
+  G=11.78 id=156434189370670336 n=163 per_epoch=[50, 54, 59] raw scatter=50.4% epoch std=7.3% epoch half-range=8.5%
+  G=11.88 id=156429997483589120 n=275 per_epoch=[92, 93, 90] raw scatter=81.2% epoch std=2.0% epoch half-range=2.5%
+  G=11.88 id=156335744423799680 n=264 per_epoch=[82, 93, 89] raw scatter=99.9% epoch std=2.7% epoch half-range=3.3%
+  G=12.06 id=156335847503014272 n=244 per_epoch=[77, 83, 84] raw scatter=74.7% epoch std=5.0% epoch half-range=5.4%
+field medians: raw scatter=74.7% epoch std=2.7% epoch half-range=3.3%
+wrote C:\Users\user\blackhole-spherex\data\flicker\rw-aur.json

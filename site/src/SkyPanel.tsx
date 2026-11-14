@@ -1,0 +1,67 @@
+import type { ReactNode } from 'react'
+import type { Arrow, XY } from './types'
+
+type Props = {
+    title: string
+    n: number // grid size in pixels
+    scaleArcsec: number
+    marker?: XY | null
+    arrow?: Arrow | null
+    background?: React.CSSProperties // sprite-sheet frame (raw playback)
+    children?: ReactNode // stacked <img> layers
+    caption: ReactNode
+    detail?: ReactNode
+}
+
+const BAR_ARCSEC = 30
+
+// One square sky image with its overlays. All overlay coordinates are grid pixels.
+export default function SkyPanel(p: Props) {
+    const n = p.n
+    const u = n / 100 // 1% of the panel, in grid pixels
+    const bar = BAR_ARCSEC / p.scaleArcsec
+    const a = p.arrow
+    const len = a ? Math.hypot(a.dx, a.dy) : 0
+
+    return (
+        <figure className="fig">
+            <figcaption>{p.title}</figcaption>
+            <div className="view sky" style={p.background}>
+                {p.children}
+                <svg className="overlay" viewBox={`0 0 ${n} ${n}`}>
+                    {p.marker && (
+                        <g className="marker" transform={`translate(${p.marker.x + 0.5} ${p.marker.y + 0.5})`}>
+                            <line x1={-3} y1={0} x2={-1.5} y2={0} />
+                            <line x1={1.5} y1={0} x2={3} y2={0} />
+                            <line x1={0} y1={-3} x2={0} y2={-1.5} />
+                            <line x1={0} y1={1.5} x2={0} y2={3} />
+                        </g>
+                    )}
+                    {a && len > 0 && (
+                        <g
+                            className="arrow"
+                            transform={`translate(${a.x + 0.5} ${a.y + 0.5}) rotate(${(Math.atan2(a.dy, a.dx) * 180) / Math.PI})`}
+                        >
+                            {/* dark casing first, so the arrow stays visible on bright pixels */}
+                            <line className="case" x1={0} y1={0} x2={len} y2={0} />
+                            <polygon className="case" points={`${len + 0.35},0 ${len - 0.25},-0.3 ${len - 0.25},0.3`} />
+                            <line x1={0} y1={0} x2={len} y2={0} />
+                            <polygon points={`${len + 0.35},0 ${len - 0.25},-0.3 ${len - 0.25},0.3`} />
+                        </g>
+                    )}
+                    <text className="compass" x={2 * u} y={5 * u} fontSize={3.4 * u}>
+                        N up, E left
+                    </text>
+                    <g className="scalebar">
+                        <line x1={n - 3 * u - bar} y1={n - 4 * u} x2={n - 3 * u} y2={n - 4 * u} />
+                        <text x={n - 3 * u - bar / 2} y={n - 6 * u} fontSize={3.4 * u} textAnchor="middle">
+                            {BAR_ARCSEC}″
+                        </text>
+                    </g>
+                </svg>
+            </div>
+            <p className="epoch">{p.caption}</p>
+            {p.detail && <p className="detail">{p.detail}</p>}
+        </figure>
+    )
+}

@@ -1,0 +1,16 @@
+rw-aur: manifest=336 on_disk=336; starting point = SIMBAD pm=(7.23, -20.33) mas/yr plx=15.42 mas
+exposures=336 -> C:\Users\user\blackhole-spherex\data\astrometry\rw-aur_target.csv
+flags in the central 3x3 px (exposures with the flag): {'SOURCE': 333, 'OVERFLOW': 305, 'TRANSIENT': 173, 'BLOOM': 171, 'SUR_ERROR': 115, 'HALO': 6, 'NONFUNC': 5, 'PERSIST': 3, 'DICHROIC': 2, 'COLD': 1}
+saturation: OVERFLOW in 305 of 336 exposures; clean core (none of ['OVERFLOW', 'SUR_ERROR', 'NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'NONLINEAR', 'SNOWBALL', 'TRANSIENT'], no NaN): 18 of 336; usable rows (clean=1): 18; of these measured by both methods within 1.5 px of the starting point: 18
+--- by epoch and collection: offset from the starting point, arcsec, median (1.4826 MAD)
+(0, 'spherex_dr1'): exposures=112 usable=11 median_snr=199 de_win=-0.916 (0.209) dn_win=-0.442 (0.136) de_psf=-1.281 (0.080) dn_psf=-0.477 (0.087)
+(1, 'spherex_dr1'): exposures=114 usable=5 median_snr=232 de_win=-1.018 (0.099) dn_win=-0.540 (0.412) de_psf=-0.953 (0.101) dn_psf=-0.475 (0.061)
+(2, 'spherex_qr3'): exposures=110 usable=2
+--- by detector: offset from the starting point, arcsec, median (1.4826 MAD)
+D1: exposures=56 usable=18 median_snr=230 de_win=-0.920 (0.211) dn_win=-0.431 (0.190) de_psf=-1.134 (0.265) dn_psf=-0.476 (0.085)
+D2: exposures=56 usable=0
+D3: exposures=56 usable=0
+D4: exposures=56 usable=0
+D5: exposures=56 usable=0
+D6: exposures=56 usable=0
+windowed centroid versus ePSF fit, same exposure: median separation 0.313 arcsec, 90th percentile 0.518

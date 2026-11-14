@@ -5,6 +5,7 @@
     --text: #ece8dd;
     --muted: #9aa3b5;
     --accent: #ffb000;
+    --mono: ui-monospace, Consolas, 'Courier New', monospace;
     color-scheme: dark;
 }
 
@@ -15,7 +16,7 @@
 html,
 body,
 #root {
-    height: 100%;
+    min-height: 100%;
     margin: 0;
 }
 
@@ -24,13 +25,7 @@ body {
     color: var(--text);
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     font-size: 15px;
-    line-height: 1.4;
-}
-
-.app {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
+    line-height: 1.45;
 }
 
 .bar {
@@ -38,7 +33,7 @@ body {
     align-items: baseline;
     justify-content: space-between;
     gap: 16px;
-    padding: 10px 16px;
+    padding: 10px 20px;
     border-bottom: 1px solid var(--line);
     background: var(--panel);
 }
@@ -51,14 +46,15 @@ body {
 
 .scale {
     color: var(--accent);
-    font-family: ui-monospace, Consolas, 'Courier New', monospace;
+    font-family: var(--mono);
     font-size: 13px;
     white-space: nowrap;
 }
 
 .stage {
-    flex: 1;
-    padding: 16px;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 16px 20px 40px;
 }
 
 .note {
@@ -66,19 +62,16 @@ body {
     color: var(--muted);
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin: 0 0 10px;
-}
-
-.targets {
-    margin-bottom: 16px;
+/* Target cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
 button {
-    padding: 5px 10px;
+    padding: 6px 12px;
     border: 1px solid var(--line);
     border-radius: 3px;
     background: var(--panel);
@@ -97,16 +90,40 @@ button.on {
     color: var(--accent);
 }
 
-.blink {
+.card {
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.card-name {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.card-meta {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* Target view */
+.target h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.views {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
 }
 
 .fig {
     margin: 0;
-    max-width: 100%;
+    min-width: 0;
 }
 
 .fig figcaption {
@@ -115,21 +132,12 @@ button.on {
     font-size: 13px;
 }
 
-.fig .epoch {
-    margin-top: 8px;
-}
-
-.fig .detail {
-    max-width: 340px;
-}
-
 .view {
     position: relative;
-    flex: none;
-    max-width: 100%;
+    width: 100%;
     aspect-ratio: 1 / 1;
     border: 1px solid var(--line);
-    background: #000;
+    background-color: #000;
 }
 
 .view img,
@@ -143,12 +151,24 @@ button.on {
 }
 
 /* Sky images are shown pixel for pixel: never smoothed. */
-.sky {
+.sky,
+.sky img {
     image-rendering: crisp-edges;
     image-rendering: pixelated;
     background-repeat: no-repeat;
 }
 
+@media (max-width: 720px) {
+    .views {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .stage {
+        padding: 12px 12px 32px;
+    }
+}
+
+/* Overlays (coordinates are grid pixels) */
 .overlay {
     pointer-events: none;
 }
@@ -158,44 +178,156 @@ button.on {
     stroke-width: 0.15;
 }
 
-.compass {
+.arrow line {
+    stroke: var(--text);
+    stroke-width: 0.12;
+}
+
+.arrow polygon {
+    fill: var(--text);
+}
+
+/* Dark casing under the arrow keeps it readable on bright pixels. */
+.arrow .case {
+    stroke: #000;
+    stroke-width: 0.34;
+    stroke-linejoin: round;
+    fill: #000;
+}
+
+.compass,
+.scalebar text {
     fill: var(--muted);
-    font-size: 0.9px;
 }
 
-.panel {
-    flex: 1;
-    min-width: 260px;
-    max-width: 460px;
-}
-
-.panel h2 {
-    margin: 0 0 6px;
-    font-size: 20px;
-    font-weight: 600;
+.scalebar line {
+    stroke: var(--text);
+    stroke-width: 0.12;
 }
 
 .epoch {
-    margin: 0 0 4px;
+    margin: 8px 0 2px;
     color: var(--accent);
-    font-family: ui-monospace, Consolas, 'Courier New', monospace;
+    font-family: var(--mono);
     font-size: 14px;
 }
 
 .detail {
-    margin: 0 0 12px;
+    margin: 0 0 10px;
     color: var(--muted);
     font-size: 13px;
+}
+
+.flicker {
+    margin: 6px 0 18px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    font-size: 13px;
+}
+
+.num {
+    color: var(--accent);
+    font-family: var(--mono);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+    margin-bottom: 24px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+}
+
+.group h4,
+.results h3,
+.compare h3 {
+    margin: 0 0 6px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.controls button {
+    background: var(--bg);
 }
 
 .check {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 0 0 12px;
+    min-height: 30px;
     font-size: 13px;
 }
 
 .check input {
     accent-color: var(--accent);
+}
+
+/* Short / long wavelength comparison and results */
+.compare {
+    margin-bottom: 24px;
+}
+
+.results {
+    max-width: 900px;
+}
+
+.results table {
+    width: 100%;
+    margin-bottom: 12px;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.results th,
+.results td {
+    padding: 6px 10px 6px 0;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+}
+
+.results th {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.results td {
+    font-family: var(--mono);
+}
+
+.results td:first-child {
+    font-family: inherit;
+}
+
+/* "value ± error" stays on one line; a cell may only wrap between east and north. */
+.results .pair {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.warn {
+    margin: 0 0 12px;
+    padding: 10px 12px;
+    border-left: 3px solid var(--accent);
+    background: var(--panel);
+    font-size: 13px;
+}
+
+@media (max-width: 720px) {
+    .results {
+        overflow-x: auto;
+    }
 }

@@ -2,23 +2,38 @@
  "targets": [
   {
    "slug": "barnard",
-   "name": "Barnard's Star"
-  },
-  {
-   "slug": "wise-0855",
-   "name": "WISE 0855-0714"
+   "name": "Barnard's Star",
+   "sp_type": "M4V",
+   "n_exposures": 364,
+   "n_epochs": 3
   },
   {
    "slug": "eps-indi-b",
-   "name": "Epsilon Indi B"
+   "name": "Epsilon Indi B",
+   "sp_type": "T1V+T6V",
+   "n_exposures": 467,
+   "n_epochs": 4
+  },
+  {
+   "slug": "wise-0855",
+   "name": "WISE 0855-0714",
+   "sp_type": "Y2",
+   "n_exposures": 258,
+   "n_epochs": 3
   },
   {
    "slug": "rw-aur",
-   "name": "RW Aurigae"
+   "name": "RW Aurigae",
+   "sp_type": "K1/5e+K5e",
+   "n_exposures": 336,
+   "n_epochs": 3
   },
   {
    "slug": "r-dra",
-   "name": "R Draconis"
+   "name": "R Draconis",
+   "sp_type": "M4.5-6+e",
+   "n_exposures": 548,
+   "n_epochs": 3
   }
  ]
 }

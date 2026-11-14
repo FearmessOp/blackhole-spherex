@@ -1,0 +1,52 @@
+{
+ "barnard": {
+  "exposures": 358,
+  "edge": 6,
+  "overflow": 357,
+  "nan": 237,
+  "overflow_with_nan": 237,
+  "overflow_all_finite": 120,
+  "overflow_pixels": 1549,
+  "overflow_pixels_nan": 630
+ },
+ "eps-indi-b": {
+  "exposures": 461,
+  "edge": 6,
+  "overflow": 2,
+  "nan": 2,
+  "overflow_with_nan": 2,
+  "overflow_all_finite": 0,
+  "overflow_pixels": 2,
+  "overflow_pixels_nan": 2
+ },
+ "wise-0855": {
+  "exposures": 258,
+  "edge": 0,
+  "overflow": 0,
+  "nan": 0,
+  "overflow_with_nan": 0,
+  "overflow_all_finite": 0,
+  "overflow_pixels": 0,
+  "overflow_pixels_nan": 0
+ },
+ "rw-aur": {
+  "exposures": 333,
+  "edge": 3,
+  "overflow": 305,
+  "nan": 0,
+  "overflow_with_nan": 0,
+  "overflow_all_finite": 305,
+  "overflow_pixels": 674,
+  "overflow_pixels_nan": 0
+ },
+ "r-dra": {
+  "exposures": 534,
+  "edge": 14,
+  "overflow": 534,
+  "nan": 532,
+  "overflow_with_nan": 532,
+  "overflow_all_finite": 2,
+  "overflow_pixels": 4441,
+  "overflow_pixels_nan": 3817
+ }
+}

@@ -1,0 +1,6 @@
+barnard: exposures=358 (target at cutout edge: 6); central 3x3 px: OVERFLOW in 357, NaN in 237; OVERFLOW exposures with a NaN pixel: 237, with all 9 pixels finite: 120; OVERFLOW pixels: 1549, of these NaN: 630
+eps-indi-b: exposures=461 (target at cutout edge: 6); central 3x3 px: OVERFLOW in 2, NaN in 2; OVERFLOW exposures with a NaN pixel: 2, with all 9 pixels finite: 0; OVERFLOW pixels: 2, of these NaN: 2
+wise-0855: exposures=258 (target at cutout edge: 0); central 3x3 px: OVERFLOW in 0, NaN in 0; OVERFLOW exposures with a NaN pixel: 0, with all 9 pixels finite: 0; OVERFLOW pixels: 0, of these NaN: 0
+rw-aur: exposures=333 (target at cutout edge: 3); central 3x3 px: OVERFLOW in 305, NaN in 0; OVERFLOW exposures with a NaN pixel: 0, with all 9 pixels finite: 305; OVERFLOW pixels: 674, of these NaN: 0
+r-dra: exposures=534 (target at cutout edge: 14); central 3x3 px: OVERFLOW in 534, NaN in 532; OVERFLOW exposures with a NaN pixel: 532, with all 9 pixels finite: 2; OVERFLOW pixels: 4441, of these NaN: 3817
+wrote C:\Users\user\blackhole-spherex\data\astrometry\saturation_check.json

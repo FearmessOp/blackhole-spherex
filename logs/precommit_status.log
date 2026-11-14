@@ -1,0 +1,129 @@
+ M logs/download_wide.log
+ M logs/site_build.log
+ M logs/stack_barnard.log
+ M logs/stack_eps-indi-b.log
+ M logs/stack_r-dra.log
+ M logs/stack_rw-aur.log
+ M logs/stack_wise-0855.log
+ M pipeline/stack_epochs.py
+ M site/public/data/barnard/meta.json
+ M site/public/data/barnard/raw.json
+ M site/public/data/barnard/raw.png
+ M site/public/data/eps-indi-b/meta.json
+ M site/public/data/eps-indi-b/raw.json
+ M site/public/data/eps-indi-b/raw.png
+ M site/public/data/index.json
+ M site/public/data/r-dra/meta.json
+ M site/public/data/r-dra/raw.json
+ M site/public/data/r-dra/raw.png
+ M site/public/data/rw-aur/meta.json
+ M site/public/data/rw-aur/raw.json
+ M site/public/data/rw-aur/raw.png
+ M site/public/data/wise-0855/meta.json
+ M site/public/data/wise-0855/raw.json
+ M site/src/App.tsx
+ M site/src/BlinkView.tsx
+ M site/src/RawView.tsx
+ M site/src/styles.css
+?? data/astrometry/r-dra_target.csv
+?? data/astrometry/rw-aur_target.csv
+?? data/astrometry/saturation_check.json
+?? data/astrometry/wise-0855_neighbour_test.json
+?? data/astrometry/wise-0855_neighbours.json
+?? data/flicker/r-dra.json
+?? data/flicker/rw-aur.json
+?? logs/build_results.log
+?? logs/disk_usage.log
+?? logs/download_stderr.log
+?? logs/download_wide_end.log
+?? logs/download_wide_progress.log
+?? logs/download_wide_stdout.log
+?? logs/flicker_r-dra.log
+?? logs/flicker_rw-aur.log
+?? logs/inventory.log
+?? logs/neighbour_test_wise-0855.log
+?? logs/neighbours_wise-0855.log
+?? logs/precommit_status.log
+?? logs/saturation_check.log
+?? logs/target_astrometry_r-dra.log
+?? logs/target_astrometry_rw-aur.log
+?? pipeline/build_results.py
+?? pipeline/neighbour_test.py
+?? pipeline/neighbours.py
+?? pipeline/saturation_check.py
+?? site/public/data/barnard/d123_e0.png
+?? site/public/data/barnard/d123_e1.png
+?? site/public/data/barnard/d123_e2.png
+?? site/public/data/barnard/d56_e0.png
+?? site/public/data/barnard/d56_e1.png
+?? site/public/data/barnard/d56_e2.png
+?? site/public/data/barnard/results.json
+?? site/public/data/eps-indi-b/d123_e0.png
+?? site/public/data/eps-indi-b/d123_e1.png
+?? site/public/data/eps-indi-b/d123_e2.png
+?? site/public/data/eps-indi-b/d123_e3.png
+?? site/public/data/eps-indi-b/d56_e0.png
+?? site/public/data/eps-indi-b/d56_e1.png
+?? site/public/data/eps-indi-b/d56_e2.png
+?? site/public/data/eps-indi-b/d56_e3.png
+?? site/public/data/eps-indi-b/results.json
+?? site/public/data/r-dra/d123_e0.png
+?? site/public/data/r-dra/d123_e1.png
+?? site/public/data/r-dra/d123_e2.png
+?? site/public/data/r-dra/d56_e0.png
+?? site/public/data/r-dra/d56_e1.png
+?? site/public/data/r-dra/d56_e2.png
+?? site/public/data/r-dra/results.json
+?? site/public/data/rw-aur/d123_e0.png
+?? site/public/data/rw-aur/d123_e1.png
+?? site/public/data/rw-aur/d123_e2.png
+?? site/public/data/rw-aur/d56_e0.png
+?? site/public/data/rw-aur/d56_e1.png
+?? site/public/data/rw-aur/d56_e2.png
+?? site/public/data/rw-aur/results.json
+?? site/public/data/wise-0855/d123_e0.png
+?? site/public/data/wise-0855/d123_e1.png
+?? site/public/data/wise-0855/d123_e2.png
+?? site/public/data/wise-0855/d56_e0.png
+?? site/public/data/wise-0855/d56_e1.png
+?? site/public/data/wise-0855/d56_e2.png
+?? site/public/data/wise-0855/results.json
+?? site/src/ResultsPanel.tsx
+?? site/src/SkyPanel.tsx
+?? site/src/types.ts
+== diff stat 
+warning: in the working copy of 'logs/site_build.log', LF will be replaced by CRLF the next time Git touches it
+ logs/download_wide.log                | 3164 +++++++++++++++++++++++++++++++++
+ logs/site_build.log                   |   10 +-
+ logs/stack_barnard.log                |   11 +-
+ logs/stack_eps-indi-b.log             |   13 +-
+ logs/stack_r-dra.log                  |   11 +-
+ logs/stack_rw-aur.log                 |   11 +-
+ logs/stack_wise-0855.log              |    9 +
+ pipeline/stack_epochs.py              |   37 +-
+ site/public/data/barnard/meta.json    |  102 ++
+ site/public/data/barnard/raw.json     |    2 +-
+ site/public/data/barnard/raw.png      |  Bin 157406 -> 156180 bytes
+ site/public/data/eps-indi-b/meta.json |  118 ++
+ site/public/data/eps-indi-b/raw.json  |    2 +-
+ site/public/data/eps-indi-b/raw.png   |  Bin 160463 -> 160000 bytes
+ site/public/data/index.json           |   29 +-
+ site/public/data/r-dra/meta.json      |  102 ++
+ site/public/data/r-dra/raw.json       |    2 +-
+ site/public/data/r-dra/raw.png        |  Bin 139276 -> 137583 bytes
+ site/public/data/rw-aur/meta.json     |  102 ++
+ site/public/data/rw-aur/raw.json      |    2 +-
+ site/public/data/rw-aur/raw.png       |  Bin 177267 -> 176874 bytes
+ site/public/data/wise-0855/meta.json  |  102 ++
+ site/public/data/wise-0855/raw.json   |    2 +-
+ site/src/App.tsx                      |   26 +-
+ site/src/BlinkView.tsx                |  287 +--
+ site/src/RawView.tsx                  |   60 +-
+ site/src/styles.css                   |  238 ++-
+ 27 files changed, 4167 insertions(+), 275 deletions(-)
+== last commits 
+be4f2a0 Flicker number: brightness change of constant Gaia stars between raw exposures and between epoch means (three fields)
+c4ae7ec Note the live-site browser check and the mostly masked raw frames in the progress notes
+0091dcf Update progress notes for the second block and list Gaia DR3 in the sources
+809d89b Complete the wide cutouts (1089 of 1089) and repeat the field-star checks and fits with all exposures
+1fd40c2 WISE 0855: positions on D5+D6 epoch stacks and motion between epochs versus SIMBAD (not aligned to field stars)

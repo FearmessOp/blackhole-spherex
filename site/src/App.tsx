@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react'
 import BlinkView from './BlinkView'
-
-type TargetEntry = {
-    slug: string
-    name: string
-}
+import type { TargetEntry } from './types'
 
 type IndexState =
     | { status: 'loading' }
@@ -40,6 +36,8 @@ export default function App() {
         }
     }, [])
 
+    const current = index.status === 'ready' ? (slug ?? index.targets[0].slug) : null
+
     return (
         <div className="app">
             <header className="bar">
@@ -48,23 +46,25 @@ export default function App() {
             </header>
             <main className="stage">
                 {index.status === 'loading' && <p className="note">Loading target list…</p>}
-                {index.status === 'empty' && (
-                    <p className="note">No processed targets are available yet.</p>
-                )}
-                {index.status === 'ready' && (
+                {index.status === 'empty' && <p className="note">No processed targets are available yet.</p>}
+                {index.status === 'ready' && current && (
                     <>
-                        <nav className="row targets">
+                        <nav className="cards">
                             {index.targets.map((t) => (
                                 <button
                                     key={t.slug}
-                                    className={t.slug === (slug ?? index.targets[0].slug) ? 'on' : ''}
+                                    className={`card${t.slug === current ? ' on' : ''}`}
                                     onClick={() => setSlug(t.slug)}
                                 >
-                                    {t.name}
+                                    <span className="card-name">{t.name}</span>
+                                    <span className="card-meta">
+                                        {t.sp_type ? `${t.sp_type} · ` : ''}
+                                        {t.n_exposures} exposures · {t.n_epochs} epochs
+                                    </span>
                                 </button>
                             ))}
                         </nav>
-                        <BlinkView key={slug ?? index.targets[0].slug} slug={slug ?? index.targets[0].slug} />
+                        <BlinkView key={current} slug={current} />
                     </>
                 )}
             </main>

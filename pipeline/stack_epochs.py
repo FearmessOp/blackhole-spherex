@@ -41,9 +41,20 @@ PNG_ZOOM = 1  # PNGs are written at native resolution; the site enlarges them un
 # (OVERFLOW, SUR_ERROR, TRANSIENT, BLOOM) are kept on purpose: they cover the
 # core of bright targets, masking them would punch a hole into the star.
 MASK_FLAGS = ["NONFUNC", "MISSING_DATA", "HOT", "COLD", "SNOWBALL"]
-BANDS = ["all", "d1", "d2", "d3", "d4", "d5", "d6"]
+BANDS = ["all", "d123", "d56", "d1", "d2", "d3", "d4", "d5", "d6"]
+BAND_DETS = {"all": None, "d123": {1, 2, 3}, "d56": {5, 6},
+             **{f"d{i}": {i} for i in range(1, 7)}}
+BAND_LABELS = {"all": "All detectors", "d123": "Detectors 1-3 (short wavelength)",
+               "d56": "Detectors 5+6 (long wavelength)",
+               **{f"d{i}": f"Detector {i}" for i in range(1, 7)}}
+RAW_MAX_MASKED = 0.5  # raw frames with a larger masked fraction are left out of the playback
 
 warnings.simplefilter("ignore")
+
+def select(frames, band):
+    """Frames of one band."""
+    dets = BAND_DETS[band]
+    return frames if dets is None else [f for f in frames if f["job"]["detector"] in dets]
 
 def year_of(mjd):
     return 2000.0 + (mjd - 51544.5) / 365.25
@@ -224,7 +235,7 @@ def main():
     ok = np.ones((NPIX, NPIX), dtype=bool)
     for ep in epochs:
         for b in BANDS:
-            sel = ep if b == "all" else [f for f in ep if f["job"]["detector"] == int(b[1])]
+            sel = select(ep, b)
             if sel:
                 ok &= np.mean([f["foot"] for f in sel], axis=0) >= 0.5
     h = 0
@@ -247,7 +258,7 @@ def main():
         mjd = [f["job"]["t_mid_mjd"] for f in ep]
         mjd_mean = float(np.mean(mjd))
         for b in BANDS:
-            sel = ep if b == "all" else [f for f in ep if f["job"]["detector"] == int(b[1])]
+            sel = select(ep, b)
             if not sel:
                 continue
             stack, n = clipped_mean(np.array([f["img"] for f in sel]))
@@ -308,19 +319,26 @@ def main():
                                 "min_coverage": s["min_coverage"]})
             print(f"band {b} epoch {k}: n={s['n_frames']} wave={s['wave_min_um']}.."
                   f"{s['wave_max_um']} um min_coverage={s['min_coverage']} -> {name}")
-        label = "All detectors" if b == "all" else f"Detector {b[1]}"
-        band_meta.append({"id": b, "label": label, "scale": scale, "frames": frames_meta})
+        dets = None if BAND_DETS[b] is None else sorted(BAND_DETS[b])
+        band_meta.append({"id": b, "label": BAND_LABELS[b], "dets": dets, "scale": scale,
+                          "frames": frames_meta})
         print(f"band {b} scale: vmin={scale['vmin']:.4g} vmax={scale['vmax']:.4g} "
               f"soft={scale['soft']:.4g} MJy/sr")
 
-    # Raw playback: every single exposure on the same cropped grid, in time order,
+    # Raw playback: single exposures on the same cropped grid, in time order,
     # packed into one sprite sheet. All raw frames of a target share one scale.
-    raw_scale = band_scale([f["img"] for f in frames])
+    # Exposures that are mostly masked are left out (they stay in the stacks).
+    n_all = len(frames)
+    raw_sel = [f for f in frames if np.mean(~np.isfinite(f["img"])) <= RAW_MAX_MASKED]
+    n_dropped = n_all - len(raw_sel)
+    print(f"raw playback: dropped {n_dropped} of {n_all} exposures with more than "
+          f"{RAW_MAX_MASKED:.0%} of the pixels masked")
+    raw_scale = band_scale([f["img"] for f in raw_sel])
     sheet_cols = 24
-    sheet_rows = math.ceil(len(frames) / sheet_cols)
+    sheet_rows = math.ceil(len(raw_sel) / sheet_cols)
     sheet = np.zeros((sheet_rows * npix, sheet_cols * npix, 2), dtype=np.uint8)
     raw_frames = []
-    for i, f in enumerate(frames):
+    for i, f in enumerate(raw_sel):
         r, q = divmod(i, sheet_cols)
         sheet[r * npix:(r + 1) * npix, q * npix:(q + 1) * npix] = to_la(f["img"], raw_scale)
         raw_frames.append({"t": Time(f["job"]["t_mid_mjd"], format="mjd").isot[:16],
@@ -330,6 +348,7 @@ def main():
     Image.fromarray(sheet).save(out_dir / "raw.png")
     (out_dir / "raw.json").write_text(json.dumps(
         {"sheet": "raw.png", "cols": sheet_cols, "npix": npix, "scale": raw_scale,
+         "n_total": n_all, "n_dropped": n_dropped, "max_masked_fraction": RAW_MAX_MASKED,
          "frames": raw_frames}), encoding="utf-8")
     print(f"raw playback: {len(raw_frames)} exposures -> raw.png "
           f"({sheet.shape[1]}x{sheet.shape[0]} px, {sheet_cols} per row), raw.json; "

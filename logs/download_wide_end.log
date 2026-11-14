@@ -1,0 +1,32 @@
+lines 5251
+r-dra lines 676
+2026-11-14 15:11:44 FAIL r-dra level2_2026W28_2A_0376_1D4_spx_l2b-v27-2026-276.fits (856/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W28_2A_0376_2D1_spx_l2b-v27-2026-276.fits (857/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W28_2A_0376_2D4_spx_l2b-v27-2026-276.fits (858/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W28_2A_0376_3D4_spx_l2b-v27-2026-276.fits (859/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W28_2A_0376_3D1_spx_l2b-v27-2026-276.fits (860/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0015_1D1_spx_l2b-v27-2026-276.fits (861/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0015_1D4_spx_l2b-v27-2026-276.fits (862/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0015_2D1_spx_l2b-v27-2026-276.fits (863/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0015_2D4_spx_l2b-v27-2026-276.fits (864/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0015_3D1_spx_l2b-v27-2026-276.fits (865/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0015_3D4_spx_l2b-v27-2026-276.fits (866/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0015_4D1_spx_l2b-v27-2026-276.fits (867/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0015_4D4_spx_l2b-v27-2026-276.fits (868/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0364_1D4_spx_l2b-v27-2026-276.fits (869/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0364_1D1_spx_l2b-v27-2026-276.fits (870/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0430_1D4_spx_l2b-v27-2026-276.fits (871/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_1A_0430_1D1_spx_l2b-v27-2026-276.fits (872/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_2A_0079_1D4_spx_l2b-v27-2026-277.fits (873/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_2A_0079_1D1_spx_l2b-v27-2026-277.fits (874/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_2A_0079_2D1_spx_l2b-v27-2026-277.fits (875/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_2A_0079_2D4_spx_l2b-v27-2026-277.fits (876/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:44 FAIL r-dra level2_2026W29_2A_0079_3D1_spx_l2b-v27-2026-277.fits (877/884): free disk 5.0 GB below 5.0 GB
+2026-11-14 15:11:47 OK TRY 1 r-dra level2_2025W46_2A_0205_1D1_spx_l2b-v27-2026-207.fits bytes=4104000 secs=12.4 (878/884)
+2026-11-14 15:11:48 OK TRY 1 r-dra level2_2025W47_1A_0388_1D2_spx_l2b-v27-2026-208.fits bytes=4173120 secs=4.6 (879/884)
+2026-11-14 15:11:48 OK TRY 1 r-dra level2_2025W46_2A_0205_3D1_spx_l2b-v27-2026-207.fits bytes=4104000 secs=10.3 (880/884)
+2026-11-14 15:11:49 OK TRY 1 r-dra level2_2025W46_2A_0205_4D4_spx_l2b-v27-2026-207.fits bytes=4101120 secs=8.6 (881/884)
+2026-11-14 15:11:51 OK TRY 1 r-dra level2_2025W46_2A_0205_3D4_spx_l2b-v27-2026-207.fits bytes=4101120 secs=10.9 (882/884)
+2026-11-14 15:11:51 OK TRY 1 r-dra level2_2025W46_2A_0592_1D1_spx_l2b-v27-2026-207.fits bytes=4115520 secs=10.3 (883/884)
+2026-11-14 15:11:54 OK TRY 1 r-dra level2_2025W46_2A_0592_1D4_spx_l2b-v27-2026-207.fits bytes=4112640 secs=11.0 (884/884)
+2026-11-14 15:11:54 DONE ok=583 cached=0 failed=301 total=884 bytes=2431350720 elapsed_s=798 free_gb=4.6

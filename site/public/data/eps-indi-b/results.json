@@ -1,0 +1,181 @@
+{
+ "slug": "eps-indi-b",
+ "saturation": {
+  "overflow": 2,
+  "exposures": 467,
+  "source": "data/astrometry/eps-indi-b_target.csv",
+  "core_empty": 2,
+  "core_filled": 0,
+  "check_source": "data/astrometry/saturation_check.json"
+ },
+ "fit": {
+  "t0_year": 2026.0191,
+  "aligned_to_field_stars": true,
+  "reference": {
+   "pm_east": 3981.977,
+   "pm_north": -2466.832,
+   "plx": 270.658,
+   "source": "SIMBAD",
+   "bibcode": "2020yCat.1350....0G"
+  },
+  "methods": [
+   {
+    "id": "win",
+    "label": "Windowed centroid",
+    "n_used": 388,
+    "pm_east": 3966.7,
+    "pm_east_err": 29.06,
+    "pm_north": -2462.57,
+    "pm_north_err": 30.73,
+    "plx": 329.13,
+    "plx_err": 16.26,
+    "plx_loo_min": 320.3,
+    "plx_loo_max": 354.93,
+    "plx_excess_pct": 21.6
+   },
+   {
+    "id": "psf",
+    "label": "ePSF fit",
+    "n_used": 384,
+    "pm_east": 3939.61,
+    "pm_east_err": 24.6,
+    "pm_north": -2440.73,
+    "pm_north_err": 20.82,
+    "plx": 300.44,
+    "plx_err": 14.79,
+    "plx_loo_min": 284.12,
+    "plx_loo_max": 324.58,
+    "plx_excess_pct": 11.0
+   }
+  ],
+  "arrow": {
+   "x": 9.311,
+   "y": 8.792,
+   "span_years": 1.387,
+   "dx": -0.888,
+   "dy": 0.55,
+   "method": "psf"
+  },
+  "source": "data/astrometry/eps-indi-b_fit_aligned.json"
+ },
+ "stack_motion": null,
+ "per_exposure_fit": null,
+ "flicker": {
+  "slug": "eps-indi-b",
+  "n_exposures": 467,
+  "n_epochs": 4,
+  "n_stars": 5,
+  "aperture_px": 5,
+  "raw_scatter_median": 0.9431,
+  "epoch_std_median": 0.0762,
+  "epoch_half_range_median": 0.1035,
+  "stars": [
+   {
+    "source_id": "6412596458823395328",
+    "g": 12.95,
+    "n_exposures": 419,
+    "n_per_epoch": [
+     108,
+     136,
+     64,
+     111
+    ],
+    "raw_scatter": 0.9431,
+    "epoch_std": 0.0762,
+    "epoch_half_range": 0.1035,
+    "epoch_means": [
+     20.5773,
+     21.6848,
+     22.8879,
+     18.5569
+    ]
+   },
+   {
+    "source_id": "6412594259800093568",
+    "g": 12.96,
+    "n_exposures": 413,
+    "n_per_epoch": [
+     112,
+     133,
+     62,
+     106
+    ],
+    "raw_scatter": 1.0117,
+    "epoch_std": 0.0933,
+    "epoch_half_range": 0.1163,
+    "epoch_means": [
+     14.6254,
+     17.2938,
+     16.5594,
+     13.6788
+    ]
+   },
+   {
+    "source_id": "6412593435166417536",
+    "g": 13.93,
+    "n_exposures": 406,
+    "n_per_epoch": [
+     106,
+     121,
+     66,
+     113
+    ],
+    "raw_scatter": 0.9748,
+    "epoch_std": 0.0907,
+    "epoch_half_range": 0.1161,
+    "epoch_means": [
+     6.231,
+     7.062,
+     6.855,
+     5.5688
+    ]
+   },
+   {
+    "source_id": "6412592370014523776",
+    "g": 14.07,
+    "n_exposures": 387,
+    "n_per_epoch": [
+     106,
+     132,
+     71,
+     78
+    ],
+    "raw_scatter": 0.7091,
+    "epoch_std": 0.0231,
+    "epoch_half_range": 0.0294,
+    "epoch_means": [
+     8.5727,
+     8.9289,
+     8.8192,
+     8.4176
+    ]
+   },
+   {
+    "source_id": "6412595771628639616",
+    "g": 14.19,
+    "n_exposures": 402,
+    "n_per_epoch": [
+     110,
+     120,
+     69,
+     103
+    ],
+    "raw_scatter": 0.8258,
+    "epoch_std": 0.0588,
+    "epoch_half_range": 0.0761,
+    "epoch_means": [
+     9.977,
+     9.8103,
+     10.1826,
+     8.7115
+    ]
+   }
+  ]
+ },
+ "raw_dropped": {
+  "dropped": 6,
+  "total": 467
+ },
+ "default_band": "all",
+ "compare_bands": null
+}

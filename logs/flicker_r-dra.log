@@ -1,0 +1,9 @@
+r-dra: wide cutouts on_disk=548 of 548; candidate stars=40 (isolated Gaia DR3, G 6.37..16.94)
+epochs=3; stars with at least 8 clean exposures in every epoch, brightest 5 kept: 5
+  G=12.52 id=1648326843826192768 n=504 per_epoch=[152, 194, 158] raw scatter=103.6% epoch std=6.2% epoch half-range=7.5%
+  G=13.27 id=1648331929067468544 n=242 per_epoch=[65, 114, 63] raw scatter=70.0% epoch std=5.3% epoch half-range=6.5%
+  G=13.59 id=1648320732089256448 n=39 per_epoch=[14, 13, 12] raw scatter=19.2% epoch std=25.7% epoch half-range=27.3%
+  G=13.61 id=1648326538885044096 n=137 per_epoch=[54, 59, 24] raw scatter=317.9% epoch std=37.7% epoch half-range=40.0%
+  G=13.64 id=1648331074370509952 n=457 per_epoch=[117, 184, 156] raw scatter=96.4% epoch std=3.9% epoch half-range=4.5%
+field medians: raw scatter=96.4% epoch std=6.2% epoch half-range=7.5%
+wrote C:\Users\user\blackhole-spherex\data\flicker\r-dra.json

@@ -1,0 +1,19 @@
+free_gb 9.14
+   14.84 GB   3655 files  cache
+    7.85 GB   1973 files  cache\cutouts
+    6.99 GB   1672 files  cache\cutouts_wide
+    0.00 GB     10 files  cache\manifest
+    0.01 GB     43 files  data
+    0.08 GB   1279 files  site
+    0.00 GB     65 files  logs
+    0.22 GB   5464 files  .venv
+    1.45 GB    364 files  cache\cutouts\barnard
+    1.86 GB    467 files  cache\cutouts\eps-indi-b
+    2.18 GB    548 files  cache\cutouts\r-dra
+    1.34 GB    336 files  cache\cutouts\rw-aur
+    1.03 GB    258 files  cache\cutouts\wise-0855
+    1.52 GB    364 files  cache\cutouts_wide\barnard
+    1.95 GB    467 files  cache\cutouts_wide\eps-indi-b
+    1.03 GB    248 files  cache\cutouts_wide\r-dra
+    1.40 GB    335 files  cache\cutouts_wide\rw-aur
+    1.08 GB    258 files  cache\cutouts_wide\wise-0855

@@ -12,6 +12,14 @@ band all epoch 0: n=112 wave=0.7469..4.9964 um min_coverage=108 -> all_e0.png
 band all epoch 1: n=114 wave=0.7409..5.0116 um min_coverage=109 -> all_e1.png
 band all epoch 2: n=110 wave=0.7537..4.9813 um min_coverage=106 -> all_e2.png
 band all scale: vmin=-0.0944 vmax=277 soft=0.1512 MJy/sr
+band d123 epoch 0: n=56 wave=0.7469..2.4057 um min_coverage=53 -> d123_e0.png
+band d123 epoch 1: n=57 wave=0.7409..2.4212 um min_coverage=55 -> d123_e1.png
+band d123 epoch 2: n=55 wave=0.7537..2.3848 um min_coverage=52 -> d123_e2.png
+band d123 scale: vmin=-0.06064 vmax=120.4 soft=0.0903 MJy/sr
+band d56 epoch 0: n=37 wave=3.8271..4.9964 um min_coverage=35 -> d56_e0.png
+band d56 epoch 1: n=38 wave=3.8129..5.0116 um min_coverage=34 -> d56_e1.png
+band d56 epoch 2: n=37 wave=3.8149..4.9813 um min_coverage=35 -> d56_e2.png
+band d56 scale: vmin=-0.1407 vmax=443.7 soft=0.2175 MJy/sr
 band d1 epoch 0: n=19 wave=0.7469..1.1195 um min_coverage=18 -> d1_e0.png
 band d1 epoch 1: n=19 wave=0.7409..1.1116 um min_coverage=17 -> d1_e1.png
 band d1 epoch 2: n=18 wave=0.7537..1.1041 um min_coverage=17 -> d1_e2.png
@@ -36,5 +44,6 @@ band d6 epoch 0: n=19 wave=4.4092..4.9964 um min_coverage=18 -> d6_e0.png
 band d6 epoch 1: n=19 wave=4.4246..5.0116 um min_coverage=17 -> d6_e1.png
 band d6 epoch 2: n=18 wave=4.4281..4.9813 um min_coverage=17 -> d6_e2.png
 band d6 scale: vmin=-0.1593 vmax=469.8 soft=0.2437 MJy/sr
-raw playback: 336 exposures -> raw.png (600x350 px, 24 per row), raw.json; scale vmin=-0.1016 vmax=338.7 soft=0.1615 MJy/sr
+raw playback: dropped 2 of 336 exposures with more than 50% of the pixels masked
+raw playback: 334 exposures -> raw.png (600x350 px, 24 per row), raw.json; scale vmin=-0.1015 vmax=339.2 soft=0.1614 MJy/sr
 wrote C:\Users\user\blackhole-spherex\site\public\data\rw-aur\meta.json and C:\Users\user\blackhole-spherex\site\public\data\index.json

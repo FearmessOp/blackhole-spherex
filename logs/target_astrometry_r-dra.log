@@ -1,0 +1,4 @@
+r-dra: manifest=548 on_disk=548; starting point = SIMBAD pm=(-20.643, 6.149) mas/yr plx=1.2509 mas
+exposures=548 -> C:\Users\user\blackhole-spherex\data\astrometry\r-dra_target.csv
+flags in the central 3x3 px (exposures with the flag): {'BLOOM': 534, 'OVERFLOW': 534, 'SOURCE': 534, 'SUR_ERROR': 534, 'TRANSIENT': 188, 'NONFUNC': 21, 'PERSIST': 6, 'DICHROIC': 4, 'HOT': 1}
+saturation: OVERFLOW in 534 of 548 exposures; clean core (none of ['OVERFLOW', 'SUR_ERROR', 'NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'NONLINEAR', 'SNOWBALL', 'TRANSIENT'], no NaN): 0 of 548; usable rows (clean=1): 0; of these measured by both methods within 1.5 px of the starting point: 0

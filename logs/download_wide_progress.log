@@ -1,0 +1,7 @@
+2026-11-14 16:00:06 START pid=39304 slugs=['rw-aur', 'r-dra'] limit=None workers=8 size_deg=0.2 free_gb=7.9
+2026-11-14 16:00:06 PLAN rw-aur: 336 cutouts
+2026-11-14 16:00:06 PLAN r-dra: 548 cutouts
+2026-11-14 16:00:06 FIRST URL https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/level2/2025W36_1A/l2b-v27-2026-232/1/level2_2025W36_1A_0095_1D1_spx_l2b-v27-2026-232.fits?center=76.9565858,30.4012932&size=0.2
+2026-11-14 16:00:18 OK TRY 1 r-dra level2_2026W03_1A_0304_1D3_spx_l2b-v27-2026-214.fits bytes=4176000 secs=11.3 (883/884)
+2026-11-14 16:00:20 OK TRY 1 r-dra level2_2026W28_2A_0376_1D4_spx_l2b-v27-2026-276.fits bytes=4170240 secs=13.3 (884/884)
+2026-11-14 16:00:20 DONE ok=2 cached=882 failed=0 total=884 bytes=3690794880 elapsed_s=14 free_gb=7.9
