@@ -1,0 +1,24 @@
+== local head 
+fa080ea7897413b2d053ea2fc0c40b2401f8c7a4
+== ls-remote origin 
+fa080ea7897413b2d053ea2fc0c40b2401f8c7a4	HEAD
+fa080ea7897413b2d053ea2fc0c40b2401f8c7a4	refs/heads/main
+== git status 
+## main...origin/main
+?? logs/push_verify.log
+?? pipeline/stack_epochs.py
+== repo page without login 
+repo http=200 url=https://github.com/FearmessOp/blackhole-spherex
+license page http=200 url=https://github.com/FearmessOp/blackhole-spherex/blob/main/LICENSE
+readme page http=200 url=https://github.com/FearmessOp/blackhole-spherex/blob/main/README.md
+== remote LICENSE content 
+2:                                 Apache License
+3:                           Version 2.0, January 2004
+179:   APPENDIX: How to apply the Apache License to your work.
+181:      To apply the Apache License to your work, attach the following
+192:   Licensed under the Apache License, Version 2.0 (the "License");
+== remote README content 
+1:# Blackhole 102 — SPHEREx motion viewer
+48:## Use of SI
+50:## License
+== end

@@ -1,0 +1,61 @@
+== git status --short 
+ M logs/site_build.log
+ M site/index.html
+ M site/src/App.tsx
+ M site/src/styles.css
+?? logs/precommit_slice.log
+?? logs/push_verify.log
+?? logs/site_404_check.log
+?? logs/site_preview.log
+?? logs/stack_barnard.log
+?? logs/stack_barnard_run1.log
+?? pipeline/stack_epochs.py
+?? site/public/
+?? site/src/BlinkView.tsx
+== git add -n . 
+add 'logs/site_build.log'
+add 'site/index.html'
+add 'site/src/App.tsx'
+add 'site/src/styles.css'
+add 'logs/precommit_slice.log'
+add 'logs/push_verify.log'
+add 'logs/site_404_check.log'
+add 'logs/site_preview.log'
+add 'logs/stack_barnard.log'
+add 'logs/stack_barnard_run1.log'
+add 'pipeline/stack_epochs.py'
+add 'site/public/data/barnard/all_e0.png'
+add 'site/public/data/barnard/all_e1.png'
+add 'site/public/data/barnard/all_e2.png'
+add 'site/public/data/barnard/d1_e0.png'
+add 'site/public/data/barnard/d1_e1.png'
+add 'site/public/data/barnard/d1_e2.png'
+add 'site/public/data/barnard/d2_e0.png'
+add 'site/public/data/barnard/d2_e1.png'
+add 'site/public/data/barnard/d2_e2.png'
+add 'site/public/data/barnard/d3_e0.png'
+add 'site/public/data/barnard/d3_e1.png'
+add 'site/public/data/barnard/d3_e2.png'
+add 'site/public/data/barnard/d4_e0.png'
+add 'site/public/data/barnard/d4_e1.png'
+add 'site/public/data/barnard/d4_e2.png'
+add 'site/public/data/barnard/d5_e0.png'
+add 'site/public/data/barnard/d5_e1.png'
+add 'site/public/data/barnard/d5_e2.png'
+add 'site/public/data/barnard/d6_e0.png'
+add 'site/public/data/barnard/d6_e1.png'
+add 'site/public/data/barnard/d6_e2.png'
+add 'site/public/data/barnard/meta.json'
+add 'site/public/data/index.json'
+add 'site/src/BlinkView.tsx'
+== site_preview.log 
+bytes 246
+b'  \x1b[32m\xe2\x9e\x9c\x1b[39m  \x1b[1mLocal\x1b[22m:   \x1b[36mhttp://localhost:\x1b[1m4173\x1b[22m/\x1b[39m\n\x1b[2m  \x1b[32m\xe2\x9e\x9c\x1b[39m  \x1b[1mNetwork\x1b[22m\x1b[2m: use \x1b[22m\x1b[1m--host\x1b[22m\x1b[2m to expose\x1b[22m\n\x1b[2m\x1b[32m  \xe2\x9e\x9c\x1b[39m\x1b[22m\x1b[2m  press \x1b[22m\x1b[1mh + enter\x1b[22m\x1b[2m to show help\x1b[22m\n'
+== sizes of new files 
+files 35 total_bytes 64873
+14895 pipeline/stack_epochs.py
+7608 site/public/data/barnard/meta.json
+6654 logs/stack_barnard_run1.log
+6580 site/src/BlinkView.tsx
+3227 logs/stack_barnard.log
+2829 site/src/styles.css

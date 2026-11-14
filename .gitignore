@@ -27,6 +27,7 @@ dist/
 # Local process files
 logs/download.pid
 logs/download_stdout.log
+logs/site_preview.log
 
 # Local check output that contains the committer e-mail address
 logs/prepush_author.log
