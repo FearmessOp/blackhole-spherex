@@ -11,6 +11,7 @@ checked against the provider's own terms page yet and must be before submission.
 |---|---|---|---|
 | SPHEREx Level-2 spectral images, collections `spherex_dr1` and `spherex_qr3`, NASA/IPAC Infrared Science Archive (IRSA) | Image cutouts for all targets | IRSA SIA2 (`https://irsa.ipac.caltech.edu/SIA`), IRSA TAP (`https://irsa.ipac.caltech.edu/TAP/sync`), cutout service on the `access_url` returned by SIA | not yet verified |
 | SIMBAD astronomical database (CDS, Strasbourg), queried through the Harvard mirror `https://simbad.harvard.edu/simbad/sim-script` | Target coordinates, proper motions, parallaxes (`data/targets.json`, `logs/resolve_targets.log`) | HTTP script interface | not yet verified |
+| Gaia DR3 source catalogue (`gaiadr3.gaia_source`), ESA Gaia archive TAP (`https://gea.esac.esa.int/tap-server/tap/sync`) | Reference stars for the astrometry checks: positions, proper motions, parallaxes (`data/gaia/*.csv`, `logs/gaia_field.log`, `logs/gaia_field_wide.log`) | TAP synchronous query | not yet verified |
 | NASA Space Apps Challenge 2026 page "Planet X and SPHEREx" | Challenge requirements and resource list | Read in a browser | not applicable (not redistributed) |
 
 Bibliographic references returned by SIMBAD for the values in `data/targets.json`
