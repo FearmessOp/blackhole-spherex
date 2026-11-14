@@ -1,6 +1,7 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import BlinkView from './BlinkView'
 import QuickLookView, { type Query } from './QuickLookView'
+import ValidationPanel from './ValidationPanel'
 import type { TargetEntry } from './types'
 
 type IndexState =
@@ -96,6 +97,7 @@ export default function App() {
     }
 
     const targets = index.status === 'ready' ? index.targets : []
+    const names: Record<string, string> = Object.fromEntries(targets.map((t) => [t.slug, t.name]))
     // A name that is one of the prepared targets opens the prepared view.
     const wanted = route.kind === 'name' ? route.name.toLowerCase() : null
     const prepared =
@@ -156,6 +158,7 @@ export default function App() {
                 {index.status === 'empty' && route.kind === 'none' && (
                     <p className="note">No prepared targets are available; enter a star name or a position above.</p>
                 )}
+                {index.status !== 'loading' && <ValidationPanel names={names} />}
             </main>
         </div>
     )

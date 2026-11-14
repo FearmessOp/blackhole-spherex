@@ -515,3 +515,52 @@ button.on {
         padding-top: 0;
     }
 }
+
+/* Validation: control test on Gaia field stars */
+.validation {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+}
+
+.validation h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.validation p {
+    margin: 0 0 12px;
+    font-size: 13px;
+}
+
+.validation h3 {
+    margin-top: 18px;
+}
+
+.validation .row {
+    margin-bottom: 12px;
+}
+
+.validation td.out {
+    color: var(--accent);
+}
+
+.validation details {
+    margin: 0 0 12px;
+}
+
+.validation summary {
+    margin-bottom: 10px;
+    color: var(--accent);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.validation .stars {
+    font-size: 12px;
+}
+
+.validation a {
+    color: var(--accent);
+}

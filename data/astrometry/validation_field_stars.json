@@ -1,0 +1,6480 @@
+{
+ "selection": {
+  "min_exposures": 30,
+  "min_epochs": 3,
+  "min_per_epoch": 5,
+  "min_other_stars": 5,
+  "n_boot": 500
+ },
+ "fields": [
+  {
+   "slug": "barnard",
+   "n_measurements": 5949,
+   "n_stars_measured": 19,
+   "aligned": {
+    "summary": {
+     "win": {
+      "n_stars": 19,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 0.6,
+       "scatter": 24.2,
+       "median_err": 29.1,
+       "within_2_err": 18
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 6.5,
+       "scatter": 38.1,
+       "median_err": 37.3,
+       "within_2_err": 18
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": 1.0,
+       "scatter": 8.9,
+       "median_err": 13.3,
+       "within_2_err": 19
+      },
+      "all_three_within_2_err": 18,
+      "expected_within_2_err": 18.1,
+      "expected_all_three": 16.5
+     },
+     "psf": {
+      "n_stars": 19,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": -3.4,
+       "scatter": 18.4,
+       "median_err": 20.9,
+       "within_2_err": 19
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 2.8,
+       "scatter": 9.9,
+       "median_err": 18.0,
+       "within_2_err": 18
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -3.5,
+       "scatter": 10.7,
+       "median_err": 9.7,
+       "within_2_err": 19
+      },
+      "all_three_within_2_err": 18,
+      "expected_within_2_err": 18.1,
+      "expected_all_three": 16.5
+     }
+    },
+    "not_fitted": [],
+    "stars": [
+     {
+      "source_id": "4472832165289153024",
+      "g": 11.45,
+      "win": {
+       "n_used": 327,
+       "n_epochs": 3,
+       "rms_mas": 306.0,
+       "pm_east": {
+        "gaia": 0.578470389706761,
+        "gaia_err": null,
+        "measured": -17.2,
+        "err": 24.0,
+        "diff": -17.8,
+        "diff_over_err": -0.74
+       },
+       "pm_north": {
+        "gaia": -8.67125381236081,
+        "gaia_err": null,
+        "measured": -49.8,
+        "err": 33.9,
+        "diff": -41.2,
+        "diff_over_err": -1.21
+       },
+       "plx": {
+        "gaia": 1.8140014253779246,
+        "gaia_err": null,
+        "measured": 5.2,
+        "err": 12.3,
+        "diff": 3.4,
+        "diff_over_err": 0.28
+       }
+      },
+      "psf": {
+       "n_used": 316,
+       "n_epochs": 3,
+       "rms_mas": 190.0,
+       "pm_east": {
+        "gaia": 0.578470389706761,
+        "gaia_err": null,
+        "measured": -15.3,
+        "err": 19.8,
+        "diff": -15.8,
+        "diff_over_err": -0.8
+       },
+       "pm_north": {
+        "gaia": -8.67125381236081,
+        "gaia_err": null,
+        "measured": 1.8,
+        "err": 16.7,
+        "diff": 10.4,
+        "diff_over_err": 0.62
+       },
+       "plx": {
+        "gaia": 1.8140014253779246,
+        "gaia_err": null,
+        "measured": 1.5,
+        "err": 9.4,
+        "diff": -0.4,
+        "diff_over_err": -0.04
+       }
+      }
+     },
+     {
+      "source_id": "4472837942025804800",
+      "g": 11.82,
+      "win": {
+       "n_used": 310,
+       "n_epochs": 3,
+       "rms_mas": 332.0,
+       "pm_east": {
+        "gaia": 3.8288675489547677,
+        "gaia_err": null,
+        "measured": 3.2,
+        "err": 29.4,
+        "diff": -0.7,
+        "diff_over_err": -0.02
+       },
+       "pm_north": {
+        "gaia": 2.2735047103003527,
+        "gaia_err": null,
+        "measured": 8.8,
+        "err": 36.6,
+        "diff": 6.5,
+        "diff_over_err": 0.18
+       },
+       "plx": {
+        "gaia": 1.4232981277188417,
+        "gaia_err": null,
+        "measured": -3.6,
+        "err": 13.3,
+        "diff": -5.0,
+        "diff_over_err": -0.37
+       }
+      },
+      "psf": {
+       "n_used": 301,
+       "n_epochs": 3,
+       "rms_mas": 180.0,
+       "pm_east": {
+        "gaia": 3.8288675489547677,
+        "gaia_err": null,
+        "measured": -1.8,
+        "err": 19.7,
+        "diff": -5.6,
+        "diff_over_err": -0.28
+       },
+       "pm_north": {
+        "gaia": 2.2735047103003527,
+        "gaia_err": null,
+        "measured": 7.2,
+        "err": 15.6,
+        "diff": 5.0,
+        "diff_over_err": 0.32
+       },
+       "plx": {
+        "gaia": 1.4232981277188417,
+        "gaia_err": null,
+        "measured": 0.3,
+        "err": 9.7,
+        "diff": -1.2,
+        "diff_over_err": -0.12
+       }
+      }
+     },
+     {
+      "source_id": "4472836292758713216",
+      "g": 11.86,
+      "win": {
+       "n_used": 267,
+       "n_epochs": 3,
+       "rms_mas": 263.0,
+       "pm_east": {
+        "gaia": -6.158672306279798,
+        "gaia_err": null,
+        "measured": 8.3,
+        "err": 24.3,
+        "diff": 14.4,
+        "diff_over_err": 0.59
+       },
+       "pm_north": {
+        "gaia": 0.5128588102925811,
+        "gaia_err": null,
+        "measured": -27.9,
+        "err": 33.4,
+        "diff": -28.4,
+        "diff_over_err": -0.85
+       },
+       "plx": {
+        "gaia": 0.9765427027908512,
+        "gaia_err": null,
+        "measured": 3.0,
+        "err": 13.2,
+        "diff": 2.0,
+        "diff_over_err": 0.15
+       }
+      },
+      "psf": {
+       "n_used": 261,
+       "n_epochs": 3,
+       "rms_mas": 161.0,
+       "pm_east": {
+        "gaia": -6.158672306279798,
+        "gaia_err": null,
+        "measured": 23.1,
+        "err": 18.6,
+        "diff": 29.3,
+        "diff_over_err": 1.57
+       },
+       "pm_north": {
+        "gaia": 0.5128588102925811,
+        "gaia_err": null,
+        "measured": 4.1,
+        "err": 16.0,
+        "diff": 3.6,
+        "diff_over_err": 0.22
+       },
+       "plx": {
+        "gaia": 0.9765427027908512,
+        "gaia_err": null,
+        "measured": -2.5,
+        "err": 8.9,
+        "diff": -3.5,
+        "diff_over_err": -0.39
+       }
+      }
+     },
+     {
+      "source_id": "4472835807421415680",
+      "g": 12.03,
+      "win": {
+       "n_used": 287,
+       "n_epochs": 3,
+       "rms_mas": 356.0,
+       "pm_east": {
+        "gaia": 3.2089103671044787,
+        "gaia_err": null,
+        "measured": 14.8,
+        "err": 29.0,
+        "diff": 11.6,
+        "diff_over_err": 0.4
+       },
+       "pm_north": {
+        "gaia": -1.6628918285824197,
+        "gaia_err": null,
+        "measured": -56.3,
+        "err": 40.8,
+        "diff": -54.6,
+        "diff_over_err": -1.34
+       },
+       "plx": {
+        "gaia": 0.6390195605326058,
+        "gaia_err": null,
+        "measured": 22.0,
+        "err": 13.6,
+        "diff": 21.4,
+        "diff_over_err": 1.57
+       }
+      },
+      "psf": {
+       "n_used": 286,
+       "n_epochs": 3,
+       "rms_mas": 174.0,
+       "pm_east": {
+        "gaia": 3.2089103671044787,
+        "gaia_err": null,
+        "measured": 7.6,
+        "err": 21.5,
+        "diff": 4.4,
+        "diff_over_err": 0.21
+       },
+       "pm_north": {
+        "gaia": -1.6628918285824197,
+        "gaia_err": null,
+        "measured": -13.4,
+        "err": 16.0,
+        "diff": -11.8,
+        "diff_over_err": -0.74
+       },
+       "plx": {
+        "gaia": 0.6390195605326058,
+        "gaia_err": null,
+        "measured": 12.1,
+        "err": 9.1,
+        "diff": 11.5,
+        "diff_over_err": 1.25
+       }
+      }
+     },
+     {
+      "source_id": "4472838762358909184",
+      "g": 12.47,
+      "win": {
+       "n_used": 169,
+       "n_epochs": 3,
+       "rms_mas": 248.0,
+       "pm_east": {
+        "gaia": -0.08523542682677264,
+        "gaia_err": null,
+        "measured": -5.7,
+        "err": 31.2,
+        "diff": -5.6,
+        "diff_over_err": -0.18
+       },
+       "pm_north": {
+        "gaia": -8.237271428677355,
+        "gaia_err": null,
+        "measured": 35.0,
+        "err": 37.9,
+        "diff": 43.3,
+        "diff_over_err": 1.14
+       },
+       "plx": {
+        "gaia": 0.1224657040456407,
+        "gaia_err": null,
+        "measured": -14.2,
+        "err": 13.4,
+        "diff": -14.3,
+        "diff_over_err": -1.07
+       }
+      },
+      "psf": {
+       "n_used": 168,
+       "n_epochs": 3,
+       "rms_mas": 149.0,
+       "pm_east": {
+        "gaia": -0.08523542682677264,
+        "gaia_err": null,
+        "measured": -17.2,
+        "err": 19.2,
+        "diff": -17.2,
+        "diff_over_err": -0.89
+       },
+       "pm_north": {
+        "gaia": -8.237271428677355,
+        "gaia_err": null,
+        "measured": -15.9,
+        "err": 19.9,
+        "diff": -7.7,
+        "diff_over_err": -0.39
+       },
+       "plx": {
+        "gaia": 0.1224657040456407,
+        "gaia_err": null,
+        "measured": -5.2,
+        "err": 10.6,
+        "diff": -5.3,
+        "diff_over_err": -0.5
+       }
+      }
+     },
+     {
+      "source_id": "4472836563335659008",
+      "g": 12.53,
+      "win": {
+       "n_used": 334,
+       "n_epochs": 3,
+       "rms_mas": 400.0,
+       "pm_east": {
+        "gaia": 0.49723815512205594,
+        "gaia_err": null,
+        "measured": 42.8,
+        "err": 38.7,
+        "diff": 42.3,
+        "diff_over_err": 1.09
+       },
+       "pm_north": {
+        "gaia": -8.743334961478878,
+        "gaia_err": null,
+        "measured": 9.6,
+        "err": 36.1,
+        "diff": 18.3,
+        "diff_over_err": 0.51
+       },
+       "plx": {
+        "gaia": 1.9675823179027216,
+        "gaia_err": null,
+        "measured": 7.1,
+        "err": 18.4,
+        "diff": 5.2,
+        "diff_over_err": 0.28
+       }
+      },
+      "psf": {
+       "n_used": 323,
+       "n_epochs": 3,
+       "rms_mas": 189.0,
+       "pm_east": {
+        "gaia": 0.49723815512205594,
+        "gaia_err": null,
+        "measured": -3.2,
+        "err": 19.2,
+        "diff": -3.7,
+        "diff_over_err": -0.19
+       },
+       "pm_north": {
+        "gaia": -8.743334961478878,
+        "gaia_err": null,
+        "measured": 0.7,
+        "err": 15.3,
+        "diff": 9.5,
+        "diff_over_err": 0.62
+       },
+       "plx": {
+        "gaia": 1.9675823179027216,
+        "gaia_err": null,
+        "measured": -10.0,
+        "err": 9.5,
+        "diff": -12.0,
+        "diff_over_err": -1.26
+       }
+      }
+     },
+     {
+      "source_id": "4472837770227461504",
+      "g": 12.65,
+      "win": {
+       "n_used": 314,
+       "n_epochs": 3,
+       "rms_mas": 304.0,
+       "pm_east": {
+        "gaia": 1.324612539590324,
+        "gaia_err": null,
+        "measured": 18.3,
+        "err": 24.0,
+        "diff": 16.9,
+        "diff_over_err": 0.71
+       },
+       "pm_north": {
+        "gaia": -7.686559994524281,
+        "gaia_err": null,
+        "measured": 24.5,
+        "err": 31.7,
+        "diff": 32.2,
+        "diff_over_err": 1.01
+       },
+       "plx": {
+        "gaia": 0.4894495398217104,
+        "gaia_err": null,
+        "measured": -0.5,
+        "err": 12.9,
+        "diff": -1.0,
+        "diff_over_err": -0.08
+       }
+      },
+      "psf": {
+       "n_used": 305,
+       "n_epochs": 3,
+       "rms_mas": 172.0,
+       "pm_east": {
+        "gaia": 1.324612539590324,
+        "gaia_err": null,
+        "measured": -0.1,
+        "err": 17.6,
+        "diff": -1.4,
+        "diff_over_err": -0.08
+       },
+       "pm_north": {
+        "gaia": -7.686559994524281,
+        "gaia_err": null,
+        "measured": -2.1,
+        "err": 15.3,
+        "diff": 5.6,
+        "diff_over_err": 0.37
+       },
+       "plx": {
+        "gaia": 0.4894495398217104,
+        "gaia_err": null,
+        "measured": 1.5,
+        "err": 8.5,
+        "diff": 1.0,
+        "diff_over_err": 0.12
+       }
+      }
+     },
+     {
+      "source_id": "4472808839327019008",
+      "g": 12.79,
+      "win": {
+       "n_used": 282,
+       "n_epochs": 3,
+       "rms_mas": 333.0,
+       "pm_east": {
+        "gaia": 1.7084130651330973,
+        "gaia_err": null,
+        "measured": 2.3,
+        "err": 28.9,
+        "diff": 0.6,
+        "diff_over_err": 0.02
+       },
+       "pm_north": {
+        "gaia": -0.31969625885366104,
+        "gaia_err": null,
+        "measured": 26.4,
+        "err": 40.5,
+        "diff": 26.7,
+        "diff_over_err": 0.66
+       },
+       "plx": {
+        "gaia": 0.2850127713367846,
+        "gaia_err": null,
+        "measured": 20.4,
+        "err": 13.0,
+        "diff": 20.1,
+        "diff_over_err": 1.54
+       }
+      },
+      "psf": {
+       "n_used": 275,
+       "n_epochs": 3,
+       "rms_mas": 177.0,
+       "pm_east": {
+        "gaia": 1.7084130651330973,
+        "gaia_err": null,
+        "measured": -8.1,
+        "err": 19.8,
+        "diff": -9.8,
+        "diff_over_err": -0.5
+       },
+       "pm_north": {
+        "gaia": -0.31969625885366104,
+        "gaia_err": null,
+        "measured": -3.9,
+        "err": 18.9,
+        "diff": -3.6,
+        "diff_over_err": -0.19
+       },
+       "plx": {
+        "gaia": 0.2850127713367846,
+        "gaia_err": null,
+        "measured": 6.2,
+        "err": 9.0,
+        "diff": 5.9,
+        "diff_over_err": 0.65
+       }
+      }
+     },
+     {
+      "source_id": "4472831551114789632",
+      "g": 12.91,
+      "win": {
+       "n_used": 330,
+       "n_epochs": 3,
+       "rms_mas": 367.0,
+       "pm_east": {
+        "gaia": -17.388577681548956,
+        "gaia_err": null,
+        "measured": -24.2,
+        "err": 27.0,
+        "diff": -6.9,
+        "diff_over_err": -0.25
+       },
+       "pm_north": {
+        "gaia": -12.657495273042473,
+        "gaia_err": null,
+        "measured": -12.3,
+        "err": 37.8,
+        "diff": 0.3,
+        "diff_over_err": 0.01
+       },
+       "plx": {
+        "gaia": 3.2979228729291394,
+        "gaia_err": null,
+        "measured": 4.6,
+        "err": 14.3,
+        "diff": 1.3,
+        "diff_over_err": 0.09
+       }
+      },
+      "psf": {
+       "n_used": 312,
+       "n_epochs": 3,
+       "rms_mas": 221.0,
+       "pm_east": {
+        "gaia": -17.388577681548956,
+        "gaia_err": null,
+        "measured": 0.8,
+        "err": 22.4,
+        "diff": 18.2,
+        "diff_over_err": 0.81
+       },
+       "pm_north": {
+        "gaia": -12.657495273042473,
+        "gaia_err": null,
+        "measured": 6.4,
+        "err": 20.8,
+        "diff": 19.0,
+        "diff_over_err": 0.91
+       },
+       "plx": {
+        "gaia": 3.2979228729291394,
+        "gaia_err": null,
+        "measured": -0.8,
+        "err": 11.6,
+        "diff": -4.1,
+        "diff_over_err": -0.36
+       }
+      }
+     },
+     {
+      "source_id": "4472832508888391168",
+      "g": 13.03,
+      "win": {
+       "n_used": 323,
+       "n_epochs": 3,
+       "rms_mas": 289.0,
+       "pm_east": {
+        "gaia": -8.944019290356941,
+        "gaia_err": null,
+        "measured": -20.2,
+        "err": 28.5,
+        "diff": -11.2,
+        "diff_over_err": -0.39
+       },
+       "pm_north": {
+        "gaia": -2.0121607341824954,
+        "gaia_err": null,
+        "measured": 41.3,
+        "err": 29.3,
+        "diff": 43.3,
+        "diff_over_err": 1.48
+       },
+       "plx": {
+        "gaia": 0.39308844157537554,
+        "gaia_err": null,
+        "measured": -2.8,
+        "err": 11.4,
+        "diff": -3.2,
+        "diff_over_err": -0.28
+       }
+      },
+      "psf": {
+       "n_used": 314,
+       "n_epochs": 3,
+       "rms_mas": 187.0,
+       "pm_east": {
+        "gaia": -8.944019290356941,
+        "gaia_err": null,
+        "measured": 19.4,
+        "err": 20.9,
+        "diff": 28.4,
+        "diff_over_err": 1.36
+       },
+       "pm_north": {
+        "gaia": -2.0121607341824954,
+        "gaia_err": null,
+        "measured": 0.8,
+        "err": 16.2,
+        "diff": 2.8,
+        "diff_over_err": 0.17
+       },
+       "plx": {
+        "gaia": 0.39308844157537554,
+        "gaia_err": null,
+        "measured": -5.7,
+        "err": 9.2,
+        "diff": -6.1,
+        "diff_over_err": -0.67
+       }
+      }
+     },
+     {
+      "source_id": "4472885869560211328",
+      "g": 13.28,
+      "win": {
+       "n_used": 303,
+       "n_epochs": 3,
+       "rms_mas": 396.0,
+       "pm_east": {
+        "gaia": -0.3403689501588086,
+        "gaia_err": null,
+        "measured": 32.2,
+        "err": 33.6,
+        "diff": 32.5,
+        "diff_over_err": 0.97
+       },
+       "pm_north": {
+        "gaia": 0.7368858787602658,
+        "gaia_err": null,
+        "measured": -0.5,
+        "err": 42.2,
+        "diff": -1.2,
+        "diff_over_err": -0.03
+       },
+       "plx": {
+        "gaia": 0.6554414963872305,
+        "gaia_err": null,
+        "measured": -7.3,
+        "err": 15.4,
+        "diff": -8.0,
+        "diff_over_err": -0.52
+       }
+      },
+      "psf": {
+       "n_used": 288,
+       "n_epochs": 3,
+       "rms_mas": 249.0,
+       "pm_east": {
+        "gaia": -0.3403689501588086,
+        "gaia_err": null,
+        "measured": 28.8,
+        "err": 28.6,
+        "diff": 29.1,
+        "diff_over_err": 1.02
+       },
+       "pm_north": {
+        "gaia": 0.7368858787602658,
+        "gaia_err": null,
+        "measured": -36.7,
+        "err": 25.5,
+        "diff": -37.4,
+        "diff_over_err": -1.47
+       },
+       "plx": {
+        "gaia": 0.6554414963872305,
+        "gaia_err": null,
+        "measured": -19.1,
+        "err": 11.0,
+        "diff": -19.8,
+        "diff_over_err": -1.8
+       }
+      }
+     },
+     {
+      "source_id": "4472836601996372992",
+      "g": 13.44,
+      "win": {
+       "n_used": 326,
+       "n_epochs": 3,
+       "rms_mas": 331.0,
+       "pm_east": {
+        "gaia": -3.6716035590775764,
+        "gaia_err": null,
+        "measured": -29.6,
+        "err": 26.5,
+        "diff": -25.9,
+        "diff_over_err": -0.98
+       },
+       "pm_north": {
+        "gaia": -2.560640440387496,
+        "gaia_err": null,
+        "measured": 75.2,
+        "err": 39.6,
+        "diff": 77.7,
+        "diff_over_err": 1.96
+       },
+       "plx": {
+        "gaia": 0.14981826576407342,
+        "gaia_err": null,
+        "measured": -7.3,
+        "err": 13.0,
+        "diff": -7.5,
+        "diff_over_err": -0.57
+       }
+      },
+      "psf": {
+       "n_used": 323,
+       "n_epochs": 3,
+       "rms_mas": 201.0,
+       "pm_east": {
+        "gaia": -3.6716035590775764,
+        "gaia_err": null,
+        "measured": 10.2,
+        "err": 21.9,
+        "diff": 13.8,
+        "diff_over_err": 0.63
+       },
+       "pm_north": {
+        "gaia": -2.560640440387496,
+        "gaia_err": null,
+        "measured": 25.4,
+        "err": 18.1,
+        "diff": 27.9,
+        "diff_over_err": 1.54
+       },
+       "plx": {
+        "gaia": 0.14981826576407342,
+        "gaia_err": null,
+        "measured": 12.3,
+        "err": 10.5,
+        "diff": 12.1,
+        "diff_over_err": 1.15
+       }
+      }
+     },
+     {
+      "source_id": "4472836327118455552",
+      "g": 13.45,
+      "win": {
+       "n_used": 328,
+       "n_epochs": 3,
+       "rms_mas": 297.0,
+       "pm_east": {
+        "gaia": -2.678382642115475,
+        "gaia_err": null,
+        "measured": -18.7,
+        "err": 28.3,
+        "diff": -16.1,
+        "diff_over_err": -0.57
+       },
+       "pm_north": {
+        "gaia": -5.260091630532646,
+        "gaia_err": null,
+        "measured": 20.4,
+        "err": 29.4,
+        "diff": 25.6,
+        "diff_over_err": 0.87
+       },
+       "plx": {
+        "gaia": 0.2868824759950817,
+        "gaia_err": null,
+        "measured": 7.7,
+        "err": 12.2,
+        "diff": 7.4,
+        "diff_over_err": 0.6
+       }
+      },
+      "psf": {
+       "n_used": 318,
+       "n_epochs": 3,
+       "rms_mas": 188.0,
+       "pm_east": {
+        "gaia": -2.678382642115475,
+        "gaia_err": null,
+        "measured": -26.9,
+        "err": 20.5,
+        "diff": -24.3,
+        "diff_over_err": -1.18
+       },
+       "pm_north": {
+        "gaia": -5.260091630532646,
+        "gaia_err": null,
+        "measured": 2.4,
+        "err": 17.0,
+        "diff": 7.6,
+        "diff_over_err": 0.45
+       },
+       "plx": {
+        "gaia": 0.2868824759950817,
+        "gaia_err": null,
+        "measured": 4.0,
+        "err": 8.9,
+        "diff": 3.7,
+        "diff_over_err": 0.41
+       }
+      }
+     },
+     {
+      "source_id": "4472837495349546240",
+      "g": 13.47,
+      "win": {
+       "n_used": 331,
+       "n_epochs": 3,
+       "rms_mas": 361.0,
+       "pm_east": {
+        "gaia": -1.9984252542598904,
+        "gaia_err": null,
+        "measured": 1.2,
+        "err": 30.3,
+        "diff": 3.2,
+        "diff_over_err": 0.11
+       },
+       "pm_north": {
+        "gaia": -7.904237658860036,
+        "gaia_err": null,
+        "measured": -21.8,
+        "err": 37.3,
+        "diff": -13.9,
+        "diff_over_err": -0.37
+       },
+       "plx": {
+        "gaia": 0.40690834438767526,
+        "gaia_err": null,
+        "measured": 2.3,
+        "err": 13.8,
+        "diff": 1.9,
+        "diff_over_err": 0.14
+       }
+      },
+      "psf": {
+       "n_used": 317,
+       "n_epochs": 3,
+       "rms_mas": 205.0,
+       "pm_east": {
+        "gaia": -1.9984252542598904,
+        "gaia_err": null,
+        "measured": 16.7,
+        "err": 22.2,
+        "diff": 18.7,
+        "diff_over_err": 0.84
+       },
+       "pm_north": {
+        "gaia": -7.904237658860036,
+        "gaia_err": null,
+        "measured": -12.2,
+        "err": 18.0,
+        "diff": -4.3,
+        "diff_over_err": -0.24
+       },
+       "plx": {
+        "gaia": 0.40690834438767526,
+        "gaia_err": null,
+        "measured": 10.7,
+        "err": 10.2,
+        "diff": 10.3,
+        "diff_over_err": 1.01
+       }
+      }
+     },
+     {
+      "source_id": "4472832165289152896",
+      "g": 13.59,
+      "win": {
+       "n_used": 324,
+       "n_epochs": 3,
+       "rms_mas": 318.0,
+       "pm_east": {
+        "gaia": -4.5946664656627005,
+        "gaia_err": null,
+        "measured": -45.2,
+        "err": 29.1,
+        "diff": -40.6,
+        "diff_over_err": -1.4
+       },
+       "pm_north": {
+        "gaia": -6.42014504223527,
+        "gaia_err": null,
+        "measured": 26.1,
+        "err": 34.8,
+        "diff": 32.6,
+        "diff_over_err": 0.94
+       },
+       "plx": {
+        "gaia": 0.15690252390527207,
+        "gaia_err": null,
+        "measured": -4.0,
+        "err": 12.3,
+        "diff": -4.2,
+        "diff_over_err": -0.34
+       }
+      },
+      "psf": {
+       "n_used": 316,
+       "n_epochs": 3,
+       "rms_mas": 194.0,
+       "pm_east": {
+        "gaia": -4.5946664656627005,
+        "gaia_err": null,
+        "measured": -15.0,
+        "err": 20.7,
+        "diff": -10.4,
+        "diff_over_err": -0.5
+       },
+       "pm_north": {
+        "gaia": -6.42014504223527,
+        "gaia_err": null,
+        "measured": -15.4,
+        "err": 16.3,
+        "diff": -9.0,
+        "diff_over_err": -0.55
+       },
+       "plx": {
+        "gaia": 0.15690252390527207,
+        "gaia_err": null,
+        "measured": -9.3,
+        "err": 9.7,
+        "diff": -9.4,
+        "diff_over_err": -0.97
+       }
+      }
+     },
+     {
+      "source_id": "4472836047939582592",
+      "g": 13.6,
+      "win": {
+       "n_used": 331,
+       "n_epochs": 3,
+       "rms_mas": 519.0,
+       "pm_east": {
+        "gaia": -0.699757827635137,
+        "gaia_err": null,
+        "measured": 226.5,
+        "err": 30.0,
+        "diff": 227.2,
+        "diff_over_err": 7.58
+       },
+       "pm_north": {
+        "gaia": -6.045858407057881,
+        "gaia_err": null,
+        "measured": -520.0,
+        "err": 65.8,
+        "diff": -514.0,
+        "diff_over_err": -7.81
+       },
+       "plx": {
+        "gaia": 0.45297917951215183,
+        "gaia_err": null,
+        "measured": -10.8,
+        "err": 18.4,
+        "diff": -11.3,
+        "diff_over_err": -0.61
+       }
+      },
+      "psf": {
+       "n_used": 313,
+       "n_epochs": 3,
+       "rms_mas": 263.0,
+       "pm_east": {
+        "gaia": -0.699757827635137,
+        "gaia_err": null,
+        "measured": -10.2,
+        "err": 27.0,
+        "diff": -9.5,
+        "diff_over_err": -0.35
+       },
+       "pm_north": {
+        "gaia": -6.045858407057881,
+        "gaia_err": null,
+        "measured": -85.3,
+        "err": 26.6,
+        "diff": -79.2,
+        "diff_over_err": -2.98
+       },
+       "plx": {
+        "gaia": 0.45297917951215183,
+        "gaia_err": null,
+        "measured": -14.8,
+        "err": 10.9,
+        "diff": -15.2,
+        "diff_over_err": -1.39
+       }
+      }
+     },
+     {
+      "source_id": "4472836189681423488",
+      "g": 13.71,
+      "win": {
+       "n_used": 332,
+       "n_epochs": 3,
+       "rms_mas": 395.0,
+       "pm_east": {
+        "gaia": -7.067863122326991,
+        "gaia_err": null,
+        "measured": -69.4,
+        "err": 35.9,
+        "diff": -62.3,
+        "diff_over_err": -1.74
+       },
+       "pm_north": {
+        "gaia": -6.515501096161918,
+        "gaia_err": null,
+        "measured": 17.3,
+        "err": 41.2,
+        "diff": 23.8,
+        "diff_over_err": 0.58
+       },
+       "plx": {
+        "gaia": 0.3715878777161905,
+        "gaia_err": null,
+        "measured": 20.6,
+        "err": 15.7,
+        "diff": 20.2,
+        "diff_over_err": 1.29
+       }
+      },
+      "psf": {
+       "n_used": 321,
+       "n_epochs": 3,
+       "rms_mas": 216.0,
+       "pm_east": {
+        "gaia": -7.067863122326991,
+        "gaia_err": null,
+        "measured": -10.9,
+        "err": 22.7,
+        "diff": -3.9,
+        "diff_over_err": -0.17
+       },
+       "pm_north": {
+        "gaia": -6.515501096161918,
+        "gaia_err": null,
+        "measured": -0.5,
+        "err": 18.7,
+        "diff": 6.1,
+        "diff_over_err": 0.32
+       },
+       "plx": {
+        "gaia": 0.3715878777161905,
+        "gaia_err": null,
+        "measured": 15.8,
+        "err": 10.7,
+        "diff": 15.4,
+        "diff_over_err": 1.44
+       }
+      }
+     },
+     {
+      "source_id": "4472831929071913856",
+      "g": 13.9,
+      "win": {
+       "n_used": 330,
+       "n_epochs": 3,
+       "rms_mas": 337.0,
+       "pm_east": {
+        "gaia": -0.8916951953728479,
+        "gaia_err": null,
+        "measured": 8.0,
+        "err": 30.2,
+        "diff": 8.9,
+        "diff_over_err": 0.3
+       },
+       "pm_north": {
+        "gaia": -6.283121411288374,
+        "gaia_err": null,
+        "measured": -37.3,
+        "err": 34.6,
+        "diff": -31.0,
+        "diff_over_err": -0.89
+       },
+       "plx": {
+        "gaia": 0.2538080196733507,
+        "gaia_err": null,
+        "measured": 1.3,
+        "err": 13.3,
+        "diff": 1.0,
+        "diff_over_err": 0.07
+       }
+      },
+      "psf": {
+       "n_used": 310,
+       "n_epochs": 3,
+       "rms_mas": 213.0,
+       "pm_east": {
+        "gaia": -0.8916951953728479,
+        "gaia_err": null,
+        "measured": 29.0,
+        "err": 22.6,
+        "diff": 29.9,
+        "diff_over_err": 1.32
+       },
+       "pm_north": {
+        "gaia": -6.283121411288374,
+        "gaia_err": null,
+        "measured": -4.3,
+        "err": 20.8,
+        "diff": 2.0,
+        "diff_over_err": 0.1
+       },
+       "plx": {
+        "gaia": 0.2538080196733507,
+        "gaia_err": null,
+        "measured": -7.2,
+        "err": 10.3,
+        "diff": -7.4,
+        "diff_over_err": -0.72
+       }
+      }
+     },
+     {
+      "source_id": "4472837770227463680",
+      "g": 13.9,
+      "win": {
+       "n_used": 328,
+       "n_epochs": 3,
+       "rms_mas": 807.0,
+       "pm_east": {
+        "gaia": -0.9701051549087418,
+        "gaia_err": null,
+        "measured": 27.4,
+        "err": 99.1,
+        "diff": 28.4,
+        "diff_over_err": 0.29
+       },
+       "pm_north": {
+        "gaia": -6.098777160934276,
+        "gaia_err": null,
+        "measured": -24.6,
+        "err": 64.4,
+        "diff": -18.5,
+        "diff_over_err": -0.29
+       },
+       "plx": {
+        "gaia": 0.2866813236160658,
+        "gaia_err": null,
+        "measured": -74.2,
+        "err": 41.2,
+        "diff": -74.5,
+        "diff_over_err": -1.81
+       }
+      },
+      "psf": {
+       "n_used": 315,
+       "n_epochs": 3,
+       "rms_mas": 228.0,
+       "pm_east": {
+        "gaia": -0.9701051549087418,
+        "gaia_err": null,
+        "measured": -4.3,
+        "err": 25.8,
+        "diff": -3.4,
+        "diff_over_err": -0.13
+       },
+       "pm_north": {
+        "gaia": -6.098777160934276,
+        "gaia_err": null,
+        "measured": -9.7,
+        "err": 18.8,
+        "diff": -3.6,
+        "diff_over_err": -0.19
+       },
+       "plx": {
+        "gaia": 0.2866813236160658,
+        "gaia_err": null,
+        "measured": -12.0,
+        "err": 10.9,
+        "diff": -12.3,
+        "diff_over_err": -1.12
+       }
+      }
+     }
+    ]
+   },
+   "not_aligned": {
+    "summary": {
+     "win": {
+      "n_stars": 19,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 0.6,
+       "scatter": 20.2,
+       "median_err": 28.7,
+       "within_2_err": 18
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": -7.0,
+       "scatter": 35.9,
+       "median_err": 38.7,
+       "within_2_err": 18
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": 117.8,
+       "scatter": 5.2,
+       "median_err": 14.0,
+       "within_2_err": 1
+      },
+      "all_three_within_2_err": 1,
+      "expected_within_2_err": 18.1,
+      "expected_all_three": 16.5
+     },
+     "psf": {
+      "n_stars": 19,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": -18.1,
+       "scatter": 20.5,
+       "median_err": 22.3,
+       "within_2_err": 19
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 7.9,
+       "scatter": 15.6,
+       "median_err": 21.0,
+       "within_2_err": 18
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -55.1,
+       "scatter": 13.3,
+       "median_err": 10.8,
+       "within_2_err": 0
+      },
+      "all_three_within_2_err": 0,
+      "expected_within_2_err": 18.1,
+      "expected_all_three": 16.5
+     }
+    },
+    "not_fitted": []
+   }
+  },
+  {
+   "slug": "eps-indi-b",
+   "n_measurements": 7625,
+   "n_stars_measured": 24,
+   "aligned": {
+    "summary": {
+     "win": {
+      "n_stars": 21,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": -11.6,
+       "scatter": 60.5,
+       "median_err": 50.5,
+       "within_2_err": 20
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": -12.8,
+       "scatter": 68.2,
+       "median_err": 52.0,
+       "within_2_err": 18
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": 10.2,
+       "scatter": 40.5,
+       "median_err": 27.0,
+       "within_2_err": 19
+      },
+      "all_three_within_2_err": 16,
+      "expected_within_2_err": 20.0,
+      "expected_all_three": 18.3
+     },
+     "psf": {
+      "n_stars": 21,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 1.1,
+       "scatter": 30.8,
+       "median_err": 35.0,
+       "within_2_err": 19
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 2.8,
+       "scatter": 52.9,
+       "median_err": 38.5,
+       "within_2_err": 18
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -2.8,
+       "scatter": 16.0,
+       "median_err": 18.2,
+       "within_2_err": 20
+      },
+      "all_three_within_2_err": 17,
+      "expected_within_2_err": 20.0,
+      "expected_all_three": 18.3
+     }
+    },
+    "not_fitted": [
+     {
+      "source_id": "6412590720747024256",
+      "reason": "11 exposures (< 30)"
+     },
+     {
+      "source_id": "6412590755106765440",
+      "reason": "1 epochs with >= 5 exposures (< 3)"
+     },
+     {
+      "source_id": "6412615970858951552",
+      "reason": "4 exposures (< 30)"
+     }
+    ],
+    "stars": [
+     {
+      "source_id": "6412596458823395328",
+      "g": 12.95,
+      "win": {
+       "n_used": 391,
+       "n_epochs": 4,
+       "rms_mas": 416.0,
+       "pm_east": {
+        "gaia": -26.603905346571707,
+        "gaia_err": null,
+        "measured": 26.2,
+        "err": 30.5,
+        "diff": 52.8,
+        "diff_over_err": 1.73
+       },
+       "pm_north": {
+        "gaia": -18.587487854395548,
+        "gaia_err": null,
+        "measured": -36.8,
+        "err": 28.4,
+        "diff": -18.2,
+        "diff_over_err": -0.64
+       },
+       "plx": {
+        "gaia": 3.0439677755284738,
+        "gaia_err": null,
+        "measured": 45.5,
+        "err": 16.0,
+        "diff": 42.5,
+        "diff_over_err": 2.66
+       }
+      },
+      "psf": {
+       "n_used": 377,
+       "n_epochs": 4,
+       "rms_mas": 272.0,
+       "pm_east": {
+        "gaia": -26.603905346571707,
+        "gaia_err": null,
+        "measured": -24.6,
+        "err": 20.9,
+        "diff": 2.0,
+        "diff_over_err": 0.09
+       },
+       "pm_north": {
+        "gaia": -18.587487854395548,
+        "gaia_err": null,
+        "measured": -15.8,
+        "err": 19.9,
+        "diff": 2.8,
+        "diff_over_err": 0.14
+       },
+       "plx": {
+        "gaia": 3.0439677755284738,
+        "gaia_err": null,
+        "measured": 25.9,
+        "err": 11.9,
+        "diff": 22.8,
+        "diff_over_err": 1.92
+       }
+      }
+     },
+     {
+      "source_id": "6412594259800093568",
+      "g": 12.96,
+      "win": {
+       "n_used": 382,
+       "n_epochs": 4,
+       "rms_mas": 455.0,
+       "pm_east": {
+        "gaia": 23.20504621933571,
+        "gaia_err": null,
+        "measured": 82.9,
+        "err": 35.3,
+        "diff": 59.7,
+        "diff_over_err": 1.69
+       },
+       "pm_north": {
+        "gaia": -0.11453608385876528,
+        "gaia_err": null,
+        "measured": -27.8,
+        "err": 37.7,
+        "diff": -27.6,
+        "diff_over_err": -0.73
+       },
+       "plx": {
+        "gaia": 1.7081777635061908,
+        "gaia_err": null,
+        "measured": 7.1,
+        "err": 16.7,
+        "diff": 5.4,
+        "diff_over_err": 0.32
+       }
+      },
+      "psf": {
+       "n_used": 381,
+       "n_epochs": 4,
+       "rms_mas": 291.0,
+       "pm_east": {
+        "gaia": 23.20504621933571,
+        "gaia_err": null,
+        "measured": 26.3,
+        "err": 21.6,
+        "diff": 3.1,
+        "diff_over_err": 0.14
+       },
+       "pm_north": {
+        "gaia": -0.11453608385876528,
+        "gaia_err": null,
+        "measured": 29.7,
+        "err": 21.4,
+        "diff": 29.8,
+        "diff_over_err": 1.39
+       },
+       "plx": {
+        "gaia": 1.7081777635061908,
+        "gaia_err": null,
+        "measured": 10.6,
+        "err": 10.9,
+        "diff": 8.9,
+        "diff_over_err": 0.81
+       }
+      }
+     },
+     {
+      "source_id": "6412593435166417536",
+      "g": 13.93,
+      "win": {
+       "n_used": 362,
+       "n_epochs": 4,
+       "rms_mas": 600.0,
+       "pm_east": {
+        "gaia": -0.21665866383754917,
+        "gaia_err": null,
+        "measured": 92.4,
+        "err": 41.3,
+        "diff": 92.7,
+        "diff_over_err": 2.24
+       },
+       "pm_north": {
+        "gaia": 5.330206814130744,
+        "gaia_err": null,
+        "measured": -24.1,
+        "err": 47.1,
+        "diff": -29.4,
+        "diff_over_err": -0.63
+       },
+       "plx": {
+        "gaia": 1.3408726711136116,
+        "gaia_err": null,
+        "measured": 9.5,
+        "err": 21.7,
+        "diff": 8.2,
+        "diff_over_err": 0.38
+       }
+      },
+      "psf": {
+       "n_used": 368,
+       "n_epochs": 4,
+       "rms_mas": 408.0,
+       "pm_east": {
+        "gaia": -0.21665866383754917,
+        "gaia_err": null,
+        "measured": 48.0,
+        "err": 30.8,
+        "diff": 48.2,
+        "diff_over_err": 1.57
+       },
+       "pm_north": {
+        "gaia": 5.330206814130744,
+        "gaia_err": null,
+        "measured": -41.1,
+        "err": 29.3,
+        "diff": -46.4,
+        "diff_over_err": -1.59
+       },
+       "plx": {
+        "gaia": 1.3408726711136116,
+        "gaia_err": null,
+        "measured": 2.6,
+        "err": 17.2,
+        "diff": 1.3,
+        "diff_over_err": 0.08
+       }
+      }
+     },
+     {
+      "source_id": "6412592370014523776",
+      "g": 14.07,
+      "win": {
+       "n_used": 363,
+       "n_epochs": 4,
+       "rms_mas": 514.0,
+       "pm_east": {
+        "gaia": 3.7708232382464963,
+        "gaia_err": null,
+        "measured": -7.8,
+        "err": 40.1,
+        "diff": -11.6,
+        "diff_over_err": -0.29
+       },
+       "pm_north": {
+        "gaia": -5.916235194794864,
+        "gaia_err": null,
+        "measured": -109.1,
+        "err": 40.6,
+        "diff": -103.2,
+        "diff_over_err": -2.54
+       },
+       "plx": {
+        "gaia": 0.7507874367404987,
+        "gaia_err": null,
+        "measured": 17.9,
+        "err": 18.6,
+        "diff": 17.2,
+        "diff_over_err": 0.92
+       }
+      },
+      "psf": {
+       "n_used": 354,
+       "n_epochs": 4,
+       "rms_mas": 311.0,
+       "pm_east": {
+        "gaia": 3.7708232382464963,
+        "gaia_err": null,
+        "measured": 20.4,
+        "err": 26.4,
+        "diff": 16.6,
+        "diff_over_err": 0.63
+       },
+       "pm_north": {
+        "gaia": -5.916235194794864,
+        "gaia_err": null,
+        "measured": -49.8,
+        "err": 21.9,
+        "diff": -43.9,
+        "diff_over_err": -2.0
+       },
+       "plx": {
+        "gaia": 0.7507874367404987,
+        "gaia_err": null,
+        "measured": -3.3,
+        "err": 12.6,
+        "diff": -4.0,
+        "diff_over_err": -0.32
+       }
+      }
+     },
+     {
+      "source_id": "6412595771628639616",
+      "g": 14.19,
+      "win": {
+       "n_used": 399,
+       "n_epochs": 4,
+       "rms_mas": 706.0,
+       "pm_east": {
+        "gaia": -1.0662828287999908,
+        "gaia_err": null,
+        "measured": 9.6,
+        "err": 50.5,
+        "diff": 10.6,
+        "diff_over_err": 0.21
+       },
+       "pm_north": {
+        "gaia": -7.589478318686824,
+        "gaia_err": null,
+        "measured": 9.5,
+        "err": 47.7,
+        "diff": 17.1,
+        "diff_over_err": 0.36
+       },
+       "plx": {
+        "gaia": 0.15297091672621707,
+        "gaia_err": null,
+        "measured": -35.4,
+        "err": 30.5,
+        "diff": -35.5,
+        "diff_over_err": -1.17
+       }
+      },
+      "psf": {
+       "n_used": 385,
+       "n_epochs": 4,
+       "rms_mas": 432.0,
+       "pm_east": {
+        "gaia": -1.0662828287999908,
+        "gaia_err": null,
+        "measured": 0.5,
+        "err": 32.1,
+        "diff": 1.5,
+        "diff_over_err": 0.05
+       },
+       "pm_north": {
+        "gaia": -7.589478318686824,
+        "gaia_err": null,
+        "measured": 30.9,
+        "err": 28.8,
+        "diff": 38.5,
+        "diff_over_err": 1.34
+       },
+       "plx": {
+        "gaia": 0.15297091672621707,
+        "gaia_err": null,
+        "measured": -9.2,
+        "err": 18.1,
+        "diff": -9.4,
+        "diff_over_err": -0.52
+       }
+      }
+     },
+     {
+      "source_id": "6412591957697593728",
+      "g": 14.3,
+      "win": {
+       "n_used": 337,
+       "n_epochs": 4,
+       "rms_mas": 584.0,
+       "pm_east": {
+        "gaia": 19.34296739031442,
+        "gaia_err": null,
+        "measured": 24.0,
+        "err": 46.0,
+        "diff": 4.7,
+        "diff_over_err": 0.1
+       },
+       "pm_north": {
+        "gaia": -6.073545383058162,
+        "gaia_err": null,
+        "measured": -18.9,
+        "err": 42.0,
+        "diff": -12.8,
+        "diff_over_err": -0.3
+       },
+       "plx": {
+        "gaia": 0.6407775203361203,
+        "gaia_err": null,
+        "measured": -32.1,
+        "err": 22.5,
+        "diff": -32.7,
+        "diff_over_err": -1.45
+       }
+      },
+      "psf": {
+       "n_used": 341,
+       "n_epochs": 4,
+       "rms_mas": 441.0,
+       "pm_east": {
+        "gaia": 19.34296739031442,
+        "gaia_err": null,
+        "measured": -99.2,
+        "err": 33.9,
+        "diff": -118.5,
+        "diff_over_err": -3.49
+       },
+       "pm_north": {
+        "gaia": -6.073545383058162,
+        "gaia_err": null,
+        "measured": 81.3,
+        "err": 34.6,
+        "diff": 87.3,
+        "diff_over_err": 2.53
+       },
+       "plx": {
+        "gaia": 0.6407775203361203,
+        "gaia_err": null,
+        "measured": -56.6,
+        "err": 17.1,
+        "diff": -57.2,
+        "diff_over_err": -3.35
+       }
+      }
+     },
+     {
+      "source_id": "6412596836780520448",
+      "g": 14.8,
+      "win": {
+       "n_used": 380,
+       "n_epochs": 4,
+       "rms_mas": 543.0,
+       "pm_east": {
+        "gaia": 10.045242670188175,
+        "gaia_err": null,
+        "measured": -14.1,
+        "err": 37.8,
+        "diff": -24.1,
+        "diff_over_err": -0.64
+       },
+       "pm_north": {
+        "gaia": 17.253194923006788,
+        "gaia_err": null,
+        "measured": 27.7,
+        "err": 43.5,
+        "diff": 10.5,
+        "diff_over_err": 0.24
+       },
+       "plx": {
+        "gaia": 2.38630493380667,
+        "gaia_err": null,
+        "measured": 39.9,
+        "err": 19.3,
+        "diff": 37.5,
+        "diff_over_err": 1.94
+       }
+      },
+      "psf": {
+       "n_used": 379,
+       "n_epochs": 4,
+       "rms_mas": 377.0,
+       "pm_east": {
+        "gaia": 10.045242670188175,
+        "gaia_err": null,
+        "measured": -23.2,
+        "err": 27.6,
+        "diff": -33.3,
+        "diff_over_err": -1.21
+       },
+       "pm_north": {
+        "gaia": 17.253194923006788,
+        "gaia_err": null,
+        "measured": 14.3,
+        "err": 26.7,
+        "diff": -3.0,
+        "diff_over_err": -0.11
+       },
+       "plx": {
+        "gaia": 2.38630493380667,
+        "gaia_err": null,
+        "measured": -0.4,
+        "err": 13.0,
+        "diff": -2.8,
+        "diff_over_err": -0.22
+       }
+      }
+     },
+     {
+      "source_id": "6412592404374220928",
+      "g": 15.05,
+      "win": {
+       "n_used": 358,
+       "n_epochs": 4,
+       "rms_mas": 703.0,
+       "pm_east": {
+        "gaia": -11.147007120103803,
+        "gaia_err": null,
+        "measured": 63.8,
+        "err": 48.9,
+        "diff": 75.0,
+        "diff_over_err": 1.53
+       },
+       "pm_north": {
+        "gaia": -2.789088341504113,
+        "gaia_err": null,
+        "measured": -85.3,
+        "err": 61.1,
+        "diff": -82.5,
+        "diff_over_err": -1.35
+       },
+       "plx": {
+        "gaia": 1.6676607773493246,
+        "gaia_err": null,
+        "measured": 24.0,
+        "err": 28.4,
+        "diff": 22.3,
+        "diff_over_err": 0.79
+       }
+      },
+      "psf": {
+       "n_used": 370,
+       "n_epochs": 4,
+       "rms_mas": 482.0,
+       "pm_east": {
+        "gaia": -11.147007120103803,
+        "gaia_err": null,
+        "measured": 12.9,
+        "err": 35.0,
+        "diff": 24.0,
+        "diff_over_err": 0.69
+       },
+       "pm_north": {
+        "gaia": -2.789088341504113,
+        "gaia_err": null,
+        "measured": -46.9,
+        "err": 38.5,
+        "diff": -44.2,
+        "diff_over_err": -1.15
+       },
+       "plx": {
+        "gaia": 1.6676607773493246,
+        "gaia_err": null,
+        "measured": 10.7,
+        "err": 17.4,
+        "diff": 9.0,
+        "diff_over_err": 0.52
+       }
+      }
+     },
+     {
+      "source_id": "6412591992057334144",
+      "g": 15.11,
+      "win": {
+       "n_used": 326,
+       "n_epochs": 4,
+       "rms_mas": 612.0,
+       "pm_east": {
+        "gaia": 8.776139773034203,
+        "gaia_err": null,
+        "measured": -2.7,
+        "err": 49.3,
+        "diff": -11.4,
+        "diff_over_err": -0.23
+       },
+       "pm_north": {
+        "gaia": -7.23669983519426,
+        "gaia_err": null,
+        "measured": -26.8,
+        "err": 50.6,
+        "diff": -19.6,
+        "diff_over_err": -0.39
+       },
+       "plx": {
+        "gaia": 1.3560663070619239,
+        "gaia_err": null,
+        "measured": 46.5,
+        "err": 27.0,
+        "diff": 45.1,
+        "diff_over_err": 1.68
+       }
+      },
+      "psf": {
+       "n_used": 322,
+       "n_epochs": 4,
+       "rms_mas": 405.0,
+       "pm_east": {
+        "gaia": 8.776139773034203,
+        "gaia_err": null,
+        "measured": 30.2,
+        "err": 29.2,
+        "diff": 21.4,
+        "diff_over_err": 0.73
+       },
+       "pm_north": {
+        "gaia": -7.23669983519426,
+        "gaia_err": null,
+        "measured": 3.1,
+        "err": 35.6,
+        "diff": 10.3,
+        "diff_over_err": 0.29
+       },
+       "plx": {
+        "gaia": 1.3560663070619239,
+        "gaia_err": null,
+        "measured": -11.7,
+        "err": 18.2,
+        "diff": -13.1,
+        "diff_over_err": -0.72
+       }
+      }
+     },
+     {
+      "source_id": "6412597554039030016",
+      "g": 15.13,
+      "win": {
+       "n_used": 363,
+       "n_epochs": 4,
+       "rms_mas": 644.0,
+       "pm_east": {
+        "gaia": 9.16315974124251,
+        "gaia_err": null,
+        "measured": -89.8,
+        "err": 51.9,
+        "diff": -98.9,
+        "diff_over_err": -1.91
+       },
+       "pm_north": {
+        "gaia": 7.032324354356138,
+        "gaia_err": null,
+        "measured": 33.5,
+        "err": 43.0,
+        "diff": 26.5,
+        "diff_over_err": 0.62
+       },
+       "plx": {
+        "gaia": 1.6285559781352066,
+        "gaia_err": null,
+        "measured": -5.7,
+        "err": 22.8,
+        "diff": -7.3,
+        "diff_over_err": -0.32
+       }
+      },
+      "psf": {
+       "n_used": 370,
+       "n_epochs": 4,
+       "rms_mas": 395.0,
+       "pm_east": {
+        "gaia": 9.16315974124251,
+        "gaia_err": null,
+        "measured": 10.3,
+        "err": 31.4,
+        "diff": 1.1,
+        "diff_over_err": 0.03
+       },
+       "pm_north": {
+        "gaia": 7.032324354356138,
+        "gaia_err": null,
+        "measured": 25.7,
+        "err": 26.8,
+        "diff": 18.7,
+        "diff_over_err": 0.7
+       },
+       "plx": {
+        "gaia": 1.6285559781352066,
+        "gaia_err": null,
+        "measured": -6.9,
+        "err": 15.9,
+        "diff": -8.5,
+        "diff_over_err": -0.54
+       }
+      }
+     },
+     {
+      "source_id": "6412597008579272704",
+      "g": 15.21,
+      "win": {
+       "n_used": 333,
+       "n_epochs": 4,
+       "rms_mas": 573.0,
+       "pm_east": {
+        "gaia": -0.39468007151715484,
+        "gaia_err": null,
+        "measured": -8.4,
+        "err": 38.8,
+        "diff": -8.0,
+        "diff_over_err": -0.21
+       },
+       "pm_north": {
+        "gaia": 0.5657197791661716,
+        "gaia_err": null,
+        "measured": 45.9,
+        "err": 47.0,
+        "diff": 45.4,
+        "diff_over_err": 0.96
+       },
+       "plx": {
+        "gaia": 1.45124411804478,
+        "gaia_err": null,
+        "measured": -16.4,
+        "err": 22.0,
+        "diff": -17.8,
+        "diff_over_err": -0.81
+       }
+      },
+      "psf": {
+       "n_used": 366,
+       "n_epochs": 4,
+       "rms_mas": 591.0,
+       "pm_east": {
+        "gaia": -0.39468007151715484,
+        "gaia_err": null,
+        "measured": -48.6,
+        "err": 44.0,
+        "diff": -48.2,
+        "diff_over_err": -1.1
+       },
+       "pm_north": {
+        "gaia": 0.5657197791661716,
+        "gaia_err": null,
+        "measured": 7.3,
+        "err": 44.6,
+        "diff": 6.7,
+        "diff_over_err": 0.15
+       },
+       "plx": {
+        "gaia": 1.45124411804478,
+        "gaia_err": null,
+        "measured": 4.5,
+        "err": 23.7,
+        "diff": 3.0,
+        "diff_over_err": 0.13
+       }
+      }
+     },
+     {
+      "source_id": "6412591751539163136",
+      "g": 15.28,
+      "win": {
+       "n_used": 197,
+       "n_epochs": 4,
+       "rms_mas": 702.0,
+       "pm_east": {
+        "gaia": 17.777963621590885,
+        "gaia_err": null,
+        "measured": -34.6,
+        "err": 67.4,
+        "diff": -52.4,
+        "diff_over_err": -0.78
+       },
+       "pm_north": {
+        "gaia": -8.126601344563955,
+        "gaia_err": null,
+        "measured": 138.3,
+        "err": 81.4,
+        "diff": 146.4,
+        "diff_over_err": 1.8
+       },
+       "plx": {
+        "gaia": 0.9752575048049139,
+        "gaia_err": null,
+        "measured": 17.3,
+        "err": 41.7,
+        "diff": 16.3,
+        "diff_over_err": 0.39
+       }
+      },
+      "psf": {
+       "n_used": 212,
+       "n_epochs": 4,
+       "rms_mas": 503.0,
+       "pm_east": {
+        "gaia": 17.777963621590885,
+        "gaia_err": null,
+        "measured": 14.3,
+        "err": 45.4,
+        "diff": -3.5,
+        "diff_over_err": -0.08
+       },
+       "pm_north": {
+        "gaia": -8.126601344563955,
+        "gaia_err": null,
+        "measured": -16.1,
+        "err": 47.7,
+        "diff": -8.0,
+        "diff_over_err": -0.17
+       },
+       "plx": {
+        "gaia": 0.9752575048049139,
+        "gaia_err": null,
+        "measured": -52.6,
+        "err": 29.5,
+        "diff": -53.5,
+        "diff_over_err": -1.81
+       }
+      }
+     },
+     {
+      "source_id": "6412596390103981824",
+      "g": 15.34,
+      "win": {
+       "n_used": 326,
+       "n_epochs": 4,
+       "rms_mas": 640.0,
+       "pm_east": {
+        "gaia": 3.9984764074883046,
+        "gaia_err": null,
+        "measured": -54.0,
+        "err": 51.8,
+        "diff": -58.0,
+        "diff_over_err": -1.12
+       },
+       "pm_north": {
+        "gaia": -11.620042543206116,
+        "gaia_err": null,
+        "measured": -19.9,
+        "err": 53.9,
+        "diff": -8.3,
+        "diff_over_err": -0.15
+       },
+       "plx": {
+        "gaia": 1.4592273092324783,
+        "gaia_err": null,
+        "measured": 8.6,
+        "err": 25.1,
+        "diff": 7.2,
+        "diff_over_err": 0.29
+       }
+      },
+      "psf": {
+       "n_used": 349,
+       "n_epochs": 4,
+       "rms_mas": 554.0,
+       "pm_east": {
+        "gaia": 3.9984764074883046,
+        "gaia_err": null,
+        "measured": 25.9,
+        "err": 43.9,
+        "diff": 21.9,
+        "diff_over_err": 0.5
+       },
+       "pm_north": {
+        "gaia": -11.620042543206116,
+        "gaia_err": null,
+        "measured": -75.2,
+        "err": 39.1,
+        "diff": -63.5,
+        "diff_over_err": -1.62
+       },
+       "plx": {
+        "gaia": 1.4592273092324783,
+        "gaia_err": null,
+        "measured": 22.4,
+        "err": 21.3,
+        "diff": 21.0,
+        "diff_over_err": 0.98
+       }
+      }
+     },
+     {
+      "source_id": "6412617177745627136",
+      "g": 15.4,
+      "win": {
+       "n_used": 300,
+       "n_epochs": 4,
+       "rms_mas": 1008.0,
+       "pm_east": {
+        "gaia": -3.311089162367761,
+        "gaia_err": null,
+        "measured": -103.7,
+        "err": 70.2,
+        "diff": -100.4,
+        "diff_over_err": -1.43
+       },
+       "pm_north": {
+        "gaia": 1.4005112385666003,
+        "gaia_err": null,
+        "measured": -70.2,
+        "err": 92.9,
+        "diff": -71.6,
+        "diff_over_err": -0.77
+       },
+       "plx": {
+        "gaia": 0.5437120115652583,
+        "gaia_err": null,
+        "measured": 73.8,
+        "err": 42.0,
+        "diff": 73.2,
+        "diff_over_err": 1.74
+       }
+      },
+      "psf": {
+       "n_used": 303,
+       "n_epochs": 4,
+       "rms_mas": 543.0,
+       "pm_east": {
+        "gaia": -3.311089162367761,
+        "gaia_err": null,
+        "measured": -38.0,
+        "err": 51.3,
+        "diff": -34.7,
+        "diff_over_err": -0.68
+       },
+       "pm_north": {
+        "gaia": 1.4005112385666003,
+        "gaia_err": null,
+        "measured": -53.7,
+        "err": 46.7,
+        "diff": -55.1,
+        "diff_over_err": -1.18
+       },
+       "plx": {
+        "gaia": 0.5437120115652583,
+        "gaia_err": null,
+        "measured": 13.7,
+        "err": 21.7,
+        "diff": 13.2,
+        "diff_over_err": 0.61
+       }
+      }
+     },
+     {
+      "source_id": "6412594672117008128",
+      "g": 15.73,
+      "win": {
+       "n_used": 342,
+       "n_epochs": 4,
+       "rms_mas": 756.0,
+       "pm_east": {
+        "gaia": -5.22348139556413,
+        "gaia_err": null,
+        "measured": 1.1,
+        "err": 63.5,
+        "diff": 6.3,
+        "diff_over_err": 0.1
+       },
+       "pm_north": {
+        "gaia": -23.63157275148862,
+        "gaia_err": null,
+        "measured": 45.3,
+        "err": 58.5,
+        "diff": 68.9,
+        "diff_over_err": 1.18
+       },
+       "plx": {
+        "gaia": 1.9915461026726238,
+        "gaia_err": null,
+        "measured": -25.9,
+        "err": 30.3,
+        "diff": -27.9,
+        "diff_over_err": -0.92
+       }
+      },
+      "psf": {
+       "n_used": 377,
+       "n_epochs": 4,
+       "rms_mas": 648.0,
+       "pm_east": {
+        "gaia": -5.22348139556413,
+        "gaia_err": null,
+        "measured": -21.7,
+        "err": 49.3,
+        "diff": -16.5,
+        "diff_over_err": -0.33
+       },
+       "pm_north": {
+        "gaia": -23.63157275148862,
+        "gaia_err": null,
+        "measured": -65.0,
+        "err": 47.9,
+        "diff": -41.4,
+        "diff_over_err": -0.86
+       },
+       "plx": {
+        "gaia": 1.9915461026726238,
+        "gaia_err": null,
+        "measured": -5.8,
+        "err": 24.4,
+        "diff": -7.8,
+        "diff_over_err": -0.32
+       }
+      }
+     },
+     {
+      "source_id": "6412596183945494144",
+      "g": 15.77,
+      "win": {
+       "n_used": 335,
+       "n_epochs": 4,
+       "rms_mas": 772.0,
+       "pm_east": {
+        "gaia": -7.9594236563119924,
+        "gaia_err": null,
+        "measured": -36.2,
+        "err": 66.3,
+        "diff": -28.2,
+        "diff_over_err": -0.43
+       },
+       "pm_north": {
+        "gaia": -8.983537743859818,
+        "gaia_err": null,
+        "measured": 106.0,
+        "err": 56.8,
+        "diff": 115.0,
+        "diff_over_err": 2.02
+       },
+       "plx": {
+        "gaia": 1.628119812589544,
+        "gaia_err": null,
+        "measured": 36.4,
+        "err": 34.6,
+        "diff": 34.8,
+        "diff_over_err": 1.01
+       }
+      },
+      "psf": {
+       "n_used": 357,
+       "n_epochs": 4,
+       "rms_mas": 515.0,
+       "pm_east": {
+        "gaia": -7.9594236563119924,
+        "gaia_err": null,
+        "measured": 36.3,
+        "err": 40.4,
+        "diff": 44.3,
+        "diff_over_err": 1.1
+       },
+       "pm_north": {
+        "gaia": -8.983537743859818,
+        "gaia_err": null,
+        "measured": 8.2,
+        "err": 38.5,
+        "diff": 17.2,
+        "diff_over_err": 0.45
+       },
+       "plx": {
+        "gaia": 1.628119812589544,
+        "gaia_err": null,
+        "measured": 8.0,
+        "err": 19.3,
+        "diff": 6.3,
+        "diff_over_err": 0.33
+       }
+      }
+     },
+     {
+      "source_id": "6412592576172954112",
+      "g": 15.8,
+      "win": {
+       "n_used": 287,
+       "n_epochs": 4,
+       "rms_mas": 834.0,
+       "pm_east": {
+        "gaia": 5.390910993302185,
+        "gaia_err": null,
+        "measured": -18.6,
+        "err": 78.8,
+        "diff": -24.0,
+        "diff_over_err": -0.3
+       },
+       "pm_north": {
+        "gaia": -4.932970257742241,
+        "gaia_err": null,
+        "measured": -63.8,
+        "err": 72.6,
+        "diff": -58.8,
+        "diff_over_err": -0.81
+       },
+       "plx": {
+        "gaia": 0.09588293267994219,
+        "gaia_err": null,
+        "measured": 46.5,
+        "err": 38.5,
+        "diff": 46.4,
+        "diff_over_err": 1.21
+       }
+      },
+      "psf": {
+       "n_used": 301,
+       "n_epochs": 4,
+       "rms_mas": 501.0,
+       "pm_east": {
+        "gaia": 5.390910993302185,
+        "gaia_err": null,
+        "measured": -9.2,
+        "err": 45.7,
+        "diff": -14.6,
+        "diff_over_err": -0.32
+       },
+       "pm_north": {
+        "gaia": -4.932970257742241,
+        "gaia_err": null,
+        "measured": -162.0,
+        "err": 41.7,
+        "diff": -157.1,
+        "diff_over_err": -3.77
+       },
+       "plx": {
+        "gaia": 0.09588293267994219,
+        "gaia_err": null,
+        "measured": 14.5,
+        "err": 23.2,
+        "diff": 14.4,
+        "diff_over_err": 0.62
+       }
+      }
+     },
+     {
+      "source_id": "6412593400806675840",
+      "g": 15.9,
+      "win": {
+       "n_used": 287,
+       "n_epochs": 4,
+       "rms_mas": 2049.0,
+       "pm_east": {
+        "gaia": 0.6075017236139306,
+        "gaia_err": null,
+        "measured": -104.3,
+        "err": 196.6,
+        "diff": -104.9,
+        "diff_over_err": -0.53
+       },
+       "pm_north": {
+        "gaia": -16.1342433100214,
+        "gaia_err": null,
+        "measured": 253.8,
+        "err": 173.4,
+        "diff": 270.0,
+        "diff_over_err": 1.56
+       },
+       "plx": {
+        "gaia": 0.41634607630524934,
+        "gaia_err": null,
+        "measured": 36.9,
+        "err": 109.6,
+        "diff": 36.5,
+        "diff_over_err": 0.33
+       }
+      },
+      "psf": {
+       "n_used": 247,
+       "n_epochs": 4,
+       "rms_mas": 527.0,
+       "pm_east": {
+        "gaia": 0.6075017236139306,
+        "gaia_err": null,
+        "measured": -108.3,
+        "err": 50.5,
+        "diff": -108.9,
+        "diff_over_err": -2.15
+       },
+       "pm_north": {
+        "gaia": -16.1342433100214,
+        "gaia_err": null,
+        "measured": 58.4,
+        "err": 45.3,
+        "diff": 74.6,
+        "diff_over_err": 1.65
+       },
+       "plx": {
+        "gaia": 0.41634607630524934,
+        "gaia_err": null,
+        "measured": -20.0,
+        "err": 23.6,
+        "diff": -20.4,
+        "diff_over_err": -0.87
+       }
+      }
+     },
+     {
+      "source_id": "6412590995624926208",
+      "g": 15.97,
+      "win": {
+       "n_used": 363,
+       "n_epochs": 4,
+       "rms_mas": 647.0,
+       "pm_east": {
+        "gaia": 0.44354779702431824,
+        "gaia_err": null,
+        "measured": -2.5,
+        "err": 47.9,
+        "diff": -2.9,
+        "diff_over_err": -0.06
+       },
+       "pm_north": {
+        "gaia": -19.917008427349632,
+        "gaia_err": null,
+        "measured": -40.3,
+        "err": 52.0,
+        "diff": -20.3,
+        "diff_over_err": -0.39
+       },
+       "plx": {
+        "gaia": 3.6492635735484726,
+        "gaia_err": null,
+        "measured": 13.8,
+        "err": 26.8,
+        "diff": 10.2,
+        "diff_over_err": 0.38
+       }
+      },
+      "psf": {
+       "n_used": 372,
+       "n_epochs": 4,
+       "rms_mas": 404.0,
+       "pm_east": {
+        "gaia": 0.44354779702431824,
+        "gaia_err": null,
+        "measured": -15.9,
+        "err": 31.0,
+        "diff": -16.4,
+        "diff_over_err": -0.53
+       },
+       "pm_north": {
+        "gaia": -19.917008427349632,
+        "gaia_err": null,
+        "measured": 19.9,
+        "err": 29.1,
+        "diff": 39.8,
+        "diff_over_err": 1.37
+       },
+       "plx": {
+        "gaia": 3.6492635735484726,
+        "gaia_err": null,
+        "measured": -13.8,
+        "err": 16.6,
+        "diff": -17.5,
+        "diff_over_err": -1.05
+       }
+      }
+     },
+     {
+      "source_id": "6412597077298696576",
+      "g": 15.99,
+      "win": {
+       "n_used": 275,
+       "n_epochs": 4,
+       "rms_mas": 2011.0,
+       "pm_east": {
+        "gaia": 4.143625159345635,
+        "gaia_err": null,
+        "measured": -81.2,
+        "err": 170.6,
+        "diff": -85.3,
+        "diff_over_err": -0.5
+       },
+       "pm_north": {
+        "gaia": 7.273132816490125,
+        "gaia_err": null,
+        "measured": 69.5,
+        "err": 174.9,
+        "diff": 62.2,
+        "diff_over_err": 0.36
+       },
+       "plx": {
+        "gaia": 0.6708042271993483,
+        "gaia_err": null,
+        "measured": -184.9,
+        "err": 114.7,
+        "diff": -185.5,
+        "diff_over_err": -1.62
+       }
+      },
+      "psf": {
+       "n_used": 249,
+       "n_epochs": 4,
+       "rms_mas": 520.0,
+       "pm_east": {
+        "gaia": 4.143625159345635,
+        "gaia_err": null,
+        "measured": 48.4,
+        "err": 45.1,
+        "diff": 44.2,
+        "diff_over_err": 0.98
+       },
+       "pm_north": {
+        "gaia": 7.273132816490125,
+        "gaia_err": null,
+        "measured": -0.1,
+        "err": 46.3,
+        "diff": -7.4,
+        "diff_over_err": -0.16
+       },
+       "plx": {
+        "gaia": 0.6708042271993483,
+        "gaia_err": null,
+        "measured": 2.3,
+        "err": 23.3,
+        "diff": 1.6,
+        "diff_over_err": 0.07
+       }
+      }
+     },
+     {
+      "source_id": "6412594740836485888",
+      "g": 16.0,
+      "win": {
+       "n_used": 272,
+       "n_epochs": 4,
+       "rms_mas": 2004.0,
+       "pm_east": {
+        "gaia": 11.061892494513136,
+        "gaia_err": null,
+        "measured": -380.6,
+        "err": 214.9,
+        "diff": -391.6,
+        "diff_over_err": -1.82
+       },
+       "pm_north": {
+        "gaia": -6.245031959956467,
+        "gaia_err": null,
+        "measured": -289.1,
+        "err": 133.9,
+        "diff": -282.8,
+        "diff_over_err": -2.11
+       },
+       "plx": {
+        "gaia": 0.6980946790844732,
+        "gaia_err": null,
+        "measured": -319.3,
+        "err": 96.8,
+        "diff": -320.0,
+        "diff_over_err": -3.31
+       }
+      },
+      "psf": {
+       "n_used": 265,
+       "n_epochs": 4,
+       "rms_mas": 640.0,
+       "pm_east": {
+        "gaia": 11.061892494513136,
+        "gaia_err": null,
+        "measured": -101.3,
+        "err": 58.5,
+        "diff": -112.4,
+        "diff_over_err": -1.92
+       },
+       "pm_north": {
+        "gaia": -6.245031959956467,
+        "gaia_err": null,
+        "measured": 32.2,
+        "err": 58.5,
+        "diff": 38.5,
+        "diff_over_err": 0.66
+       },
+       "plx": {
+        "gaia": 0.6980946790844732,
+        "gaia_err": null,
+        "measured": -12.9,
+        "err": 27.6,
+        "diff": -13.6,
+        "diff_over_err": -0.49
+       }
+      }
+     }
+    ]
+   },
+   "not_aligned": {
+    "summary": {
+     "win": {
+      "n_stars": 21,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": -8.4,
+       "scatter": 54.0,
+       "median_err": 47.6,
+       "within_2_err": 21
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": -6.0,
+       "scatter": 94.7,
+       "median_err": 51.6,
+       "within_2_err": 18
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": 107.8,
+       "scatter": 29.1,
+       "median_err": 26.0,
+       "within_2_err": 2
+      },
+      "all_three_within_2_err": 2,
+      "expected_within_2_err": 20.0,
+      "expected_all_three": 18.3
+     },
+     "psf": {
+      "n_stars": 21,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": -1.9,
+       "scatter": 39.3,
+       "median_err": 36.4,
+       "within_2_err": 19
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": -19.1,
+       "scatter": 32.9,
+       "median_err": 35.9,
+       "within_2_err": 16
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -57.9,
+       "scatter": 13.5,
+       "median_err": 19.2,
+       "within_2_err": 4
+      },
+      "all_three_within_2_err": 2,
+      "expected_within_2_err": 20.0,
+      "expected_all_three": 18.3
+     }
+    },
+    "not_fitted": [
+     {
+      "source_id": "6412590720747024256",
+      "reason": "11 exposures (< 30)"
+     },
+     {
+      "source_id": "6412590755106765440",
+      "reason": "1 epochs with >= 5 exposures (< 3)"
+     },
+     {
+      "source_id": "6412615970858951552",
+      "reason": "4 exposures (< 30)"
+     }
+    ]
+   }
+  },
+  {
+   "slug": "wise-0855",
+   "n_measurements": 2332,
+   "n_stars_measured": 12,
+   "aligned": {
+    "summary": {
+     "win": {
+      "n_stars": 11,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": -52.2,
+       "scatter": 110.8,
+       "median_err": 78.2,
+       "within_2_err": 11
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 8.8,
+       "scatter": 61.8,
+       "median_err": 93.3,
+       "within_2_err": 10
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -6.4,
+       "scatter": 40.9,
+       "median_err": 29.0,
+       "within_2_err": 9
+      },
+      "all_three_within_2_err": 8,
+      "expected_within_2_err": 10.5,
+      "expected_all_three": 9.6
+     },
+     "psf": {
+      "n_stars": 11,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 22.3,
+       "scatter": 68.6,
+       "median_err": 70.2,
+       "within_2_err": 10
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 27.1,
+       "scatter": 57.7,
+       "median_err": 57.9,
+       "within_2_err": 11
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": 2.3,
+       "scatter": 18.2,
+       "median_err": 20.6,
+       "within_2_err": 10
+      },
+      "all_three_within_2_err": 9,
+      "expected_within_2_err": 10.5,
+      "expected_all_three": 9.6
+     }
+    },
+    "not_fitted": [
+     {
+      "source_id": "5756942831773115520",
+      "reason": "2 exposures (< 30)"
+     }
+    ],
+    "stars": [
+     {
+      "source_id": "5756862120747649024",
+      "g": 10.25,
+      "win": {
+       "n_used": 83,
+       "n_epochs": 3,
+       "rms_mas": 367.0,
+       "pm_east": {
+        "gaia": -3.5949717133135644,
+        "gaia_err": null,
+        "measured": -83.4,
+        "err": 93.2,
+        "diff": -79.8,
+        "diff_over_err": -0.86
+       },
+       "pm_north": {
+        "gaia": 0.10680502413924159,
+        "gaia_err": null,
+        "measured": -85.0,
+        "err": 93.3,
+        "diff": -85.1,
+        "diff_over_err": -0.91
+       },
+       "plx": {
+        "gaia": 1.079172525748353,
+        "gaia_err": null,
+        "measured": 11.9,
+        "err": 29.0,
+        "diff": 10.8,
+        "diff_over_err": 0.37
+       }
+      },
+      "psf": {
+       "n_used": 84,
+       "n_epochs": 3,
+       "rms_mas": 282.0,
+       "pm_east": {
+        "gaia": -3.5949717133135644,
+        "gaia_err": null,
+        "measured": 8.2,
+        "err": 75.5,
+        "diff": 11.8,
+        "diff_over_err": 0.16
+       },
+       "pm_north": {
+        "gaia": 0.10680502413924159,
+        "gaia_err": null,
+        "measured": -113.0,
+        "err": 65.7,
+        "diff": -113.1,
+        "diff_over_err": -1.72
+       },
+       "plx": {
+        "gaia": 1.079172525748353,
+        "gaia_err": null,
+        "measured": 35.5,
+        "err": 23.9,
+        "diff": 34.4,
+        "diff_over_err": 1.44
+       }
+      }
+     },
+     {
+      "source_id": "5756956330854206592",
+      "g": 12.25,
+      "win": {
+       "n_used": 234,
+       "n_epochs": 3,
+       "rms_mas": 409.0,
+       "pm_east": {
+        "gaia": -6.944271449654603,
+        "gaia_err": null,
+        "measured": 21.7,
+        "err": 57.9,
+        "diff": 28.7,
+        "diff_over_err": 0.5
+       },
+       "pm_north": {
+        "gaia": -5.963553156019617,
+        "gaia_err": null,
+        "measured": -90.2,
+        "err": 67.8,
+        "diff": -84.3,
+        "diff_over_err": -1.24
+       },
+       "plx": {
+        "gaia": 1.6598313486133247,
+        "gaia_err": null,
+        "measured": -6.1,
+        "err": 18.1,
+        "diff": -7.8,
+        "diff_over_err": -0.43
+       }
+      },
+      "psf": {
+       "n_used": 228,
+       "n_epochs": 3,
+       "rms_mas": 228.0,
+       "pm_east": {
+        "gaia": -6.944271449654603,
+        "gaia_err": null,
+        "measured": 15.3,
+        "err": 38.7,
+        "diff": 22.3,
+        "diff_over_err": 0.57
+       },
+       "pm_north": {
+        "gaia": -5.963553156019617,
+        "gaia_err": null,
+        "measured": -14.8,
+        "err": 30.1,
+        "diff": -8.9,
+        "diff_over_err": -0.29
+       },
+       "plx": {
+        "gaia": 1.6598313486133247,
+        "gaia_err": null,
+        "measured": 12.5,
+        "err": 12.7,
+        "diff": 10.8,
+        "diff_over_err": 0.85
+       }
+      }
+     },
+     {
+      "source_id": "5756961003778621824",
+      "g": 12.41,
+      "win": {
+       "n_used": 233,
+       "n_epochs": 3,
+       "rms_mas": 438.0,
+       "pm_east": {
+        "gaia": -13.75632765067856,
+        "gaia_err": null,
+        "measured": -62.4,
+        "err": 55.0,
+        "diff": -48.6,
+        "diff_over_err": -0.88
+       },
+       "pm_north": {
+        "gaia": 6.93882440392479,
+        "gaia_err": null,
+        "measured": 35.2,
+        "err": 76.1,
+        "diff": 28.3,
+        "diff_over_err": 0.37
+       },
+       "plx": {
+        "gaia": 1.6094802952083351,
+        "gaia_err": null,
+        "measured": 9.1,
+        "err": 18.7,
+        "diff": 7.5,
+        "diff_over_err": 0.4
+       }
+      },
+      "psf": {
+       "n_used": 225,
+       "n_epochs": 3,
+       "rms_mas": 260.0,
+       "pm_east": {
+        "gaia": -13.75632765067856,
+        "gaia_err": null,
+        "measured": -63.1,
+        "err": 37.0,
+        "diff": -49.3,
+        "diff_over_err": -1.33
+       },
+       "pm_north": {
+        "gaia": 6.93882440392479,
+        "gaia_err": null,
+        "measured": -10.4,
+        "err": 39.4,
+        "diff": -17.3,
+        "diff_over_err": -0.44
+       },
+       "plx": {
+        "gaia": 1.6094802952083351,
+        "gaia_err": null,
+        "measured": 5.6,
+        "err": 13.2,
+        "diff": 3.9,
+        "diff_over_err": 0.3
+       }
+      }
+     },
+     {
+      "source_id": "5756955785394371328",
+      "g": 13.3,
+      "win": {
+       "n_used": 238,
+       "n_epochs": 3,
+       "rms_mas": 511.0,
+       "pm_east": {
+        "gaia": -2.0829915743543155,
+        "gaia_err": null,
+        "measured": 33.7,
+        "err": 58.3,
+        "diff": 35.8,
+        "diff_over_err": 0.61
+       },
+       "pm_north": {
+        "gaia": -17.433272879188863,
+        "gaia_err": null,
+        "measured": 22.5,
+        "err": 89.0,
+        "diff": 40.0,
+        "diff_over_err": 0.45
+       },
+       "plx": {
+        "gaia": 1.5556890616725139,
+        "gaia_err": null,
+        "measured": -3.0,
+        "err": 21.4,
+        "diff": -4.6,
+        "diff_over_err": -0.21
+       }
+      },
+      "psf": {
+       "n_used": 242,
+       "n_epochs": 3,
+       "rms_mas": 422.0,
+       "pm_east": {
+        "gaia": -2.0829915743543155,
+        "gaia_err": null,
+        "measured": -57.3,
+        "err": 74.1,
+        "diff": -55.2,
+        "diff_over_err": -0.75
+       },
+       "pm_north": {
+        "gaia": -17.433272879188863,
+        "gaia_err": null,
+        "measured": 35.0,
+        "err": 56.1,
+        "diff": 52.4,
+        "diff_over_err": 0.93
+       },
+       "plx": {
+        "gaia": 1.5556890616725139,
+        "gaia_err": null,
+        "measured": -13.8,
+        "err": 19.9,
+        "diff": -15.4,
+        "diff_over_err": -0.77
+       }
+      }
+     },
+     {
+      "source_id": "5756959491950135168",
+      "g": 13.87,
+      "win": {
+       "n_used": 230,
+       "n_epochs": 3,
+       "rms_mas": 500.0,
+       "pm_east": {
+        "gaia": -2.341308760852234,
+        "gaia_err": null,
+        "measured": -118.6,
+        "err": 65.2,
+        "diff": -116.2,
+        "diff_over_err": -1.78
+       },
+       "pm_north": {
+        "gaia": -7.297695875243727,
+        "gaia_err": null,
+        "measured": -40.2,
+        "err": 79.3,
+        "diff": -32.9,
+        "diff_over_err": -0.41
+       },
+       "plx": {
+        "gaia": 0.7398163603013839,
+        "gaia_err": null,
+        "measured": -48.9,
+        "err": 22.3,
+        "diff": -49.7,
+        "diff_over_err": -2.23
+       }
+      },
+      "psf": {
+       "n_used": 233,
+       "n_epochs": 3,
+       "rms_mas": 341.0,
+       "pm_east": {
+        "gaia": -2.341308760852234,
+        "gaia_err": null,
+        "measured": -16.5,
+        "err": 53.1,
+        "diff": -14.1,
+        "diff_over_err": -0.27
+       },
+       "pm_north": {
+        "gaia": -7.297695875243727,
+        "gaia_err": null,
+        "measured": -62.7,
+        "err": 57.9,
+        "diff": -55.4,
+        "diff_over_err": -0.96
+       },
+       "plx": {
+        "gaia": 0.7398163603013839,
+        "gaia_err": null,
+        "measured": -9.2,
+        "err": 17.4,
+        "diff": -10.0,
+        "diff_over_err": -0.57
+       }
+      }
+     },
+     {
+      "source_id": "5756960355239574528",
+      "g": 14.03,
+      "win": {
+       "n_used": 225,
+       "n_epochs": 3,
+       "rms_mas": 629.0,
+       "pm_east": {
+        "gaia": 0.5997830996171861,
+        "gaia_err": null,
+        "measured": -87.3,
+        "err": 105.4,
+        "diff": -87.9,
+        "diff_over_err": -0.83
+       },
+       "pm_north": {
+        "gaia": 4.704857731239793,
+        "gaia_err": null,
+        "measured": 13.5,
+        "err": 96.3,
+        "diff": 8.8,
+        "diff_over_err": 0.09
+       },
+       "plx": {
+        "gaia": 0.9629933023402931,
+        "gaia_err": null,
+        "measured": -42.7,
+        "err": 34.9,
+        "diff": -43.7,
+        "diff_over_err": -1.25
+       }
+      },
+      "psf": {
+       "n_used": 228,
+       "n_epochs": 3,
+       "rms_mas": 411.0,
+       "pm_east": {
+        "gaia": 0.5997830996171861,
+        "gaia_err": null,
+        "measured": 35.9,
+        "err": 62.8,
+        "diff": 35.3,
+        "diff_over_err": 0.56
+       },
+       "pm_north": {
+        "gaia": 4.704857731239793,
+        "gaia_err": null,
+        "measured": -27.5,
+        "err": 58.8,
+        "diff": -32.2,
+        "diff_over_err": -0.55
+       },
+       "plx": {
+        "gaia": 0.9629933023402931,
+        "gaia_err": null,
+        "measured": 3.3,
+        "err": 20.6,
+        "diff": 2.3,
+        "diff_over_err": 0.11
+       }
+      }
+     },
+     {
+      "source_id": "5756955166919081600",
+      "g": 14.06,
+      "win": {
+       "n_used": 228,
+       "n_epochs": 3,
+       "rms_mas": 1802.0,
+       "pm_east": {
+        "gaia": -17.143234877315166,
+        "gaia_err": null,
+        "measured": -334.0,
+        "err": 354.4,
+        "diff": -316.8,
+        "diff_over_err": -0.89
+       },
+       "pm_north": {
+        "gaia": -1.9699893399648571,
+        "gaia_err": null,
+        "measured": -6.7,
+        "err": 118.9,
+        "diff": -4.8,
+        "diff_over_err": -0.04
+       },
+       "plx": {
+        "gaia": 1.44630136236235,
+        "gaia_err": null,
+        "measured": 107.9,
+        "err": 128.2,
+        "diff": 106.5,
+        "diff_over_err": 0.83
+       }
+      },
+      "psf": {
+       "n_used": 209,
+       "n_epochs": 3,
+       "rms_mas": 308.0,
+       "pm_east": {
+        "gaia": -17.143234877315166,
+        "gaia_err": null,
+        "measured": -70.2,
+        "err": 41.4,
+        "diff": -53.1,
+        "diff_over_err": -1.28
+       },
+       "pm_north": {
+        "gaia": -1.9699893399648571,
+        "gaia_err": null,
+        "measured": 25.2,
+        "err": 47.9,
+        "diff": 27.1,
+        "diff_over_err": 0.57
+       },
+       "plx": {
+        "gaia": 1.44630136236235,
+        "gaia_err": null,
+        "measured": 23.0,
+        "err": 16.6,
+        "diff": 21.6,
+        "diff_over_err": 1.3
+       }
+      }
+     },
+     {
+      "source_id": "5756943759486048640",
+      "g": 14.32,
+      "win": {
+       "n_used": 207,
+       "n_epochs": 3,
+       "rms_mas": 623.0,
+       "pm_east": {
+        "gaia": -8.005401768777363,
+        "gaia_err": null,
+        "measured": 130.3,
+        "err": 77.1,
+        "diff": 138.3,
+        "diff_over_err": 1.79
+       },
+       "pm_north": {
+        "gaia": 4.151921674378137,
+        "gaia_err": null,
+        "measured": 34.2,
+        "err": 108.1,
+        "diff": 30.1,
+        "diff_over_err": 0.28
+       },
+       "plx": {
+        "gaia": 0.8403067014718774,
+        "gaia_err": null,
+        "measured": 22.0,
+        "err": 28.9,
+        "diff": 21.2,
+        "diff_over_err": 0.73
+       }
+      },
+      "psf": {
+       "n_used": 205,
+       "n_epochs": 3,
+       "rms_mas": 393.0,
+       "pm_east": {
+        "gaia": -8.005401768777363,
+        "gaia_err": null,
+        "measured": 60.6,
+        "err": 78.7,
+        "diff": 68.6,
+        "diff_over_err": 0.87
+       },
+       "pm_north": {
+        "gaia": 4.151921674378137,
+        "gaia_err": null,
+        "measured": 70.1,
+        "err": 50.9,
+        "diff": 66.0,
+        "diff_over_err": 1.3
+       },
+       "plx": {
+        "gaia": 0.8403067014718774,
+        "gaia_err": null,
+        "measured": 1.6,
+        "err": 24.6,
+        "diff": 0.7,
+        "diff_over_err": 0.03
+       }
+      }
+     },
+     {
+      "source_id": "5756943312809452160",
+      "g": 14.83,
+      "win": {
+       "n_used": 184,
+       "n_epochs": 3,
+       "rms_mas": 586.0,
+       "pm_east": {
+        "gaia": -1.0918380034736532,
+        "gaia_err": null,
+        "measured": 21.4,
+        "err": 78.2,
+        "diff": 22.5,
+        "diff_over_err": 0.29
+       },
+       "pm_north": {
+        "gaia": -7.132352558705461,
+        "gaia_err": null,
+        "measured": 57.8,
+        "err": 86.8,
+        "diff": 64.9,
+        "diff_over_err": 0.75
+       },
+       "plx": {
+        "gaia": 0.6702483697679509,
+        "gaia_err": null,
+        "measured": -5.7,
+        "err": 30.0,
+        "diff": -6.4,
+        "diff_over_err": -0.21
+       }
+      },
+      "psf": {
+       "n_used": 191,
+       "n_epochs": 3,
+       "rms_mas": 484.0,
+       "pm_east": {
+        "gaia": -1.0918380034736532,
+        "gaia_err": null,
+        "measured": 171.4,
+        "err": 84.5,
+        "diff": 172.5,
+        "diff_over_err": 2.04
+       },
+       "pm_north": {
+        "gaia": -7.132352558705461,
+        "gaia_err": null,
+        "measured": 41.8,
+        "err": 65.1,
+        "diff": 48.9,
+        "diff_over_err": 0.75
+       },
+       "plx": {
+        "gaia": 0.6702483697679509,
+        "gaia_err": null,
+        "measured": -9.5,
+        "err": 27.6,
+        "diff": -10.1,
+        "diff_over_err": -0.37
+       }
+      }
+     },
+     {
+      "source_id": "5756861330473666304",
+      "g": 15.13,
+      "win": {
+       "n_used": 186,
+       "n_epochs": 3,
+       "rms_mas": 583.0,
+       "pm_east": {
+        "gaia": -2.8337612625016,
+        "gaia_err": null,
+        "measured": -55.0,
+        "err": 117.6,
+        "diff": -52.2,
+        "diff_over_err": -0.44
+       },
+       "pm_north": {
+        "gaia": 2.6519117143593824,
+        "gaia_err": null,
+        "measured": 232.3,
+        "err": 93.3,
+        "diff": 229.7,
+        "diff_over_err": 2.46
+       },
+       "plx": {
+        "gaia": 0.34944689668699325,
+        "gaia_err": null,
+        "measured": -64.7,
+        "err": 37.6,
+        "diff": -65.1,
+        "diff_over_err": -1.73
+       }
+      },
+      "psf": {
+       "n_used": 189,
+       "n_epochs": 3,
+       "rms_mas": 454.0,
+       "pm_east": {
+        "gaia": -2.8337612625016,
+        "gaia_err": null,
+        "measured": 78.3,
+        "err": 97.6,
+        "diff": 81.2,
+        "diff_over_err": 0.83
+       },
+       "pm_north": {
+        "gaia": 2.6519117143593824,
+        "gaia_err": null,
+        "measured": 85.0,
+        "err": 61.9,
+        "diff": 82.3,
+        "diff_over_err": 1.33
+       },
+       "plx": {
+        "gaia": 0.34944689668699325,
+        "gaia_err": null,
+        "measured": 11.7,
+        "err": 28.4,
+        "diff": 11.3,
+        "diff_over_err": 0.4
+       }
+      }
+     },
+     {
+      "source_id": "5756956163351495168",
+      "g": 15.14,
+      "win": {
+       "n_used": 156,
+       "n_epochs": 3,
+       "rms_mas": 1280.0,
+       "pm_east": {
+        "gaia": 9.829118593184937,
+        "gaia_err": null,
+        "measured": -408.0,
+        "err": 266.8,
+        "diff": -417.8,
+        "diff_over_err": -1.57
+       },
+       "pm_north": {
+        "gaia": -6.596940398927146,
+        "gaia_err": null,
+        "measured": -44.0,
+        "err": 177.9,
+        "diff": -37.4,
+        "diff_over_err": -0.21
+       },
+       "plx": {
+        "gaia": 1.474758829579989,
+        "gaia_err": null,
+        "measured": -161.2,
+        "err": 77.9,
+        "diff": -162.7,
+        "diff_over_err": -2.09
+       }
+      },
+      "psf": {
+       "n_used": 153,
+       "n_epochs": 3,
+       "rms_mas": 471.0,
+       "pm_east": {
+        "gaia": 9.829118593184937,
+        "gaia_err": null,
+        "measured": 39.0,
+        "err": 70.2,
+        "diff": 29.2,
+        "diff_over_err": 0.42
+       },
+       "pm_north": {
+        "gaia": -6.596940398927146,
+        "gaia_err": null,
+        "measured": 36.8,
+        "err": 101.4,
+        "diff": 43.4,
+        "diff_over_err": 0.43
+       },
+       "plx": {
+        "gaia": 1.474758829579989,
+        "gaia_err": null,
+        "measured": -68.1,
+        "err": 25.1,
+        "diff": -69.6,
+        "diff_over_err": -2.78
+       }
+      }
+     }
+    ]
+   },
+   "not_aligned": {
+    "summary": {
+     "win": {
+      "n_stars": 11,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 27.8,
+       "scatter": 89.5,
+       "median_err": 76.1,
+       "within_2_err": 10
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 10.9,
+       "scatter": 59.5,
+       "median_err": 84.5,
+       "within_2_err": 11
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": 106.1,
+       "scatter": 25.6,
+       "median_err": 28.6,
+       "within_2_err": 2
+      },
+      "all_three_within_2_err": 2,
+      "expected_within_2_err": 10.5,
+      "expected_all_three": 9.6
+     },
+     "psf": {
+      "n_stars": 11,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 19.9,
+       "scatter": 43.1,
+       "median_err": 63.2,
+       "within_2_err": 11
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 36.4,
+       "scatter": 75.6,
+       "median_err": 62.8,
+       "within_2_err": 11
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -52.1,
+       "scatter": 22.8,
+       "median_err": 20.9,
+       "within_2_err": 3
+      },
+      "all_three_within_2_err": 3,
+      "expected_within_2_err": 10.5,
+      "expected_all_three": 9.6
+     }
+    },
+    "not_fitted": [
+     {
+      "source_id": "5756942831773115520",
+      "reason": "2 exposures (< 30)"
+     }
+    ]
+   }
+  },
+  {
+   "slug": "rw-aur",
+   "n_measurements": 3696,
+   "n_stars_measured": 16,
+   "aligned": {
+    "summary": {
+     "win": {
+      "n_stars": 15,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": -1.1,
+       "scatter": 54.7,
+       "median_err": 38.9,
+       "within_2_err": 15
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 3.2,
+       "scatter": 65.1,
+       "median_err": 40.4,
+       "within_2_err": 15
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -4.0,
+       "scatter": 17.0,
+       "median_err": 19.0,
+       "within_2_err": 15
+      },
+      "all_three_within_2_err": 15,
+      "expected_within_2_err": 14.3,
+      "expected_all_three": 13.0
+     },
+     "psf": {
+      "n_stars": 15,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": -4.8,
+       "scatter": 20.5,
+       "median_err": 27.1,
+       "within_2_err": 15
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": -13.9,
+       "scatter": 39.3,
+       "median_err": 22.7,
+       "within_2_err": 14
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -0.2,
+       "scatter": 10.2,
+       "median_err": 11.6,
+       "within_2_err": 14
+      },
+      "all_three_within_2_err": 13,
+      "expected_within_2_err": 14.3,
+      "expected_all_three": 13.0
+     }
+    },
+    "not_fitted": [
+     {
+      "source_id": "156288671582235648",
+      "reason": "1 epochs with >= 5 exposures (< 3)"
+     }
+    ],
+    "stars": [
+     {
+      "source_id": "156336779511773440",
+      "g": 9.9,
+      "win": {
+       "n_used": 54,
+       "n_epochs": 3,
+       "rms_mas": 175.0,
+       "pm_east": {
+        "gaia": -4.123505355600266,
+        "gaia_err": null,
+        "measured": 10.7,
+        "err": 47.7,
+        "diff": 14.8,
+        "diff_over_err": 0.31
+       },
+       "pm_north": {
+        "gaia": -1.2506120405073604,
+        "gaia_err": null,
+        "measured": 31.6,
+        "err": 34.2,
+        "diff": 32.8,
+        "diff_over_err": 0.96
+       },
+       "plx": {
+        "gaia": 0.8033719128566971,
+        "gaia_err": null,
+        "measured": 3.9,
+        "err": 19.0,
+        "diff": 3.1,
+        "diff_over_err": 0.17
+       }
+      },
+      "psf": {
+       "n_used": 55,
+       "n_epochs": 3,
+       "rms_mas": 176.0,
+       "pm_east": {
+        "gaia": -4.123505355600266,
+        "gaia_err": null,
+        "measured": 4.8,
+        "err": 50.1,
+        "diff": 9.0,
+        "diff_over_err": 0.18
+       },
+       "pm_north": {
+        "gaia": -1.2506120405073604,
+        "gaia_err": null,
+        "measured": -27.4,
+        "err": 36.1,
+        "diff": -26.1,
+        "diff_over_err": -0.72
+       },
+       "plx": {
+        "gaia": 0.8033719128566971,
+        "gaia_err": null,
+        "measured": -0.5,
+        "err": 19.3,
+        "diff": -1.3,
+        "diff_over_err": -0.07
+       }
+      }
+     },
+     {
+      "source_id": "156434189370670336",
+      "g": 11.78,
+      "win": {
+       "n_used": 158,
+       "n_epochs": 3,
+       "rms_mas": 249.0,
+       "pm_east": {
+        "gaia": 6.698936456218865,
+        "gaia_err": null,
+        "measured": 29.4,
+        "err": 26.4,
+        "diff": 22.7,
+        "diff_over_err": 0.86
+       },
+       "pm_north": {
+        "gaia": -2.5232200786066237,
+        "gaia_err": null,
+        "measured": 46.8,
+        "err": 35.0,
+        "diff": 49.4,
+        "diff_over_err": 1.41
+       },
+       "plx": {
+        "gaia": 0.8867480134473019,
+        "gaia_err": null,
+        "measured": 4.3,
+        "err": 13.4,
+        "diff": 3.4,
+        "diff_over_err": 0.25
+       }
+      },
+      "psf": {
+       "n_used": 157,
+       "n_epochs": 3,
+       "rms_mas": 184.0,
+       "pm_east": {
+        "gaia": 6.698936456218865,
+        "gaia_err": null,
+        "measured": 17.0,
+        "err": 28.1,
+        "diff": 10.3,
+        "diff_over_err": 0.37
+       },
+       "pm_north": {
+        "gaia": -2.5232200786066237,
+        "gaia_err": null,
+        "measured": 19.4,
+        "err": 22.7,
+        "diff": 22.0,
+        "diff_over_err": 0.97
+       },
+       "plx": {
+        "gaia": 0.8867480134473019,
+        "gaia_err": null,
+        "measured": 13.6,
+        "err": 11.8,
+        "diff": 12.7,
+        "diff_over_err": 1.07
+       }
+      }
+     },
+     {
+      "source_id": "156429997483589120",
+      "g": 11.88,
+      "win": {
+       "n_used": 274,
+       "n_epochs": 3,
+       "rms_mas": 325.0,
+       "pm_east": {
+        "gaia": -15.553340565216564,
+        "gaia_err": null,
+        "measured": -35.3,
+        "err": 30.0,
+        "diff": -19.8,
+        "diff_over_err": -0.66
+       },
+       "pm_north": {
+        "gaia": 7.5941440076665,
+        "gaia_err": null,
+        "measured": 52.1,
+        "err": 35.2,
+        "diff": 44.5,
+        "diff_over_err": 1.26
+       },
+       "plx": {
+        "gaia": 7.680728893088619,
+        "gaia_err": null,
+        "measured": 17.1,
+        "err": 14.1,
+        "diff": 9.4,
+        "diff_over_err": 0.67
+       }
+      },
+      "psf": {
+       "n_used": 265,
+       "n_epochs": 3,
+       "rms_mas": 181.0,
+       "pm_east": {
+        "gaia": -15.553340565216564,
+        "gaia_err": null,
+        "measured": -30.5,
+        "err": 22.8,
+        "diff": -15.0,
+        "diff_over_err": -0.66
+       },
+       "pm_north": {
+        "gaia": 7.5941440076665,
+        "gaia_err": null,
+        "measured": -10.8,
+        "err": 15.6,
+        "diff": -18.4,
+        "diff_over_err": -1.18
+       },
+       "plx": {
+        "gaia": 7.680728893088619,
+        "gaia_err": null,
+        "measured": 11.6,
+        "err": 9.8,
+        "diff": 3.9,
+        "diff_over_err": 0.4
+       }
+      }
+     },
+     {
+      "source_id": "156335744423799680",
+      "g": 11.88,
+      "win": {
+       "n_used": 293,
+       "n_epochs": 3,
+       "rms_mas": 337.0,
+       "pm_east": {
+        "gaia": 2.5977587734472394,
+        "gaia_err": null,
+        "measured": -35.8,
+        "err": 33.1,
+        "diff": -38.4,
+        "diff_over_err": -1.16
+       },
+       "pm_north": {
+        "gaia": -6.411969612688797,
+        "gaia_err": null,
+        "measured": -29.4,
+        "err": 31.8,
+        "diff": -23.0,
+        "diff_over_err": -0.72
+       },
+       "plx": {
+        "gaia": 2.0876799779602186,
+        "gaia_err": null,
+        "measured": -13.4,
+        "err": 14.1,
+        "diff": -15.5,
+        "diff_over_err": -1.09
+       }
+      },
+      "psf": {
+       "n_used": 282,
+       "n_epochs": 3,
+       "rms_mas": 195.0,
+       "pm_east": {
+        "gaia": 2.5977587734472394,
+        "gaia_err": null,
+        "measured": -21.8,
+        "err": 21.2,
+        "diff": -24.4,
+        "diff_over_err": -1.15
+       },
+       "pm_north": {
+        "gaia": -6.411969612688797,
+        "gaia_err": null,
+        "measured": 12.9,
+        "err": 17.4,
+        "diff": 19.3,
+        "diff_over_err": 1.11
+       },
+       "plx": {
+        "gaia": 2.0876799779602186,
+        "gaia_err": null,
+        "measured": 2.2,
+        "err": 8.4,
+        "diff": 0.1,
+        "diff_over_err": 0.02
+       }
+      }
+     },
+     {
+      "source_id": "156335847503014272",
+      "g": 12.06,
+      "win": {
+       "n_used": 241,
+       "n_epochs": 3,
+       "rms_mas": 389.0,
+       "pm_east": {
+        "gaia": -3.3410453003584344,
+        "gaia_err": null,
+        "measured": -33.7,
+        "err": 51.5,
+        "diff": -30.4,
+        "diff_over_err": -0.59
+       },
+       "pm_north": {
+        "gaia": -1.297169685498777,
+        "gaia_err": null,
+        "measured": 14.9,
+        "err": 36.4,
+        "diff": 16.2,
+        "diff_over_err": 0.45
+       },
+       "plx": {
+        "gaia": 0.6637682548770034,
+        "gaia_err": null,
+        "measured": -30.9,
+        "err": 22.6,
+        "diff": -31.5,
+        "diff_over_err": -1.39
+       }
+      },
+      "psf": {
+       "n_used": 234,
+       "n_epochs": 3,
+       "rms_mas": 181.0,
+       "pm_east": {
+        "gaia": -3.3410453003584344,
+        "gaia_err": null,
+        "measured": -1.5,
+        "err": 21.0,
+        "diff": 1.8,
+        "diff_over_err": 0.09
+       },
+       "pm_north": {
+        "gaia": -1.297169685498777,
+        "gaia_err": null,
+        "measured": 16.3,
+        "err": 19.2,
+        "diff": 17.6,
+        "diff_over_err": 0.92
+       },
+       "plx": {
+        "gaia": 0.6637682548770034,
+        "gaia_err": null,
+        "measured": -10.7,
+        "err": 10.3,
+        "diff": -11.3,
+        "diff_over_err": -1.1
+       }
+      }
+     },
+     {
+      "source_id": "156335881862752768",
+      "g": 12.12,
+      "win": {
+       "n_used": 141,
+       "n_epochs": 3,
+       "rms_mas": 1026.0,
+       "pm_east": {
+        "gaia": 2.723401287732657,
+        "gaia_err": null,
+        "measured": -258.1,
+        "err": 198.9,
+        "diff": -260.8,
+        "diff_over_err": -1.31
+       },
+       "pm_north": {
+        "gaia": -8.808580922527433,
+        "gaia_err": null,
+        "measured": -52.6,
+        "err": 68.1,
+        "diff": -43.8,
+        "diff_over_err": -0.64
+       },
+       "plx": {
+        "gaia": 2.007213575585459,
+        "gaia_err": null,
+        "measured": -72.6,
+        "err": 83.4,
+        "diff": -74.6,
+        "diff_over_err": -0.89
+       }
+      },
+      "psf": {
+       "n_used": 139,
+       "n_epochs": 3,
+       "rms_mas": 190.0,
+       "pm_east": {
+        "gaia": 2.723401287732657,
+        "gaia_err": null,
+        "measured": -4.7,
+        "err": 30.7,
+        "diff": -7.5,
+        "diff_over_err": -0.24
+       },
+       "pm_north": {
+        "gaia": -8.808580922527433,
+        "gaia_err": null,
+        "measured": -29.7,
+        "err": 28.0,
+        "diff": -20.9,
+        "diff_over_err": -0.75
+       },
+       "plx": {
+        "gaia": 2.007213575585459,
+        "gaia_err": null,
+        "measured": -5.6,
+        "err": 12.4,
+        "diff": -7.6,
+        "diff_over_err": -0.61
+       }
+      }
+     },
+     {
+      "source_id": "156431234433162368",
+      "g": 12.59,
+      "win": {
+       "n_used": 299,
+       "n_epochs": 3,
+       "rms_mas": 374.0,
+       "pm_east": {
+        "gaia": -1.141157526666425,
+        "gaia_err": null,
+        "measured": -2.2,
+        "err": 36.3,
+        "diff": -1.1,
+        "diff_over_err": -0.03
+       },
+       "pm_north": {
+        "gaia": -2.1457496967258414,
+        "gaia_err": null,
+        "measured": 44.9,
+        "err": 39.7,
+        "diff": 47.1,
+        "diff_over_err": 1.19
+       },
+       "plx": {
+        "gaia": 1.0907254832369344,
+        "gaia_err": null,
+        "measured": -10.7,
+        "err": 15.9,
+        "diff": -11.8,
+        "diff_over_err": -0.74
+       }
+      },
+      "psf": {
+       "n_used": 281,
+       "n_epochs": 3,
+       "rms_mas": 227.0,
+       "pm_east": {
+        "gaia": -1.141157526666425,
+        "gaia_err": null,
+        "measured": 10.7,
+        "err": 27.1,
+        "diff": 11.9,
+        "diff_over_err": 0.44
+       },
+       "pm_north": {
+        "gaia": -2.1457496967258414,
+        "gaia_err": null,
+        "measured": -27.3,
+        "err": 21.7,
+        "diff": -25.2,
+        "diff_over_err": -1.16
+       },
+       "plx": {
+        "gaia": 1.0907254832369344,
+        "gaia_err": null,
+        "measured": -6.8,
+        "err": 11.6,
+        "diff": -7.9,
+        "diff_over_err": -0.68
+       }
+      }
+     },
+     {
+      "source_id": "156430783460273536",
+      "g": 12.77,
+      "win": {
+       "n_used": 296,
+       "n_epochs": 3,
+       "rms_mas": 287.0,
+       "pm_east": {
+        "gaia": 1.8375730575965994,
+        "gaia_err": null,
+        "measured": 17.7,
+        "err": 29.1,
+        "diff": 15.9,
+        "diff_over_err": 0.55
+       },
+       "pm_north": {
+        "gaia": -4.550456932363298,
+        "gaia_err": null,
+        "measured": -19.4,
+        "err": 28.4,
+        "diff": -14.9,
+        "diff_over_err": -0.52
+       },
+       "plx": {
+        "gaia": 0.6227010172694124,
+        "gaia_err": null,
+        "measured": -12.2,
+        "err": 11.8,
+        "diff": -12.8,
+        "diff_over_err": -1.09
+       }
+      },
+      "psf": {
+       "n_used": 285,
+       "n_epochs": 3,
+       "rms_mas": 184.0,
+       "pm_east": {
+        "gaia": 1.8375730575965994,
+        "gaia_err": null,
+        "measured": 25.1,
+        "err": 21.4,
+        "diff": 23.3,
+        "diff_over_err": 1.09
+       },
+       "pm_north": {
+        "gaia": -4.550456932363298,
+        "gaia_err": null,
+        "measured": 2.8,
+        "err": 17.1,
+        "diff": 7.3,
+        "diff_over_err": 0.43
+       },
+       "plx": {
+        "gaia": 0.6227010172694124,
+        "gaia_err": null,
+        "measured": -3.7,
+        "err": 9.1,
+        "diff": -4.3,
+        "diff_over_err": -0.47
+       }
+      }
+     },
+     {
+      "source_id": "156337294907839232",
+      "g": 12.78,
+      "win": {
+       "n_used": 303,
+       "n_epochs": 3,
+       "rms_mas": 425.0,
+       "pm_east": {
+        "gaia": -1.3631489781500161,
+        "gaia_err": null,
+        "measured": 38.5,
+        "err": 39.3,
+        "diff": 39.9,
+        "diff_over_err": 1.02
+       },
+       "pm_north": {
+        "gaia": -5.345484341865056,
+        "gaia_err": null,
+        "measured": 4.6,
+        "err": 48.2,
+        "diff": 10.0,
+        "diff_over_err": 0.21
+       },
+       "plx": {
+        "gaia": 0.88315379495726,
+        "gaia_err": null,
+        "measured": -3.1,
+        "err": 19.4,
+        "diff": -4.0,
+        "diff_over_err": -0.2
+       }
+      },
+      "psf": {
+       "n_used": 300,
+       "n_epochs": 3,
+       "rms_mas": 257.0,
+       "pm_east": {
+        "gaia": -1.3631489781500161,
+        "gaia_err": null,
+        "measured": -6.1,
+        "err": 26.3,
+        "diff": -4.8,
+        "diff_over_err": -0.18
+       },
+       "pm_north": {
+        "gaia": -5.345484341865056,
+        "gaia_err": null,
+        "measured": 20.6,
+        "err": 24.1,
+        "diff": 25.9,
+        "diff_over_err": 1.07
+       },
+       "plx": {
+        "gaia": 0.88315379495726,
+        "gaia_err": null,
+        "measured": -8.9,
+        "err": 11.2,
+        "diff": -9.8,
+        "diff_over_err": -0.87
+       }
+      }
+     },
+     {
+      "source_id": "156382959000760832",
+      "g": 12.85,
+      "win": {
+       "n_used": 306,
+       "n_epochs": 3,
+       "rms_mas": 380.0,
+       "pm_east": {
+        "gaia": 11.679188034457479,
+        "gaia_err": null,
+        "measured": 47.5,
+        "err": 32.7,
+        "diff": 35.8,
+        "diff_over_err": 1.1
+       },
+       "pm_north": {
+        "gaia": -29.524993685695776,
+        "gaia_err": null,
+        "measured": -87.6,
+        "err": 44.4,
+        "diff": -58.1,
+        "diff_over_err": -1.31
+       },
+       "plx": {
+        "gaia": 2.955078873915918,
+        "gaia_err": null,
+        "measured": -2.6,
+        "err": 14.4,
+        "diff": -5.6,
+        "diff_over_err": -0.39
+       }
+      },
+      "psf": {
+       "n_used": 303,
+       "n_epochs": 3,
+       "rms_mas": 238.0,
+       "pm_east": {
+        "gaia": 11.679188034457479,
+        "gaia_err": null,
+        "measured": -0.4,
+        "err": 26.9,
+        "diff": -12.1,
+        "diff_over_err": -0.45
+       },
+       "pm_north": {
+        "gaia": -29.524993685695776,
+        "gaia_err": null,
+        "measured": -73.3,
+        "err": 21.4,
+        "diff": -43.8,
+        "diff_over_err": -2.05
+       },
+       "plx": {
+        "gaia": 2.955078873915918,
+        "gaia_err": null,
+        "measured": 2.7,
+        "err": 10.8,
+        "diff": -0.2,
+        "diff_over_err": -0.02
+       }
+      }
+     },
+     {
+      "source_id": "156430306720215936",
+      "g": 13.24,
+      "win": {
+       "n_used": 304,
+       "n_epochs": 3,
+       "rms_mas": 403.0,
+       "pm_east": {
+        "gaia": 0.055266537566641905,
+        "gaia_err": null,
+        "measured": 54.3,
+        "err": 38.9,
+        "diff": 54.3,
+        "diff_over_err": 1.39
+       },
+       "pm_north": {
+        "gaia": -4.01428568083889,
+        "gaia_err": null,
+        "measured": -79.4,
+        "err": 40.4,
+        "diff": -75.4,
+        "diff_over_err": -1.87
+       },
+       "plx": {
+        "gaia": 0.8108374993805584,
+        "gaia_err": null,
+        "measured": 9.3,
+        "err": 16.2,
+        "diff": 8.5,
+        "diff_over_err": 0.52
+       }
+      },
+      "psf": {
+       "n_used": 295,
+       "n_epochs": 3,
+       "rms_mas": 226.0,
+       "pm_east": {
+        "gaia": 0.055266537566641905,
+        "gaia_err": null,
+        "measured": 17.7,
+        "err": 22.1,
+        "diff": 17.7,
+        "diff_over_err": 0.8
+       },
+       "pm_north": {
+        "gaia": -4.01428568083889,
+        "gaia_err": null,
+        "measured": -26.7,
+        "err": 20.4,
+        "diff": -22.7,
+        "diff_over_err": -1.11
+       },
+       "plx": {
+        "gaia": 0.8108374993805584,
+        "gaia_err": null,
+        "measured": 3.4,
+        "err": 10.6,
+        "diff": 2.6,
+        "diff_over_err": 0.24
+       }
+      }
+     },
+     {
+      "source_id": "156430375439690368",
+      "g": 13.54,
+      "win": {
+       "n_used": 275,
+       "n_epochs": 3,
+       "rms_mas": 570.0,
+       "pm_east": {
+        "gaia": 1.3058589167280548,
+        "gaia_err": null,
+        "measured": -90.4,
+        "err": 46.5,
+        "diff": -91.7,
+        "diff_over_err": -1.97
+       },
+       "pm_north": {
+        "gaia": -3.1216083646229063,
+        "gaia_err": null,
+        "measured": 0.1,
+        "err": 63.7,
+        "diff": 3.2,
+        "diff_over_err": 0.05
+       },
+       "plx": {
+        "gaia": 0.4765110203637121,
+        "gaia_err": null,
+        "measured": -37.0,
+        "err": 20.7,
+        "diff": -37.5,
+        "diff_over_err": -1.81
+       }
+      },
+      "psf": {
+       "n_used": 283,
+       "n_epochs": 3,
+       "rms_mas": 354.0,
+       "pm_east": {
+        "gaia": 1.3058589167280548,
+        "gaia_err": null,
+        "measured": -4.2,
+        "err": 39.8,
+        "diff": -5.5,
+        "diff_over_err": -0.14
+       },
+       "pm_north": {
+        "gaia": -3.1216083646229063,
+        "gaia_err": null,
+        "measured": 50.5,
+        "err": 33.7,
+        "diff": 53.6,
+        "diff_over_err": 1.59
+       },
+       "plx": {
+        "gaia": 0.4765110203637121,
+        "gaia_err": null,
+        "measured": -49.5,
+        "err": 16.9,
+        "diff": -50.0,
+        "diff_over_err": -2.97
+       }
+      }
+     },
+     {
+      "source_id": "156382752842341376",
+      "g": 13.76,
+      "win": {
+       "n_used": 298,
+       "n_epochs": 3,
+       "rms_mas": 494.0,
+       "pm_east": {
+        "gaia": -2.7497364592226985,
+        "gaia_err": null,
+        "measured": -17.8,
+        "err": 51.4,
+        "diff": -15.0,
+        "diff_over_err": -0.29
+       },
+       "pm_north": {
+        "gaia": -2.588374268428981,
+        "gaia_err": null,
+        "measured": -113.7,
+        "err": 55.7,
+        "diff": -111.1,
+        "diff_over_err": -2.0
+       },
+       "plx": {
+        "gaia": 1.7283532368589616,
+        "gaia_err": null,
+        "measured": 9.5,
+        "err": 20.3,
+        "diff": 7.7,
+        "diff_over_err": 0.38
+       }
+      },
+      "psf": {
+       "n_used": 295,
+       "n_epochs": 3,
+       "rms_mas": 308.0,
+       "pm_east": {
+        "gaia": -2.7497364592226985,
+        "gaia_err": null,
+        "measured": -14.6,
+        "err": 32.1,
+        "diff": -11.9,
+        "diff_over_err": -0.37
+       },
+       "pm_north": {
+        "gaia": -2.588374268428981,
+        "gaia_err": null,
+        "measured": -16.5,
+        "err": 27.1,
+        "diff": -13.9,
+        "diff_over_err": -0.51
+       },
+       "plx": {
+        "gaia": 1.7283532368589616,
+        "gaia_err": null,
+        "measured": 3.5,
+        "err": 14.3,
+        "diff": 1.8,
+        "diff_over_err": 0.12
+       }
+      }
+     },
+     {
+      "source_id": "156382649763117056",
+      "g": 13.86,
+      "win": {
+       "n_used": 300,
+       "n_epochs": 3,
+       "rms_mas": 434.0,
+       "pm_east": {
+        "gaia": 0.6039274138423845,
+        "gaia_err": null,
+        "measured": 61.4,
+        "err": 38.5,
+        "diff": 60.8,
+        "diff_over_err": 1.58
+       },
+       "pm_north": {
+        "gaia": -5.9323783628052835,
+        "gaia_err": null,
+        "measured": 42.9,
+        "err": 46.4,
+        "diff": 48.9,
+        "diff_over_err": 1.05
+       },
+       "plx": {
+        "gaia": 0.5173547320198545,
+        "gaia_err": null,
+        "measured": 1.5,
+        "err": 19.2,
+        "diff": 1.0,
+        "diff_over_err": 0.05
+       }
+      },
+      "psf": {
+       "n_used": 300,
+       "n_epochs": 3,
+       "rms_mas": 348.0,
+       "pm_east": {
+        "gaia": 0.6039274138423845,
+        "gaia_err": null,
+        "measured": 35.0,
+        "err": 30.2,
+        "diff": 34.4,
+        "diff_over_err": 1.14
+       },
+       "pm_north": {
+        "gaia": -5.9323783628052835,
+        "gaia_err": null,
+        "measured": 6.6,
+        "err": 38.6,
+        "diff": 12.6,
+        "diff_over_err": 0.33
+       },
+       "plx": {
+        "gaia": 0.5173547320198545,
+        "gaia_err": null,
+        "measured": 7.2,
+        "err": 13.9,
+        "diff": 6.7,
+        "diff_over_err": 0.48
+       }
+      }
+     },
+     {
+      "source_id": "156340176828912000",
+      "g": 14.3,
+      "win": {
+       "n_used": 35,
+       "n_epochs": 3,
+       "rms_mas": 760.0,
+       "pm_east": {
+        "gaia": 5.850116913382082,
+        "gaia_err": null,
+        "measured": -122.3,
+        "err": 266.9,
+        "diff": -128.2,
+        "diff_over_err": -0.48
+       },
+       "pm_north": {
+        "gaia": -0.07947180235482912,
+        "gaia_err": null,
+        "measured": -135.8,
+        "err": 219.5,
+        "diff": -135.7,
+        "diff_over_err": -0.62
+       },
+       "plx": {
+        "gaia": 6.479659317199474,
+        "gaia_err": null,
+        "measured": 160.7,
+        "err": 84.5,
+        "diff": 154.2,
+        "diff_over_err": 1.83
+       }
+      },
+      "psf": {
+       "n_used": 37,
+       "n_epochs": 3,
+       "rms_mas": 522.0,
+       "pm_east": {
+        "gaia": 5.850116913382082,
+        "gaia_err": null,
+        "measured": -323.2,
+        "err": 168.4,
+        "diff": -329.0,
+        "diff_over_err": -1.95
+       },
+       "pm_north": {
+        "gaia": -0.07947180235482912,
+        "gaia_err": null,
+        "measured": -69.9,
+        "err": 112.1,
+        "diff": -69.8,
+        "diff_over_err": -0.62
+       },
+       "plx": {
+        "gaia": 6.479659317199474,
+        "gaia_err": null,
+        "measured": 16.2,
+        "err": 537.1,
+        "diff": 9.7,
+        "diff_over_err": 0.02
+       }
+      }
+     }
+    ]
+   },
+   "not_aligned": {
+    "summary": {
+     "win": {
+      "n_stars": 15,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 6.7,
+       "scatter": 38.5,
+       "median_err": 40.7,
+       "within_2_err": 13
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": -28.3,
+       "scatter": 61.1,
+       "median_err": 41.9,
+       "within_2_err": 15
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": 118.5,
+       "scatter": 26.4,
+       "median_err": 18.5,
+       "within_2_err": 1
+      },
+      "all_three_within_2_err": 1,
+      "expected_within_2_err": 14.3,
+      "expected_all_three": 13.0
+     },
+     "psf": {
+      "n_stars": 15,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 13.7,
+       "scatter": 21.9,
+       "median_err": 29.5,
+       "within_2_err": 14
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 1.6,
+       "scatter": 43.3,
+       "median_err": 26.0,
+       "within_2_err": 14
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -49.7,
+       "scatter": 13.8,
+       "median_err": 12.2,
+       "within_2_err": 2
+      },
+      "all_three_within_2_err": 2,
+      "expected_within_2_err": 14.3,
+      "expected_all_three": 13.0
+     }
+    },
+    "not_fitted": [
+     {
+      "source_id": "156288671582235648",
+      "reason": "1 epochs with >= 5 exposures (< 3)"
+     }
+    ]
+   }
+  },
+  {
+   "slug": "r-dra",
+   "n_measurements": 6428,
+   "n_stars_measured": 30,
+   "aligned": {
+    "summary": {
+     "win": {
+      "n_stars": 25,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 6.5,
+       "scatter": 147.1,
+       "median_err": 99.8,
+       "within_2_err": 18
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 11.1,
+       "scatter": 131.7,
+       "median_err": 106.2,
+       "within_2_err": 23
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": 4.4,
+       "scatter": 88.7,
+       "median_err": 40.3,
+       "within_2_err": 18
+      },
+      "all_three_within_2_err": 11,
+      "expected_within_2_err": 23.9,
+      "expected_all_three": 21.7
+     },
+     "psf": {
+      "n_stars": 25,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 5.3,
+       "scatter": 77.4,
+       "median_err": 54.9,
+       "within_2_err": 22
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 2.4,
+       "scatter": 43.4,
+       "median_err": 51.7,
+       "within_2_err": 23
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -5.1,
+       "scatter": 30.5,
+       "median_err": 22.8,
+       "within_2_err": 22
+      },
+      "all_three_within_2_err": 18,
+      "expected_within_2_err": 23.9,
+      "expected_all_three": 21.7
+     }
+    },
+    "not_fitted": [
+     {
+      "source_id": "1636318909837963008",
+      "reason": "27 exposures (< 30)"
+     },
+     {
+      "source_id": "1636318806758072320",
+      "reason": "5 exposures (< 30)"
+     },
+     {
+      "source_id": "1648320663369780096",
+      "reason": "25 exposures (< 30)"
+     },
+     {
+      "source_id": "1636318699382494464",
+      "reason": "2 exposures (< 30)"
+     },
+     {
+      "source_id": "1648330077938124800",
+      "reason": "3 exposures (< 30)"
+     }
+    ],
+    "stars": [
+     {
+      "source_id": "1648326843826192768",
+      "g": 12.52,
+      "win": {
+       "n_used": 471,
+       "n_epochs": 3,
+       "rms_mas": 509.0,
+       "pm_east": {
+        "gaia": -3.6806475589343055,
+        "gaia_err": null,
+        "measured": 57.1,
+        "err": 43.6,
+        "diff": 60.8,
+        "diff_over_err": 1.39
+       },
+       "pm_north": {
+        "gaia": 2.296311229555666,
+        "gaia_err": null,
+        "measured": -32.3,
+        "err": 47.9,
+        "diff": -34.6,
+        "diff_over_err": -0.72
+       },
+       "plx": {
+        "gaia": 1.7444826212879039,
+        "gaia_err": null,
+        "measured": 15.2,
+        "err": 18.8,
+        "diff": 13.5,
+        "diff_over_err": 0.72
+       }
+      },
+      "psf": {
+       "n_used": 458,
+       "n_epochs": 3,
+       "rms_mas": 289.0,
+       "pm_east": {
+        "gaia": -3.6806475589343055,
+        "gaia_err": null,
+        "measured": 1.7,
+        "err": 25.8,
+        "diff": 5.3,
+        "diff_over_err": 0.21
+       },
+       "pm_north": {
+        "gaia": 2.296311229555666,
+        "gaia_err": null,
+        "measured": -10.3,
+        "err": 28.5,
+        "diff": -12.6,
+        "diff_over_err": -0.44
+       },
+       "plx": {
+        "gaia": 1.7444826212879039,
+        "gaia_err": null,
+        "measured": 3.9,
+        "err": 10.0,
+        "diff": 2.1,
+        "diff_over_err": 0.21
+       }
+      }
+     },
+     {
+      "source_id": "1648331929067468544",
+      "g": 13.27,
+      "win": {
+       "n_used": 413,
+       "n_epochs": 3,
+       "rms_mas": 433.0,
+       "pm_east": {
+        "gaia": 8.824274873475233,
+        "gaia_err": null,
+        "measured": 36.7,
+        "err": 38.4,
+        "diff": 27.8,
+        "diff_over_err": 0.73
+       },
+       "pm_north": {
+        "gaia": 64.24076145178802,
+        "gaia_err": null,
+        "measured": 91.3,
+        "err": 37.0,
+        "diff": 27.0,
+        "diff_over_err": 0.73
+       },
+       "plx": {
+        "gaia": 4.070056856551404,
+        "gaia_err": null,
+        "measured": 35.4,
+        "err": 16.8,
+        "diff": 31.4,
+        "diff_over_err": 1.87
+       }
+      },
+      "psf": {
+       "n_used": 398,
+       "n_epochs": 3,
+       "rms_mas": 272.0,
+       "pm_east": {
+        "gaia": 8.824274873475233,
+        "gaia_err": null,
+        "measured": 38.5,
+        "err": 25.6,
+        "diff": 29.7,
+        "diff_over_err": 1.16
+       },
+       "pm_north": {
+        "gaia": 64.24076145178802,
+        "gaia_err": null,
+        "measured": 67.8,
+        "err": 24.3,
+        "diff": 3.5,
+        "diff_over_err": 0.14
+       },
+       "plx": {
+        "gaia": 4.070056856551404,
+        "gaia_err": null,
+        "measured": 19.6,
+        "err": 10.4,
+        "diff": 15.5,
+        "diff_over_err": 1.49
+       }
+      }
+     },
+     {
+      "source_id": "1648320732089256448",
+      "g": 13.59,
+      "win": {
+       "n_used": 96,
+       "n_epochs": 3,
+       "rms_mas": 431.0,
+       "pm_east": {
+        "gaia": 3.996335059027335,
+        "gaia_err": null,
+        "measured": -80.6,
+        "err": 81.3,
+        "diff": -84.6,
+        "diff_over_err": -1.04
+       },
+       "pm_north": {
+        "gaia": 0.7285127363373599,
+        "gaia_err": null,
+        "measured": 151.1,
+        "err": 65.1,
+        "diff": 150.4,
+        "diff_over_err": 2.31
+       },
+       "plx": {
+        "gaia": 2.237357658187025,
+        "gaia_err": null,
+        "measured": 6.7,
+        "err": 34.9,
+        "diff": 4.4,
+        "diff_over_err": 0.13
+       }
+      },
+      "psf": {
+       "n_used": 95,
+       "n_epochs": 3,
+       "rms_mas": 281.0,
+       "pm_east": {
+        "gaia": 3.996335059027335,
+        "gaia_err": null,
+        "measured": -62.9,
+        "err": 39.3,
+        "diff": -66.9,
+        "diff_over_err": -1.7
+       },
+       "pm_north": {
+        "gaia": 0.7285127363373599,
+        "gaia_err": null,
+        "measured": 27.0,
+        "err": 44.2,
+        "diff": 26.3,
+        "diff_over_err": 0.6
+       },
+       "plx": {
+        "gaia": 2.237357658187025,
+        "gaia_err": null,
+        "measured": 11.7,
+        "err": 29.0,
+        "diff": 9.4,
+        "diff_over_err": 0.32
+       }
+      }
+     },
+     {
+      "source_id": "1648326538885044096",
+      "g": 13.61,
+      "win": {
+       "n_used": 165,
+       "n_epochs": 3,
+       "rms_mas": 528.0,
+       "pm_east": {
+        "gaia": -4.986133743784004,
+        "gaia_err": null,
+        "measured": -97.1,
+        "err": 74.8,
+        "diff": -92.2,
+        "diff_over_err": -1.23
+       },
+       "pm_north": {
+        "gaia": 8.925757416637158,
+        "gaia_err": null,
+        "measured": 118.5,
+        "err": 77.9,
+        "diff": 109.6,
+        "diff_over_err": 1.41
+       },
+       "plx": {
+        "gaia": 1.1605439244385118,
+        "gaia_err": null,
+        "measured": -43.4,
+        "err": 26.1,
+        "diff": -44.5,
+        "diff_over_err": -1.7
+       }
+      },
+      "psf": {
+       "n_used": 168,
+       "n_epochs": 3,
+       "rms_mas": 325.0,
+       "pm_east": {
+        "gaia": -4.986133743784004,
+        "gaia_err": null,
+        "measured": 12.9,
+        "err": 39.0,
+        "diff": 17.9,
+        "diff_over_err": 0.46
+       },
+       "pm_north": {
+        "gaia": 8.925757416637158,
+        "gaia_err": null,
+        "measured": -34.5,
+        "err": 43.0,
+        "diff": -43.4,
+        "diff_over_err": -1.01
+       },
+       "plx": {
+        "gaia": 1.1605439244385118,
+        "gaia_err": null,
+        "measured": -28.7,
+        "err": 20.3,
+        "diff": -29.9,
+        "diff_over_err": -1.47
+       }
+      }
+     },
+     {
+      "source_id": "1648331074370509952",
+      "g": 13.64,
+      "win": {
+       "n_used": 440,
+       "n_epochs": 3,
+       "rms_mas": 613.0,
+       "pm_east": {
+        "gaia": -3.242072611300392,
+        "gaia_err": null,
+        "measured": -36.9,
+        "err": 55.5,
+        "diff": -33.7,
+        "diff_over_err": -0.61
+       },
+       "pm_north": {
+        "gaia": 5.768922654454757,
+        "gaia_err": null,
+        "measured": 10.7,
+        "err": 58.3,
+        "diff": 4.9,
+        "diff_over_err": 0.08
+       },
+       "plx": {
+        "gaia": 0.9730611986227314,
+        "gaia_err": null,
+        "measured": 145.6,
+        "err": 21.8,
+        "diff": 144.7,
+        "diff_over_err": 6.63
+       }
+      },
+      "psf": {
+       "n_used": 424,
+       "n_epochs": 3,
+       "rms_mas": 299.0,
+       "pm_east": {
+        "gaia": -3.242072611300392,
+        "gaia_err": null,
+        "measured": -50.8,
+        "err": 26.5,
+        "diff": -47.6,
+        "diff_over_err": -1.79
+       },
+       "pm_north": {
+        "gaia": 5.768922654454757,
+        "gaia_err": null,
+        "measured": 26.5,
+        "err": 27.9,
+        "diff": 20.7,
+        "diff_over_err": 0.74
+       },
+       "plx": {
+        "gaia": 0.9730611986227314,
+        "gaia_err": null,
+        "measured": 28.9,
+        "err": 10.6,
+        "diff": 27.9,
+        "diff_over_err": 2.62
+       }
+      }
+     },
+     {
+      "source_id": "1648327226079824640",
+      "g": 13.75,
+      "win": {
+       "n_used": 283,
+       "n_epochs": 3,
+       "rms_mas": 1901.0,
+       "pm_east": {
+        "gaia": -0.41529292007097096,
+        "gaia_err": null,
+        "measured": 60.1,
+        "err": 149.5,
+        "diff": 60.5,
+        "diff_over_err": 0.4
+       },
+       "pm_north": {
+        "gaia": -3.9070391767340262,
+        "gaia_err": null,
+        "measured": -4.2,
+        "err": 224.8,
+        "diff": -0.3,
+        "diff_over_err": -0.0
+       },
+       "plx": {
+        "gaia": 0.9533800235159786,
+        "gaia_err": null,
+        "measured": 43.1,
+        "err": 99.2,
+        "diff": 42.2,
+        "diff_over_err": 0.43
+       }
+      },
+      "psf": {
+       "n_used": 269,
+       "n_epochs": 3,
+       "rms_mas": 422.0,
+       "pm_east": {
+        "gaia": -0.41529292007097096,
+        "gaia_err": null,
+        "measured": -29.2,
+        "err": 49.0,
+        "diff": -28.8,
+        "diff_over_err": -0.59
+       },
+       "pm_north": {
+        "gaia": -3.9070391767340262,
+        "gaia_err": null,
+        "measured": 91.3,
+        "err": 45.2,
+        "diff": 95.2,
+        "diff_over_err": 2.11
+       },
+       "plx": {
+        "gaia": 0.9533800235159786,
+        "gaia_err": null,
+        "measured": -41.3,
+        "err": 19.2,
+        "diff": -42.3,
+        "diff_over_err": -2.2
+       }
+      }
+     },
+     {
+      "source_id": "1648331692845809024",
+      "g": 13.95,
+      "win": {
+       "n_used": 392,
+       "n_epochs": 3,
+       "rms_mas": 573.0,
+       "pm_east": {
+        "gaia": -0.009458637778689383,
+        "gaia_err": null,
+        "measured": 6.5,
+        "err": 51.4,
+        "diff": 6.5,
+        "diff_over_err": 0.13
+       },
+       "pm_north": {
+        "gaia": -6.320778881877249,
+        "gaia_err": null,
+        "measured": -38.9,
+        "err": 55.2,
+        "diff": -32.6,
+        "diff_over_err": -0.59
+       },
+       "plx": {
+        "gaia": 1.110543472348462,
+        "gaia_err": null,
+        "measured": 44.7,
+        "err": 24.2,
+        "diff": 43.5,
+        "diff_over_err": 1.8
+       }
+      },
+      "psf": {
+       "n_used": 392,
+       "n_epochs": 3,
+       "rms_mas": 356.0,
+       "pm_east": {
+        "gaia": -0.009458637778689383,
+        "gaia_err": null,
+        "measured": 29.7,
+        "err": 32.9,
+        "diff": 29.7,
+        "diff_over_err": 0.9
+       },
+       "pm_north": {
+        "gaia": -6.320778881877249,
+        "gaia_err": null,
+        "measured": -26.2,
+        "err": 33.1,
+        "diff": -19.9,
+        "diff_over_err": -0.6
+       },
+       "plx": {
+        "gaia": 1.110543472348462,
+        "gaia_err": null,
+        "measured": 15.6,
+        "err": 14.4,
+        "diff": 14.5,
+        "diff_over_err": 1.01
+       }
+      }
+     },
+     {
+      "source_id": "1636316229777752832",
+      "g": 13.97,
+      "win": {
+       "n_used": 68,
+       "n_epochs": 3,
+       "rms_mas": 495.0,
+       "pm_east": {
+        "gaia": -13.87448426118976,
+        "gaia_err": null,
+        "measured": -355.7,
+        "err": 157.6,
+        "diff": -341.9,
+        "diff_over_err": -2.17
+       },
+       "pm_north": {
+        "gaia": 8.540101872872373,
+        "gaia_err": null,
+        "measured": -108.7,
+        "err": 122.6,
+        "diff": -117.2,
+        "diff_over_err": -0.96
+       },
+       "plx": {
+        "gaia": 1.3937328578960144,
+        "gaia_err": null,
+        "measured": 36.6,
+        "err": 38.9,
+        "diff": 35.2,
+        "diff_over_err": 0.91
+       }
+      },
+      "psf": {
+       "n_used": 67,
+       "n_epochs": 3,
+       "rms_mas": 383.0,
+       "pm_east": {
+        "gaia": -13.87448426118976,
+        "gaia_err": null,
+        "measured": -128.2,
+        "err": 121.4,
+        "diff": -114.4,
+        "diff_over_err": -0.94
+       },
+       "pm_north": {
+        "gaia": 8.540101872872373,
+        "gaia_err": null,
+        "measured": 30.0,
+        "err": 92.8,
+        "diff": 21.4,
+        "diff_over_err": 0.23
+       },
+       "plx": {
+        "gaia": 1.3937328578960144,
+        "gaia_err": null,
+        "measured": 55.7,
+        "err": 33.1,
+        "diff": 54.3,
+        "diff_over_err": 1.64
+       }
+      }
+     },
+     {
+      "source_id": "1636316195417955584",
+      "g": 14.13,
+      "win": {
+       "n_used": 46,
+       "n_epochs": 3,
+       "rms_mas": 460.0,
+       "pm_east": {
+        "gaia": -9.321339606899187,
+        "gaia_err": null,
+        "measured": -221.4,
+        "err": 155.6,
+        "diff": -212.0,
+        "diff_over_err": -1.36
+       },
+       "pm_north": {
+        "gaia": 11.09448340306069,
+        "gaia_err": null,
+        "measured": -229.3,
+        "err": 145.9,
+        "diff": -240.4,
+        "diff_over_err": -1.65
+       },
+       "plx": {
+        "gaia": 0.9800135280559092,
+        "gaia_err": null,
+        "measured": 5.9,
+        "err": 46.0,
+        "diff": 4.9,
+        "diff_over_err": 0.11
+       }
+      },
+      "psf": {
+       "n_used": 46,
+       "n_epochs": 3,
+       "rms_mas": 386.0,
+       "pm_east": {
+        "gaia": -9.321339606899187,
+        "gaia_err": null,
+        "measured": 165.4,
+        "err": 118.7,
+        "diff": 174.7,
+        "diff_over_err": 1.47
+       },
+       "pm_north": {
+        "gaia": 11.09448340306069,
+        "gaia_err": null,
+        "measured": -342.4,
+        "err": 137.1,
+        "diff": -353.5,
+        "diff_over_err": -2.58
+       },
+       "plx": {
+        "gaia": 0.9800135280559092,
+        "gaia_err": null,
+        "measured": -26.1,
+        "err": 39.4,
+        "diff": -27.1,
+        "diff_over_err": -0.69
+       }
+      }
+     },
+     {
+      "source_id": "1648328085073287040",
+      "g": 14.2,
+      "win": {
+       "n_used": 203,
+       "n_epochs": 3,
+       "rms_mas": 2147.0,
+       "pm_east": {
+        "gaia": -1.2311874833536707,
+        "gaia_err": null,
+        "measured": 35.0,
+        "err": 302.3,
+        "diff": 36.3,
+        "diff_over_err": 0.12
+       },
+       "pm_north": {
+        "gaia": 3.8996422477803963,
+        "gaia_err": null,
+        "measured": 434.9,
+        "err": 250.6,
+        "diff": 431.0,
+        "diff_over_err": 1.72
+       },
+       "plx": {
+        "gaia": 0.8488341314919459,
+        "gaia_err": null,
+        "measured": -440.3,
+        "err": 108.3,
+        "diff": -441.1,
+        "diff_over_err": -4.07
+       }
+      },
+      "psf": {
+       "n_used": 181,
+       "n_epochs": 3,
+       "rms_mas": 393.0,
+       "pm_east": {
+        "gaia": -1.2311874833536707,
+        "gaia_err": null,
+        "measured": -165.9,
+        "err": 54.9,
+        "diff": -164.6,
+        "diff_over_err": -3.0
+       },
+       "pm_north": {
+        "gaia": 3.8996422477803963,
+        "gaia_err": null,
+        "measured": -11.4,
+        "err": 48.5,
+        "diff": -15.3,
+        "diff_over_err": -0.31
+       },
+       "plx": {
+        "gaia": 0.8488341314919459,
+        "gaia_err": null,
+        "measured": -31.0,
+        "err": 21.8,
+        "diff": -31.9,
+        "diff_over_err": -1.46
+       }
+      }
+     },
+     {
+      "source_id": "1636318944197027328",
+      "g": 14.59,
+      "win": {
+       "n_used": 178,
+       "n_epochs": 3,
+       "rms_mas": 614.0,
+       "pm_east": {
+        "gaia": -7.494941797886703,
+        "gaia_err": null,
+        "measured": -48.5,
+        "err": 76.0,
+        "diff": -41.0,
+        "diff_over_err": -0.54
+       },
+       "pm_north": {
+        "gaia": 9.91735074538205,
+        "gaia_err": null,
+        "measured": 44.8,
+        "err": 61.2,
+        "diff": 34.8,
+        "diff_over_err": 0.57
+       },
+       "plx": {
+        "gaia": 0.8610794040292112,
+        "gaia_err": null,
+        "measured": -95.3,
+        "err": 40.3,
+        "diff": -96.2,
+        "diff_over_err": -2.39
+       }
+      },
+      "psf": {
+       "n_used": 163,
+       "n_epochs": 3,
+       "rms_mas": 307.0,
+       "pm_east": {
+        "gaia": -7.494941797886703,
+        "gaia_err": null,
+        "measured": -44.3,
+        "err": 38.2,
+        "diff": -36.8,
+        "diff_over_err": -0.96
+       },
+       "pm_north": {
+        "gaia": 9.91735074538205,
+        "gaia_err": null,
+        "measured": 37.5,
+        "err": 35.3,
+        "diff": 27.6,
+        "diff_over_err": 0.78
+       },
+       "plx": {
+        "gaia": 0.8610794040292112,
+        "gaia_err": null,
+        "measured": -46.8,
+        "err": 18.5,
+        "diff": -47.7,
+        "diff_over_err": -2.58
+       }
+      }
+     },
+     {
+      "source_id": "1648328634829115008",
+      "g": 15.03,
+      "win": {
+       "n_used": 239,
+       "n_epochs": 3,
+       "rms_mas": 962.0,
+       "pm_east": {
+        "gaia": -1.5866829038504862,
+        "gaia_err": null,
+        "measured": 104.1,
+        "err": 99.8,
+        "diff": 105.7,
+        "diff_over_err": 1.06
+       },
+       "pm_north": {
+        "gaia": -5.209806754644344,
+        "gaia_err": null,
+        "measured": -8.2,
+        "err": 128.3,
+        "diff": -3.0,
+        "diff_over_err": -0.02
+       },
+       "plx": {
+        "gaia": 0.5739108889448536,
+        "gaia_err": null,
+        "measured": 66.5,
+        "err": 52.2,
+        "diff": 65.9,
+        "diff_over_err": 1.26
+       }
+      },
+      "psf": {
+       "n_used": 225,
+       "n_epochs": 3,
+       "rms_mas": 423.0,
+       "pm_east": {
+        "gaia": -1.5866829038504862,
+        "gaia_err": null,
+        "measured": 57.5,
+        "err": 54.1,
+        "diff": 59.1,
+        "diff_over_err": 1.09
+       },
+       "pm_north": {
+        "gaia": -5.209806754644344,
+        "gaia_err": null,
+        "measured": 63.8,
+        "err": 58.7,
+        "diff": 69.0,
+        "diff_over_err": 1.18
+       },
+       "plx": {
+        "gaia": 0.5739108889448536,
+        "gaia_err": null,
+        "measured": 7.5,
+        "err": 23.4,
+        "diff": 7.0,
+        "diff_over_err": 0.3
+       }
+      }
+     },
+     {
+      "source_id": "1648332517479528960",
+      "g": 15.11,
+      "win": {
+       "n_used": 78,
+       "n_epochs": 3,
+       "rms_mas": 668.0,
+       "pm_east": {
+        "gaia": 1.153977857519691,
+        "gaia_err": null,
+        "measured": 144.5,
+        "err": 195.1,
+        "diff": 143.4,
+        "diff_over_err": 0.73
+       },
+       "pm_north": {
+        "gaia": -15.79019609762802,
+        "gaia_err": null,
+        "measured": -4.7,
+        "err": 167.2,
+        "diff": 11.1,
+        "diff_over_err": 0.07
+       },
+       "plx": {
+        "gaia": 1.828721315929791,
+        "gaia_err": null,
+        "measured": 40.5,
+        "err": 43.6,
+        "diff": 38.7,
+        "diff_over_err": 0.89
+       }
+      },
+      "psf": {
+       "n_used": 87,
+       "n_epochs": 3,
+       "rms_mas": 523.0,
+       "pm_east": {
+        "gaia": 1.153977857519691,
+        "gaia_err": null,
+        "measured": 57.4,
+        "err": 157.3,
+        "diff": 56.3,
+        "diff_over_err": 0.36
+       },
+       "pm_north": {
+        "gaia": -15.79019609762802,
+        "gaia_err": null,
+        "measured": -25.7,
+        "err": 128.7,
+        "diff": -9.9,
+        "diff_over_err": -0.08
+       },
+       "plx": {
+        "gaia": 1.828721315929791,
+        "gaia_err": null,
+        "measured": 28.4,
+        "err": 46.1,
+        "diff": 26.5,
+        "diff_over_err": 0.58
+       }
+      }
+     },
+     {
+      "source_id": "1648328634829114112",
+      "g": 15.52,
+      "win": {
+       "n_used": 343,
+       "n_epochs": 3,
+       "rms_mas": 856.0,
+       "pm_east": {
+        "gaia": -3.5151471299708206,
+        "gaia_err": null,
+        "measured": 347.6,
+        "err": 94.1,
+        "diff": 351.1,
+        "diff_over_err": 3.73
+       },
+       "pm_north": {
+        "gaia": -5.359593196979858,
+        "gaia_err": null,
+        "measured": 63.1,
+        "err": 77.4,
+        "diff": 68.4,
+        "diff_over_err": 0.88
+       },
+       "plx": {
+        "gaia": 0.42569824143433865,
+        "gaia_err": null,
+        "measured": -61.7,
+        "err": 31.9,
+        "diff": -62.2,
+        "diff_over_err": -1.95
+       }
+      },
+      "psf": {
+       "n_used": 349,
+       "n_epochs": 3,
+       "rms_mas": 546.0,
+       "pm_east": {
+        "gaia": -3.5151471299708206,
+        "gaia_err": null,
+        "measured": -23.6,
+        "err": 56.3,
+        "diff": -20.1,
+        "diff_over_err": -0.36
+       },
+       "pm_north": {
+        "gaia": -5.359593196979858,
+        "gaia_err": null,
+        "measured": 38.3,
+        "err": 54.2,
+        "diff": 43.7,
+        "diff_over_err": 0.81
+       },
+       "plx": {
+        "gaia": 0.42569824143433865,
+        "gaia_err": null,
+        "measured": -14.2,
+        "err": 23.2,
+        "diff": -14.7,
+        "diff_over_err": -0.63
+       }
+      }
+     },
+     {
+      "source_id": "1636316126698477312",
+      "g": 15.58,
+      "win": {
+       "n_used": 71,
+       "n_epochs": 3,
+       "rms_mas": 633.0,
+       "pm_east": {
+        "gaia": 0.5645199792355478,
+        "gaia_err": null,
+        "measured": -726.9,
+        "err": 289.6,
+        "diff": -727.5,
+        "diff_over_err": -2.51
+       },
+       "pm_north": {
+        "gaia": -7.052305445589465,
+        "gaia_err": null,
+        "measured": 197.5,
+        "err": 148.7,
+        "diff": 204.5,
+        "diff_over_err": 1.38
+       },
+       "plx": {
+        "gaia": 0.4303920390592537,
+        "gaia_err": null,
+        "measured": 69.9,
+        "err": 70.0,
+        "diff": 69.5,
+        "diff_over_err": 0.99
+       }
+      },
+      "psf": {
+       "n_used": 70,
+       "n_epochs": 3,
+       "rms_mas": 340.0,
+       "pm_east": {
+        "gaia": 0.5645199792355478,
+        "gaia_err": null,
+        "measured": -46.8,
+        "err": 120.1,
+        "diff": -47.3,
+        "diff_over_err": -0.39
+       },
+       "pm_north": {
+        "gaia": -7.052305445589465,
+        "gaia_err": null,
+        "measured": 80.4,
+        "err": 175.8,
+        "diff": 87.4,
+        "diff_over_err": 0.5
+       },
+       "plx": {
+        "gaia": 0.4303920390592537,
+        "gaia_err": null,
+        "measured": -62.9,
+        "err": 61.0,
+        "diff": -63.3,
+        "diff_over_err": -1.04
+       }
+      }
+     },
+     {
+      "source_id": "1636317260569843840",
+      "g": 15.65,
+      "win": {
+       "n_used": 404,
+       "n_epochs": 3,
+       "rms_mas": 634.0,
+       "pm_east": {
+        "gaia": -11.773810771856109,
+        "gaia_err": null,
+        "measured": 102.0,
+        "err": 55.9,
+        "diff": 113.8,
+        "diff_over_err": 2.04
+       },
+       "pm_north": {
+        "gaia": 15.697419542421793,
+        "gaia_err": null,
+        "measured": -27.7,
+        "err": 58.7,
+        "diff": -43.4,
+        "diff_over_err": -0.74
+       },
+       "plx": {
+        "gaia": 2.1019895930565253,
+        "gaia_err": null,
+        "measured": -49.2,
+        "err": 23.4,
+        "diff": -51.3,
+        "diff_over_err": -2.19
+       }
+      },
+      "psf": {
+       "n_used": 419,
+       "n_epochs": 3,
+       "rms_mas": 423.0,
+       "pm_east": {
+        "gaia": -11.773810771856109,
+        "gaia_err": null,
+        "measured": 65.2,
+        "err": 37.5,
+        "diff": 76.9,
+        "diff_over_err": 2.05
+       },
+       "pm_north": {
+        "gaia": 15.697419542421793,
+        "gaia_err": null,
+        "measured": 18.1,
+        "err": 35.5,
+        "diff": 2.4,
+        "diff_over_err": 0.07
+       },
+       "plx": {
+        "gaia": 2.1019895930565253,
+        "gaia_err": null,
+        "measured": -3.0,
+        "err": 15.8,
+        "diff": -5.1,
+        "diff_over_err": -0.32
+       }
+      }
+     },
+     {
+      "source_id": "1648328806627794688",
+      "g": 15.98,
+      "win": {
+       "n_used": 223,
+       "n_epochs": 3,
+       "rms_mas": 2386.0,
+       "pm_east": {
+        "gaia": -1.79966596477985,
+        "gaia_err": null,
+        "measured": 1440.4,
+        "err": 352.3,
+        "diff": 1442.2,
+        "diff_over_err": 4.09
+       },
+       "pm_north": {
+        "gaia": -2.4970236829964807,
+        "gaia_err": null,
+        "measured": 286.8,
+        "err": 186.7,
+        "diff": 289.3,
+        "diff_over_err": 1.55
+       },
+       "plx": {
+        "gaia": 0.47248274447672123,
+        "gaia_err": null,
+        "measured": -403.5,
+        "err": 95.9,
+        "diff": -403.9,
+        "diff_over_err": -4.21
+       }
+      },
+      "psf": {
+       "n_used": 217,
+       "n_epochs": 3,
+       "rms_mas": 442.0,
+       "pm_east": {
+        "gaia": -1.79966596477985,
+        "gaia_err": null,
+        "measured": 55.7,
+        "err": 56.7,
+        "diff": 57.5,
+        "diff_over_err": 1.01
+       },
+       "pm_north": {
+        "gaia": -2.4970236829964807,
+        "gaia_err": null,
+        "measured": -53.6,
+        "err": 53.3,
+        "diff": -51.1,
+        "diff_over_err": -0.96
+       },
+       "plx": {
+        "gaia": 0.47248274447672123,
+        "gaia_err": null,
+        "measured": 5.3,
+        "err": 22.8,
+        "diff": 4.8,
+        "diff_over_err": 0.21
+       }
+      }
+     },
+     {
+      "source_id": "1648327741475885824",
+      "g": 16.27,
+      "win": {
+       "n_used": 350,
+       "n_epochs": 3,
+       "rms_mas": 1809.0,
+       "pm_east": {
+        "gaia": -2.3049265737184514,
+        "gaia_err": null,
+        "measured": -961.8,
+        "err": 208.7,
+        "diff": -959.5,
+        "diff_over_err": -4.6
+       },
+       "pm_north": {
+        "gaia": -2.1574569935226835,
+        "gaia_err": null,
+        "measured": -104.8,
+        "err": 154.8,
+        "diff": -102.6,
+        "diff_over_err": -0.66
+       },
+       "plx": {
+        "gaia": 0.44199581112321895,
+        "gaia_err": null,
+        "measured": 96.0,
+        "err": 62.7,
+        "diff": 95.5,
+        "diff_over_err": 1.52
+       }
+      },
+      "psf": {
+       "n_used": 326,
+       "n_epochs": 3,
+       "rms_mas": 577.0,
+       "pm_east": {
+        "gaia": -2.3049265737184514,
+        "gaia_err": null,
+        "measured": -70.8,
+        "err": 59.3,
+        "diff": -68.5,
+        "diff_over_err": -1.16
+       },
+       "pm_north": {
+        "gaia": -2.1574569935226835,
+        "gaia_err": null,
+        "measured": 50.0,
+        "err": 51.7,
+        "diff": 52.2,
+        "diff_over_err": 1.01
+       },
+       "plx": {
+        "gaia": 0.44199581112321895,
+        "gaia_err": null,
+        "measured": -11.1,
+        "err": 22.4,
+        "diff": -11.6,
+        "diff_over_err": -0.52
+       }
+      }
+     },
+     {
+      "source_id": "1648326435805836800",
+      "g": 16.46,
+      "win": {
+       "n_used": 339,
+       "n_epochs": 3,
+       "rms_mas": 1051.0,
+       "pm_east": {
+        "gaia": 0.4131246548316425,
+        "gaia_err": null,
+        "measured": -22.6,
+        "err": 94.2,
+        "diff": -23.1,
+        "diff_over_err": -0.24
+       },
+       "pm_north": {
+        "gaia": 5.646044773534033,
+        "gaia_err": null,
+        "measured": -399.8,
+        "err": 106.2,
+        "diff": -405.4,
+        "diff_over_err": -3.82
+       },
+       "plx": {
+        "gaia": 0.9856000641939087,
+        "gaia_err": null,
+        "measured": -54.4,
+        "err": 43.7,
+        "diff": -55.4,
+        "diff_over_err": -1.27
+       }
+      },
+      "psf": {
+       "n_used": 350,
+       "n_epochs": 3,
+       "rms_mas": 501.0,
+       "pm_east": {
+        "gaia": 0.4131246548316425,
+        "gaia_err": null,
+        "measured": -33.8,
+        "err": 47.2,
+        "diff": -34.2,
+        "diff_over_err": -0.73
+       },
+       "pm_north": {
+        "gaia": 5.646044773534033,
+        "gaia_err": null,
+        "measured": -87.2,
+        "err": 51.5,
+        "diff": -92.8,
+        "diff_over_err": -1.8
+       },
+       "plx": {
+        "gaia": 0.9856000641939087,
+        "gaia_err": null,
+        "measured": 20.3,
+        "err": 20.5,
+        "diff": 19.3,
+        "diff_over_err": 0.94
+       }
+      }
+     },
+     {
+      "source_id": "1648331899004229376",
+      "g": 16.57,
+      "win": {
+       "n_used": 302,
+       "n_epochs": 3,
+       "rms_mas": 685.0,
+       "pm_east": {
+        "gaia": -6.171283271478254,
+        "gaia_err": null,
+        "measured": -35.2,
+        "err": 76.1,
+        "diff": -29.0,
+        "diff_over_err": -0.38
+       },
+       "pm_north": {
+        "gaia": -6.299332155211459,
+        "gaia_err": null,
+        "measured": 67.7,
+        "err": 79.8,
+        "diff": 74.0,
+        "diff_over_err": 0.93
+       },
+       "plx": {
+        "gaia": 0.6267709473140247,
+        "gaia_err": null,
+        "measured": -106.5,
+        "err": 31.2,
+        "diff": -107.2,
+        "diff_over_err": -3.44
+       }
+      },
+      "psf": {
+       "n_used": 317,
+       "n_epochs": 3,
+       "rms_mas": 429.0,
+       "pm_east": {
+        "gaia": -6.171283271478254,
+        "gaia_err": null,
+        "measured": -80.3,
+        "err": 43.9,
+        "diff": -74.1,
+        "diff_over_err": -1.69
+       },
+       "pm_north": {
+        "gaia": -6.299332155211459,
+        "gaia_err": null,
+        "measured": 1.9,
+        "err": 44.4,
+        "diff": 8.2,
+        "diff_over_err": 0.18
+       },
+       "plx": {
+        "gaia": 0.6267709473140247,
+        "gaia_err": null,
+        "measured": -18.8,
+        "err": 20.1,
+        "diff": -19.4,
+        "diff_over_err": -0.96
+       }
+      }
+     },
+     {
+      "source_id": "1648326607604520064",
+      "g": 16.57,
+      "win": {
+       "n_used": 138,
+       "n_epochs": 3,
+       "rms_mas": 638.0,
+       "pm_east": {
+        "gaia": 4.676904298780065,
+        "gaia_err": null,
+        "measured": -4.8,
+        "err": 110.8,
+        "diff": -9.5,
+        "diff_over_err": -0.09
+       },
+       "pm_north": {
+        "gaia": -5.468145250652117,
+        "gaia_err": null,
+        "measured": 94.4,
+        "err": 95.1,
+        "diff": 99.9,
+        "diff_over_err": 1.05
+       },
+       "plx": {
+        "gaia": 1.0211511397196142,
+        "gaia_err": null,
+        "measured": -57.7,
+        "err": 36.7,
+        "diff": -58.7,
+        "diff_over_err": -1.6
+       }
+      },
+      "psf": {
+       "n_used": 157,
+       "n_epochs": 3,
+       "rms_mas": 600.0,
+       "pm_east": {
+        "gaia": 4.676904298780065,
+        "gaia_err": null,
+        "measured": -88.9,
+        "err": 93.9,
+        "diff": -93.6,
+        "diff_over_err": -1.0
+       },
+       "pm_north": {
+        "gaia": -5.468145250652117,
+        "gaia_err": null,
+        "measured": -69.9,
+        "err": 99.5,
+        "diff": -64.4,
+        "diff_over_err": -0.65
+       },
+       "plx": {
+        "gaia": 1.0211511397196142,
+        "gaia_err": null,
+        "measured": -22.3,
+        "err": 36.0,
+        "diff": -23.3,
+        "diff_over_err": -0.65
+       }
+      }
+     },
+     {
+      "source_id": "1636316779533504512",
+      "g": 16.74,
+      "win": {
+       "n_used": 58,
+       "n_epochs": 3,
+       "rms_mas": 1887.0,
+       "pm_east": {
+        "gaia": 0.9061299842999322,
+        "gaia_err": null,
+        "measured": 385.7,
+        "err": 417.9,
+        "diff": 384.7,
+        "diff_over_err": 0.92
+       },
+       "pm_north": {
+        "gaia": -2.240767976512867,
+        "gaia_err": null,
+        "measured": -294.7,
+        "err": 270.7,
+        "diff": -292.5,
+        "diff_over_err": -1.08
+       },
+       "plx": {
+        "gaia": 0.2920583409471669,
+        "gaia_err": null,
+        "measured": 38.2,
+        "err": 166.1,
+        "diff": 37.9,
+        "diff_over_err": 0.23
+       }
+      },
+      "psf": {
+       "n_used": 58,
+       "n_epochs": 3,
+       "rms_mas": 404.0,
+       "pm_east": {
+        "gaia": 0.9061299842999322,
+        "gaia_err": null,
+        "measured": 48.7,
+        "err": 89.4,
+        "diff": 47.8,
+        "diff_over_err": 0.53
+       },
+       "pm_north": {
+        "gaia": -2.240767976512867,
+        "gaia_err": null,
+        "measured": -119.6,
+        "err": 78.7,
+        "diff": -117.4,
+        "diff_over_err": -1.49
+       },
+       "plx": {
+        "gaia": 0.2920583409471669,
+        "gaia_err": null,
+        "measured": -56.4,
+        "err": 52.5,
+        "diff": -56.7,
+        "diff_over_err": -1.08
+       }
+      }
+     },
+     {
+      "source_id": "1648332002083446656",
+      "g": 16.76,
+      "win": {
+       "n_used": 134,
+       "n_epochs": 3,
+       "rms_mas": 1227.0,
+       "pm_east": {
+        "gaia": -3.1635004983610933,
+        "gaia_err": null,
+        "measured": -280.3,
+        "err": 167.0,
+        "diff": -277.2,
+        "diff_over_err": -1.66
+       },
+       "pm_north": {
+        "gaia": -1.3864270904356335,
+        "gaia_err": null,
+        "measured": 86.3,
+        "err": 210.6,
+        "diff": 87.7,
+        "diff_over_err": 0.42
+       },
+       "plx": {
+        "gaia": 0.4158070166788753,
+        "gaia_err": null,
+        "measured": -232.5,
+        "err": 73.0,
+        "diff": -232.9,
+        "diff_over_err": -3.19
+       }
+      },
+      "psf": {
+       "n_used": 132,
+       "n_epochs": 3,
+       "rms_mas": 517.0,
+       "pm_east": {
+        "gaia": -3.1635004983610933,
+        "gaia_err": null,
+        "measured": 38.2,
+        "err": 88.4,
+        "diff": 41.4,
+        "diff_over_err": 0.47
+       },
+       "pm_north": {
+        "gaia": -1.3864270904356335,
+        "gaia_err": null,
+        "measured": -8.3,
+        "err": 93.9,
+        "diff": -6.9,
+        "diff_over_err": -0.07
+       },
+       "plx": {
+        "gaia": 0.4158070166788753,
+        "gaia_err": null,
+        "measured": -52.5,
+        "err": 34.6,
+        "diff": -52.9,
+        "diff_over_err": -1.53
+       }
+      }
+     },
+     {
+      "source_id": "1636318841117809792",
+      "g": 16.78,
+      "win": {
+       "n_used": 158,
+       "n_epochs": 3,
+       "rms_mas": 4030.0,
+       "pm_east": {
+        "gaia": -9.044447153466233,
+        "gaia_err": null,
+        "measured": 693.4,
+        "err": 655.6,
+        "diff": 702.4,
+        "diff_over_err": 1.07
+       },
+       "pm_north": {
+        "gaia": 0.7391790190014177,
+        "gaia_err": null,
+        "measured": -380.2,
+        "err": 691.6,
+        "diff": -380.9,
+        "diff_over_err": -0.55
+       },
+       "plx": {
+        "gaia": 0.5228841088702321,
+        "gaia_err": null,
+        "measured": -353.5,
+        "err": 256.5,
+        "diff": -354.0,
+        "diff_over_err": -1.38
+       }
+      },
+      "psf": {
+       "n_used": 143,
+       "n_epochs": 3,
+       "rms_mas": 560.0,
+       "pm_east": {
+        "gaia": -9.044447153466233,
+        "gaia_err": null,
+        "measured": 12.1,
+        "err": 107.2,
+        "diff": 21.2,
+        "diff_over_err": 0.2
+       },
+       "pm_north": {
+        "gaia": 0.7391790190014177,
+        "gaia_err": null,
+        "measured": 58.2,
+        "err": 70.3,
+        "diff": 57.5,
+        "diff_over_err": 0.82
+       },
+       "plx": {
+        "gaia": 0.5228841088702321,
+        "gaia_err": null,
+        "measured": 11.5,
+        "err": 27.5,
+        "diff": 11.0,
+        "diff_over_err": 0.4
+       }
+      }
+     },
+     {
+      "source_id": "1648329798763825408",
+      "g": 16.94,
+      "win": {
+       "n_used": 259,
+       "n_epochs": 3,
+       "rms_mas": 634.0,
+       "pm_east": {
+        "gaia": 6.633906762183124,
+        "gaia_err": null,
+        "measured": 186.0,
+        "err": 72.8,
+        "diff": 179.4,
+        "diff_over_err": 2.46
+       },
+       "pm_north": {
+        "gaia": -13.81369204047822,
+        "gaia_err": null,
+        "measured": 140.4,
+        "err": 92.6,
+        "diff": 154.2,
+        "diff_over_err": 1.67
+       },
+       "plx": {
+        "gaia": 2.965765922161239,
+        "gaia_err": null,
+        "measured": -7.0,
+        "err": 30.2,
+        "diff": -10.0,
+        "diff_over_err": -0.33
+       }
+      },
+      "psf": {
+       "n_used": 288,
+       "n_epochs": 3,
+       "rms_mas": 617.0,
+       "pm_east": {
+        "gaia": 6.633906762183124,
+        "gaia_err": null,
+        "measured": 215.7,
+        "err": 88.7,
+        "diff": 209.0,
+        "diff_over_err": 2.36
+       },
+       "pm_north": {
+        "gaia": -13.81369204047822,
+        "gaia_err": null,
+        "measured": -40.7,
+        "err": 79.2,
+        "diff": -26.9,
+        "diff_over_err": -0.34
+       },
+       "plx": {
+        "gaia": 2.965765922161239,
+        "gaia_err": null,
+        "measured": 12.1,
+        "err": 25.5,
+        "diff": 9.2,
+        "diff_over_err": 0.36
+       }
+      }
+     }
+    ]
+   },
+   "not_aligned": {
+    "summary": {
+     "win": {
+      "n_stars": 25,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 6.9,
+       "scatter": 118.5,
+       "median_err": 98.4,
+       "within_2_err": 20
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 8.5,
+       "scatter": 162.0,
+       "median_err": 98.3,
+       "within_2_err": 22
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": 100.1,
+       "scatter": 94.7,
+       "median_err": 38.4,
+       "within_2_err": 9
+      },
+      "all_three_within_2_err": 7,
+      "expected_within_2_err": 23.9,
+      "expected_all_three": 21.7
+     },
+     "psf": {
+      "n_stars": 25,
+      "pm_east": {
+       "unit": "mas/yr",
+       "median_diff": 2.7,
+       "scatter": 56.5,
+       "median_err": 54.6,
+       "within_2_err": 23
+      },
+      "pm_north": {
+       "unit": "mas/yr",
+       "median_diff": 1.0,
+       "scatter": 48.9,
+       "median_err": 59.2,
+       "within_2_err": 23
+      },
+      "plx": {
+       "unit": "mas",
+       "median_diff": -57.9,
+       "scatter": 37.2,
+       "median_err": 23.3,
+       "within_2_err": 8
+      },
+      "all_three_within_2_err": 7,
+      "expected_within_2_err": 23.9,
+      "expected_all_three": 21.7
+     }
+    },
+    "not_fitted": [
+     {
+      "source_id": "1636318909837963008",
+      "reason": "28 exposures (< 30)"
+     },
+     {
+      "source_id": "1636318806758072320",
+      "reason": "5 exposures (< 30)"
+     },
+     {
+      "source_id": "1648320663369780096",
+      "reason": "25 exposures (< 30)"
+     },
+     {
+      "source_id": "1636318699382494464",
+      "reason": "2 exposures (< 30)"
+     },
+     {
+      "source_id": "1648330077938124800",
+      "reason": "3 exposures (< 30)"
+     }
+    ]
+   }
+  }
+ ],
+ "all": {
+  "aligned": {
+   "win": {
+    "n_stars": 91,
+    "pm_east": {
+     "unit": "mas/yr",
+     "median_diff": -6.9,
+     "scatter": 63.3,
+     "median_err": 51.8,
+     "within_2_err": 82
+    },
+    "pm_north": {
+     "unit": "mas/yr",
+     "median_diff": 4.9,
+     "scatter": 58.7,
+     "median_err": 58.3,
+     "within_2_err": 84
+    },
+    "plx": {
+     "unit": "mas",
+     "median_diff": 1.3,
+     "scatter": 29.5,
+     "median_err": 22.8,
+     "within_2_err": 80
+    },
+    "all_three_within_2_err": 68,
+    "expected_within_2_err": 86.9,
+    "expected_all_three": 79.1
+   },
+   "psf": {
+    "n_stars": 91,
+    "pm_east": {
+     "unit": "mas/yr",
+     "median_diff": 1.1,
+     "scatter": 37.7,
+     "median_err": 35.0,
+     "within_2_err": 85
+    },
+    "pm_north": {
+     "unit": "mas/yr",
+     "median_diff": 2.8,
+     "scatter": 35.1,
+     "median_err": 35.3,
+     "within_2_err": 84
+    },
+    "plx": {
+     "unit": "mas",
+     "median_diff": -1.2,
+     "scatter": 15.7,
+     "median_err": 16.9,
+     "within_2_err": 85
+    },
+    "all_three_within_2_err": 75,
+    "expected_within_2_err": 86.9,
+    "expected_all_three": 79.1
+   }
+  },
+  "not_aligned": {
+   "win": {
+    "n_stars": 91,
+    "pm_east": {
+     "unit": "mas/yr",
+     "median_diff": 4.5,
+     "scatter": 62.0,
+     "median_err": 50.0,
+     "within_2_err": 82
+    },
+    "pm_north": {
+     "unit": "mas/yr",
+     "median_diff": -6.0,
+     "scatter": 57.7,
+     "median_err": 52.9,
+     "within_2_err": 84
+    },
+    "plx": {
+     "unit": "mas",
+     "median_diff": 115.7,
+     "scatter": 28.3,
+     "median_err": 21.5,
+     "within_2_err": 15
+    },
+    "all_three_within_2_err": 13,
+    "expected_within_2_err": 86.9,
+    "expected_all_three": 79.1
+   },
+   "psf": {
+    "n_stars": 91,
+    "pm_east": {
+     "unit": "mas/yr",
+     "median_diff": 2.7,
+     "scatter": 38.3,
+     "median_err": 35.7,
+     "within_2_err": 86
+    },
+    "pm_north": {
+     "unit": "mas/yr",
+     "median_diff": 0.8,
+     "scatter": 38.7,
+     "median_err": 35.3,
+     "within_2_err": 82
+    },
+    "plx": {
+     "unit": "mas",
+     "median_diff": -54.0,
+     "scatter": 17.8,
+     "median_err": 16.1,
+     "within_2_err": 17
+    },
+    "all_three_within_2_err": 14,
+    "expected_within_2_err": 86.9,
+    "expected_all_three": 79.1
+   }
+  }
+ }
+}
