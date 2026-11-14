@@ -1,0 +1,31 @@
+node v22.23.2; 8 cases from wcs_reference.json (eps-indi-b)
+dr1/level2/2025W46_1A/l2b-v27-2026-206/1/level2_2025W46_1A_0287_1D1_spx_l2b-v27-2026-206.fits
+  detector 1 spherex_dr1: sky->pix max diff=1.43e-7 px (25 points); pix->sky max diff=7.67e-11 arcsec (7 points); round trip=2.63e-11 px
+  data_off ts=28800 py=28800 equal=true box_position_equal=true box_max_abs_diff=0 nan_pattern_equal=true detector=1 mjd=60990.15914428
+dr1/level2/2025W40_1A/l2b-v27-2026-239/2/level2_2025W40_1A_0661_1D2_spx_l2b-v27-2026-239.fits
+  detector 2 spherex_dr1: sky->pix max diff=1.99e-7 px (25 points); pix->sky max diff=2.39e-10 arcsec (7 points); round trip=2.08e-11 px
+  data_off ts=28800 py=28800 equal=true box_position_equal=true box_max_abs_diff=0 nan_pattern_equal=true detector=2 mjd=60950.018872277
+dr1/level2/2025W40_1A/l2b-v27-2026-239/3/level2_2025W40_1A_0067_4D3_spx_l2b-v27-2026-239.fits
+  detector 3 spherex_dr1: sky->pix max diff=3.72e-9 px (25 points); pix->sky max diff=1.28e-10 arcsec (7 points); round trip=2.75e-11 px
+  data_off ts=25920 py=25920 equal=true box_position_equal=true box_max_abs_diff=0 nan_pattern_equal=true detector=3 mjd=60947.307090009
+dr1/level2/2025W46_1A/l2b-v27-2026-206/4/level2_2025W46_1A_0287_1D4_spx_l2b-v27-2026-206.fits
+  detector 4 spherex_dr1: sky->pix max diff=3.32e-8 px (25 points); pix->sky max diff=2.56e-11 arcsec (7 points); round trip=1.94e-11 px
+  data_off ts=25920 py=25920 equal=true box_position_equal=true box_max_abs_diff=0 nan_pattern_equal=true detector=4 mjd=60990.15914428
+dr1/level2/2025W40_1A/l2b-v27-2026-239/5/level2_2025W40_1A_0661_1D5_spx_l2b-v27-2026-239.fits
+  detector 5 spherex_dr1: sky->pix max diff=1.94e-7 px (25 points); pix->sky max diff=2.26e-10 arcsec (7 points); round trip=2.74e-11 px
+  data_off ts=25920 py=25920 equal=true box_position_equal=true box_max_abs_diff=0 nan_pattern_equal=true detector=5 mjd=60950.018872277
+dr1/level2/2025W40_1A/l2b-v27-2026-239/6/level2_2025W40_1A_0067_4D6_spx_l2b-v27-2026-239.fits
+  detector 6 spherex_dr1: sky->pix max diff=6.87e-8 px (25 points); pix->sky max diff=1.02e-10 arcsec (7 points); round trip=2.16e-11 px
+  data_off ts=25920 py=25920 equal=true box_position_equal=true box_max_abs_diff=0 nan_pattern_equal=true detector=6 mjd=60947.307090009
+qr3/level2/2026W39_1A/l2b-v27-2026-268/3/level2_2026W39_1A_0276_1D3_spx_l2b-v27-2026-268.fits
+  detector 3 spherex_qr3: sky->pix max diff=1.01e-6 px (25 points); pix->sky max diff=1.28e-10 arcsec (7 points); round trip=1.66e-11 px
+  data_off ts=25920 py=25920 equal=true box_position_equal=true box_max_abs_diff=0 nan_pattern_equal=true detector=3 mjd=61305.227572277
+qr3/level2/2026W40_2A/l2b-v27-2026-285/2/level2_2026W40_2A_0216_2D2_spx_l2b-v27-2026-285.fits
+  detector 2 spherex_qr3: sky->pix max diff=3.88e-9 px (25 points); pix->sky max diff=7.67e-11 arcsec (7 points); round trip=2.37e-11 px
+  data_off ts=28800 py=28800 equal=true box_position_equal=true box_max_abs_diff=0 nan_pattern_equal=true detector=2 mjd=61315.478741768
+
+worst sky->pixel difference to astropy: 1.01e-6 px
+worst pixel->sky difference to astropy: 2.39e-10 arcsec
+worst round trip: 2.75e-11 px
+data offset mismatches: 0; 3x3 box mismatches: 0; failed cases: 0
+range requests: 16, bytes: 564480
