@@ -1,0 +1,113 @@
+===== https://vercel.com/docs/functions/limitations
+status=200 final_url=https://vercel.com/docs/functions/limitations bytes=953840 text_lines=479
+  [197] Max duration
+  [201] Request body size
+  [213] Hobby: 2 GB, Pro and Ent: 4 GB
+  [214] Maximum duration
+  [215] Hobby: 300s default and maximum. Pro and Enterprise: 300s default, 800s maximum, and 1800s extended maximum Beta
+  [216] . See max duration for requirements and configuration.
+  [221] Auto-scales up to 30,000 (Hobby and Pro) or 100,000+ (Enterprise) concurrency
+  [280] Max duration
+  [282] While Vercel Functions have a default duration, this duration can be extended using the maxDuration config . If a Vercel Function doesn't complete within the duration, a 504 error code ( FUNCTION_INVOCATION_TIMEOUT ) is returned.
+  [288] Hobby
+  [318] Hobby
+  [329] Request body size
+  [330] In Vercel, the request body size is the maximum amount of data that can be included in the body of a request to a function.
+  [331] The maximum payload size for the request body or the response body of a Vercel Function is 4.5 MB . The response body limit doesn't apply to streamed responses . If a Vercel Function receives a payload in excess of the limit it will return an error 413: FUNCTION_PAYLOAD_TOO_LARGE . See How do I bypass the 4.5MB body size limit of Vercel Functions for more information.
+  [354] The Hobby plan offers functions for free, within limits . The Pro plan extends these limits, and charges usage based on active CPU time and provisioned memory time for Vercel Functions.
+  [356] It is important to make sure you've set a reasonable maximum duration for your function. See "Managing usage and pricing for Vercel Functions " for more information.
+matching lines shown: 16
+===== https://vercel.com/docs/functions/configuring-functions/duration
+status=200 final_url=https://vercel.com/docs/functions/configuring-functions/duration bytes=1129495 text_lines=464
+  [0] Configuring Maximum Duration for Vercel Functions
+  [191] Consequences of changing the maximum duration
+  [192] Maximum duration for different runtimes
+  [195] Extended max duration Beta
+  [196] Setting a default maximum duration
+  [199] Maximum duration of a deployment
+  [202] Configuring Maximum Duration for Vercel Functions
+  [204] The maximum duration configuration determines the longest time that a function can run. You can configure the maximum duration for Vercel Functions.
+  [205] Consequences of changing the maximum duration
+  [206] Changing the maximum duration gives an invocation more time before Vercel terminates it. With fluid compute , Vercel can reuse function instances and process multiple invocations in the same instance with optimized concurrency . Provisioned memory is billed for running instances, not as a separate memory allocation for every request. Active CPU billing applies while your code is executing, and pauses while your function is waiting on I/O. To learn more, see how pricing works .
+  [207] For this reason, Vercel has set a default maximum duration for functions, which can be useful for preventing runaway functions from consuming resources indefinitely.
+  [208] If a function runs for longer than its set maximum duration, Vercel will terminate it. Therefore, when setting this duration, it's crucial to strike a balance:
+  [211] Maximum duration for different runtimes
+  [212] The method of configuring the maximum duration depends on your framework and runtime:
+  [255] Extended max duration Beta
+  [258] Extended max duration is supported for the following runtimes during the beta:
+  [266] Extended max duration is supported for projects using Secure Compute or Static IPs . BYOC does not support durations above 800 seconds during the beta.
+  [289] Setting a default maximum duration
+  [290] While Vercel specifies defaults for the maximum duration of a function, you can also override it in the following ways:
+  [293] From the left side, open Functions in the sidebar. If your project uses fluid compute , select Advanced Settings . Then scroll to the Function Max Duration section.
+  [294] Update the Default Max Duration field value and select Save .
+  [295] The dashboard sets the project default. During the extended max duration beta, use per-function configuration for durations above 800 seconds.
+  [334] Maximum duration of a deployment
+  [335] To check the max duration that a specific deployment's functions run with, run vercel inspect with the --json flag against that deployment's URL:
+  [338] The JSON output lists each function's max duration as timeout and its memory size as memorySize . The default vercel inspect output doesn't show max duration or memory, so include --json . To find out what is useful to check in this output, see Check function configuration in Debugging slow Vercel Functions. To view a deployment's function memory size in the dashboard instead, see Viewing your function memory size .
+  [344] Hobby
+  [356] The 800 second maximum is generally available for Pro and Enterprise teams. For beta requirements and examples, see extended max duration .
+matching lines shown: 27
+===== https://vercel.com/docs/limits
+status=200 final_url=https://vercel.com/docs/limits bytes=1306829 text_lines=2428
+  [175] Proxied request timeout
+  [188] Builds per hour (Hobby)
+  [189] Deployments per day (Hobby)
+  [199] Hobby : Upgrade to Pro for higher limits.
+  [202] Hobby
+  [217] Proxied Request Timeout (Seconds)
+  [253] Hobby teams get a monthly allotment of each billable resource. Pro teams get a monthly credit that applies across billable resources, and Vercel charges for additional usage on demand once you use that credit. For the allotments and the on-demand rates, see typical monthly usage guidelines .
+  [262] The maximum duration of the Build Step is 45 minutes.
+  [268] When using the CLI to deploy, the maximum size of the source files that can be uploaded is limited to 100 MB for Hobby and 1 GB for Pro. If the size of the source files exceeds this limit, the deployment will fail.
+  [278] Runtime logs are stored for 1 hour on Hobby, 1 day on Pro, and for 3 days on Enterprise accounts. To learn more about these log limits, read here .
+  [285] Hobby
+  [297] Proxied request timeout
+  [298] The amount of time (in seconds) that a proxied request ( rewrites or routes with an external destination) is allowed to process an HTTP request. The maximum timeout is 120 seconds (2 minutes).
+  [299] If the external server does not reply until the maximum timeout is reached, an error with the message ROUTER_EXTERNAL_TARGET_ERROR will be returned.
+  [307] Vercel Workflows limits the size and throughput of each workflow run, including events and steps per run, payload size, stored data per run, and stream throughput. It also rate limits the requests your team's workflows make to the Workflows backend, such as creating events, writing to streams, and reading run data. Requests over the rate limit are retried automatically with backoff, so hitting it slows your workflows down but does not cause them to fail. See Workflow limits and Workflow rate limits for the values on each plan.
+  [311] Hobby
+  [313] Maximum duration
+  [321] ​Vercel does not support connecting a project on your Hobby team to Git repositories owned by Git organizations. You can either switch to an existing Team or create a new one.
+  [345] Builds per hour (Hobby)
+  [350] Deployments per day (Hobby)
+  [1860] Blob stores create per minute for Hobby teams.
+  [1861] api-storage-blob-store-create-hobby
+  [1950] Vercel Blob Simple Operations per minute for Hobby plan.
+  [1951] api-blob-simple-operation-hobby
+  [1965] Vercel Blob Advanced Operations per minute for Hobby plan.
+  [1966] api-blob-advanced-operation-hobby
+  [2175] Sandbox control plane requests per minute for Hobby plan.
+  [2176] api-sandboxes-control-plane-hobby
+  [2190] Drive control plane requests per minute for Hobby plan.
+  [2191] api-drives-control-plane-hobby
+  [2205] Drive filesystem reads per minute for Hobby plan. Each read starts a drive cell.
+  [2206] api-drives-fs-read-hobby
+  [2235] VCR management API requests per minute for Hobby plan.
+  [2236] api-vcr-crud-hobby
+  [2250] VCR registry (Docker) requests per minute for Hobby plan.
+  [2251] api-vcr-registry-hobby
+  [2291] The Sandbox vCPU quotas hold your allowed rate before it decays: for 5 minutes on Hobby, and for 10 minutes on Pro and Enterprise, after you last consumed at your full allowed rate.
+  [2312] Sandbox vCPU provisioning ramp for Hobby plan (vCPUs per minute).
+matching lines shown: 38
+===== https://vercel.com/docs/plans/hobby
+status=200 final_url=https://vercel.com/docs/plans/hobby bytes=856666 text_lines=414
+  [0] Vercel Hobby Plan
+  [160] Hobby Plan
+  [168] Hobby billing cycle
+  [169] Comparing Hobby and Pro plans
+  [172] Vercel Hobby Plan
+  [174] The Hobby plan is free and includes a generous set of features on a per month basis:
+  [177] Hobby Included Usage
+  [192] Function Invocations
+  [212] Hobby billing cycle
+  [213] As the Hobby plan is a free tier there are no billing cycles. In most cases, if you exceed your usage limits on the Hobby plan, you will have to wait until 30 days have passed before you can use the feature again.
+  [217] When your personal account gets converted to a Hobby team, your usage and activity log will be reset. To learn more about this change, read the changelog .
+  [218] Comparing Hobby and Pro plans
+  [219] The Pro plan offers more resources and advanced features compared to the Hobby plan. The following table provides a side-by-side comparison of the two plans:
+  [221] Hobby
+  [226] Vercel Function maximum duration
+  [228] 300s (default) - configurable up to 800s ; extended max duration up to 1800s (30 minutes, beta)
+  [290] The Hobby features, plus Password Protection for $ 20 per month per protected project
+  [303] To upgrade from a Hobby plan:
+  [310] If you would like to end your paid plan, you can downgrade to Hobby .
+  [320] Hobby Plan
+matching lines shown: 20

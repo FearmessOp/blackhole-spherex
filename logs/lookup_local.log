@@ -1,0 +1,48 @@
+===== /api/lookup?target=eps%20Ind%20B
+status=200 time=9706ms response_bytes=60354 cache=public, s-maxage=21600, max-age=300
+ok=true error=null message=null
+target={"name":"* eps Ind B","ra_deg":331.0441465885213,"dec_deg":-56.7828441951161,"coord_epoch":"J2000.0 (ICRS)","pmra_masyr":3981.977,"pmdec_masyr":-2466.832,"pm_bibcode":"2020yCat.1350....0G","plx_mas":270.658,"plx_bibcode":"2020yCat.1350....0G","sp_type":"T1V+T6V","otype":"BrownD*","source":"SIMBAD (simbad.harvard.edu)"}
+pos={"ra_deg":331.096643852268,"dec_deg":-56.800660204004984,"epoch":2026,"model":"SIMBAD J2000 position + proper motion, no parallax"}
+collections=[{"id":"spherex_dr1","ok":true,"attempts":4,"rows":347,"error":null},{"id":"spherex_qr3","ok":true,"attempts":10,"rows":120,"error":null}]
+exposures=467 per_detector={"1":48,"2":93,"3":99,"4":46,"5":86,"6":95} columns=["mjd_mid","detector","collection_index","cloud_key","em_min_um","em_max_um"]
+first=[60789.85619,2,0,"dr1/level2/2025W17_4B/l2b-v27-2026-196/2/level2_2025W17_4B_0017_1D2_spx_l2b-v27-2026-196.fits",1.1033,1.6499]
+last=[61315.47874,2,1,"qr3/level2/2026W40_2A/l2b-v27-2026-285/2/level2_2026W40_2A_0216_2D2_spx_l2b-v27-2026-285.fits",1.1033,1.6499]
+epochs=[125,146,76,120]
+===== /api/lookup?target=WISE%20J085510.83-071442.5
+status=200 time=9640ms response_bytes=33662 cache=public, s-maxage=21600, max-age=300
+ok=true error=null message=null
+target={"name":"WISEA J085510.74-071442.5","ra_deg":133.81890825,"dec_deg":-7.247048,"coord_epoch":"J2000.0 (ICRS)","pmra_masyr":-8123.7,"pmdec_masyr":673.2,"pm_bibcode":"2021ApJS..253....7K","plx_mas":439,"plx_bibcode":"2021ApJS..253....7K","sp_type":"Y2","otype":"BrownD*","source":"SIMBAD (simbad.harvard.edu)"}
+pos={"ra_deg":133.7597646114433,"dec_deg":-7.242186,"epoch":2026,"model":"SIMBAD J2000 position + proper motion, no parallax"}
+collections=[{"id":"spherex_dr1","ok":true,"attempts":6,"rows":258,"error":null},{"id":"spherex_qr3","ok":true,"attempts":12,"rows":0,"error":null}]
+exposures=258 per_detector={"1":36,"2":48,"3":45,"4":36,"5":48,"6":45} columns=["mjd_mid","detector","collection_index","cloud_key","em_min_um","em_max_um"]
+first=[60800.70069,3,0,"dr1/level2/2025W19_1B/l2b-v27-2026-197/3/level2_2025W19_1B_0116_1D3_spx_l2b-v27-2026-197.fits",1.6301,2.4346]
+last=[61174.28788,2,0,"dr1/level2/2026W20_1A/l2b-v27-2026-246/2/level2_2026W20_1A_1166_1D2_spx_l2b-v27-2026-246.fits",1.1033,1.6499]
+epochs=[30,128,100]
+===== /api/lookup?target=Wolf%20359
+status=200 time=6265ms response_bytes=37917 cache=public, s-maxage=21600, max-age=300
+ok=true error=null message=null
+target={"name":"Wolf  359","ra_deg":164.1205036259475,"dec_deg":7.0147231348017,"coord_epoch":"J2000.0 (ICRS)","pmra_masyr":-3866.338,"pmdec_masyr":-2699.215,"pm_bibcode":"2020yCat.1350....0G","plx_mas":415.1794,"plx_bibcode":"2020yCat.1350....0G","sp_type":"dM6","otype":"HighPM*","source":"SIMBAD (simbad.harvard.edu)"}
+pos={"ra_deg":164.0923694841158,"dec_deg":6.995228804246144,"epoch":2026,"model":"SIMBAD J2000 position + proper motion, no parallax"}
+collections=[{"id":"spherex_dr1","ok":true,"attempts":7,"rows":251,"error":null},{"id":"spherex_qr3","ok":true,"attempts":2,"rows":40,"error":null}]
+exposures=291 per_detector={"1":44,"2":45,"3":57,"4":43,"5":45,"6":57} columns=["mjd_mid","detector","collection_index","cloud_key","em_min_um","em_max_um"]
+first=[60793.96896,3,0,"dr1/level2/2025W18_1B/l2b-v27-2026-196/3/level2_2025W18_1B_0067_1D3_spx_l2b-v27-2026-196.fits",1.6301,2.4346]
+last=[61187.65295,2,1,"qr3/level2/2026W22_1A/l2b-v27-2026-269/2/level2_2026W22_1A_0417_4D2_spx_l2b-v27-2026-269.fits",1.1033,1.6499]
+epochs=[115,136,40]
+===== /api/lookup?ra=165.83&dec=7.01
+status=200 time=5847ms response_bytes=42916 cache=public, s-maxage=21600, max-age=300
+ok=true error=null message=null
+pos={"ra_deg":165.83,"dec_deg":7.01,"epoch":null,"model":"position as entered"}
+collections=[{"id":"spherex_dr1","ok":true,"attempts":2,"rows":293,"error":null},{"id":"spherex_qr3","ok":true,"attempts":8,"rows":40,"error":null}]
+exposures=333 per_detector={"1":46,"2":48,"3":73,"4":45,"5":48,"6":73} columns=["mjd_mid","detector","collection_index","cloud_key","em_min_um","em_max_um"]
+first=[60793.96896,3,0,"dr1/level2/2025W18_1B/l2b-v27-2026-196/3/level2_2025W18_1B_0067_1D3_spx_l2b-v27-2026-196.fits",1.6301,2.4346]
+last=[61187.65295,2,1,"qr3/level2/2026W22_1A/l2b-v27-2026-269/2/level2_2026W22_1A_0417_4D2_spx_l2b-v27-2026-269.fits",1.1033,1.6499]
+epochs=[125,168,40]
+===== /api/lookup?target=no%20such%20star%20xyz123
+status=404 time=407ms response_bytes=95 cache=public, s-maxage=3600, max-age=300
+ok=false error=name_not_found message=SIMBAD does not know "no such star xyz123".
+===== /api/lookup?ra=400&dec=7
+status=400 time=0ms response_bytes=103 cache=no-store
+ok=false error=bad_request message=Give target=<name> or ra=<deg 0..360>&dec=<deg -90..90>.
+===== /api/lookup
+status=400 time=0ms response_bytes=103 cache=no-store
+ok=false error=bad_request message=Give target=<name> or ra=<deg 0..360>&dec=<deg -90..90>.
