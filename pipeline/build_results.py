@@ -165,6 +165,8 @@ def main():
                "flicker": load(ROOT / "data" / "flicker" / f"{slug}.json"),
                "raw_dropped": {"dropped": raw["n_dropped"], "total": raw["n_total"],
                                "max_masked_fraction": raw["max_masked_fraction"]},
+               # diff_image.py output exists: the site asks for diff.json only then (no 404 for the others)
+               "has_diff": (SITE / slug / "diff.json").exists(),
                # faint cold target measured on the long-wavelength stack: show that stack first
                "default_band": "d56" if sm else "all",
                "compare_bands": ["d123", "d56"] if sm else None}

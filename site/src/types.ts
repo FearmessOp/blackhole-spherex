@@ -130,6 +130,7 @@ export type Results = {
     per_exposure_fit: PerExposureFit | null
     flicker: Flicker | null
     raw_dropped: { dropped: number; total: number; max_masked_fraction: number }
+    has_diff?: boolean // diff.json exists for this target; it is requested only then
     default_band: string
     compare_bands: string[] | null
 }

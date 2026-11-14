@@ -1,0 +1,9 @@
+
+?target=eps-indi-b
+  request http://localhost:4173/data/eps-indi-b/diff.json
+?target=wise-0855
+  request http://localhost:4173/data/wise-0855/diff.json
+?target=rw-aur
+?target=r-dra
+?guide=1
+done

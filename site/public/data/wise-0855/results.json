@@ -336,6 +336,7 @@
   "total": 258,
   "max_masked_fraction": 0.2
  },
+ "has_diff": true,
  "default_band": "d56",
  "compare_bands": [
   "d123",

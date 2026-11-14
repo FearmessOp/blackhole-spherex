@@ -70,12 +70,15 @@ export default function BlinkView({ slug }: { slug: string }) {
         let cancelled = false
         const get = (name: string) =>
             fetch(base + name).then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-        // Only some targets have a difference image; a missing file is not an error.
+        // Only some targets have a difference image; results.json says which, so no request ends in a 404.
         const getOptional = (name: string) =>
             fetch(base + name)
                 .then((r) => (r.ok ? r.json() : null))
                 .catch(() => null)
-        Promise.all([get('meta.json'), get('results.json'), getOptional('diff.json')])
+        Promise.all([get('meta.json'), get('results.json')])
+            .then(([meta, res]) =>
+                (res.has_diff ? getOptional('diff.json') : Promise.resolve(null)).then((diff) => [meta, res, diff])
+            )
             .then(([meta, res, diff]) => {
                 if (!cancelled) setData({ meta, res, diff: diff && Array.isArray(diff.bands) ? diff : null })
             })

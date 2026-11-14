@@ -42,11 +42,15 @@ function useTarget(slug: string): Data | 'failed' | null {
         const base = `${import.meta.env.BASE_URL}data/${slug}/`
         const get = (name: string) =>
             fetch(base + name).then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+        // results.json says whether a difference image exists, so no request ends in a 404.
         const optional = (name: string) =>
             fetch(base + name)
                 .then((r) => (r.ok ? r.json() : null))
                 .catch(() => null)
-        Promise.all([get('meta.json'), get('results.json'), optional('diff.json')])
+        Promise.all([get('meta.json'), get('results.json')])
+            .then(([meta, res]) =>
+                (res.has_diff ? optional('diff.json') : Promise.resolve(null)).then((diff) => [meta, res, diff])
+            )
             .then(([meta, res, diff]) => {
                 if (!cancelled) setState({ meta, res, diff: diff && Array.isArray(diff.bands) ? diff : null })
             })

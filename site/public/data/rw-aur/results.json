@@ -159,6 +159,7 @@
   "total": 336,
   "max_masked_fraction": 0.2
  },
+ "has_diff": false,
  "default_band": "all",
  "compare_bands": null
 }
