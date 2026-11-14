@@ -8,17 +8,27 @@ image per observing epoch next to the raw exposures, and reports what could be
 measured from the images.
 
 **Status:** work in progress (hackathon weekend, 14–15 November 2026).
-The site shows five prepared targets. **It does not yet accept coordinates:**
-entering RA/Dec, coordinates in the URL, click-for-spectrum and a search for
-movers are not implemented. See [Known limitations](#known-limitations) and
-[PROGRESS.md](PROGRESS.md).
+The site shows five prepared targets with measurements, and a **quick look at
+any star name or position** (search box, or `?target=` / `?ra=&dec=` in the
+URL). The quick look is unmasked and gives rough numbers only.
+Click-for-spectrum and a search for movers are not implemented. See
+[Known limitations](#known-limitations) and [PROGRESS.md](PROGRESS.md).
 
 ## Live site
 
 https://blackhole-spherex.vercel.app
 
+Links that open a view directly:
+
+- `https://blackhole-spherex.vercel.app/?target=wise-0855` (prepared target)
+- `https://blackhole-spherex.vercel.app/?target=Wolf%20359` (quick look by name)
+- `https://blackhole-spherex.vercel.app/?ra=164.0924&dec=6.9952` (quick look by position, degrees)
+
 The site is deployed by Vercel from the `site/` directory on every push to `main`.
-It is a static site: it reads PNG and JSON files and calls no other service.
+The five prepared targets are static PNG and JSON files. For the quick look the
+site calls one small function of its own (`site/api/lookup.js`: name → position
+at SIMBAD, exposure list at IRSA), and the browser then reads the image data
+straight from the public cloud copy of the SPHEREx archive.
 
 ## What the site shows
 
@@ -44,6 +54,20 @@ WISE 0855-0714, RW Aurigae, R Draconis):
   to the catalogue values, and a warning where they could not.
 
 All brightness scales are fixed per target and band; pixels are not smoothed.
+
+For any other star name or position (**quick look**):
+
+- The function returns the list of SPHEREx exposures of that position. The
+  browser picks 6 exposures per epoch (8 for detectors 5+6), the same number
+  from each detector, reads the image header and 29 image rows of each with
+  HTTP Range requests, resamples them onto a fixed north-up grid of 19 × 19
+  pixels and blinks one clipped-mean stack per epoch.
+- The flag images are not read, so nothing is masked. The view is labelled
+  "Quick look, unmasked, no measurement".
+- Below the image: rough motion between epochs (windowed centroid on these
+  stacks, bootstrap error) next to the catalogue prediction, if SIMBAD has a
+  proper motion. Where the error is not smaller than the motion, the table
+  says "too slow to measure with this data" instead of a number.
 
 ## Results so far
 
@@ -88,13 +112,54 @@ values; `logs/flicker_<slug>.log`):
 | RW Aurigae | 74.7% | 0.8% |
 | R Draconis | 96.4% | 0.9% |
 
+**Quick look, checked against astropy and against the full pipeline:**
+
+| Check | Result | Log |
+|---|---|---|
+| Sky → pixel (TAN-SIP) in the browser code against astropy, 8 files, 200 points | largest difference 1.0 × 10⁻⁶ pixel | `logs/test_wcs.log` |
+| Pixel values read with Range requests against values read by Python, 8 files | identical in 8 of 8 | `logs/test_wcs.log` |
+| Catalogue prediction (proper motion + parallax) against the pipeline, 9 epoch pairs | largest difference 0.01 arcsec | `logs/test_motion.log` |
+| Rough motion against the full pipeline (same method, all exposures, masked), Epsilon Indi B, 6 epoch pairs | 6 of 6 within 2 combined errors; differences 0.06 to 0.54 arcsec; quick-look errors 0.23 to 0.65 arcsec | `logs/test_motion.log` |
+| The same for WISE 0855-0714, detectors 5+6, 3 epoch pairs | 3 of 3 within 2 combined errors; quick-look errors 1.3 to 2.4 arcsec; one pair not measurable | `logs/test_motion.log` |
+
+The first run of the motion test gave 7 of 9 pairs within 2 combined errors
+(`logs/test_motion_run1.log`). The choice of exposures was then changed (an
+epoch had been left with 4 instead of 6 exposures) and the test repeated on the
+same two targets, so the 9 of 9 is not an independent confirmation.
+
 ## Known limitations
 
 **Scope**
 
-- Only the five prepared targets can be viewed. There is no coordinate entry, no
-  coordinate in the URL, no spectrum on click, no search for movers, no Gaia or
-  WISE catalogue overlay, no frame subtraction and no choice of field size.
+- Measurements with masking, field-star alignment and a motion fit exist only
+  for the five prepared targets. Any other position gets the quick look.
+- There is no spectrum on click, no search for movers, no Gaia or WISE
+  catalogue overlay, no frame subtraction and no choice of field size.
+
+**Quick look**
+
+- Nothing is masked: hot pixels, cosmic-ray hits and saturated cores are in the
+  stacks. Only 6 to 8 exposures per epoch are used; the positions that were
+  tried have 30 to 168 exposures per epoch (`logs/lookup_local.log`).
+- The rough motion is not aligned to field stars. Its errors are about 3 to 10
+  times those of the full pipeline for Epsilon Indi B (0.23–0.65 against
+  0.06–0.09 arcsec).
+- "Too slow to measure with this data" is shown whenever the error is not
+  smaller than the motion. This also happens for a fast but faint target:
+  WISE 0855, epoch 2 → 3, is predicted to move 4.5 arcsec and is measured by
+  the full pipeline (−3.48 ± 0.49 arcsec east), but the quick look gives
+  2.2 ± 3.0 arcsec and therefore no number.
+- The source is looked for within 1.5 pixels of the catalogue position (or of
+  the entered position). A source further away is not found, and a brighter
+  neighbour inside that radius can be measured instead of the target.
+- The exposure list comes from IRSA, which answered 9 of 12 test queries with
+  "502 Proxy Error" on 14 November (`logs/sia_probe.log`). The function retries
+  for up to 45 seconds; a lookup took 6 to 11 seconds in the tests
+  (`logs/lookup_local.log`, `logs/lookup_live.log`) and can fail.
+- Names are resolved by SIMBAD only. Coordinates must be given in degrees.
+- Tested with three names (Epsilon Indi B, WISE 0855, Wolf 359) and one
+  position. Positions near the edge of a detector, crowded fields and
+  positions without coverage were not tried.
 - No brightness measurement of the targets is made. RW Aurigae and R Draconis
   are variable stars, but the site shows no light curve for them.
 
@@ -167,7 +232,7 @@ values; `logs/flicker_<slug>.log`):
 |---|---|
 | `pipeline/` | Python data pipeline, one script per step |
 | `data/` | Small inputs and measurement results: target list, Gaia field stars, astrometry, flicker |
-| `site/` | Vite + React + TypeScript site; reads static PNG + JSON from `site/public/data/` |
+| `site/` | Vite + React + TypeScript site; reads static PNG + JSON from `site/public/data/`. `site/api/lookup.js` is the lookup function, `site/src/quicklook.ts` the FITS/WCS/stacking code of the quick look, `site/scripts/` its tests |
 | `logs/` | Log files; every number reported by this project is traceable to one of them |
 | `cache/` | Downloaded cutouts (not in git, re-creatable) |
 
@@ -197,7 +262,9 @@ file in `logs/`.
 
 Checks that change nothing: `inspect_fits.py`, `parallax_check.py`,
 `raw_masked_fraction.py`, `flicker_diag.py`, `hash_site_data.py`,
-`check_terms.py`, `npm_licenses.py`.
+`check_terms.py`, `npm_licenses.py`, `range_probe.py`, `sia_probe.py`,
+`check_vercel_limits.py`. `wcs_reference.py` writes the astropy reference
+values for the quick-look tests (`data/quicklook/wcs_reference.json`).
 
 ## Running the site locally
 
@@ -210,6 +277,20 @@ npm run build
 npx vite preview
 ```
 
+The local preview serves the five prepared targets. The quick look needs the
+function `/api/lookup`, which only runs on Vercel; locally a search ends with
+"The lookup service did not answer".
+
+Tests of the quick-look code (Node.js 22, no extra packages; they need network
+access):
+
+```
+cd site
+node scripts/test_lookup.mjs   # the lookup function
+node scripts/test_wcs.mjs      # TAN-SIP and Range reading against astropy
+node scripts/test_motion.mjs   # rough motion against the full pipeline
+```
+
 ## Data and sources
 
 All data, libraries and tools used are listed with their licences in
@@ -218,7 +299,8 @@ ask for. The Gaia DR3 rows in `data/gaia/` are under CC BY-NC 3.0 IGO, not under
 the licence of this repository.
 
 No NASA or SPHEREx logo or emblem is used. Every image on the site is computed
-from SPHEREx data by `pipeline/stack_epochs.py`.
+from SPHEREx data: by `pipeline/stack_epochs.py` for the prepared targets, and
+in the visitor's browser by `site/src/quicklook.ts` for the quick look.
 
 ## Use of SI
 

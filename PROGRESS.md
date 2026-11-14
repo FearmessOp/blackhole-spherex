@@ -3,6 +3,146 @@
 Team Blackhole 102, NASA Space Apps Challenge 2026, "Planet X and SPHEREx".
 Times are local (UTC+3). Every number below comes from the log file named next to it.
 
+## Status at 2026-11-14 22:20
+
+Sections further down describe the state at their own time. Where they say that
+coordinate entry is not implemented, this entry replaces them.
+
+### Block B: quick look at any star or position (pushed: `760a5c4`, `ddac403`, `8ab9ac0`, `618220b`)
+
+The site now has a search box and reads `?target=<name>` and `?ra=<deg>&dec=<deg>`
+from the URL. A prepared target opens its prepared view; anything else opens the
+quick look: exposure list from the site's function `/api/lookup`, image rows read
+by the browser from the cloud copy, one stack per epoch, blink, and a table of
+rough motions between epochs. No new library was added.
+
+**Preliminary findings, measured again** (`logs/range_probe.log`, `logs/sia_probe.log`)
+
+| Finding | Measured |
+|---|---|
+| Share of the EPSF layer in a cutout file | 97.4% to 97.5% (3 files); the image is 5760 bytes |
+| Full files | 65,721,600 and 65,995,200 bytes. IMAGE, VARIANCE, ZODI uncompressed (16,646,400 bytes each); FLAGS is a RICE_1 table, one tile per row |
+| IMAGE data offset | 25920 or 28800 bytes, differs from file to file, so the header is parsed for every file |
+| Cloud copy | Range requests answered with 206; with an `Origin` header `Access-Control-Allow-Origin: *`; OPTIONS preflight for `range` answered 200 |
+| Header + 29 rows of 24 exposures from Python | 9.9 s sequential, 6.8 s with 8 in parallel; 6,785,280 bytes in 48 requests; 0 failed |
+| Range pixels against cached cutouts | 11x11 box identical in 6 of 6 exposures |
+| IRSA SIA | 9 of 12 queries answered "502 Proxy Error". The 3 that worked took 1.4 to 3.5 s and returned 641, 110,723 and 318,822 bytes. No CORS header on any answer |
+
+**Vercel limits** (`logs/vercel_limits.log`): Hobby plan 300 s per function call
+(line 7), 4.5 MB request or response body (line 16). The largest answer of the
+function was 60 kB.
+
+**Lookup function** (`site/api/lookup.js`; `logs/lookup_local.log`, `logs/lookup_live.log`)
+
+- Resolves a name at SIMBAD, queries SIA for both collections and retries on 502
+  within a 45 s budget. Only the exposure list passes through it, no image bytes.
+- Local test: Epsilon Indi B 467 exposures (9.7 s), WISE 0855 258 (9.6 s),
+  Wolf 359 291 (6.3 s), a position 333 (5.8 s); unknown name 404; bad input 400.
+  The counts for Epsilon Indi B and WISE 0855 equal those of the pipeline.
+- One collection needed 12 attempts locally, which was the limit at that time;
+  the limit was raised. On the live site one call took 11.3 s with 13 attempts
+  for each collection.
+- The CDS fallback for SIMBAD is in the code but was never exercised: the
+  Harvard mirror answered every time.
+
+**Browser code against astropy** (`site/src/quicklook.ts`, `logs/test_wcs.log`,
+reference values from `pipeline/wcs_reference.py`, 8 files, all 6 detectors, DR1 and QR3)
+
+- Sky to pixel: largest difference 1.0e-6 px (200 points). Pixel to sky:
+  2.4e-10 arcsec (56 points).
+- Data offset equal in 8 of 8 files; 3x3 pixel values read with Range requests
+  identical in 8 of 8.
+
+**Live site, built-in browser at 900 px** (numbers read from the page, not logged)
+
+| Opened | Listed | Read | Time, size |
+|---|---|---|---|
+| `?target=Wolf 359` | 291 exposures, 3 epochs | 18 | 2.6 s, 5.1 MB, 36 requests |
+| `?target=eps Ind B` | 467, 4 epochs | 22 | 3.2 s, 6.1 MB, 44 requests |
+| `?target=WISE J085510.83-071442.5` | 258, 3 epochs | 23, later 24 | 2.4 s and 3.4 s, 6.5 and 6.8 MB |
+| `?ra=164.0924&dec=6.9952` | 291, 3 epochs | 18 | 4.5 s, 5.1 MB, 36 requests |
+
+- No console error in any of these. The times are for reading the images only;
+  the lookup before it takes several seconds more and was not timed in the browser.
+- The unknown name "no such star xyz123", typed into the search box, gives the
+  message "SIMBAD does not know this name…". The console shows the 404 of the
+  function for it.
+- WISE 0855 opens with detectors 5+6 because SIMBAD gives it type Y.
+- At 390 px: the WISE 0855 quick look from the image down to the end of the page.
+  The top of the page with the search box was not seen at this width.
+- The browser is the Chromium of the SI tool, not a separately installed Chrome.
+  The CORS preflight was not inspected in the browser's network panel; it was
+  checked from Python (above) and by the absence of console errors.
+
+**Rough motion (item 11)** (`site/scripts/test_motion.mjs`, `logs/test_motion.log`,
+first run `logs/test_motion_run1.log`)
+
+Method: windowed centroid of `stack_astrometry.py` on the browser stacks, looked
+for within 1.5 px of the catalogue position (proper motion + parallax), bootstrap
+over the exposures. Reference: the same method in the full pipeline on all
+cached, masked exposures (`logs/stack_astrometry_eps-indi-b.log`, run for this
+test; `logs/stack_astrometry_wise-0855.log`).
+
+| | Epsilon Indi B (all detectors, 6 per epoch) | WISE 0855 (D5+6, 8 per epoch) |
+|---|---|---|
+| Epoch pairs | 6 | 3 |
+| Within 2 combined errors of the full pipeline | 6 | 3 |
+| Difference to the full pipeline | 0.06 to 0.54 arcsec | 0.03 to 1.29 arcsec |
+| Quick-look error per component | 0.23 to 0.65 arcsec | 1.31 to 2.36 arcsec |
+| Full-pipeline error per component | 0.06 to 0.09 arcsec | 0.48 to 0.85 arcsec |
+| Within 2 quick-look errors of the catalogue prediction | 5 | 3 |
+
+- The prediction computed in TypeScript (low-precision Sun formula) differs from
+  the astropy-based one by at most 0.01 arcsec in the 9 pairs.
+- First run: 7 of 9 pairs within 2 combined errors. The two that failed both
+  involved the last Epsilon Indi B epoch, which had 4 instead of 6 exposures
+  because two detectors have no exposure there. The selection now fills up from
+  the other detectors. This was changed after seeing the result and tested on
+  the same two targets, so it is not an independent confirmation. With 6
+  exposures the error of that epoch grew only from 0.15 to 0.20 arcsec (north);
+  what changed was the measured position (-0.97 to -0.72 arcsec from the
+  prediction). Why 4 exposures gave a different position was not examined.
+- Epsilon Indi B, epoch 3 to 4, north: still 2.2 quick-look errors from the
+  catalogue prediction (-2.23 +- 0.38 against -1.39). The full pipeline shows
+  the same sign (-1.69 +- 0.08).
+- WISE 0855, epoch 2 to 3: 2.24 +- 3.03 arcsec, so the site prints "too slow to
+  measure with this data". The target is not slow (prediction -4.49 arcsec
+  east; full pipeline -3.48 +- 0.49). The wording was asked for; the note under
+  the table says that it also covers a source that is too faint. Whether the
+  line should read differently is a decision for the team.
+- On the live site the tables of both targets show the numbers of
+  `logs/test_motion.log` (6 and 3 rows compared by eye).
+- The banner keeps the label "Quick look, unmasked, no measurement". Its second
+  sentence now says that the rough motions are the only numbers taken from
+  these images, because "nothing is measured" was no longer true.
+
+**Not done or not tried in block B**
+
+- FLAGS are not read (Rice-compressed table); nothing is masked in the quick look.
+- No raw playback, no wavelength per exposure and no single-detector choice in
+  the quick look (All, D1-3, D5+6 only).
+- Not tried: positions without coverage, positions near a detector edge (the
+  code leaves out exposures whose position is off the detector, but none
+  occurred), crowded fields, a saturated star, a second browser, a phone.
+- The detector buttons of the quick look (D1-3, D5+6) were not clicked on the
+  live site.
+- The local preview cannot run the function; the quick look was only seen live.
+
+**Documents**: `README.md` (status, quick look, checks, limitations, tests) and
+`SOURCES.md` (cloud copy, requests made by the site, Vercel limits) updated.
+The "Use of SI" section was not touched.
+
+**Tool incident**: while writing `site/src/quicklook.ts`, two writes reported
+success but left a 0-byte file. After that every written source file was
+checked on disk with a command before it was used.
+
+Free disk: 8.3 GB at 22:21 (`logs/disk_free_block_b.log`). Between 20:58 and
+21:09 the `dir` output in the terminal showed 10.55 to 10.57 GB (not logged).
+The drop of about 2.2 GB did not happen in this folder: the files changed here
+since 19:20 add up to 1.18 MB (`logs/disk_modified_block_b.log`); the folder
+holds 16.4 GB, 16.1 GB of it in `cache/` (`logs/disk_usage_block_b.log`). The
+cause of the change outside the folder was not identified.
+
 ## Status at 2026-11-14 20:20
 
 Live site: https://blackhole-spherex.vercel.app (deployed by Vercel on every push to `main`).

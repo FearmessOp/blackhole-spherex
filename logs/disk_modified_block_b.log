@@ -1,0 +1,19 @@
+files modified since 2026-11-14 19:20 local, by top-level folder
+site               27 files       0.42 MB
+.git              106 files       0.27 MB
+data                2 files       0.22 MB
+logs               20 files       0.13 MB
+pipeline            7 files       0.09 MB
+PROGRESS.md         1 files       0.03 MB
+README.md           1 files       0.02 MB
+SOURCES.md          1 files       0.01 MB
+total 1.18 MB
+largest:
+      0.26 MB .\site\dist\assets\index-qozFarhI.js
+      0.22 MB .\data\quicklook\wcs_reference.json
+      0.06 MB .\logs\lookup_live_eps.json
+      0.04 MB .\.git\objects\10\9bd2dade088930e4051424b24f6ef8067058f3
+      0.04 MB .\.git\index
+      0.03 MB .\PROGRESS.md
+      0.03 MB .\pipeline\__pycache__\stack_epochs.cpython-313.pyc
+      0.03 MB .\site\src\quicklook.ts
