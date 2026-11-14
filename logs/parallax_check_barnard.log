@@ -1,0 +1,4 @@
+barnard: parallax (SIMBAD) = 546.9759 mas; epochs in manifest=3 in meta.json=3
+epoch 0 2025-08-15..2025-10-01 n=118 ['spherex_dr1']: parallax east=-0.494 north=+0.107 arcsec (range east -0.541..-0.443); stack offset east=+0.44 north=+0.16; offset minus parallax east=+0.93 north=+0.05
+epoch 1 2026-03-11..2026-05-05 n=122 ['spherex_dr1']: parallax east=+0.533 north=-0.002 arcsec (range east +0.393..+0.546); stack offset east=+0.57 north=+0.22; offset minus parallax east=+0.04 north=+0.22
+epoch 2 2026-08-16..2026-09-22 n=124 ['spherex_qr3']: parallax east=-0.475 north=+0.133 arcsec (range east -0.548..-0.447); stack offset east=-0.56 north=-0.14; offset minus parallax east=-0.08 north=-0.27
