@@ -1,0 +1,22 @@
+== live index assets 
+  <script type="module" crossorigin src="./assets/index-BQhX6-eP.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BozvtG-G.css">
+== local build assets 
+  <script type="module" crossorigin src="./assets/index-BQhX6-eP.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BozvtG-G.css">
+== raw files 
+barnard raw.json http=200 type=application/json; charset=utf-8 bytes=31080
+barnard raw.png http=200 type=image/png bytes=157406
+== end
+wise-0855 raw.json http=200 type=application/json; charset=utf-8 bytes=22101
+wise-0855 raw.png http=200 type=image/png bytes=127328
+== end
+eps-indi-b raw.json http=200 type=application/json; charset=utf-8 bytes=39833
+eps-indi-b raw.png http=200 type=image/png bytes=160463
+== end
+rw-aur raw.json http=200 type=application/json; charset=utf-8 bytes=28709
+rw-aur raw.png http=200 type=image/png bytes=177267
+== end
+r-dra raw.json http=200 type=application/json; charset=utf-8 bytes=46710
+r-dra raw.png http=200 type=image/png bytes=139276
+== end

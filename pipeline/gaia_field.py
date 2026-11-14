@@ -50,14 +50,27 @@ def fnum(s):
         return None
 
 def main():
+    global RADIUS_DEG
+    args = sys.argv[1:]
+    tag = ""
+    if "--radius" in args:  # e.g. --radius 0.15 --tag wide for the 0.2 deg cutouts
+        i = args.index("--radius")
+        RADIUS_DEG = float(args[i + 1])
+        del args[i:i + 2]
+    if "--tag" in args:
+        i = args.index("--tag")
+        tag = "_" + args[i + 1]
+        del args[i:i + 2]
     OUT.mkdir(parents=True, exist_ok=True)
     targets = json.loads((ROOT / "data" / "targets.json").read_text(encoding="utf-8"))
+    if args:
+        targets = [t for t in targets if t["slug"] in args]
     failed = 0
     for t in targets:
         slug = t["slug"]
         print(f"=== {slug} centre=({t['ra_query_deg']}, {t['dec_query_deg']}) radius={RADIUS_DEG} deg",
               flush=True)
-        path = OUT / f"{slug}.csv"
+        path = OUT / f"{slug}{tag}.csv"
         if path.exists() and path.stat().st_size > 0:
             text, service = path.read_text(encoding="utf-8"), "cached"
         else:
@@ -70,8 +83,8 @@ def main():
             print(f"  query: {adql}")
             path.write_text(text, encoding="utf-8")
         rows = list(csv.DictReader(io.StringIO(text)))
-        mags = sorted((fnum(r["phot_g_mean_mag"]), r) for r in rows
-                      if fnum(r["phot_g_mean_mag"]) is not None)
+        mags = sorted(((fnum(r["phot_g_mean_mag"]), r) for r in rows
+                       if fnum(r["phot_g_mean_mag"]) is not None), key=lambda mr: mr[0])
         with_pm = sum(1 for r in rows if fnum(r["pmra"]) is not None)
         print(f"  service={service} rows={len(rows)} with_proper_motion={with_pm} "
               f"G<15: {sum(1 for m, _ in mags if m < 15)} G<17: {sum(1 for m, _ in mags if m < 17)} "
