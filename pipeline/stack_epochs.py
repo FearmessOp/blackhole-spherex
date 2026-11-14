@@ -31,8 +31,9 @@ from scipy.ndimage import map_coordinates
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_DATA = ROOT / "site" / "public" / "data"
-NPIX = 29
+NPIX = 29  # working grid; the output is cropped to the part every stack covers
 SCALE_ARCSEC = 6.15
+ON_TARGET_ARCSEC = 3.0  # a centroid further than this from the prediction is not the target
 GAP_DAYS = 30.0
 CLIP_SIGMA = 5.0
 PNG_ZOOM = 1  # PNGs are written at native resolution; the site enlarges them unsmoothed
@@ -56,14 +57,14 @@ def target_radec(target, mjd):
     dec = target["dec_deg"] + pmdec * dt / 3.6e6
     return ra % 360.0, dec
 
-def make_grid(ra0, dec0):
-    """Fixed output grid: north up, east left, SCALE_ARCSEC per pixel."""
+def make_grid(ra0, dec0, npix):
+    """Fixed sky grid of npix x npix: north up, east left, SCALE_ARCSEC per pixel."""
     w = WCS(naxis=2)
     w.wcs.ctype = ["RA---TAN", "DEC--TAN"]
     w.wcs.crval = [ra0, dec0]
-    w.wcs.crpix = [(NPIX + 1) / 2.0, (NPIX + 1) / 2.0]
+    w.wcs.crpix = [(npix + 1) / 2.0, (npix + 1) / 2.0]
     w.wcs.cdelt = [-SCALE_ARCSEC / 3600.0, SCALE_ARCSEC / 3600.0]
-    jj, ii = np.mgrid[0:NPIX, 0:NPIX]
+    jj, ii = np.mgrid[0:npix, 0:npix]
     ra, dec = w.wcs_pix2world(ii, jj, 0)
     return w, ra, dec
 
@@ -87,7 +88,8 @@ def load_frame(job, grid_ra, grid_dec):
     """Read one cutout and resample it onto the common grid.
 
     Returns (image on the grid, NaN where there is no valid data;
-             wavelength in um at the target pixel; number of masked pixels;
+             wavelength in um at the target pixel;
+             footprint: grid pixels that fall inside this cutout, whatever their flags;
              list of MASK_FLAGS planes not declared in this file).
     """
     with fits.open(ROOT / job["path"]) as hdul:
@@ -107,6 +109,7 @@ def load_frame(job, grid_ra, grid_dec):
     num = map_coordinates(np.where(bad, 0.0, img), coords, order=1, cval=0.0)
     den = map_coordinates((~bad).astype(np.float64), coords, order=1, cval=0.0)
     out = np.where(den > 0.5, num / np.maximum(den, 1e-9), np.nan)
+    foot = map_coordinates(np.ones_like(img), coords, order=1, cval=0.0) > 0.5
     # Wavelength at the target. The lookup table is indexed by 1-based detector
     # pixel; CRPIXnW / CRVALnW map cutout pixels to detector pixels.
     tx, ty = w.all_world2pix(job["center_ra_deg"], job["center_dec_deg"], 0)
@@ -114,7 +117,7 @@ def load_frame(job, grid_ra, grid_dec):
     ydet = float(ty) + 1.0 - hdr["CRPIX2W"] + hdr["CRVAL2W"]
     interp = RegularGridInterpolator((wy, wx), wv, bounds_error=False, fill_value=None)
     wave = float(interp([[ydet, xdet]])[0])
-    return out, wave, int(bad.sum()), undeclared
+    return out, wave, foot, undeclared
 
 def clipped_mean(cube):
     """Clipped mean along axis 0; also returns the number of valid frames per pixel."""
@@ -131,8 +134,8 @@ def centroid(stack, x0, y0, half=3):
     cx, cy = float(x0), float(y0)
     for _ in range(3):
         xi, yi = int(round(cx)), int(round(cy))
-        ys = slice(max(0, yi - half), min(NPIX, yi + half + 1))
-        xs = slice(max(0, xi - half), min(NPIX, xi + half + 1))
+        ys = slice(max(0, yi - half), min(stack.shape[0], yi + half + 1))
+        xs = slice(max(0, xi - half), min(stack.shape[1], xi + half + 1))
         sub = stack[ys, xs]
         wgt = np.where(np.isfinite(sub) & (sub > 0), sub, 0.0)
         if wgt.sum() <= 0:
@@ -158,7 +161,7 @@ def write_png(stack, scale, path):
     top = np.arcsinh((scale["vmax"] - scale["vmin"]) / scale["soft"])
     g = np.clip(np.arcsinh(np.clip(v, 0, None)) / top, 0, 1) * 255.0
     finite = np.isfinite(stack)
-    la = np.zeros((NPIX, NPIX, 2), dtype=np.uint8)
+    la = np.zeros(stack.shape + (2,), dtype=np.uint8)
     la[..., 0] = np.where(finite, np.round(np.nan_to_num(g)), 0)
     la[..., 1] = np.where(finite, 255, 0)
     Image.fromarray(np.flipud(la)).save(path)  # grid row 0 is south -> flip
@@ -177,14 +180,14 @@ def main():
 
     t_mean = float(np.mean([j["t_mid_mjd"] for j in have]))
     ra0, dec0 = target_radec(target, t_mean)
-    grid, grid_ra, grid_dec = make_grid(ra0, dec0)
-    print(f"grid: {NPIX}x{NPIX} px, {SCALE_ARCSEC} arcsec/px, centre=({ra0:.7f}, {dec0:.7f}) "
-          f"at MJD {t_mean:.3f}; masked flags={MASK_FLAGS}")
+    _, grid_ra, grid_dec = make_grid(ra0, dec0, NPIX)
+    print(f"working grid: {NPIX}x{NPIX} px, {SCALE_ARCSEC} arcsec/px, "
+          f"centre=({ra0:.7f}, {dec0:.7f}) at MJD {t_mean:.3f}; masked flags={MASK_FLAGS}")
 
     frames, n_wave_out, n_undeclared = [], 0, {}
     for j in have:
         try:
-            img, wave, nbad, undeclared = load_frame(j, grid_ra, grid_dec)
+            img, wave, foot, undeclared = load_frame(j, grid_ra, grid_dec)
         except Exception as e:  # noqa: BLE001
             print(f"  LOAD FAILED {j['file']}: {e!r}")
             continue
@@ -195,7 +198,7 @@ def main():
             n_wave_out += 1
             print(f"  wavelength outside detector range: {j['file']} wave={wave:.4f} "
                   f"range={lo:.4f}..{hi:.4f}")
-        frames.append({"job": j, "img": img, "wave": wave, "nbad": nbad})
+        frames.append({"job": j, "img": img, "wave": wave, "foot": foot})
     print(f"frames loaded={len(frames)} of {len(have)}; "
           f"wavelength outside SIA detector range: {n_wave_out}")
     print(f"files where a masked flag plane is not declared in the header: {n_undeclared}")
@@ -210,6 +213,27 @@ def main():
             epochs.append([f])
         else:
             epochs[-1].append(f)
+
+    # Crop: the cutouts are rotated differently from exposure to exposure, so the
+    # edges of the working grid are only partly covered. Keep the largest centred
+    # square in which every band/epoch stack has at least half of its frames.
+    c = NPIX // 2
+    ok = np.ones((NPIX, NPIX), dtype=bool)
+    for ep in epochs:
+        for b in BANDS:
+            sel = ep if b == "all" else [f for f in ep if f["job"]["detector"] == int(b[1])]
+            if sel:
+                ok &= np.mean([f["foot"] for f in sel], axis=0) >= 0.5
+    h = 0
+    while h < c and ok[c - h - 1:c + h + 2, c - h - 1:c + h + 2].all():
+        h += 1
+    npix = 2 * h + 1
+    sl = slice(c - h, c + h + 1)
+    for f in frames:
+        f["img"] = f["img"][sl, sl]
+    grid, _, _ = make_grid(ra0, dec0, npix)
+    print(f"output grid: {npix}x{npix} px, cropped from {NPIX}x{NPIX} "
+          f"(every stack has at least half of its frames on every pixel)")
 
     out_dir = SITE_DATA / slug
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -236,22 +260,26 @@ def main():
               "mjd_mean": round(mjd_mean, 3), "year_mean": round(year_of(mjd_mean), 4),
               "n_exposures": len(ep),
               "predicted": {"ra_deg": round(pra, 7), "dec_deg": round(pdec, 7),
-                            "x": round(px, 3), "y": round(NPIX - 1 - py, 3),
-                            "model": "SIMBAD J2000 position + proper motion, no parallax"}}
+                            "x": round(px, 3), "y": round(npix - 1 - py, 3),
+                            "model": "SIMBAD J2000 position + proper motion, no parallax"},
+              "on_target": False}
         if meas:
             mra, mdec = (float(v) for v in grid.wcs_pix2world(meas[0], meas[1], 0))
             dx = (meas[0] - px) * SCALE_ARCSEC
             dy = (meas[1] - py) * SCALE_ARCSEC
-            em["measured"] = {"ra_deg": round(mra, 7), "dec_deg": round(mdec, 7),
-                              "x": round(meas[0], 3), "y": round(NPIX - 1 - meas[1], 3),
-                              "method": "flux-weighted centroid, 7x7 px box, 'all' stack"}
+            # A centroid far from the prediction belongs to another source, not the target.
+            em["on_target"] = math.hypot(dx, dy) <= ON_TARGET_ARCSEC
+            key = "measured" if em["on_target"] else "off_target_centroid"
+            em[key] = {"ra_deg": round(mra, 7), "dec_deg": round(mdec, 7),
+                       "x": round(meas[0], 3), "y": round(npix - 1 - meas[1], 3),
+                       "method": "flux-weighted centroid, 7x7 px box, 'all' stack"}
             em["offset_arcsec"] = {"east": round(-dx, 2), "north": round(dy, 2),
                                    "total": round(math.hypot(dx, dy), 2)}
         epoch_meta.append(em)
         print(f"epoch {k}: {em['t_start']} .. {em['t_end']} n={len(ep)} "
               f"predicted_px=({px:.2f}, {py:.2f}) "
               f"measured_px={None if not meas else (round(meas[0], 2), round(meas[1], 2))} "
-              f"offset_arcsec={em.get('offset_arcsec')}")
+              f"offset_arcsec={em.get('offset_arcsec')} on_target={em['on_target']}")
 
     if len(epoch_meta) > 1 and all("measured" in e for e in (epoch_meta[0], epoch_meta[-1])):
         a, b = epoch_meta[0], epoch_meta[-1]
@@ -281,7 +309,7 @@ def main():
               f"soft={scale['soft']:.4g} MJy/sr")
 
     meta = {"slug": slug, "name": target["name"], "simbad_id": target["main_id"],
-            "grid": {"npix": NPIX, "scale_arcsec": SCALE_ARCSEC, "orientation": "north up, east left",
+            "grid": {"npix": npix, "scale_arcsec": SCALE_ARCSEC, "orientation": "north up, east left",
                      "center_ra_deg": round(ra0, 7), "center_dec_deg": round(dec0, 7)},
             "reference": {"source": "SIMBAD (Harvard mirror)", "pmra_masyr": target["pmra_masyr"],
                           "pmdec_masyr": target["pmdec_masyr"], "plx_mas": target["plx_mas"],

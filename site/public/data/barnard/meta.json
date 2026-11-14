@@ -3,7 +3,7 @@
  "name": "Barnard's Star",
  "simbad_id": "NAME Barnard's star",
  "grid": {
-  "npix": 29,
+  "npix": 25,
   "scale_arcsec": 6.15,
   "orientation": "north up, east left",
   "center_ra_deg": 269.4462284,
@@ -36,15 +36,16 @@
    "predicted": {
     "ra_deg": 269.4463448,
     "dec_deg": 4.7672209,
-    "x": 13.932,
-    "y": 14.878,
+    "x": 11.932,
+    "y": 12.878,
     "model": "SIMBAD J2000 position + proper motion, no parallax"
    },
+   "on_target": true,
    "measured": {
     "ra_deg": 269.446468,
     "dec_deg": 4.7672656,
-    "x": 13.86,
-    "y": 14.852,
+    "x": 11.86,
+    "y": 12.852,
     "method": "flux-weighted centroid, 7x7 px box, 'all' stack"
    },
    "offset_arcsec": {
@@ -63,15 +64,16 @@
    "predicted": {
     "ra_deg": 269.4462205,
     "dec_deg": 4.7688228,
-    "x": 14.005,
-    "y": 13.94,
+    "x": 12.005,
+    "y": 11.94,
     "model": "SIMBAD J2000 position + proper motion, no parallax"
    },
+   "on_target": true,
    "measured": {
     "ra_deg": 269.4463799,
     "dec_deg": 4.7688841,
-    "x": 13.912,
-    "y": 13.905,
+    "x": 11.912,
+    "y": 11.905,
     "method": "flux-weighted centroid, 7x7 px box, 'all' stack"
    },
    "offset_arcsec": {
@@ -90,15 +92,16 @@
    "predicted": {
     "ra_deg": 269.4461254,
     "dec_deg": 4.7700485,
-    "x": 14.06,
-    "y": 13.223,
+    "x": 12.06,
+    "y": 11.223,
     "model": "SIMBAD J2000 position + proper motion, no parallax"
    },
+   "on_target": true,
    "measured": {
     "ra_deg": 269.4459694,
     "dec_deg": 4.7700085,
-    "x": 14.151,
-    "y": 13.246,
+    "x": 12.151,
+    "y": 11.246,
     "method": "flux-weighted centroid, 7x7 px box, 'all' stack"
    },
    "offset_arcsec": {
@@ -114,9 +117,9 @@
    "label": "All detectors",
    "scale": {
     "stretch": "asinh",
-    "vmin": -0.5109972123419642,
-    "vmax": 1046.5330269457527,
-    "soft": 0.7707995403062569,
+    "vmin": -0.5823984887480422,
+    "vmax": 1190.6558154195882,
+    "soft": 1.069177395771612,
     "unit": "MJy/sr"
    },
    "frames": [
@@ -126,7 +129,7 @@
      "n_frames": 118,
      "wave_min_um": 0.7501,
      "wave_max_um": 5.0008,
-     "min_coverage": 0
+     "min_coverage": 44
     },
     {
      "epoch": 1,
@@ -134,7 +137,7 @@
      "n_frames": 122,
      "wave_min_um": 0.7449,
      "wave_max_um": 5.0022,
-     "min_coverage": 7
+     "min_coverage": 45
     },
     {
      "epoch": 2,
@@ -142,7 +145,7 @@
      "n_frames": 124,
      "wave_min_um": 0.7414,
      "wave_max_um": 4.9774,
-     "min_coverage": 0
+     "min_coverage": 45
     }
    ]
   },
@@ -151,9 +154,9 @@
    "label": "Detector 1",
    "scale": {
     "stretch": "asinh",
-    "vmin": -0.6205662034989319,
-    "vmax": 935.3158236265846,
-    "soft": 0.9564661154556625,
+    "vmin": -0.6880694917212258,
+    "vmax": 943.9011793724607,
+    "soft": 1.2683556705105317,
     "unit": "MJy/sr"
    },
    "frames": [
@@ -163,7 +166,7 @@
      "n_frames": 24,
      "wave_min_um": 0.7501,
      "wave_max_um": 1.1072,
-     "min_coverage": 0
+     "min_coverage": 7
     },
     {
      "epoch": 1,
@@ -171,7 +174,7 @@
      "n_frames": 18,
      "wave_min_um": 0.7449,
      "wave_max_um": 1.0918,
-     "min_coverage": 0
+     "min_coverage": 2
     },
     {
      "epoch": 2,
@@ -179,7 +182,7 @@
      "n_frames": 18,
      "wave_min_um": 0.7414,
      "wave_max_um": 1.0972,
-     "min_coverage": 0
+     "min_coverage": 3
     }
    ]
   },
@@ -188,9 +191,9 @@
    "label": "Detector 2",
    "scale": {
     "stretch": "asinh",
-    "vmin": -0.7188225990975452,
-    "vmax": 1196.4788546100726,
-    "soft": 1.1043800751028496,
+    "vmin": -0.7827426879986457,
+    "vmax": 1280.1053418602417,
+    "soft": 1.435162515063805,
     "unit": "MJy/sr"
    },
    "frames": [
@@ -225,9 +228,9 @@
    "label": "Detector 3",
    "scale": {
     "stretch": "asinh",
-    "vmin": -0.7556937107010915,
-    "vmax": 1260.1976942472218,
-    "soft": 1.1628414444865414,
+    "vmin": -0.8621373108136311,
+    "vmax": 1333.8842377758815,
+    "soft": 1.596676543444703,
     "unit": "MJy/sr"
    },
    "frames": [
@@ -237,7 +240,7 @@
      "n_frames": 18,
      "wave_min_um": 1.632,
      "wave_max_um": 2.4106,
-     "min_coverage": 0
+     "min_coverage": 1
     },
     {
      "epoch": 1,
@@ -253,7 +256,7 @@
      "n_frames": 19,
      "wave_min_um": 1.6504,
      "wave_max_um": 2.423,
-     "min_coverage": 0
+     "min_coverage": 2
     }
    ]
   },
@@ -262,9 +265,9 @@
    "label": "Detector 4",
    "scale": {
     "stretch": "asinh",
-    "vmin": -0.4506174549437685,
-    "vmax": 800.7993320210979,
-    "soft": 0.6895050494927122,
+    "vmin": -0.544120181109941,
+    "vmax": 825.3731494745874,
+    "soft": 1.0110207137577718,
     "unit": "MJy/sr"
    },
    "frames": [
@@ -274,7 +277,7 @@
      "n_frames": 23,
      "wave_min_um": 2.4409,
      "wave_max_um": 3.8001,
-     "min_coverage": 0
+     "min_coverage": 1
     },
     {
      "epoch": 1,
@@ -299,9 +302,9 @@
    "label": "Detector 5",
    "scale": {
     "stretch": "asinh",
-    "vmin": -0.2723113525016099,
-    "vmax": 1155.7950946157746,
-    "soft": 0.3987549504933015,
+    "vmin": -0.3300099870212587,
+    "vmax": 1407.35554130069,
+    "soft": 0.5936433158285221,
     "unit": "MJy/sr"
    },
    "frames": [
@@ -311,7 +314,7 @@
      "n_frames": 18,
      "wave_min_um": 3.8214,
      "wave_max_um": 4.4069,
-     "min_coverage": 0
+     "min_coverage": 16
     },
     {
      "epoch": 1,
@@ -319,7 +322,7 @@
      "n_frames": 19,
      "wave_min_um": 3.8105,
      "wave_max_um": 4.4074,
-     "min_coverage": 0
+     "min_coverage": 17
     },
     {
      "epoch": 2,
@@ -327,7 +330,7 @@
      "n_frames": 25,
      "wave_min_um": 3.8043,
      "wave_max_um": 4.4333,
-     "min_coverage": 0
+     "min_coverage": 22
     }
    ]
   },
@@ -336,9 +339,9 @@
    "label": "Detector 6",
    "scale": {
     "stretch": "asinh",
-    "vmin": -0.21928794425285902,
-    "vmax": 906.7823194856851,
-    "soft": 0.312418173125475,
+    "vmin": -0.26139859990291114,
+    "vmax": 1060.5130405098193,
+    "soft": 0.45163568652912417,
     "unit": "MJy/sr"
    },
    "frames": [
@@ -348,7 +351,7 @@
      "n_frames": 17,
      "wave_min_um": 4.4183,
      "wave_max_um": 5.0008,
-     "min_coverage": 0
+     "min_coverage": 10
     },
     {
      "epoch": 1,
@@ -356,7 +359,7 @@
      "n_frames": 24,
      "wave_min_um": 4.412,
      "wave_max_um": 5.0022,
-     "min_coverage": 2
+     "min_coverage": 22
     },
     {
      "epoch": 2,
@@ -364,7 +367,7 @@
      "n_frames": 19,
      "wave_min_um": 4.4024,
      "wave_max_um": 4.9774,
-     "min_coverage": 0
+     "min_coverage": 14
     }
    ]
   }

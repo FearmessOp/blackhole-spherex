@@ -3,6 +3,22 @@
   {
    "slug": "barnard",
    "name": "Barnard's Star"
+  },
+  {
+   "slug": "wise-0855",
+   "name": "WISE 0855-0714"
+  },
+  {
+   "slug": "eps-indi-b",
+   "name": "Epsilon Indi B"
+  },
+  {
+   "slug": "rw-aur",
+   "name": "RW Aurigae"
+  },
+  {
+   "slug": "r-dra",
+   "name": "R Draconis"
   }
  ]
 }
