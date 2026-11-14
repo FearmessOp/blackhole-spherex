@@ -1,0 +1,102 @@
+{
+ "slug": "wise-0855",
+ "n_exposures": 258,
+ "n_epochs": 3,
+ "n_stars": 5,
+ "aperture_px": 5,
+ "raw_scatter_median": 0.9774,
+ "epoch_std_median": 0.0209,
+ "epoch_half_range_median": 0.0256,
+ "stars": [
+  {
+   "source_id": "5756862120747649024",
+   "g": 10.25,
+   "n_exposures": 87,
+   "n_per_epoch": [
+    12,
+    44,
+    31
+   ],
+   "raw_scatter": 0.2556,
+   "epoch_std": 0.0209,
+   "epoch_half_range": 0.0256,
+   "epoch_means": [
+    113.4481,
+    110.6586,
+    107.7857
+   ]
+  },
+  {
+   "source_id": "5756956330854206592",
+   "g": 12.25,
+   "n_exposures": 241,
+   "n_per_epoch": [
+    28,
+    122,
+    91
+   ],
+   "raw_scatter": 0.7949,
+   "epoch_std": 0.0342,
+   "epoch_half_range": 0.0417,
+   "epoch_means": [
+    52.545,
+    50.7999,
+    48.3306
+   ]
+  },
+  {
+   "source_id": "5756955785394371328",
+   "g": 13.3,
+   "n_exposures": 245,
+   "n_per_epoch": [
+    26,
+    124,
+    95
+   ],
+   "raw_scatter": 1.0118,
+   "epoch_std": 0.0349,
+   "epoch_half_range": 0.0381,
+   "epoch_means": [
+    13.4618,
+    12.5419,
+    12.4831
+   ]
+  },
+  {
+   "source_id": "5756959491950135168",
+   "g": 13.87,
+   "n_exposures": 248,
+   "n_per_epoch": [
+    29,
+    122,
+    97
+   ],
+   "raw_scatter": 1.0118,
+   "epoch_std": 0.0194,
+   "epoch_half_range": 0.0227,
+   "epoch_means": [
+    7.4983,
+    7.8477,
+    7.7659
+   ]
+  },
+  {
+   "source_id": "5756960355239574528",
+   "g": 14.03,
+   "n_exposures": 244,
+   "n_per_epoch": [
+    28,
+    120,
+    96
+   ],
+   "raw_scatter": 0.9774,
+   "epoch_std": 0.0183,
+   "epoch_half_range": 0.0222,
+   "epoch_means": [
+    5.6547,
+    5.8092,
+    5.5567
+   ]
+  }
+ ]
+}

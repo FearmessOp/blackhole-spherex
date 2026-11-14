@@ -1,0 +1,9 @@
+wise-0855: wide cutouts on_disk=258 of 258; candidate stars=40 (isolated Gaia DR3, G 10.25..15.24)
+epochs=3; stars with at least 8 clean exposures in every epoch, brightest 5 kept: 5
+  G=10.25 id=5756862120747649024 n=87 per_epoch=[12, 44, 31] raw scatter=25.6% epoch std=2.1% epoch half-range=2.6%
+  G=12.25 id=5756956330854206592 n=241 per_epoch=[28, 122, 91] raw scatter=79.5% epoch std=3.4% epoch half-range=4.2%
+  G=13.3 id=5756955785394371328 n=245 per_epoch=[26, 124, 95] raw scatter=101.2% epoch std=3.5% epoch half-range=3.8%
+  G=13.87 id=5756959491950135168 n=248 per_epoch=[29, 122, 97] raw scatter=101.2% epoch std=1.9% epoch half-range=2.3%
+  G=14.03 id=5756960355239574528 n=244 per_epoch=[28, 120, 96] raw scatter=97.7% epoch std=1.8% epoch half-range=2.2%
+field medians: raw scatter=97.7% epoch std=2.1% epoch half-range=2.6%
+wrote C:\Users\user\blackhole-spherex\data\flicker\wise-0855.json

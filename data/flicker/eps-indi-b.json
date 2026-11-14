@@ -1,0 +1,112 @@
+{
+ "slug": "eps-indi-b",
+ "n_exposures": 467,
+ "n_epochs": 4,
+ "n_stars": 5,
+ "aperture_px": 5,
+ "raw_scatter_median": 0.9431,
+ "epoch_std_median": 0.0762,
+ "epoch_half_range_median": 0.1035,
+ "stars": [
+  {
+   "source_id": "6412596458823395328",
+   "g": 12.95,
+   "n_exposures": 419,
+   "n_per_epoch": [
+    108,
+    136,
+    64,
+    111
+   ],
+   "raw_scatter": 0.9431,
+   "epoch_std": 0.0762,
+   "epoch_half_range": 0.1035,
+   "epoch_means": [
+    20.5773,
+    21.6848,
+    22.8879,
+    18.5569
+   ]
+  },
+  {
+   "source_id": "6412594259800093568",
+   "g": 12.96,
+   "n_exposures": 413,
+   "n_per_epoch": [
+    112,
+    133,
+    62,
+    106
+   ],
+   "raw_scatter": 1.0117,
+   "epoch_std": 0.0933,
+   "epoch_half_range": 0.1163,
+   "epoch_means": [
+    14.6254,
+    17.2938,
+    16.5594,
+    13.6788
+   ]
+  },
+  {
+   "source_id": "6412593435166417536",
+   "g": 13.93,
+   "n_exposures": 406,
+   "n_per_epoch": [
+    106,
+    121,
+    66,
+    113
+   ],
+   "raw_scatter": 0.9748,
+   "epoch_std": 0.0907,
+   "epoch_half_range": 0.1161,
+   "epoch_means": [
+    6.231,
+    7.062,
+    6.855,
+    5.5688
+   ]
+  },
+  {
+   "source_id": "6412592370014523776",
+   "g": 14.07,
+   "n_exposures": 387,
+   "n_per_epoch": [
+    106,
+    132,
+    71,
+    78
+   ],
+   "raw_scatter": 0.7091,
+   "epoch_std": 0.0231,
+   "epoch_half_range": 0.0294,
+   "epoch_means": [
+    8.5727,
+    8.9289,
+    8.8192,
+    8.4176
+   ]
+  },
+  {
+   "source_id": "6412595771628639616",
+   "g": 14.19,
+   "n_exposures": 402,
+   "n_per_epoch": [
+    110,
+    120,
+    69,
+    103
+   ],
+   "raw_scatter": 0.8258,
+   "epoch_std": 0.0588,
+   "epoch_half_range": 0.0761,
+   "epoch_means": [
+    9.977,
+    9.8103,
+    10.1826,
+    8.7115
+   ]
+  }
+ ]
+}

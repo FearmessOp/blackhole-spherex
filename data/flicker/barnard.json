@@ -1,0 +1,102 @@
+{
+ "slug": "barnard",
+ "n_exposures": 364,
+ "n_epochs": 3,
+ "n_stars": 5,
+ "aperture_px": 5,
+ "raw_scatter_median": 0.7785,
+ "epoch_std_median": 0.0521,
+ "epoch_half_range_median": 0.0554,
+ "stars": [
+  {
+   "source_id": "4472832165289153024",
+   "g": 11.45,
+   "n_exposures": 341,
+   "n_per_epoch": [
+    112,
+    115,
+    114
+   ],
+   "raw_scatter": 1.0091,
+   "epoch_std": 0.0374,
+   "epoch_half_range": 0.0451,
+   "epoch_means": [
+    48.7281,
+    44.5069,
+    47.2809
+   ]
+  },
+  {
+   "source_id": "4472837942025804800",
+   "g": 11.82,
+   "n_exposures": 327,
+   "n_per_epoch": [
+    107,
+    107,
+    113
+   ],
+   "raw_scatter": 0.9865,
+   "epoch_std": 0.0521,
+   "epoch_half_range": 0.0554,
+   "epoch_means": [
+    58.8118,
+    52.5319,
+    58.7855
+   ]
+  },
+  {
+   "source_id": "4472836292758713216",
+   "g": 11.86,
+   "n_exposures": 269,
+   "n_per_epoch": [
+    95,
+    89,
+    85
+   ],
+   "raw_scatter": 0.7702,
+   "epoch_std": 0.058,
+   "epoch_half_range": 0.0657,
+   "epoch_means": [
+    91.7702,
+    82.2328,
+    80.6147
+   ]
+  },
+  {
+   "source_id": "4472835807421415680",
+   "g": 12.03,
+   "n_exposures": 289,
+   "n_per_epoch": [
+    92,
+    102,
+    95
+   ],
+   "raw_scatter": 0.7785,
+   "epoch_std": 0.0122,
+   "epoch_half_range": 0.0138,
+   "epoch_means": [
+    90.7326,
+    88.2616,
+    90.4068
+   ]
+  },
+  {
+   "source_id": "4472838762358909184",
+   "g": 12.47,
+   "n_exposures": 132,
+   "n_per_epoch": [
+    13,
+    56,
+    63
+   ],
+   "raw_scatter": 0.4239,
+   "epoch_std": 0.0871,
+   "epoch_half_range": 0.1007,
+   "epoch_means": [
+    112.3532,
+    96.1386,
+    92.167
+   ]
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+eps-indi-b: wide cutouts on_disk=467 of 467; candidate stars=40 (isolated Gaia DR3, G 4.32..16.01)
+epochs=4; stars with at least 8 clean exposures in every epoch, brightest 5 kept: 5
+  G=12.95 id=6412596458823395328 n=419 per_epoch=[108, 136, 64, 111] raw scatter=94.3% epoch std=7.6% epoch half-range=10.3%
+  G=12.96 id=6412594259800093568 n=413 per_epoch=[112, 133, 62, 106] raw scatter=101.2% epoch std=9.3% epoch half-range=11.6%
+  G=13.93 id=6412593435166417536 n=406 per_epoch=[106, 121, 66, 113] raw scatter=97.5% epoch std=9.1% epoch half-range=11.6%
+  G=14.07 id=6412592370014523776 n=387 per_epoch=[106, 132, 71, 78] raw scatter=70.9% epoch std=2.3% epoch half-range=2.9%
+  G=14.19 id=6412595771628639616 n=402 per_epoch=[110, 120, 69, 103] raw scatter=82.6% epoch std=5.9% epoch half-range=7.6%
+field medians: raw scatter=94.3% epoch std=7.6% epoch half-range=10.3%
+wrote C:\Users\user\blackhole-spherex\data\flicker\eps-indi-b.json

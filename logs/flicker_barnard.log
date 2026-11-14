@@ -1,0 +1,9 @@
+barnard: wide cutouts on_disk=364 of 364; candidate stars=40 (isolated Gaia DR3, G 8.19..13.90)
+epochs=3; stars with at least 8 clean exposures in every epoch, brightest 5 kept: 5
+  G=11.45 id=4472832165289153024 n=341 per_epoch=[112, 115, 114] raw scatter=100.9% epoch std=3.7% epoch half-range=4.5%
+  G=11.82 id=4472837942025804800 n=327 per_epoch=[107, 107, 113] raw scatter=98.7% epoch std=5.2% epoch half-range=5.5%
+  G=11.86 id=4472836292758713216 n=269 per_epoch=[95, 89, 85] raw scatter=77.0% epoch std=5.8% epoch half-range=6.6%
+  G=12.03 id=4472835807421415680 n=289 per_epoch=[92, 102, 95] raw scatter=77.8% epoch std=1.2% epoch half-range=1.4%
+  G=12.47 id=4472838762358909184 n=132 per_epoch=[13, 56, 63] raw scatter=42.4% epoch std=8.7% epoch half-range=10.1%
+field medians: raw scatter=77.8% epoch std=5.2% epoch half-range=5.5%
+wrote C:\Users\user\blackhole-spherex\data\flicker\barnard.json
