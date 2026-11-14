@@ -3,15 +3,15 @@
 Team Blackhole 102, NASA Space Apps Challenge 2026, "Planet X and SPHEREx".
 Times are local (UTC+3). Every number below comes from the log file named next to it.
 
-## Status at 2026-11-14 18:40
+## Status at 2026-11-14 19:05
 
 Live site: https://blackhole-spherex.vercel.app (deployed by Vercel on every push to `main`).
-**The live site is behind the repository on this machine:** the last pushed commit is
-`be4f2a0`; the five commits listed below and the document changes are local only
-(`logs/git_remote.log`). The live site was not opened in this block.
+The commits listed below were pushed (`be4f2a0..6fb46ee`, `logs/push_block3.log`).
+The live site serves the same bundle as the local build and the new data files
+(`logs/live_site_check_block3.log`) and was opened in a browser, see below.
 
 All five targets have epoch stacks, raw playback, a flicker number and a results
-panel in the local build. A motion fit works for Epsilon Indi B, motion between
+panel on the site. A motion fit works for Epsilon Indi B, motion between
 epochs is measured for WISE 0855, and the three saturated targets carry a warning
 instead of a motion.
 
@@ -19,10 +19,12 @@ The site shows five prepared targets only. Coordinate entry, coordinates in the
 URL, click-for-spectrum, the "find the mover" mode, catalogue overlays, frame
 subtraction and field-size selection are not implemented.
 
-### Commits of this block (local, not pushed)
+### Commits of this block (pushed)
 
 | Commit | Content |
 |---|---|
+| `6fb46ee` | README: "Use of SI" section marked as a draft |
+| `826259d` | README, SOURCES and PROGRESS rewritten; terms and licence checks |
 | `7268457` | Results panel, D1-3 and D5+6 bands, saturation and flicker for all five targets, WISE 0855 neighbour star test |
 | `85a7bf9` | Narrow screens: motion table as one block per epoch pair, value and error kept on one line |
 | `6cccbd5` | Motion arrow drawn 4x with label, outlined overlay text |
@@ -64,8 +66,23 @@ Stacks per target (`logs/stack_<slug>.log`):
   the page only).
 - After `e5d8110`: the raw-playback sentence on Barnard's Star and WISE 0855 at 900 px.
 - After `819c627`: the flicker sentence on R Draconis at 900 px.
-- Not opened after the last two commits: Epsilon Indi B and RW Aurigae. They use
-  the same code; their numbers are in `logs/build_results.log`.
+- Not opened in the local preview after the last two commits: Epsilon Indi B and
+  RW Aurigae. They were seen on the live site instead (next section).
+
+### What was looked at in a browser (live site, after the push)
+
+- 900 px width: all five targets, top of the page, flicker and raw-playback
+  sentence, and the "Measured" section. The numbers shown are the ones in
+  `logs/build_results.log`. For Epsilon Indi B the fit table was seen, the parallax
+  warning and the arrow note below it were not scrolled to. No console errors.
+- 390 px width: the top of the page for all five targets (cards, stacked panel,
+  labels, arrow on Epsilon Indi B); the lower part of the page for R Draconis
+  (flicker sentence, controls, saturation warning) and WISE 0855 (motion table as
+  blocks, neighbour note). The lower part of Barnard's Star, Epsilon Indi B and
+  RW Aurigae was not opened at this width on the live site. No console errors.
+- Seen and left as it is: for RW Aurigae the saturation warning reads "In 0 of
+  these exposures at least one of the central 3x3 pixels is empty and shows as
+  black"; correct, but awkward to read.
 
 ### Saturation (`logs/saturation_check.log`, `logs/target_astrometry_<slug>.log`)
 
@@ -249,7 +266,10 @@ Gaia. No release-dependent shift was measured.
 
 ### Open
 
-- Push the local commits and check the live site (five targets, desktop and 390 px).
+- Live site at 390 px: lower part of the page for Barnard's Star, Epsilon Indi B
+  and RW Aurigae not opened (same layout code as the two targets that were).
+- Team decisions: confirm the "Use of SI" text and the name of the SI tool; decide
+  whether `data/gaia/*.csv` (CC BY-NC 3.0 IGO) stays in the Apache-2.0 repository.
 - Challenge features not implemented: coordinate entry and coordinates in the URL,
   spectrum on click, "find the mover", catalogue overlays, frame subtraction, field
   size. No light curve for the two variable stars.

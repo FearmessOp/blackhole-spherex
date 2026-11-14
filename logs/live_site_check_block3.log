@@ -1,0 +1,28 @@
+---- index.html ---- 
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Blink SPHEREx images of a patch of sky in time order to spot moving and variable objects." />
+    <link rel="icon" href="data:," />
+    <title>SPHEREx motion viewer</title>
+  <script type="module" crossorigin src="./assets/index-OWb4QDud.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D0Ig6NOK.css">
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+</html>
+HTTP 200
+---- r-dra results.json ---- 
+  "epoch_std_median": 0.0091,
+  "dropped": 20,
+  "max_masked_fraction": 0.2
+HTTP 200
+---- r-dra raw.json ---- 
+HTTP 200 bytes 45072
