@@ -1,0 +1,16 @@
+[main e5d8110] Raw playback: leave out exposures with more than 20% of the grid masked (was 50%), threshold shown from data
+ 35 files changed, 611 insertions(+), 36 deletions(-)
+ create mode 100644 logs/build_results_gitdiff.log
+ create mode 100644 logs/commit_arrow.log
+ create mode 100644 logs/precommit_raw.log
+ create mode 100644 logs/raw_masked_fraction.log
+ create mode 100644 logs/raw_masked_fraction_after.log
+ create mode 100644 logs/site_data_hash_before.log
+ create mode 100644 logs/site_data_hash_diff.log
+ create mode 100644 logs/site_data_hash_diff2.log
+ create mode 100644 pipeline/hash_site_data.py
+ create mode 100644 pipeline/raw_masked_fraction.py
+e5d8110 Raw playback: leave out exposures with more than 20% of the grid masked (was 50%), threshold shown from data
+6cccbd5 Site: motion arrow drawn 4x with label, outlined overlay text
+85a7bf9 Narrow screens: motion table as one block per epoch pair, value and error kept on one line
+?? logs/commit_raw.log

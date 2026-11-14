@@ -1,0 +1,17 @@
+diff --git a/logs/build_results.log b/logs/build_results.log
+index 66c7086..7e17d9e 100644
+--- a/logs/build_results.log
++++ b/logs/build_results.log
+@@ -1,2 +1,2 @@
+-barnard: saturation={'overflow': 357, 'exposures': 364, 'source': 'data/astrometry/barnard_target_wings.csv', 'core_empty': 237, 'core_filled': 120, 'check_source': 'data/astrometry/saturation_check.json'} raw_dropped={'dropped': 7, 'total': 364, 'max_masked_fraction': 0.2} flicker=(0.7785, 0.0521, 5)
+-eps-indi-b: saturation={'overflow': 2, 'exposures': 467, 'source': 'data/astrometry/eps-indi-b_target.csv', 'core_empty': 2, 'core_filled': 0, 'check_source': 'data/astrometry/saturation_check.json'} raw_dropped={'dropped': 9, 'total': 467, 'max_masked_fraction': 0.2} flicker=(0.9431, 0.0762, 5)
++barnard: saturation={'overflow': 357, 'exposures': 364, 'source': 'data/astrometry/barnard_target_wings.csv', 'core_empty': 237, 'core_filled': 120, 'check_source': 'data/astrometry/saturation_check.json'} raw_dropped={'dropped': 7, 'total': 364, 'max_masked_fraction': 0.2} flicker=(0.7785, 0.0105, 5)
++eps-indi-b: saturation={'overflow': 2, 'exposures': 467, 'source': 'data/astrometry/eps-indi-b_target.csv', 'core_empty': 2, 'core_filled': 0, 'check_source': 'data/astrometry/saturation_check.json'} raw_dropped={'dropped': 9, 'total': 467, 'max_masked_fraction': 0.2} flicker=(0.9431, 0.0205, 5)
+@@ -6 +6 @@ eps-indi-b: saturation={'overflow': 2, 'exposures': 467, 'source': 'data/astrome
+-wise-0855: saturation={'overflow': 0, 'exposures': 258, 'source': 'data/astrometry/wise-0855_target.csv', 'core_empty': 0, 'core_filled': 0, 'check_source': 'data/astrometry/saturation_check.json'} raw_dropped={'dropped': 0, 'total': 258, 'max_masked_fraction': 0.2} flicker=(0.9774, 0.0209, 5)
++wise-0855: saturation={'overflow': 0, 'exposures': 258, 'source': 'data/astrometry/wise-0855_target.csv', 'core_empty': 0, 'core_filled': 0, 'check_source': 'data/astrometry/saturation_check.json'} raw_dropped={'dropped': 0, 'total': 258, 'max_masked_fraction': 0.2} flicker=(0.9774, 0.0242, 5)
+@@ -12,2 +12,2 @@ wise-0855: saturation={'overflow': 0, 'exposures': 258, 'source': 'data/astromet
+-rw-aur: saturation={'overflow': 305, 'exposures': 336, 'source': 'data/astrometry/rw-aur_target.csv', 'core_empty': 0, 'core_filled': 305, 'check_source': 'data/astrometry/saturation_check.json'} raw_dropped={'dropped': 4, 'total': 336, 'max_masked_fraction': 0.2} flicker=(0.7469, 0.0274, 5)
+-r-dra: saturation={'overflow': 534, 'exposures': 548, 'source': 'data/astrometry/r-dra_target.csv', 'core_empty': 532, 'core_filled': 2, 'check_source': 'data/astrometry/saturation_check.json'} raw_dropped={'dropped': 20, 'total': 548, 'max_masked_fraction': 0.2} flicker=(0.964, 0.0621, 5)
++rw-aur: saturation={'overflow': 305, 'exposures': 336, 'source': 'data/astrometry/rw-aur_target.csv', 'core_empty': 0, 'core_filled': 305, 'check_source': 'data/astrometry/saturation_check.json'} raw_dropped={'dropped': 4, 'total': 336, 'max_masked_fraction': 0.2} flicker=(0.7469, 0.0078, 5)
++r-dra: saturation={'overflow': 534, 'exposures': 548, 'source': 'data/astrometry/r-dra_target.csv', 'core_empty': 532, 'core_filled': 2, 'check_source': 'data/astrometry/saturation_check.json'} raw_dropped={'dropped': 20, 'total': 548, 'max_masked_fraction': 0.2} flicker=(0.964, 0.0091, 5)

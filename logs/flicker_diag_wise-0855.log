@@ -1,0 +1,129 @@
+wise-0855: wide cutouts on_disk=258; stars examined=5 of 5 asked
+
+== G=10.25 id=5756862120747649024
+   distance from the target: 343.7..350.0 arcsec
+   Gaia sources within 30 arcsec: 4
+      8.4 arcsec  G=18.23  id=5756862116453280512
+      10.1 arcsec  G=18.51  id=5756862116453281024
+      18.7 arcsec  G=18.45  id=5756862116452351360
+      23.8 arcsec  G=20.29  id=5756862120747951104
+   exposures: 258; kept 87; rejected 171
+      rejected, core flag OVERFLOW+TRANSIENT: 73
+      rejected, core flag OVERFLOW: 68
+      rejected, core flag OVERFLOW+SUR_ERROR+TRANSIENT: 11
+      rejected, outside the cutout: 4
+      rejected, core flag SUR_ERROR+TRANSIENT: 3
+      rejected, core flag SUR_ERROR+NONFUNC+TRANSIENT: 3
+      rejected, core flag OVERFLOW+SUR_ERROR+NONFUNC+TRANSIENT: 2
+      rejected, core flag OVERFLOW+NONFUNC+TRANSIENT: 2
+      rejected, core flag TRANSIENT: 2
+      rejected, empty pixel in the 5x5 aperture: 1
+      rejected, core flag NONFUNC: 1
+      rejected, within 9 px of the cutout edge: 1
+   kept fluxes: median=111.9 scatter(1.4826 MAD)=28.61 ratio=0.256 p16=86.09 p84=133.9 min=79.88 max=674.2 negative=0 of 87
+   local background (MJy/sr per pixel): median=0.3335 scatter=0.176; median peak pixel above background=40.47
+      detector 3: n=1 per_epoch=[0, 1, 0] median flux=300.1 scatter=0 negative=0
+      detector 4: n=2 per_epoch=[1, 0, 1] median flux=235.6 scatter=113.7 negative=0
+      detector 5: n=44 per_epoch=[8, 24, 12] median flux=125.4 scatter=8.506 negative=0
+      detector 6: n=40 per_epoch=[3, 19, 18] median flux=88.93 scatter=6.645 negative=0
+      epoch 0: n=12 clipped mean=113.4 median=113.6 min=79.88 max=158.9 median background=0.3146
+      epoch 1: n=44 clipped mean=110.7 median=119.7 min=80.44 max=364.5 median background=0.3623
+      epoch 2: n=31 clipped mean=107.8 median=100.5 min=82.57 max=674.2 median background=0.3381
+
+== G=12.25 id=5756956330854206592
+   distance from the target: 188.0..195.7 arcsec
+   Gaia sources within 30 arcsec: 4
+      1.8 arcsec  G=19.38  id=5756956335150294656
+      7.1 arcsec  G=18.68  id=5756956335149253120
+      10.0 arcsec  G=18.37  id=5756956330854397824
+      29.6 arcsec  G=20.12  id=5756956300791157888
+   exposures: 258; kept 241; rejected 17
+      rejected, core flag SUR_ERROR+NONFUNC+TRANSIENT: 5
+      rejected, core flag SUR_ERROR+TRANSIENT: 3
+      rejected, core flag OVERFLOW+SUR_ERROR+NONFUNC+NAN: 2
+      rejected, core flag NONFUNC: 2
+      rejected, core flag TRANSIENT: 2
+      rejected, within 9 px of the cutout edge: 1
+      rejected, core flag NONFUNC+TRANSIENT: 1
+      rejected, empty pixel in the 5x5 aperture: 1
+   kept fluxes: median=54.82 scatter(1.4826 MAD)=43.58 ratio=0.795 p16=15.88 p84=83.05 min=12.67 max=299.9 negative=0 of 241
+   local background (MJy/sr per pixel): median=0.2378 scatter=0.08894; median peak pixel above background=20.59
+      detector 1: n=36 per_epoch=[4, 18, 14] median flux=73.04 scatter=5.831 negative=0
+      detector 2: n=46 per_epoch=[8, 24, 14] median flux=84.66 scatter=3.478 negative=0
+      detector 3: n=42 per_epoch=[3, 20, 19] median flux=65.93 scatter=14.34 negative=0
+      detector 4: n=31 per_epoch=[4, 15, 12] median flux=33.05 scatter=9.367 negative=0
+      detector 5: n=44 per_epoch=[6, 25, 13] median flux=20.08 scatter=1.555 negative=0
+      detector 6: n=42 per_epoch=[3, 20, 19] median flux=14.39 scatter=0.9336 negative=0
+      epoch 0: n=28 clipped mean=52.55 median=55.3 min=13.35 max=299.9 median background=0.2431
+      epoch 1: n=122 clipped mean=50.8 median=52.98 min=12.67 max=179.2 median background=0.2665
+      epoch 2: n=91 clipped mean=48.33 median=55.16 min=12.78 max=90.78 median background=0.224
+
+== G=13.30 id=5756955785394371328
+   distance from the target: 139.5..147.4 arcsec
+   Gaia sources within 30 arcsec: 2
+      5.8 arcsec  G=16.69  id=5756955781099740544
+      17.7 arcsec  G=20.12  id=5756955781098582400
+   exposures: 258; kept 245; rejected 13
+      rejected, core flag SUR_ERROR+TRANSIENT: 4
+      rejected, core flag TRANSIENT: 3
+      rejected, empty pixel in the 5x5 aperture: 3
+      rejected, core flag SUR_ERROR+NONFUNC+TRANSIENT: 1
+      rejected, core flag NONFUNC: 1
+      rejected, core flag SUR_ERROR+NONFUNC+COLD+TRANSIENT: 1
+   kept fluxes: median=11.73 scatter(1.4826 MAD)=11.87 ratio=1.012 p16=3.831 p84=22.44 min=-3.707 max=24.04 negative=1 of 245
+   local background (MJy/sr per pixel): median=0.2327 scatter=0.08547; median peak pixel above background=4.678
+      detector 1: n=36 per_epoch=[4, 18, 14] median flux=22.97 scatter=0.5444 negative=0
+      detector 2: n=48 per_epoch=[8, 25, 15] median flux=21.83 scatter=0.7744 negative=0
+      detector 3: n=42 per_epoch=[3, 19, 20] median flux=14.69 scatter=3.053 negative=0
+      detector 4: n=33 per_epoch=[3, 17, 13] median flux=7.721 scatter=2.255 negative=0
+      detector 5: n=44 per_epoch=[6, 24, 14] median flux=4.341 scatter=0.4501 negative=0
+      detector 6: n=42 per_epoch=[2, 21, 19] median flux=3.481 scatter=0.4277 negative=1
+      epoch 0: n=26 clipped mean=13.46 median=12.62 min=3.224 max=24.04 median background=0.2366
+      epoch 1: n=124 clipped mean=12.54 median=11.44 min=-3.707 max=23.8 median background=0.2648
+      epoch 2: n=95 clipped mean=12.48 median=12.48 min=2.171 max=23.73 median background=0.2193
+
+== G=13.87 id=5756959491950135168
+   distance from the target: 172.4..179.7 arcsec
+   Gaia sources within 30 arcsec: 1
+      13.2 arcsec  G=18.02  id=5756959491950345344
+   exposures: 258; kept 248; rejected 10
+      rejected, core flag SUR_ERROR+NONFUNC+TRANSIENT: 4
+      rejected, core flag SUR_ERROR+TRANSIENT: 2
+      rejected, core flag NONFUNC: 2
+      rejected, core flag SUR_ERROR+COLD+TRANSIENT: 1
+      rejected, core flag TRANSIENT: 1
+   kept fluxes: median=7.189 scatter(1.4826 MAD)=7.274 ratio=1.012 p16=2.313 p84=14.1 min=-2.935 max=15.05 negative=1 of 248
+   local background (MJy/sr per pixel): median=0.2374 scatter=0.08914; median peak pixel above background=2.802
+      detector 1: n=35 per_epoch=[4, 17, 14] median flux=14.11 scatter=0.4979 negative=0
+      detector 2: n=45 per_epoch=[7, 24, 14] median flux=14.09 scatter=0.4837 negative=0
+      detector 3: n=43 per_epoch=[3, 19, 21] median flux=9.633 scatter=1.986 negative=0
+      detector 4: n=35 per_epoch=[4, 17, 14] median flux=4.793 scatter=1.398 negative=0
+      detector 5: n=47 per_epoch=[8, 24, 15] median flux=2.62 scatter=0.3155 negative=1
+      detector 6: n=43 per_epoch=[3, 21, 19] median flux=2.086 scatter=0.3291 negative=0
+      epoch 0: n=29 clipped mean=7.498 median=4.036 min=1.849 max=15.05 median background=0.243
+      epoch 1: n=122 clipped mean=7.848 median=7.027 min=-2.935 max=14.81 median background=0.2697
+      epoch 2: n=97 clipped mean=7.766 median=7.457 min=1.334 max=14.64 median background=0.2242
+
+== G=14.03 id=5756960355239574528
+   distance from the target: 302.9..307.7 arcsec
+   Gaia sources within 30 arcsec: 2
+      23.8 arcsec  G=20.88  id=5756960252159816704
+      24.0 arcsec  G=18.37  id=5756960282224353408
+   exposures: 258; kept 244; rejected 14
+      rejected, core flag SUR_ERROR+TRANSIENT: 4
+      rejected, core flag SUR_ERROR+NONFUNC+TRANSIENT: 4
+      rejected, core flag TRANSIENT: 2
+      rejected, core flag NONFUNC: 2
+      rejected, within 9 px of the cutout edge: 1
+      rejected, empty pixel in the 5x5 aperture: 1
+   kept fluxes: median=5.154 scatter(1.4826 MAD)=5.038 ratio=0.977 p16=1.753 p84=10.55 min=-11.72 max=12.59 negative=2 of 244
+   local background (MJy/sr per pixel): median=0.2309 scatter=0.08698; median peak pixel above background=1.903
+      detector 1: n=32 per_epoch=[3, 16, 13] median flux=11.12 scatter=0.2495 negative=0
+      detector 2: n=46 per_epoch=[8, 23, 15] median flux=10.17 scatter=0.3504 negative=0
+      detector 3: n=45 per_epoch=[3, 21, 21] median flux=6.851 scatter=1.295 negative=0
+      detector 4: n=34 per_epoch=[4, 16, 14] median flux=3.402 scatter=0.9401 negative=0
+      detector 5: n=45 per_epoch=[8, 23, 14] median flux=1.935 scatter=0.2394 negative=0
+      detector 6: n=42 per_epoch=[2, 21, 19] median flux=1.516 scatter=0.3633 negative=2
+      epoch 0: n=28 clipped mean=5.655 median=3.797 min=1.109 max=11.79 median background=0.2393
+      epoch 1: n=120 clipped mean=5.809 median=5.106 min=0.7272 max=12.59 median background=0.2604
+      epoch 2: n=96 clipped mean=5.557 median=5.541 min=-11.72 max=11.37 median background=0.2165

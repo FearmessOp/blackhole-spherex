@@ -4,9 +4,12 @@
  "n_epochs": 3,
  "n_stars": 5,
  "aperture_px": 5,
+ "epoch_method": "per detector, relative to the detector's own mean, averaged over detectors",
+ "min_exposures_per_detector_and_epoch": 5,
  "raw_scatter_median": 0.7785,
- "epoch_std_median": 0.0521,
- "epoch_half_range_median": 0.0554,
+ "epoch_std_median": 0.0105,
+ "epoch_half_range_median": 0.0124,
+ "epoch_std_mixed_median": 0.0521,
  "stars": [
   {
    "source_id": "4472832165289153024",
@@ -18,13 +21,22 @@
     114
    ],
    "raw_scatter": 1.0091,
-   "epoch_std": 0.0374,
-   "epoch_half_range": 0.0451,
-   "epoch_means": [
-    48.7281,
-    44.5069,
-    47.2809
-   ]
+   "detectors_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "epoch_std": 0.0107,
+   "epoch_half_range": 0.0126,
+   "epoch_means_relative": [
+    1.0105,
+    1.0041,
+    0.9854
+   ],
+   "epoch_std_mixed": 0.0374
   },
   {
    "source_id": "4472837942025804800",
@@ -36,13 +48,22 @@
     113
    ],
    "raw_scatter": 0.9865,
-   "epoch_std": 0.0521,
-   "epoch_half_range": 0.0554,
-   "epoch_means": [
-    58.8118,
-    52.5319,
-    58.7855
-   ]
+   "detectors_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "epoch_std": 0.0048,
+   "epoch_half_range": 0.0058,
+   "epoch_means_relative": [
+    0.9948,
+    1.0064,
+    0.9989
+   ],
+   "epoch_std_mixed": 0.0521
   },
   {
    "source_id": "4472836292758713216",
@@ -54,13 +75,22 @@
     85
    ],
    "raw_scatter": 0.7702,
-   "epoch_std": 0.058,
-   "epoch_half_range": 0.0657,
-   "epoch_means": [
-    91.7702,
-    82.2328,
-    80.6147
-   ]
+   "detectors_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "epoch_std": 0.0105,
+   "epoch_half_range": 0.0124,
+   "epoch_means_relative": [
+    1.0103,
+    1.004,
+    0.9856
+   ],
+   "epoch_std_mixed": 0.058
   },
   {
    "source_id": "4472835807421415680",
@@ -72,13 +102,22 @@
     95
    ],
    "raw_scatter": 0.7785,
-   "epoch_std": 0.0122,
-   "epoch_half_range": 0.0138,
-   "epoch_means": [
-    90.7326,
-    88.2616,
-    90.4068
-   ]
+   "detectors_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "epoch_std": 0.0072,
+   "epoch_half_range": 0.0087,
+   "epoch_means_relative": [
+    1.0017,
+    0.9905,
+    1.0078
+   ],
+   "epoch_std_mixed": 0.0122
   },
   {
    "source_id": "4472838762358909184",
@@ -90,13 +129,17 @@
     63
    ],
    "raw_scatter": 0.4239,
-   "epoch_std": 0.0871,
-   "epoch_half_range": 0.1007,
-   "epoch_means": [
-    112.3532,
-    96.1386,
-    92.167
-   ]
+   "detectors_used": [
+    1
+   ],
+   "epoch_std": 0.0369,
+   "epoch_half_range": 0.0398,
+   "epoch_means_relative": [
+    0.9725,
+    0.9753,
+    1.0522
+   ],
+   "epoch_std_mixed": 0.0871
   }
  ]
 }

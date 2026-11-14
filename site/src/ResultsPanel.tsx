@@ -16,8 +16,9 @@ export function FlickerNote({ r }: { r: Results }) {
                     <b>Flicker.</b> {fl.n_stars} constant Gaia stars in this field change by{' '}
                     <span className="num">{pct(fl.raw_scatter_median)}</span> from one raw exposure to the next
                     (each exposure is at a different wavelength) and by{' '}
-                    <span className="num">{pct(fl.epoch_std_median)}</span> between epoch means. Medians of the
-                    per-star scatter; epoch means are averages of aperture fluxes, not measured on the stacked image.
+                    <span className="num">{pct(fl.epoch_std_median)}</span> between epoch means, compared detector
+                    by detector. Medians of the per-star scatter; epoch means are averages of aperture fluxes, not
+                    measured on the stacked image.
                 </>
             ) : (
                 <>
