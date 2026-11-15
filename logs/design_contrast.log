@@ -1,0 +1,16 @@
+colours read from site/src/styles.css: {'bg': '#0b1426', 'panel': '#111d36', 'line': '#24345a', 'text': '#ece8dd', 'muted': '#bcc4d4', 'dim': '#9aa6bd', 'accent': '#ffb000'}
+opacity rules in the style sheet: ['opacity: 1']
+limit: 4.5 : 1
+ok   15.02 : 1  text #ece8dd on bg #0b1426  (body text, tables, guide text)
+ok   13.69 : 1  text #ece8dd on panel #111d36  (buttons, cards, top bar title, warnings, flicker note, help text)
+ok   10.49 : 1  muted #bcc4d4 on bg #0b1426  (notes, details, captions, table headings, group headings, tagline on narrow pages)
+ok    9.57 : 1  muted #bcc4d4 on panel #111d36  (tagline, guide-start subtitle, search placeholder, '?' button, group headings in controls)
+ok    7.50 : 1  dim #9aa6bd on bg #0b1426  (disabled buttons inside the controls)
+ok    6.84 : 1  dim #9aa6bd on panel #111d36  (disabled buttons elsewhere)
+ok   10.03 : 1  accent #ffb000 on bg #0b1426  (selected buttons in controls, epoch caption, links, amber table cells, click badge)
+ok    9.15 : 1  accent #ffb000 on panel #111d36  (selected buttons and tabs, guide-start title, quick-look banner title, numbers in the flicker note)
+ok   17.15 : 1  text #ece8dd on #000000 #000000  (labels on the images (outlined in black))
+ok   11.98 : 1  muted #bcc4d4 on #000000 #000000  (compass and scale bar on the images (outlined in black))
+ok   11.46 : 1  accent #ffb000 on #000000 #000000  (marker and arrow labels on the images (outlined in black))
+pairs: 11, below 4.5: 0
+not covered: text on the sky images over bright pixels (it has a black outline; the pixel values change from frame to frame)

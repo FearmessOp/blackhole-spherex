@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { HelpTitle } from './Help'
+import { label, t, useLang, type Key as TKey } from './i18n'
 
 // Control test on Gaia field stars. Every number comes from data/validation.json,
 // written by pipeline/validation_field_stars.py (log: logs/validation_field_stars.log).
@@ -30,10 +32,10 @@ type Validation = {
 
 const URL = `${import.meta.env.BASE_URL}data/validation.json`
 const REPO = 'https://github.com/FearmessOp/blackhole-spherex/blob/main/'
-const KEYS: [Key, string][] = [
-    ['pm_east', 'Proper motion east'],
-    ['pm_north', 'Proper motion north'],
-    ['plx', 'Parallax']]
+const KEYS: [Key, TKey][] = [
+    ['pm_east', 'val.row.pme'],
+    ['pm_north', 'val.row.pmn'],
+    ['plx', 'val.row.plx']]
 const METHODS: [Method, string][] = [
     ['psf', 'ePSF fit'],
     ['win', 'Windowed centroid']]
@@ -52,6 +54,7 @@ function StarCell({ c }: { c: Cell }) {
 }
 
 export default function ValidationPanel({ names }: { names: Record<string, string> }) {
+    useLang()
     const [data, setData] = useState<Validation | null>(null)
     const [method, setMethod] = useState<Method>('psf')
 
@@ -76,84 +79,82 @@ export default function ValidationPanel({ names }: { names: Record<string, strin
 
     return (
         <section className="results validation">
-            <h2>Validation</h2>
+            <HelpTitle as="h2" help="help.validation">
+                {t('val.title')}
+            </HelpTitle>
             <p>
-                Control test: the proper motion and parallax fit used for the targets was run on {s.n_stars} Gaia DR3
-                field stars in the {data.fields.length} prepared fields and compared with the Gaia values. Each star was
-                aligned with at least {sel.min_other_stars} other field stars in the same exposure, never with itself.
-                Selection, fixed before the results were seen: at least {sel.min_exposures} exposures, in at least{' '}
-                {sel.min_epochs} epochs of at least {sel.min_per_epoch} exposures. {notFitted} stars did not pass and
-                are listed below. Stars that disagree with Gaia stay in the tables.
+                {t('val.intro', {
+                    stars: s.n_stars,
+                    fields: data.fields.length,
+                    other: sel.min_other_stars,
+                    me: sel.min_exposures,
+                    mp: sel.min_epochs,
+                    mpe: sel.min_per_epoch,
+                    nf: notFitted
+                })}
             </p>
             <div className="row">
-                {METHODS.map(([m, label]) => (
-                    <button key={m} className={m === method ? 'on' : ''} onClick={() => setMethod(m)}>
-                        {label}
+                {METHODS.map(([m, name]) => (
+                    <button key={m} type="button" className={m === method ? 'on' : ''} onClick={() => setMethod(m)}>
+                        {label(name)}
                     </button>
                 ))}
             </div>
             <table>
                 <thead>
                     <tr>
-                        <th>Measured minus Gaia, {s.n_stars} stars</th>
-                        <th>Median</th>
-                        <th>Scatter</th>
-                        <th>Median error of one fit</th>
-                        <th>Within 2 errors</th>
-                        <th>Expected</th>
+                        <th>{t('val.head.diff', { n: s.n_stars })}</th>
+                        <th>{t('val.head.median')}</th>
+                        <th>{t('val.head.scatter')}</th>
+                        <th>{t('val.head.err')}</th>
+                        <th>{t('val.head.within')}</th>
+                        <th>{t('val.head.expected')}</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {KEYS.map(([k, label]) => (
+                    {KEYS.map(([k, lk]) => (
                         <tr key={k}>
-                            <td>{label}</td>
+                            <td>{t(lk)}</td>
                             <td>
                                 {signed(s[k].median_diff)} {s[k].unit}
                             </td>
                             <td>{s[k].scatter.toFixed(1)}</td>
                             <td>{s[k].median_err.toFixed(1)}</td>
-                            <td>
-                                {s[k].within_2_err} of {s.n_stars}
-                            </td>
+                            <td>{t('val.of', { a: s[k].within_2_err, b: s.n_stars })}</td>
                             <td>{s.expected_within_2_err.toFixed(1)}</td>
                         </tr>
                     ))}
                     <tr>
-                        <td>All three together</td>
+                        <td>{t('val.all3')}</td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>
-                            {s.all_three_within_2_err} of {s.n_stars}
-                        </td>
+                        <td>{t('val.of', { a: s.all_three_within_2_err, b: s.n_stars })}</td>
                         <td>{s.expected_all_three.toFixed(1)}</td>
                     </tr>
                 </tbody>
             </table>
-            <p className="note">
-                Scatter is 1.4826 × the median absolute deviation; errors are bootstrap errors over exposures.
-                "Expected" is the count for Gaussian errors of the right size (for all three: if the three were
-                independent). These field stars move by less than the error of one fit, so the test shows whether the
-                fit invents motion and whether the errors have the right size. It does not show a large motion being
-                recovered; for that see the targets above.
-            </p>
+            <p className="note">{t('val.note')}</p>
             <p className="warn">
-                Without the alignment the parallax is wrong: the median difference from Gaia is{' '}
-                {signed(raw.psf.plx.median_diff)} mas (ePSF fit) and {signed(raw.win.plx.median_diff)} mas (windowed
-                centroid), and {raw.psf.plx.within_2_err} and {raw.win.plx.within_2_err} of {raw.psf.n_stars} stars are
-                within 2 errors.
+                {t('val.noalign', {
+                    psf: signed(raw.psf.plx.median_diff),
+                    win: signed(raw.win.plx.median_diff),
+                    npsf: raw.psf.plx.within_2_err,
+                    nwin: raw.win.plx.within_2_err,
+                    n: raw.psf.n_stars
+                })}
             </p>
-            <h3>By field, stars within 2 errors</h3>
+            <h3>{t('val.byfield')}</h3>
             <table>
                 <thead>
                     <tr>
-                        <th>Field</th>
-                        <th>Stars fitted</th>
-                        {KEYS.map(([k, label]) => (
-                            <th key={k}>{label}</th>
+                        <th>{t('val.field')}</th>
+                        <th>{t('val.fitted')}</th>
+                        {KEYS.map(([k, lk]) => (
+                            <th key={k}>{t(lk)}</th>
                         ))}
-                        <th>All three</th>
-                        <th>Not fitted</th>
+                        <th>{t('val.allthree')}</th>
+                        <th>{t('val.notfitted')}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -171,22 +172,19 @@ export default function ValidationPanel({ names }: { names: Record<string, strin
                 </tbody>
             </table>
             <details>
-                <summary>All {s.n_stars} stars, one row each</summary>
-                <p className="note">
-                    Each cell: Gaia / measured ± error (difference in errors). Proper motion in mas/yr, parallax in mas.
-                    Amber cells are more than 2 errors from Gaia.
-                </p>
+                <summary>{t('val.allstars', { n: s.n_stars })}</summary>
+                <p className="note">{t('val.cell.note')}</p>
                 {data.fields.map((f) => (
                     <div key={f.slug}>
-                        <h3>{names[f.slug] ?? f.slug} field</h3>
+                        <h3>{t('val.fieldname', { name: names[f.slug] ?? f.slug })}</h3>
                         <table className="stars">
                             <thead>
                                 <tr>
                                     <th>Gaia DR3</th>
                                     <th>G</th>
-                                    <th>Exposures</th>
-                                    {KEYS.map(([k, label]) => (
-                                        <th key={k}>{label}</th>
+                                    <th>{t('val.col.exposures')}</th>
+                                    {KEYS.map(([k, lk]) => (
+                                        <th key={k}>{t(lk)}</th>
                                     ))}
                                 </tr>
                             </thead>
@@ -205,14 +203,14 @@ export default function ValidationPanel({ names }: { names: Record<string, strin
                         </table>
                         {f.not_fitted.map((n) => (
                             <p key={n.source_id} className="note">
-                                Not fitted: Gaia DR3 {n.source_id}, {n.reason}
+                                {t('val.nf.row', { id: n.source_id, reason: n.reason })}
                             </p>
                         ))}
                     </div>
                 ))}
             </details>
             <p className="note">
-                Source of these numbers: <a href={`${REPO}${data.log}`}>{data.log}</a>
+                {t('val.source')} <a href={`${REPO}${data.log}`}>{data.log}</a>
             </p>
         </section>
     )

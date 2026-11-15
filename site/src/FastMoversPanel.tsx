@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { label, t, useLang, type Key as TKey } from './i18n'
 
 // Ten fast movers measured with the Epsilon Indi B fit and compared with SIMBAD.
 // Every number comes from data/fast_movers.json, written by pipeline/fast_movers_table.py
@@ -29,10 +30,10 @@ type Table = {
 const URL = `${import.meta.env.BASE_URL}data/fast_movers.json`
 const LOG = 'logs/fast_movers_table.log'
 const REPO = 'https://github.com/FearmessOp/blackhole-spherex/blob/main/'
-const KEYS: [Key, string][] = [
-    ['pm_east', 'Proper motion east (mas/yr)'],
-    ['pm_north', 'Proper motion north (mas/yr)'],
-    ['plx', 'Parallax (mas)']]
+const KEYS: [Key, TKey][] = [
+    ['pm_east', 'res.row.pme'],
+    ['pm_north', 'res.row.pmn'],
+    ['plx', 'res.row.plx']]
 const METHODS: [MethodId, string][] = [
     ['psf', 'ePSF fit'],
     ['win', 'Windowed centroid']]
@@ -40,6 +41,7 @@ const METHODS: [MethodId, string][] = [
 const signed = (v: number) => `${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v).toFixed(1)}`
 
 export default function FastMoversPanel({ onOpen }: { onOpen: (slug: string) => void }) {
+    useLang()
     const [data, setData] = useState<Table | null>(null)
     const [method, setMethod] = useState<MethodId>('psf')
 
@@ -62,63 +64,69 @@ export default function FastMoversPanel({ onOpen }: { onOpen: (slug: string) => 
 
     return (
         <section className="results validation">
-            <h2>Validation on fast movers</h2>
+            <h2>{t('fast.title')}</h2>
             <p>
-                The fit used for Epsilon Indi B (proper motion and parallax, aligned to Gaia field stars in every
-                exposure) was run without changes on {s.n_targets} more stars with a large catalogue motion and
-                compared with SIMBAD. A target is judged if it has at least {sel.min_exposures} usable exposures, in at
-                least {sel.min_epochs} epochs of at least {sel.min_per_epoch}; {s.n_fitted} of {s.n_targets} are.
-                Of these, both proper motion components are within 2 errors of SIMBAD for {s.pm_both_within2}, the
-                parallax for {s.plx_within2}. The errors are statistical only (bootstrap over exposures).
+                {t('fast.intro', {
+                    n: s.n_targets,
+                    me: sel.min_exposures,
+                    mp: sel.min_epochs,
+                    mpe: sel.min_per_epoch,
+                    fitted: s.n_fitted,
+                    both: s.pm_both_within2,
+                    plx: s.plx_within2
+                })}
             </p>
             <div className="row">
-                {METHODS.map(([m, label]) => (
-                    <button key={m} className={m === method ? 'on' : ''} onClick={() => setMethod(m)}>
-                        {label}
+                {METHODS.map(([m, name]) => (
+                    <button key={m} type="button" className={m === method ? 'on' : ''} onClick={() => setMethod(m)}>
+                        {label(name)}
                     </button>
                 ))}
             </div>
             <table className="stars">
                 <thead>
                     <tr>
-                        <th>Target</th>
-                        <th>Exposures used</th>
-                        {KEYS.map(([k, label]) => (
-                            <th key={k}>{label}</th>
+                        <th>{t('fast.target')}</th>
+                        <th>{t('fast.used')}</th>
+                        {KEYS.map(([k, lk]) => (
+                            <th key={k}>{t(lk)}</th>
                         ))}
                     </tr>
                 </thead>
                 <tbody>
-                    {data.targets.map((t) => {
-                        const m = t.passes_selection ? t.fit?.methods.find((x) => x.id === method) : undefined
+                    {data.targets.map((row) => {
+                        const m = row.passes_selection ? row.fit?.methods.find((x) => x.id === method) : undefined
                         return (
-                            <tr key={t.slug}>
+                            <tr key={row.slug}>
                                 <td>
-                                    <button className="link" onClick={() => onOpen(t.slug)}>
-                                        {t.name}
+                                    <button type="button" className="link" onClick={() => onOpen(row.slug)}>
+                                        {row.name}
                                     </button>
                                 </td>
                                 {m ? (
                                     <>
-                                        <td>
-                                            {m.n_used} of {t.exposures}
-                                        </td>
+                                        <td>{t('val.of', { a: m.n_used, b: row.exposures ?? '?' })}</td>
                                         {KEYS.map(([k]) => (
                                             <td key={k} className={m[`${k}_within2`] === false ? 'out' : undefined}>
                                                 <span className="pair">
                                                     {signed(m[k])} ± {m[`${k}_err`].toFixed(1)}
                                                 </span>{' '}
                                                 <span className="pair">
-                                                    SIMBAD {signed(t.reference[k])} ({signed(m[`${k}_diff`])})
+                                                    SIMBAD {signed(row.reference[k])} ({signed(m[`${k}_diff`])})
                                                 </span>
                                             </td>
                                         ))}
                                     </>
                                 ) : (
                                     <td colSpan={KEYS.length + 1}>
-                                        Not judged: {t.usable ?? 0} of {t.exposures ?? 0} exposures usable
-                                        {t.usable_per_epoch ? ` (${t.usable_per_epoch.join(', ')} per epoch)` : ''}. SIMBAD:{' '}
-                                        {KEYS.map(([k]) => signed(t.reference[k])).join(', ')}.
+                                        {t('fast.notjudged', {
+                                            u: row.usable ?? 0,
+                                            b: row.exposures ?? 0,
+                                            per: row.usable_per_epoch
+                                                ? t('fast.perepoch', { list: row.usable_per_epoch.join(', ') })
+                                                : '',
+                                            ref: KEYS.map(([k]) => signed(row.reference[k])).join(', ')
+                                        })}
                                     </td>
                                 )}
                             </tr>
@@ -127,9 +135,7 @@ export default function FastMoversPanel({ onOpen }: { onOpen: (slug: string) => 
                 </tbody>
             </table>
             <p className="note">
-                Each cell: measured ± error, the SIMBAD value, and the difference in brackets. Amber cells are more
-                than 2 errors from SIMBAD. "Usable" means a clean, unsaturated core measured by both position methods.
-                Source of these numbers: <a href={`${REPO}${LOG}`}>{LOG}</a>
+                {t('fast.note')} {t('val.source')} <a href={`${REPO}${LOG}`}>{LOG}</a>
             </p>
         </section>
     )

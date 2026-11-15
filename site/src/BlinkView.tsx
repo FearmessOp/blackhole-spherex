@@ -1,16 +1,26 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
+import { HelpTitle } from './Help'
 import RawView from './RawView'
 import ResultsPanel, { FlickerNote, NeighbourNote } from './ResultsPanel'
 import SkyPanel from './SkyPanel'
+import { bandLabel, diffCaption, t, useLang, type Key } from './i18n'
 import type { Arrow, Band, Diff, Meta, Results, XY } from './types'
 
-const SPEEDS = [
-    { label: 'Slow', ms: 1200 },
-    { label: 'Normal', ms: 600 },
-    { label: 'Fast', ms: 250 }]
+export type Tab = 'images' | 'measurement' | 'validation'
+const TABS: [Tab, Key][] = [
+    ['images', 'tab.images'],
+    ['measurement', 'tab.measurement'],
+    ['validation', 'tab.validation']
+]
+
+const SPEEDS: { key: Key; ms: number }[] = [
+    { key: 'speed.slow', ms: 1200 },
+    { key: 'speed.normal', ms: 600 },
+    { key: 'speed.fast', ms: 250 }
+]
 
 const bandName = (id: string) =>
-    id === 'all' ? 'All' : id === 'd123' ? 'D1–3' : id === 'd56' ? 'D5+6' : id.toUpperCase()
+    id === 'all' ? t('band.all') : id === 'd123' ? 'D1–3' : id === 'd56' ? 'D5+6' : id.toUpperCase()
 
 const pct = (v: number | null) => (v === null ? 'n/a' : `${(100 * v).toFixed(0)}%`)
 
@@ -20,6 +30,7 @@ type StackProps = {
     band: Band
     epoch: number
     title: string
+    help?: Key
     marker: boolean
     markerLabel?: string
     neighbour?: XY | null
@@ -28,12 +39,13 @@ type StackProps = {
 }
 
 // One band at one epoch. All frames of the band stay loaded so that blinking does not flash.
-function StackPanel({ base, meta, band, epoch, title, marker, markerLabel, neighbour, neighbourLabel, arrow }: StackProps) {
+function StackPanel({ base, meta, band, epoch, title, help, marker, markerLabel, neighbour, neighbourLabel, arrow }: StackProps) {
     const frame = band.frames.find((f) => f.epoch === epoch)
     const ep = meta.epochs[epoch]
     return (
         <SkyPanel
             title={title}
+            help={help}
             n={meta.grid.npix}
             scaleArcsec={meta.grid.scale_arcsec}
             marker={marker ? ep.predicted : null}
@@ -41,11 +53,20 @@ function StackPanel({ base, meta, band, epoch, title, marker, markerLabel, neigh
             neighbour={neighbour}
             neighbourLabel={neighbourLabel}
             arrow={arrow}
-            caption={`Epoch ${epoch + 1} of ${meta.epochs.length}: ${ep.t_start.slice(0, 10)} to ${ep.t_end.slice(0, 10)}`}
+            caption={t('panel.epoch', {
+                i: epoch + 1,
+                n: meta.epochs.length,
+                from: ep.t_start.slice(0, 10),
+                to: ep.t_end.slice(0, 10)
+            })}
             detail={
                 frame
-                    ? `${frame.n_frames} exposures stacked, ${frame.wave_min_um.toFixed(2)}–${frame.wave_max_um.toFixed(2)} µm`
-                    : 'No exposures of this detector selection in this epoch'
+                    ? t('panel.stack.detail', {
+                        n: frame.n_frames,
+                        lo: frame.wave_min_um.toFixed(2),
+                        hi: frame.wave_max_um.toFixed(2)
+                    })
+                    : t('panel.stack.none')
             }
         >
             {band.frames.map((f) => (
@@ -55,7 +76,10 @@ function StackPanel({ base, meta, band, epoch, title, marker, markerLabel, neigh
     )
 }
 
-export default function BlinkView({ slug }: { slug: string }) {
+type Props = { slug: string; tab: Tab; onTab: (tab: Tab) => void; validation: ReactNode }
+
+export default function BlinkView({ slug, tab, onTab, validation }: Props) {
+    useLang()
     const base = `${import.meta.env.BASE_URL}data/${slug}/`
     const [data, setData] = useState<{ meta: Meta; res: Results; diff: Diff | null } | null>(null)
     const [failed, setFailed] = useState(false)
@@ -102,8 +126,8 @@ export default function BlinkView({ slug }: { slug: string }) {
         return () => window.clearInterval(id)
     }, [playing, ms, nFrames])
 
-    if (failed) return <p className="note">Could not load the data for this target.</p>
-    if (!meta || !res || !band) return <p className="note">Loading…</p>
+    if (failed) return <p className="note">{t('load.failed')}</p>
+    if (!meta || !res || !band) return <p className="note">{t('load.target')}</p>
 
     const epoch = band.frames[pos % nFrames].epoch
     const diff = data?.diff ?? null
@@ -118,165 +142,195 @@ export default function BlinkView({ slug }: { slug: string }) {
 
     return (
         <div className="target">
-            <h2>{meta.name}</h2>
-
-            <div className="views">
-                {showDiff && diff && diffBand ? (
-                    <SkyPanel
-                        title={`Difference: epoch ${diff.to_epoch + 1} minus epoch ${diff.from_epoch + 1}, ${band.label}`}
-                        n={meta.grid.npix}
-                        scaleArcsec={meta.grid.scale_arcsec}
-                        marker={marker ? meta.epochs[diff.to_epoch].predicted : null}
-                        caption={diff.label}
-                        detail={
-                            <>
-                                Detectors {diffBand.dets_used.join(', ')} (those with exposures in both epochs),{' '}
-                                {diffBand.n_first} and {diffBand.n_last} exposures. Linear scale, zero is mid grey, ±
-                                {diffBand.vmax.toPrecision(3)} MJy/sr. Check: {diffBand.n_stars} constant field stars leave{' '}
-                                {pct(diffBand.star_ratio_median)} (median) and {pct(diffBand.star_ratio_p90)} (90th
-                                percentile) of their own peak in this image; the bright and the dark side of the target
-                                are {pct(diffBand.lobe_bright_ratio)} and {pct(diffBand.lobe_dark_ratio)} of its peak.
-                                The amber marker is the catalogue position in the last epoch.
-                            </>
-                        }
-                    >
-                        <img src={base + diffBand.png} alt="" />
-                    </SkyPanel>
-                ) : (
-                    <StackPanel
-                        base={base}
-                        meta={meta}
-                        band={band}
-                        epoch={epoch}
-                        title={`Stacked per epoch: ${band.label}`}
-                        marker={marker}
-                        arrow={res.fit?.arrow}
-                    />
-                )}
-                <RawView
-                    base={base}
-                    scaleArcsec={meta.grid.scale_arcsec}
-                    playing={playing}
-                    marker={marker}
-                    dets={band.dets}
-                    predicted={meta.epochs.map((e) => e.predicted)}
-                />
-            </div>
-            <FlickerNote r={res} />
-
-            <div className="controls">
-                <div className="group">
-                    <h4>Playback</h4>
-                    <div className="row">
-                        <button className="play" onClick={() => setPlaying(!playing)}>
-                            {playing ? 'Pause' : 'Play'}
+            <div className="target-head">
+                <h2>{meta.name}</h2>
+                <div className="tabs" role="tablist">
+                    {TABS.map(([id, key]) => (
+                        <button
+                            key={id}
+                            type="button"
+                            role="tab"
+                            aria-selected={id === tab}
+                            className={id === tab ? 'on' : ''}
+                            onClick={() => onTab(id)}
+                        >
+                            {t(key)}
                         </button>
-                    </div>
-                </div>
-                {diff && (
-                    <div className="group">
-                        <h4>View</h4>
-                        <div className="row">
-                            <button className={showDiff ? '' : 'on'} onClick={() => setView('blink')}>
-                                Blink epochs
-                            </button>
-                            <button
-                                className={showDiff ? 'on' : ''}
-                                disabled={!diffBand}
-                                title={
-                                    diffBand
-                                        ? 'Last epoch minus first epoch'
-                                        : 'No usable difference image for this detector selection'
-                                }
-                                onClick={() => setView('diff')}
-                            >
-                                Difference
-                            </button>
-                        </div>
-                    </div>
-                )}
-                <div className="group">
-                    <h4>Epoch</h4>
-                    <div className="row">
-                        {band.frames.map((f, i) => (
-                            <button
-                                key={f.png}
-                                className={i === pos % nFrames ? 'on' : ''}
-                                onClick={() => {
-                                    setPlaying(false)
-                                    setPos(i)
-                                }}
-                            >
-                                {f.epoch + 1}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-                <div className="group">
-                    <h4>Speed</h4>
-                    <div className="row">
-                        {SPEEDS.map((s) => (
-                            <button key={s.ms} className={s.ms === ms ? 'on' : ''} onClick={() => setMs(s.ms)}>
-                                {s.label}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-                <div className="group">
-                    <h4>Detector</h4>
-                    <div className="row">
-                        {meta.bands.map((b) => (
-                            <button
-                                key={b.id}
-                                className={b.id === band.id ? 'on' : ''}
-                                title={b.label}
-                                onClick={() => {
-                                    setBandId(b.id)
-                                    setPos(0)
-                                }}
-                            >
-                                {bandName(b.id)}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-                <div className="group">
-                    <h4>Overlay</h4>
-                    <label className="check">
-                        <input type="checkbox" checked={marker} onChange={(e) => setMarker(e.target.checked)} />
-                        Catalogue position (SIMBAD position + proper motion)
-                    </label>
+                    ))}
                 </div>
             </div>
 
-            {compare.length === 2 && (
-                <section className="compare">
-                    <h3>Short versus long wavelength</h3>
-                    <p className="detail">
-                        The same epoch in two stacks. Each band has its own brightness scale; the amber marker is the
-                        catalogue position of the target.
-                    </p>
+            {tab === 'images' && (
+                <>
                     <div className="views">
-                        {compare.map((b) => (
+                        {showDiff && diff && diffBand ? (
+                            <SkyPanel
+                                title={t('panel.diff', { b: diff.to_epoch + 1, a: diff.from_epoch + 1, band: bandLabel(band) })}
+                                help="help.diff"
+                                n={meta.grid.npix}
+                                scaleArcsec={meta.grid.scale_arcsec}
+                                marker={marker ? meta.epochs[diff.to_epoch].predicted : null}
+                                caption={diffCaption(diff.label)}
+                                detail={t('diff.detail', {
+                                    dets: diffBand.dets_used.join(', '),
+                                    n1: diffBand.n_first,
+                                    n2: diffBand.n_last,
+                                    vmax: diffBand.vmax.toPrecision(3),
+                                    stars: diffBand.n_stars,
+                                    med: pct(diffBand.star_ratio_median),
+                                    p90: pct(diffBand.star_ratio_p90),
+                                    bright: pct(diffBand.lobe_bright_ratio),
+                                    dark: pct(diffBand.lobe_dark_ratio)
+                                })}
+                            >
+                                <img src={base + diffBand.png} alt="" />
+                            </SkyPanel>
+                        ) : (
                             <StackPanel
-                                key={b.id}
                                 base={base}
                                 meta={meta}
-                                band={b}
+                                band={band}
                                 epoch={epoch}
-                                title={b.label}
+                                title={t('panel.stack', { band: bandLabel(band) })}
+                                help="help.stack"
                                 marker={marker}
-                                markerLabel="target, catalogue position"
-                                neighbour={marker ? neighbourXY : null}
-                                neighbourLabel="Gaia neighbour, not the target"
+                                arrow={res.fit?.arrow}
                             />
-                        ))}
+                        )}
+                        <RawView
+                            base={base}
+                            scaleArcsec={meta.grid.scale_arcsec}
+                            playing={playing}
+                            marker={marker}
+                            dets={band.dets}
+                            predicted={meta.epochs.map((e) => e.predicted)}
+                        />
                     </div>
-                    {neighbour && <NeighbourNote nb={neighbour} />}
-                </section>
+
+                    <div className="controls">
+                        <div className="group">
+                            <h4>{t('ctl.playback')}</h4>
+                            <div className="row">
+                                <button type="button" className="play" onClick={() => setPlaying(!playing)}>
+                                    {playing ? t('ctl.pause') : t('ctl.play')}
+                                </button>
+                            </div>
+                        </div>
+                        {diff && (
+                            <div className="group">
+                                <HelpTitle as="h4" help="help.diff">
+                                    {t('ctl.view')}
+                                </HelpTitle>
+                                <div className="row">
+                                    <button type="button" className={showDiff ? '' : 'on'} onClick={() => setView('blink')}>
+                                        {t('ctl.blink')}
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className={showDiff ? 'on' : ''}
+                                        disabled={!diffBand}
+                                        title={diffBand ? t('ctl.diff.title') : t('ctl.diff.none')}
+                                        onClick={() => setView('diff')}
+                                    >
+                                        {t('ctl.diff')}
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                        <div className="group">
+                            <h4>{t('ctl.epoch')}</h4>
+                            <div className="row">
+                                {band.frames.map((f, i) => (
+                                    <button
+                                        key={f.png}
+                                        type="button"
+                                        className={i === pos % nFrames ? 'on' : ''}
+                                        onClick={() => {
+                                            setPlaying(false)
+                                            setPos(i)
+                                        }}
+                                    >
+                                        {f.epoch + 1}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="group">
+                            <h4>{t('ctl.speed')}</h4>
+                            <div className="row">
+                                {SPEEDS.map((s) => (
+                                    <button key={s.ms} type="button" className={s.ms === ms ? 'on' : ''} onClick={() => setMs(s.ms)}>
+                                        {t(s.key)}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="group">
+                            <HelpTitle as="h4" help="help.detector">
+                                {t('ctl.detector')}
+                            </HelpTitle>
+                            <div className="row">
+                                {meta.bands.map((b) => (
+                                    <button
+                                        key={b.id}
+                                        type="button"
+                                        className={b.id === band.id ? 'on' : ''}
+                                        title={bandLabel(b)}
+                                        onClick={() => {
+                                            setBandId(b.id)
+                                            setPos(0)
+                                        }}
+                                    >
+                                        {bandName(b.id)}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="group">
+                            <HelpTitle as="h4" help="help.marker">
+                                {t('ctl.overlay')}
+                            </HelpTitle>
+                            <label className="check">
+                                <input type="checkbox" checked={marker} onChange={(e) => setMarker(e.target.checked)} />
+                                {t('ctl.marker')}
+                            </label>
+                        </div>
+                    </div>
+
+                    {compare.length === 2 && (
+                        <section className="compare">
+                            <h3>{t('compare.title')}</h3>
+                            <p className="detail">{t('compare.detail')}</p>
+                            <div className="views">
+                                {compare.map((b) => (
+                                    <StackPanel
+                                        key={b.id}
+                                        base={base}
+                                        meta={meta}
+                                        band={b}
+                                        epoch={epoch}
+                                        title={bandLabel(b)}
+                                        marker={marker}
+                                        markerLabel={t('label.target')}
+                                        neighbour={marker ? neighbourXY : null}
+                                        neighbourLabel={t('label.neighbour')}
+                                    />
+                                ))}
+                            </div>
+                            {neighbour && <NeighbourNote nb={neighbour} />}
+                        </section>
+                    )}
+                </>
             )}
 
-            <ResultsPanel r={res} />
+            {tab === 'measurement' && (
+                <>
+                    <ResultsPanel r={res} />
+                    <FlickerNote r={res} />
+                </>
+            )}
+
+            {tab === 'validation' && validation}
         </div>
     )
 }

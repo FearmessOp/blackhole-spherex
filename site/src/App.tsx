@@ -2,8 +2,10 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import BlinkView from './BlinkView'
 import FastMoversPanel from './FastMoversPanel'
 import FindMover from './FindMover'
+import { HowTo, LangSwitch } from './Help'
 import QuickLookView, { type Query } from './QuickLookView'
 import ValidationPanel from './ValidationPanel'
+import { t, useLang, withLang } from './i18n'
 import type { TargetEntry } from './types'
 
 type IndexState =
@@ -12,6 +14,7 @@ type IndexState =
     | { status: 'ready'; targets: TargetEntry[] }
 
 // What the page shows is written in the URL: ?target=<name>, ?ra=<deg>&dec=<deg> or ?guide=1.
+// ?lang=tr is kept in every address the page writes, so that a shared link keeps the language.
 type Route =
     | { kind: 'none' }
     | { kind: 'name'; name: string }
@@ -20,7 +23,6 @@ type Route =
     | { kind: 'bad' }
 
 const INDEX_URL = `${import.meta.env.BASE_URL}data/index.json`
-const BAD_POS = 'RA must be between 0 and 360 degrees and Dec between -90 and +90 degrees.'
 
 const validPos = (ra: number, dec: number) =>
     Number.isFinite(ra) && Number.isFinite(dec) && ra >= 0 && ra < 360 && dec >= -90 && dec <= 90
@@ -38,17 +40,19 @@ function readRoute(): Route {
 
 function routeUrl(r: Route): string {
     const path = window.location.pathname
-    if (r.kind === 'guide') return `${path}?guide=1`
-    if (r.kind === 'name') return `${path}?target=${encodeURIComponent(r.name)}`
-    if (r.kind === 'pos') return `${path}?ra=${r.ra}&dec=${r.dec}`
-    return path
+    if (r.kind === 'guide') return withLang(`${path}?guide=1`)
+    if (r.kind === 'name') return withLang(`${path}?target=${encodeURIComponent(r.name)}`)
+    if (r.kind === 'pos') return withLang(`${path}?ra=${r.ra}&dec=${r.dec}`)
+    return withLang(path)
 }
 
 export default function App() {
+    useLang()
     const [index, setIndex] = useState<IndexState>({ status: 'loading' })
     const [route, setRoute] = useState<Route>(readRoute)
     const [text, setText] = useState('')
-    const [inputError, setInputError] = useState<string | null>(null)
+    const [badInput, setBadInput] = useState(false)
+    const [howTo, setHowTo] = useState(false)
     const searchInput = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
@@ -90,7 +94,7 @@ export default function App() {
         go({ kind: 'none' })
         if (toSearch) {
             window.scrollTo({ top: 0 })
-            searchInput.current?.focus()
+            window.setTimeout(() => searchInput.current?.focus(), 0)
         }
     }
 
@@ -103,29 +107,30 @@ export default function App() {
         if (m) {
             const ra = Number(m[1])
             const dec = Number(m[2])
-            if (!validPos(ra, dec)) return setInputError(BAD_POS)
-            setInputError(null)
+            if (!validPos(ra, dec)) return setBadInput(true)
+            setBadInput(false)
             return go({ kind: 'pos', ra, dec })
         }
-        setInputError(null)
+        setBadInput(false)
         go({ kind: 'name', name: value })
     }
 
+    // The open tab is kept here, so that it survives a change of target.
+    const [tab, setTab] = useState<'images' | 'measurement' | 'validation'>('images')
     const targets = index.status === 'ready' ? index.targets : []
-    const names: Record<string, string> = Object.fromEntries(targets.map((t) => [t.slug, t.name]))
-    // The fast movers (a test of the fit) are listed after the first targets, under their own heading.
-    const groups = [
-        { title: null, list: targets.filter((t) => t.set !== 'fast') },
-        { title: 'Fast movers, a test of the fit', list: targets.filter((t) => t.set === 'fast') }
-    ].filter((g) => g.list.length > 0)
+    const names: Record<string, string> = Object.fromEntries(targets.map((x) => [x.slug, x.name]))
+    // Five test targets as cards; the ten fast movers (a test of the fit) in one drop-down list.
+    const main = targets.filter((x) => x.set !== 'fast')
+    const fast = targets.filter((x) => x.set === 'fast')
     const openTarget = (slug: string) => {
+        setTab('images')
         go({ kind: 'name', name: slug })
         window.scrollTo({ top: 0 })
     }
     // A name that is one of the prepared targets opens the prepared view.
     const wanted = route.kind === 'name' ? route.name.toLowerCase() : null
     const prepared =
-        route.kind === 'none' ? targets[0] : targets.find((t) => t.slug === wanted || t.name.toLowerCase() === wanted)
+        route.kind === 'none' ? targets[0] : targets.find((x) => x.slug === wanted || x.name.toLowerCase() === wanted)
     const query: Query | null =
         prepared || index.status === 'loading'
             ? null
@@ -134,67 +139,109 @@ export default function App() {
                 : route.kind === 'pos'
                     ? { ra: route.ra, dec: route.dec }
                     : null
+    const metaLine = (x: TargetEntry) =>
+        `${x.sp_type ? `${x.sp_type} · ` : ''}${t('card.meta', { n: x.n_exposures ?? '?', e: x.n_epochs ?? '?' })}`
+    const fastOn = prepared?.set === 'fast'
+    const validation =
+        index.status !== 'loading' ? (
+            <>
+                <ValidationPanel names={names} />
+                <FastMoversPanel onOpen={openTarget} />
+            </>
+        ) : null
 
     return (
         <div className="app">
             <header className="bar">
-                <h1>SPHEREx motion viewer</h1>
-                <span className="scale">1 pixel = 6.15 arcsec</span>
+                <div className="bar-text">
+                    <h1>{t('app.title')}</h1>
+                    <p className="tagline">{t('app.tagline')}</p>
+                </div>
+                <div className="bar-tools">
+                    {route.kind !== 'guide' && (
+                        <button type="button" className="link howto-link" aria-expanded={howTo} onClick={() => setHowTo(!howTo)}>
+                            {t('app.howto')}
+                        </button>
+                    )}
+                    <LangSwitch />
+                </div>
             </header>
             <main className="stage">
-                {route.kind !== 'guide' && (
-                    <button className="guide-start" onClick={() => go({ kind: 'guide' })}>
-                        <b>Find the mover</b>
-                        <span>New here? Spot three real moving objects in about a minute.</span>
-                    </button>
+                {route.kind === 'guide' ? (
+                    // Guided mode: only the step is on the page.
+                    <FindMover onExit={leaveGuide} />
+                ) : (
+                    <>
+                        {howTo && <HowTo onClose={() => setHowTo(false)} />}
+                        <div className="top">
+                            <form className="search" onSubmit={submit}>
+                                <label htmlFor="search-input">{t('search.label')}</label>
+                                <div className="row">
+                                    <input
+                                        id="search-input"
+                                        ref={searchInput}
+                                        type="text"
+                                        value={text}
+                                        onChange={(e) => setText(e.target.value)}
+                                        placeholder={t('search.placeholder')}
+                                        autoComplete="off"
+                                        spellCheck={false}
+                                    />
+                                    <button type="submit">{t('search.show')}</button>
+                                </div>
+                            </form>
+                            <button type="button" className="guide-start" onClick={() => go({ kind: 'guide' })}>
+                                <b>{t('guide.start')}</b>
+                                <span>{t('guide.start.sub')}</span>
+                            </button>
+                        </div>
+                        {badInput && <p className="warn">{t('search.badpos')}</p>}
+                        {targets.length > 0 && (
+                            <nav className="picker">
+                                {main.map((x) => (
+                                    <button
+                                        key={x.slug}
+                                        type="button"
+                                        className={`card${x === prepared ? ' on' : ''}`}
+                                        title={metaLine(x)}
+                                        onClick={() => go({ kind: 'name', name: x.slug })}
+                                    >
+                                        <span className="card-name">{x.name}</span>
+                                        <span className="card-meta">{metaLine(x)}</span>
+                                    </button>
+                                ))}
+                                {fast.length > 0 && (
+                                    <select
+                                        className={`fast-pick${fastOn ? ' on' : ''}`}
+                                        aria-label={t('targets.fast')}
+                                        value={fastOn && prepared ? prepared.slug : ''}
+                                        onChange={(e) => {
+                                            if (e.target.value) go({ kind: 'name', name: e.target.value })
+                                        }}
+                                    >
+                                        <option value="">{t('targets.fast.pick', { n: fast.length })}</option>
+                                        {fast.map((x) => (
+                                            <option key={x.slug} value={x.slug}>
+                                                {x.name} · {metaLine(x)}
+                                            </option>
+                                        ))}
+                                    </select>
+                                )}
+                            </nav>
+                        )}
+                        {index.status === 'loading' && <p className="note">{t('targets.loading')}</p>}
+                        {route.kind === 'bad' && (
+                            <p className="warn">
+                                {t('search.badurl')} {t('search.badpos')}
+                            </p>
+                        )}
+                        {prepared && (
+                            <BlinkView key={prepared.slug} slug={prepared.slug} tab={tab} onTab={setTab} validation={validation} />
+                        )}
+                        {query && <QuickLookView key={JSON.stringify(query)} query={query} />}
+                        {index.status === 'empty' && route.kind === 'none' && <p className="note">{t('targets.empty')}</p>}
+                    </>
                 )}
-                <form className="search" onSubmit={submit}>
-                    <label htmlFor="search-input">Any star or position</label>
-                    <div className="row">
-                        <input
-                            id="search-input"
-                            ref={searchInput}
-                            type="text"
-                            value={text}
-                            onChange={(e) => setText(e.target.value)}
-                            placeholder="Star name (Wolf 359) or RA Dec in degrees (164.0924 6.9952)"
-                            autoComplete="off"
-                            spellCheck={false}
-                        />
-                        <button type="submit">Show</button>
-                    </div>
-                    {inputError && <p className="warn">{inputError}</p>}
-                </form>
-                {groups.map((g) => (
-                    <div key={g.title ?? 'first'}>
-                        {g.title && <h4 className="cards-title">{g.title}</h4>}
-                        <nav className="cards">
-                            {g.list.map((t) => (
-                                <button
-                                    key={t.slug}
-                                    className={`card${t === prepared ? ' on' : ''}`}
-                                    onClick={() => go({ kind: 'name', name: t.slug })}
-                                >
-                                    <span className="card-name">{t.name}</span>
-                                    <span className="card-meta">
-                                        {t.sp_type ? `${t.sp_type} · ` : ''}
-                                        {t.n_exposures} exposures · {t.n_epochs} epochs
-                                    </span>
-                                </button>
-                            ))}
-                        </nav>
-                    </div>
-                ))}
-                {index.status === 'loading' && <p className="note">Loading target list…</p>}
-                {route.kind === 'bad' && <p className="warn">The address of this page holds no usable position. {BAD_POS}</p>}
-                {route.kind === 'guide' && <FindMover onExit={leaveGuide} />}
-                {prepared && <BlinkView key={prepared.slug} slug={prepared.slug} />}
-                {query && <QuickLookView key={JSON.stringify(query)} query={query} />}
-                {index.status === 'empty' && route.kind === 'none' && (
-                    <p className="note">No prepared targets are available; enter a star name or a position above.</p>
-                )}
-                {index.status !== 'loading' && <ValidationPanel names={names} />}
-                {index.status !== 'loading' && <FastMoversPanel onOpen={openTarget} />}
             </main>
         </div>
     )

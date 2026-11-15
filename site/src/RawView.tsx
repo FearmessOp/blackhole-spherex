@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import SkyPanel from './SkyPanel'
+import { t, useLang } from './i18n'
 import type { XY } from './types'
 
 type RawFrame = { t: string; epoch: number; det: number; wave_um: number; release: string }
@@ -16,6 +17,7 @@ type Props = {
 const RAW_MS = 200
 
 export default function RawView({ base, scaleArcsec, playing, marker, dets, predicted }: Props) {
+    useLang()
     const [raw, setRaw] = useState<Raw | null>(null)
     const [failed, setFailed] = useState(false)
     const [pos, setPos] = useState(0)
@@ -47,9 +49,9 @@ export default function RawView({ base, scaleArcsec, playing, marker, dets, pred
         return () => window.clearInterval(id)
     }, [playing, count])
 
-    if (failed) return <p className="note">Could not load the raw exposures.</p>
-    if (!raw) return <p className="note">Loading raw exposures…</p>
-    if (count === 0) return <p className="note">No raw exposures for this detector selection.</p>
+    if (failed) return <p className="note">{t('raw.failed')}</p>
+    if (!raw) return <p className="note">{t('raw.loading')}</p>
+    if (count === 0) return <p className="note">{t('raw.none')}</p>
 
     const { f, i } = shown[pos % count]
     const rows = Math.ceil(raw.frames.length / raw.cols)
@@ -58,7 +60,8 @@ export default function RawView({ base, scaleArcsec, playing, marker, dets, pred
 
     return (
         <SkyPanel
-            title="Raw exposures, one at a time"
+            title={t('panel.raw')}
+            help="help.raw"
             n={raw.npix}
             scaleArcsec={scaleArcsec}
             marker={marker ? predicted[f.epoch] : null}
@@ -67,9 +70,14 @@ export default function RawView({ base, scaleArcsec, playing, marker, dets, pred
                 backgroundSize: `${raw.cols * 100}% ${rows * 100}%`,
                 backgroundPosition: `${(col / (raw.cols - 1)) * 100}% ${rows > 1 ? (row / (rows - 1)) * 100 : 0}%`
             }}
-            caption={`${f.wave_um.toFixed(2)} µm, detector ${f.det}`}
-            detail={`${f.t.replace('T', ' ')} UTC, epoch ${f.epoch + 1}, ${f.release.toUpperCase()}, exposure ${(pos % count) + 1
-                } of ${count}`}
+            caption={t('raw.caption', { w: f.wave_um.toFixed(2), d: f.det })}
+            detail={t('raw.detail', {
+                t: f.t.replace('T', ' '),
+                e: f.epoch + 1,
+                rel: f.release.toUpperCase(),
+                i: (pos % count) + 1,
+                n: count
+            })}
         />
     )
 }

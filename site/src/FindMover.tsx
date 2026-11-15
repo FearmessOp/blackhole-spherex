@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import SkyPanel, { ARROW_SCALE } from './SkyPanel'
+import { bandLabel, diffCaption, label, t, useLang, type Key } from './i18n'
 import type { Diff, Meta, Results, XY } from './types'
 
 // Guided mode "Find the mover": three prepared targets, blinked without the catalogue
@@ -9,19 +10,19 @@ import type { Diff, Meta, Results, XY } from './types'
 
 type Step = {
     slug: string
-    bands: { id: string; name: string }[] // detector selections offered; the first is shown first
+    bands: { id: string; name?: Key }[] // detector selections offered; the first is shown first
     needBand?: string // the target is only seen in this selection
     hint?: boolean // the difference image is offered as a hint
 }
 
 const STEPS: Step[] = [
-    { slug: 'barnard', bands: [{ id: 'all', name: 'All detectors' }] },
-    { slug: 'eps-indi-b', bands: [{ id: 'all', name: 'All detectors' }], hint: true },
+    { slug: 'barnard', bands: [{ id: 'all' }] },
+    { slug: 'eps-indi-b', bands: [{ id: 'all' }], hint: true },
     {
         slug: 'wise-0855',
         bands: [
-            { id: 'd123', name: 'Short wavelength (D1–3)' },
-            { id: 'd56', name: 'Long wavelength (D5+6)' }
+            { id: 'd123', name: 'guide.band.d123' },
+            { id: 'd56', name: 'guide.band.d56' }
         ],
         needBand: 'd56'
     }
@@ -105,27 +106,18 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
     }
 
     // Before the click: at most two sentences.
-    let ask = 'Three stacks of the same patch of sky, taken months apart, are blinked. One star changes pixel: click it.'
-    if (step.slug === 'eps-indi-b') {
-        ask = 'This one moves by only about one pixel over four epochs. Click the source that shifts; a difference image is there as a hint.'
-    } else if (step.slug === 'wise-0855') {
-        ask = inNeedBand
-            ? 'At long wavelength a faint source appears and moves towards the marked Gaia star. Click it.'
-            : 'At short wavelength this cold object is not seen; the marked source is a Gaia star, not the target. Switch to long wavelength, then click what appears and moves.'
-    }
+    let ask = t('guide.ask.barnard')
+    if (step.slug === 'eps-indi-b') ask = t('guide.ask.eps')
+    else if (step.slug === 'wise-0855') ask = inNeedBand ? t('guide.ask.wise.long') : t('guide.ask.wise.short')
 
     // Feedback: the real distance of the click from the catalogue position.
-    const where = fb
-        ? `${fb.arcsec.toFixed(1)} arcsec (${fb.px.toFixed(1)} pixels) from the catalogue position of the target in epoch ${fb.epoch + 1}`
-        : ''
+    const where = fb ? t('guide.where', { arcsec: fb.arcsec.toFixed(1), px: fb.px.toFixed(1), e: fb.epoch + 1 }) : ''
     let feedback: string | null = null
-    if (fb?.kind === 'hit') feedback = `Found. Your click was ${where}.`
-    else if (fb?.kind === 'shown') feedback = 'The amber marker now shows the catalogue position of the target.'
-    else if (fb?.kind === 'neighbour') feedback = `That is the marked Gaia star, not the target. Your click was ${where}.`
-    else if (fb?.kind === 'band') feedback = `The target is not visible at short wavelength. Your click was ${where}; switch to long wavelength.`
-    else if (fb?.kind === 'miss') {
-        feedback = `Not the mover. Your click was ${where}.${hintBand ? ' The difference image is shown as a hint.' : ' Try again.'}`
-    }
+    if (fb?.kind === 'hit') feedback = t('guide.fb.hit', { where })
+    else if (fb?.kind === 'shown') feedback = t('guide.fb.shown')
+    else if (fb?.kind === 'neighbour') feedback = t('guide.fb.neighbour', { where })
+    else if (fb?.kind === 'band') feedback = t('guide.fb.band', { where })
+    else if (fb?.kind === 'miss') feedback = t(hintBand ? 'guide.fb.miss.hint' : 'guide.fb.miss.again', { where })
 
     // After the target is found: at most two sentences, numbers from the target's JSON files.
     const e0 = meta.epochs[0].predicted
@@ -136,13 +128,31 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
     const ref = res.fit?.reference
     const pair = res.stack_motion?.pairs.find((p) => p.from === 0 && p.to === meta.epochs.length - 1)
     const two = pair?.methods.find((m) => m.id === 'two') ?? pair?.methods[0]
-    let explain = `${meta.name}: between the first and the last epoch the catalogue moves it by ${(shift * scale).toFixed(1)} arcsec (${shift.toFixed(1)} pixels).`
+    let explain = t('guide.explain.base', { name: meta.name, arcsec: (shift * scale).toFixed(1), px: shift.toFixed(1) })
     if (step.slug === 'barnard' && sat) {
-        explain += ` Its core is saturated in ${sat.overflow} of ${sat.exposures} exposures, so the site shows no measured motion for it.`
+        explain += ' ' + t('guide.explain.sat', { a: sat.overflow, b: sat.exposures })
     } else if (step.slug === 'eps-indi-b' && psf && ref) {
-        explain = `${meta.name}, a pair of brown dwarfs: measured proper motion (ePSF fit) ${signed(psf.pm_east)} ± ${psf.pm_east_err.toFixed(1)} east and ${signed(psf.pm_north)} ± ${psf.pm_north_err.toFixed(1)} north in mas/yr; SIMBAD gives ${signed(ref.pm_east)} and ${signed(ref.pm_north)}. The arrow is drawn ${ARROW_SCALE} times longer than the motion.`
+        explain = t('guide.explain.eps', {
+            name: meta.name,
+            e: signed(psf.pm_east),
+            ee: psf.pm_east_err.toFixed(1),
+            n: signed(psf.pm_north),
+            ne: psf.pm_north_err.toFixed(1),
+            re: signed(ref.pm_east),
+            rn: signed(ref.pm_north),
+            k: ARROW_SCALE
+        })
     } else if (step.slug === 'wise-0855' && pair && two) {
-        explain = `${meta.name}, seen only at long wavelength: from the first to the last epoch it moved ${signed(two.east, 2)} ± ${two.east_err.toFixed(2)} arcsec east and ${signed(two.north, 2)} ± ${two.north_err.toFixed(2)} north (${two.label}). The catalogue predicts ${signed(pair.predicted.east, 2)} and ${signed(pair.predicted.north, 2)}.`
+        explain = t('guide.explain.wise', {
+            name: meta.name,
+            e: signed(two.east, 2),
+            ee: two.east_err.toFixed(2),
+            n: signed(two.north, 2),
+            ne: two.north_err.toFixed(2),
+            method: label(two.label),
+            pe: signed(pair.predicted.east, 2),
+            pn: signed(pair.predicted.north, 2)
+        })
     }
 
     const switchBand = (id: string) => {
@@ -160,65 +170,78 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
     }
 
     return (
-        <>
-            <p className="guide-ask">{found ? explain : ask}</p>
-            {feedback && <p className={`guide-feedback${fb?.kind === 'hit' ? ' hit' : ''}`}>{feedback}</p>}
-            <div className="row guide-actions">
-                {step.bands.length > 1 &&
-                    step.bands.map((b) => (
-                        <button key={b.id} className={b.id === bandId ? 'on' : ''} onClick={() => switchBand(b.id)}>
-                            {b.name}
+        <div className="guide-step">
+            <SkyPanel
+                title={t('panel.stack', { band: bandLabel(band) })}
+                n={meta.grid.npix}
+                scaleArcsec={scale}
+                marker={found && inNeedBand ? ep.predicted : null}
+                markerLabel={found && inNeedBand ? t('label.target') : undefined}
+                neighbour={nb}
+                neighbourLabel={t('label.gaia')}
+                arrow={found ? res.fit?.arrow : null}
+                onPick={found ? undefined : onPick}
+                pickBadge={t('guide.click.badge')}
+                pick={pick}
+                caption={t('panel.epoch', {
+                    i: frame.epoch + 1,
+                    n: meta.epochs.length,
+                    from: ep.t_start.slice(0, 10),
+                    to: ep.t_end.slice(0, 10)
+                })}
+                detail={found ? t('guide.stacked', { n: frame.n_frames }) : t('guide.click')}
+            >
+                {band.frames.map((f) => (
+                    <img key={f.png} src={base + f.png} alt="" style={{ visibility: f === frame ? 'visible' : 'hidden' }} />
+                ))}
+            </SkyPanel>
+            <div className="guide-side">
+                <p className="guide-ask">{found ? explain : ask}</p>
+                {feedback && <p className={`guide-feedback${fb?.kind === 'hit' ? ' hit' : ''}`}>{feedback}</p>}
+                <div className="row guide-actions">
+                    {step.bands.length > 1 &&
+                        step.bands.map((b) => (
+                            <button key={b.id} type="button" className={b.id === bandId ? 'on' : ''} onClick={() => switchBand(b.id)}>
+                                {b.name ? t(b.name) : b.id}
+                            </button>
+                        ))}
+                    {hintBand && (
+                        <button type="button" className={hint ? 'on' : ''} onClick={() => setHint(!hint)}>
+                            {hint ? t('guide.hint.hide') : t('guide.hint.show')}
                         </button>
-                    ))}
-                {hintBand && (
-                    <button className={hint ? 'on' : ''} onClick={() => setHint(!hint)}>
-                        {hint ? 'Hide the hint' : 'Show a hint'}
-                    </button>
-                )}
-                {!found && <button onClick={reveal}>Show me</button>}
-                {found && (
-                    <button className="guide-next" onClick={onNext}>
-                        {isLast ? 'Finish' : 'Next'}
-                    </button>
-                )}
-            </div>
-            <div className="views">
-                <SkyPanel
-                    title={`Stacked per epoch: ${band.label}`}
-                    n={meta.grid.npix}
-                    scaleArcsec={scale}
-                    marker={found && inNeedBand ? ep.predicted : null}
-                    markerLabel={found && inNeedBand ? 'target, catalogue position' : undefined}
-                    neighbour={nb}
-                    neighbourLabel="Gaia star, not the target"
-                    arrow={found ? res.fit?.arrow : null}
-                    onPick={found ? undefined : onPick}
-                    pick={pick}
-                    caption={`Epoch ${frame.epoch + 1} of ${meta.epochs.length}: ${ep.t_start.slice(0, 10)} to ${ep.t_end.slice(0, 10)}`}
-                    detail={found ? `${frame.n_frames} exposures stacked` : 'Click on the image where you see something move.'}
-                >
-                    {band.frames.map((f) => (
-                        <img key={f.png} src={base + f.png} alt="" style={{ visibility: f === frame ? 'visible' : 'hidden' }} />
-                    ))}
-                </SkyPanel>
+                    )}
+                    {!found && (
+                        <button type="button" className="guide-show" onClick={reveal}>
+                            {t('guide.showme')}
+                        </button>
+                    )}
+                    {found && (
+                        <button type="button" className="guide-next" onClick={onNext}>
+                            {isLast ? t('guide.finish') : t('guide.next')}
+                        </button>
+                    )}
+                </div>
                 {hint && hintBand && diff && (
-                    <SkyPanel
-                        title={`Hint: epoch ${diff.to_epoch + 1} minus epoch ${diff.from_epoch + 1}`}
-                        n={meta.grid.npix}
-                        scaleArcsec={scale}
-                        caption={diff.label}
-                        detail="Whatever stays in place cancels to grey; a source that moved leaves a bright and a dark side."
-                    >
-                        <img src={base + hintBand.png} alt="" />
-                    </SkyPanel>
+                    <div className="guide-hint">
+                        <SkyPanel
+                            title={t('guide.hint.title', { b: diff.to_epoch + 1, a: diff.from_epoch + 1 })}
+                            n={meta.grid.npix}
+                            scaleArcsec={scale}
+                            caption={diffCaption(diff.label)}
+                            detail={t('guide.hint.detail')}
+                        >
+                            <img src={base + hintBand.png} alt="" />
+                        </SkyPanel>
+                    </div>
                 )}
             </div>
-        </>
+        </div>
     )
 }
 
 // onExit(true) leaves the guide and puts the cursor into the search box.
 export default function FindMover({ onExit }: { onExit: (toSearch: boolean) => void }) {
+    useLang()
     const [i, setI] = useState(0)
     const done = i >= STEPS.length
     const step = STEPS[Math.min(i, STEPS.length - 1)]
@@ -226,34 +249,33 @@ export default function FindMover({ onExit }: { onExit: (toSearch: boolean) => v
     return (
         <div className="target guide">
             <div className="guide-head">
-                <h2>Find the mover</h2>
-                {!done && (
-                    <span className="guide-count">
-                        Step {i + 1} of {STEPS.length}
-                    </span>
-                )}
-                <button onClick={() => onExit(false)}>{done ? 'Close the guide' : 'Skip the guide'}</button>
+                <h2>{t('guide.title')}</h2>
+                {!done && <span className="guide-count">{t('guide.step', { i: i + 1, n: STEPS.length })}</span>}
+                <button type="button" onClick={() => onExit(false)}>
+                    {done ? t('guide.close') : t('guide.skip')}
+                </button>
             </div>
             {done ? (
                 <>
-                    <p className="guide-ask">
-                        Those were three real movers in SPHEREx images. Now look at any other star: type a name or a position
-                        into the search box.
-                    </p>
+                    <p className="guide-ask">{t('guide.done')}</p>
                     <div className="row guide-actions">
-                        <button className="guide-next" onClick={() => onExit(true)}>
-                            Go to the search box
+                        <button type="button" className="guide-next" onClick={() => onExit(true)}>
+                            {t('guide.tosearch')}
                         </button>
-                        <button onClick={() => setI(0)}>Play again</button>
+                        <button type="button" className="guide-again" onClick={() => setI(0)}>
+                            {t('guide.again')}
+                        </button>
                     </div>
                 </>
             ) : data === 'failed' ? (
                 <>
-                    <p className="warn">Could not load the data for this step.</p>
-                    <button onClick={() => setI(i + 1)}>Next</button>
+                    <p className="warn">{t('guide.failed')}</p>
+                    <button type="button" onClick={() => setI(i + 1)}>
+                        {t('guide.next')}
+                    </button>
                 </>
             ) : data === null ? (
-                <p className="note">Loading…</p>
+                <p className="note">{t('load.target')}</p>
             ) : (
                 <StepView key={step.slug} step={step} data={data} isLast={i === STEPS.length - 1} onNext={() => setI(i + 1)} />
             )}

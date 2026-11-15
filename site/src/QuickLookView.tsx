@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
+import { HelpTitle } from './Help'
 import SkyPanel from './SkyPanel'
+import { bandLabel, t, useLang, type Key } from './i18n'
 import {
     SCALE_ARCSEC,
     clippedMean,
@@ -66,18 +68,19 @@ const BANDS: Band[] = [
     { id: 'd56', name: 'D5+6', label: 'Detectors 5+6 (long wavelength)', dets: [5, 6], total: 8 }
 ]
 
-const SPEEDS = [
-    { label: 'Slow', ms: 1200 },
-    { label: 'Normal', ms: 600 },
-    { label: 'Fast', ms: 250 }
+const SPEEDS: { key: Key; ms: number }[] = [
+    { key: 'speed.slow', ms: 1200 },
+    { key: 'speed.normal', ms: 600 },
+    { key: 'speed.fast', ms: 250 }
 ]
 
-const ERRORS: Record<string, string> = {
-    name_not_found: 'SIMBAD does not know this name. Check the spelling, or enter RA and Dec in degrees.',
-    simbad_unreachable: 'SIMBAD could not be reached, so the name was not resolved. Try again, or enter RA and Dec in degrees.',
-    archive_unreachable: 'The IRSA archive did not return the exposure list. Try again in a moment.',
-    bad_request: 'Enter a star name, or RA and Dec in degrees (RA 0 to 360, Dec -90 to +90).',
-    no_answer: 'The lookup service did not answer. Try again in a moment.'
+// Error codes of /api/lookup -> dictionary keys, so that the message follows the chosen language.
+const ERRORS: Record<string, Key> = {
+    name_not_found: 'quick.err.name_not_found',
+    simbad_unreachable: 'quick.err.simbad_unreachable',
+    archive_unreachable: 'quick.err.archive_unreachable',
+    bad_request: 'quick.err.bad_request',
+    no_answer: 'quick.err.no_answer'
 }
 
 type EpochView = {
@@ -226,15 +229,16 @@ function EpochCanvas({ rgba, visible }: { rgba: Uint8ClampedArray; visible: bool
     return <canvas ref={ref} width={NPIX} height={NPIX} style={{ visibility: visible ? 'visible' : 'hidden' }} />
 }
 
-type LookupState = { status: 'loading' } | { status: 'error'; message: string } | { status: 'ready'; data: Lookup }
+type LookupState = { status: 'loading' } | { status: 'error'; key: Key } | { status: 'ready'; data: Lookup }
 
 export default function QuickLookView({ query }: { query: Query }) {
+    useLang()
     const queryString = 'target' in query ? `target=${encodeURIComponent(query.target)}` : `ra=${query.ra}&dec=${query.dec}`
     const [lookup, setLookup] = useState<LookupState>({ status: 'loading' })
     const [bandId, setBandId] = useState<string | null>(null)
     const [scene, setScene] = useState<Scene | null>(null)
     const [progress, setProgress] = useState<Progress | null>(null)
-    const [sceneError, setSceneError] = useState<string | null>(null)
+    const [sceneError, setSceneError] = useState<{ key: Key; msg?: string } | null>(null)
     const [pos, setPos] = useState(0)
     const [playing, setPlaying] = useState(true)
     const [ms, setMs] = useState(600)
@@ -253,18 +257,13 @@ export default function QuickLookView({ query }: { query: Query }) {
                 } catch {
                     body = null // not JSON: the function is not there (local preview) or timed out
                 }
-                if (!body || typeof body.ok !== 'boolean') return setLookup({ status: 'error', message: ERRORS.no_answer })
-                if (!body.ok) return setLookup({ status: 'error', message: ERRORS[body.error ?? ''] ?? ERRORS.no_answer })
-                if (!body.exposures.length) {
-                    return setLookup({
-                        status: 'error',
-                        message: 'The public SPHEREx releases at IRSA hold no exposure of this position.'
-                    })
-                }
+                if (!body || typeof body.ok !== 'boolean') return setLookup({ status: 'error', key: ERRORS.no_answer })
+                if (!body.ok) return setLookup({ status: 'error', key: ERRORS[body.error ?? ''] ?? ERRORS.no_answer })
+                if (!body.exposures.length) return setLookup({ status: 'error', key: 'quick.err.no_exposures' })
                 setLookup({ status: 'ready', data: body })
             })
             .catch(() => {
-                if (!ctl.signal.aborted) setLookup({ status: 'error', message: ERRORS.no_answer })
+                if (!ctl.signal.aborted) setLookup({ status: 'error', key: ERRORS.no_answer })
             })
         return () => ctl.abort()
     }, [queryString])
@@ -285,11 +284,11 @@ export default function QuickLookView({ query }: { query: Query }) {
         buildScene(data, band, setProgress, ctl.signal)
             .then((s) => {
                 if (ctl.signal.aborted) return
-                if (s.stats.read === 0) setSceneError('None of the selected exposures could be read from the cloud copy of the archive.')
+                if (s.stats.read === 0) setSceneError({ key: 'quick.err.none_read' })
                 else setScene(s)
             })
             .catch((e) => {
-                if (!ctl.signal.aborted) setSceneError(`Reading the images failed: ${e instanceof Error ? e.message : e}`)
+                if (!ctl.signal.aborted) setSceneError({ key: 'quick.err.read_failed', msg: e instanceof Error ? e.message : String(e) })
             })
         return () => ctl.abort()
     }, [data, band])
@@ -302,29 +301,37 @@ export default function QuickLookView({ query }: { query: Query }) {
         return () => window.clearInterval(id)
     }, [playing, ms, count])
 
-    const title = 'target' in query ? (data?.target?.name ?? query.target) : `RA ${query.ra.toFixed(5)}°, Dec ${query.dec.toFixed(5)}°`
+    const title =
+        'target' in query
+            ? (data?.target?.name ?? query.target)
+            : t('quick.title.pos', { ra: query.ra.toFixed(5), dec: query.dec.toFixed(5) })
+    const heading = (
+        <div className="target-head">
+            <HelpTitle as="h2" help="help.quick">
+                {title}
+            </HelpTitle>
+        </div>
+    )
     const banner = (
         <p className="quick-banner">
-            <b>Quick look, unmasked, no measurement.</b> A few exposures per epoch are read straight from the archive and
-            stacked in your browser. Flagged pixels are not removed. The only numbers taken from these images are the
-            rough motions listed below the image; they are not a measurement of the full data.
+            <b>{t('quick.banner.bold')}</b> {t('quick.banner')}
         </p>
     )
 
     if (lookup.status === 'loading') {
         return (
             <div className="target">
-                <h2>{title}</h2>
+                {heading}
                 {banner}
-                <p className="note">Looking up the position and the list of SPHEREx exposures… this can take up to a minute.</p>
+                <p className="note">{t('quick.lookup')}</p>
             </div>
         )
     }
     if (lookup.status === 'error') {
         return (
             <div className="target">
-                <h2>{title}</h2>
-                <p className="warn">{lookup.message}</p>
+                {heading}
+                <p className="warn">{t(lookup.key)}</p>
             </div>
         )
     }
@@ -336,17 +343,21 @@ export default function QuickLookView({ query }: { query: Query }) {
     const partial = lookup.data.collections.filter((c) => !c.ok).map((c) => c.id)
     return (
         <div className="target">
-            <h2>{title}</h2>
-            {banner}
-            {partial.length > 0 && (
-                <p className="warn">The archive did not answer for {partial.join(', ')}; the exposure list is incomplete.</p>
+            {heading}
+            {!(scene && cur) && banner}
+            {partial.length > 0 && <p className="warn">{t('quick.partial', { ids: partial.join(', ') })}</p>}
+            {sceneError && (
+                <p className="warn">{t(sceneError.key, sceneError.msg ? { msg: sceneError.msg } : undefined)}</p>
             )}
-            {sceneError && <p className="warn">{sceneError}</p>}
             {!scene && !sceneError && progress && (
                 <div className="quick-progress">
                     <progress value={progress.done} max={Math.max(1, progress.total)} />
                     <span>
-                        Reading exposure {progress.done} of {progress.total || '…'} ({(progress.bytes / 1e6).toFixed(1)} MB)
+                        {t('quick.progress', {
+                            done: progress.done,
+                            total: progress.total || '…',
+                            mb: (progress.bytes / 1e6).toFixed(1)
+                        })}
                     </span>
                 </div>
             )}
@@ -354,23 +365,35 @@ export default function QuickLookView({ query }: { query: Query }) {
                 <div className="views">
                     {showDiff && dif ? (
                         <SkyPanel
-                            title={`Difference: epoch ${dif.to + 1} minus epoch ${dif.from + 1}, ${band.label}`}
+                            title={t('panel.diff', { b: dif.to + 1, a: dif.from + 1, band: bandLabel(band) })}
+                            help="help.diff"
                             n={NPIX}
                             scaleArcsec={6.15}
                             marker={marker ? scene.epochs[dif.to].marker : null}
-                            caption="bright = where it is now, dark = where it was"
-                            detail={`Detectors ${dif.dets.join(', ')} (those read in both epochs), ${dif.nFirst} and ${dif.nLast} exposures. Linear scale, zero is mid grey, ±${dif.vmax.toPrecision(3)} MJy/sr. Unmasked and made from a few exposures: bad pixels and brightness changes of constant stars also show up, and this image was not checked against field stars.`}
+                            caption={t('diff.caption')}
+                            detail={t('quick.diff.detail', {
+                                dets: dif.dets.join(', '),
+                                n1: dif.nFirst,
+                                n2: dif.nLast,
+                                vmax: dif.vmax.toPrecision(3)
+                            })}
                         >
                             <EpochCanvas rgba={dif.rgba} visible />
                         </SkyPanel>
                     ) : (
                         <SkyPanel
-                            title={`Stacked per epoch: ${band.label}`}
+                            title={t('panel.stack', { band: bandLabel(band) })}
+                            help="help.stack"
                             n={NPIX}
                             scaleArcsec={6.15}
                             marker={marker ? cur.marker : null}
-                            caption={`Epoch ${cur.index + 1} of ${scene.epochs.length}: ${cur.tStart} to ${cur.tEnd}`}
-                            detail={`${cur.nUsed} of ${cur.nInBand} exposures of this epoch read and stacked`}
+                            caption={t('panel.epoch', {
+                                i: cur.index + 1,
+                                n: scene.epochs.length,
+                                from: cur.tStart,
+                                to: cur.tEnd
+                            })}
+                            detail={t('quick.stack.detail', { a: cur.nUsed, b: cur.nInBand })}
                         >
                             {shown.map((e) => (
                                 <EpochCanvas key={e.index} rgba={e.rgba!} visible={e === cur} />
@@ -378,52 +401,60 @@ export default function QuickLookView({ query }: { query: Query }) {
                         </SkyPanel>
                     )}
                     <div className="quick-side">
+                        {banner}
                         {st && (
                             <p className="detail">
-                                {st.listed} exposures listed in {scene.epochs.length} epochs; {st.read} read in{' '}
-                                {st.seconds.toFixed(1)} s ({(st.bytes / 1e6).toFixed(1)} MB in {st.requests} requests)
-                                {st.failed > 0 && <>; {st.failed} could not be read</>}
-                                {st.offDetector > 0 && <>; {st.offDetector} do not contain the position</>}.
+                                {t('quick.stats', {
+                                    listed: st.listed,
+                                    epochs: scene.epochs.length,
+                                    read: st.read,
+                                    s: st.seconds.toFixed(1),
+                                    mb: (st.bytes / 1e6).toFixed(1),
+                                    req: st.requests
+                                })}
+                                {st.failed > 0 ? t('quick.stats.failed', { n: st.failed }) : ''}
+                                {st.offDetector > 0 ? t('quick.stats.off', { n: st.offDetector }) : ''}.
                             </p>
                         )}
                         <p className="detail">
-                            The grid is fixed on the sky (north up, east left) and all epochs share one brightness scale.
-                            {data?.target
-                                ? ` The amber marker is the catalogue position moved with the catalogue proper motion; both are from ${data.target.source}.`
-                                : ' The amber marker is the position that was entered.'}
+                            {t('quick.grid')}{' '}
+                            {data?.target ? t('quick.marker.cat', { source: data.target.source }) : t('quick.marker.entered')}
                         </p>
                     </div>
                 </div>
             )}
             <div className="controls">
                 <div className="group">
-                    <h4>Playback</h4>
+                    <h4>{t('ctl.playback')}</h4>
                     <div className="row">
-                        <button className="play" onClick={() => setPlaying(!playing)}>
-                            {playing ? 'Pause' : 'Play'}
+                        <button type="button" className="play" onClick={() => setPlaying(!playing)}>
+                            {playing ? t('ctl.pause') : t('ctl.play')}
                         </button>
                     </div>
                 </div>
                 {scene && count >= 2 && (
                     <div className="group">
-                        <h4>View</h4>
+                        <HelpTitle as="h4" help="help.diff">
+                            {t('ctl.view')}
+                        </HelpTitle>
                         <div className="row">
-                            <button className={showDiff ? '' : 'on'} onClick={() => setView('blink')}>
-                                Blink epochs
+                            <button type="button" className={showDiff ? '' : 'on'} onClick={() => setView('blink')}>
+                                {t('ctl.blink')}
                             </button>
                             <button
+                                type="button"
                                 className={showDiff ? 'on' : ''}
                                 disabled={!dif}
-                                title={dif ? 'Last epoch minus first epoch' : 'No detector was read in both the first and the last epoch'}
+                                title={dif ? t('ctl.diff.title') : t('ctl.diff.none.quick')}
                                 onClick={() => setView('diff')}
                             >
-                                Difference
+                                {t('ctl.diff')}
                             </button>
                         </div>
                     </div>
                 )}
                 <div className="group">
-                    <h4>Epoch</h4>
+                    <h4>{t('ctl.epoch')}</h4>
                     <div className="row">
                         {shown.map((e, i) => (
                             <button
@@ -440,66 +471,76 @@ export default function QuickLookView({ query }: { query: Query }) {
                     </div>
                 </div>
                 <div className="group">
-                    <h4>Speed</h4>
+                    <h4>{t('ctl.speed')}</h4>
                     <div className="row">
                         {SPEEDS.map((s) => (
-                            <button key={s.ms} className={s.ms === ms ? 'on' : ''} onClick={() => setMs(s.ms)}>
-                                {s.label}
+                            <button key={s.ms} type="button" className={s.ms === ms ? 'on' : ''} onClick={() => setMs(s.ms)}>
+                                {t(s.key)}
                             </button>
                         ))}
                     </div>
                 </div>
                 <div className="group">
-                    <h4>Detector</h4>
+                    <HelpTitle as="h4" help="help.detector">
+                        {t('ctl.detector')}
+                    </HelpTitle>
                     <div className="row">
                         {BANDS.map((b) => (
-                            <button key={b.id} className={b.id === band.id ? 'on' : ''} title={b.label} onClick={() => setBandId(b.id)}>
-                                {b.name}
+                            <button
+                                key={b.id}
+                                type="button"
+                                className={b.id === band.id ? 'on' : ''}
+                                title={bandLabel(b)}
+                                onClick={() => setBandId(b.id)}
+                            >
+                                {b.id === 'all' ? t('band.all') : b.name}
                             </button>
                         ))}
                     </div>
                 </div>
                 <div className="group">
-                    <h4>Overlay</h4>
+                    <HelpTitle as="h4" help="help.marker">
+                        {t('ctl.overlay')}
+                    </HelpTitle>
                     <label className="check">
                         <input type="checkbox" checked={marker} onChange={(e) => setMarker(e.target.checked)} />
-                        {data?.target ? 'Catalogue position (SIMBAD position + proper motion)' : 'Entered position'}
+                        {data?.target ? t('ctl.marker') : t('ctl.marker.entered')}
                     </label>
                 </div>
             </div>
             {scene && scene.motions.length > 0 && (
                 <section className="results">
-                    <h3>Rough motion between epochs</h3>
+                    <h3>{t('quick.motion.title')}</h3>
                     <table className="motion">
                         <thead>
                             <tr>
-                                <th>Motion (east / north, arcsec)</th>
-                                {data?.target && <th>Catalogue prediction</th>}
-                                <th>Rough measurement</th>
+                                <th>{t('quick.motion.head')}</th>
+                                {data?.target && <th>{t('quick.motion.pred')}</th>}
+                                <th>{t('quick.motion.meas')}</th>
                             </tr>
                         </thead>
                         <tbody>
                             {scene.motions.map((r) => (
                                 <tr key={`${r.from}-${r.to}`}>
-                                    <td>
-                                        Epoch {r.from + 1} → {r.to + 1}
+                                    <td data-unit={t('quick.motion.unit')}>
+                                        {t('quick.motion.pair', { a: r.from + 1, b: r.to + 1 })}
                                     </td>
                                     {data?.target && (
-                                        <td data-label="Catalogue prediction">
+                                        <td data-label={t('quick.motion.pred')}>
                                             {r.predicted ? (
                                                 <span className="pair">
                                                     {signed(r.predicted.east)} / {signed(r.predicted.north)}
                                                 </span>
                                             ) : (
-                                                'not available'
+                                                t('quick.motion.na')
                                             )}
                                         </td>
                                     )}
-                                    <td data-label="Rough measurement">
+                                    <td data-label={t('quick.motion.meas')}>
                                         {!r.motion ? (
-                                            'not measured'
+                                            t('quick.motion.none')
                                         ) : !r.motion.measurable ? (
-                                            'too slow to measure with this data'
+                                            t('quick.motion.slow')
                                         ) : (
                                             <span className="pair">
                                                 {signed(r.motion.east)} ± {r.motion.eastErr.toFixed(2)} / {signed(r.motion.north)} ±{' '}
@@ -512,13 +553,9 @@ export default function QuickLookView({ query }: { query: Query }) {
                         </tbody>
                     </table>
                     <p className="detail">
-                        Rough: windowed centroid on the stacks shown above (a few unmasked exposures per epoch), looked for
-                        within 1.5 pixels of the{' '}
-                        {data?.target ? 'catalogue position (proper motion and parallax)' : 'entered position'}. Errors are
-                        a bootstrap over the exposures; nothing is aligned to field stars. A number is only given when the
-                        motion is larger than its error; otherwise the line reads “too slow to measure with this data”,
-                        which also covers a source that is too faint in these few exposures. “Not measured” means that no
-                        source was found at that place in one of the two epochs.
+                        {t('quick.motion.note', {
+                            where: t(data?.target ? 'quick.motion.where.cat' : 'quick.motion.where.entered')
+                        })}
                     </p>
                 </section>
             )}

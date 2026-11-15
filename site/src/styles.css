@@ -1,10 +1,21 @@
+/* Colours: one accent (amber). Spacing: one scale, 4 / 8 / 16 / 24 / 40 px.
+   Text: body 16 px, secondary text 13 px or more; monospace only for numbers and tables.
+   Contrast ratios of every text / background pair: logs/design_contrast.log. */
 :root {
     --bg: #0b1426;
     --panel: #111d36;
     --line: #24345a;
     --text: #ece8dd;
     --muted: #bcc4d4;
+    --dim: #9aa6bd;
+    /* disabled controls */
     --accent: #ffb000;
+    --s1: 4px;
+    --s2: 8px;
+    --s3: 16px;
+    --s4: 24px;
+    --s5: 40px;
+    --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     --mono: ui-monospace, Consolas, 'Courier New', monospace;
     color-scheme: dark;
 }
@@ -23,75 +34,103 @@ body,
 body {
     background: var(--bg);
     color: var(--text);
-    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    font-size: 15px;
+    font-family: var(--sans);
+    font-size: 16px;
     line-height: 1.45;
 }
 
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+/* Top bar: what the tool is, in one sentence; help link and language on the right */
 .bar {
     display: flex;
-    align-items: baseline;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    padding: 10px 20px;
+    gap: var(--s1) var(--s4);
+    padding: var(--s2) var(--s4);
     border-bottom: 1px solid var(--line);
     background: var(--panel);
 }
 
-.bar h1 {
-    margin: 0;
-    font-size: 17px;
-    font-weight: 600;
+.bar-text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s1) var(--s3);
+    min-width: 0;
 }
 
-.scale {
-    color: var(--accent);
-    font-family: var(--mono);
-    font-size: 13px;
+.bar h1 {
+    font-size: 18px;
+    font-weight: 600;
     white-space: nowrap;
 }
 
+.tagline {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.bar-tools {
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+}
+
+.lang {
+    display: flex;
+    gap: var(--s1);
+}
+
+.lang button {
+    padding: var(--s1) var(--s2);
+}
+
+/* The stage is as wide as two square image panels that still fit on the first screen. */
 .stage {
-    max-width: 1240px;
+    max-width: clamp(900px, calc(2 * (100vh - 290px) + 72px), 1400px);
     margin: 0 auto;
-    padding: 16px 20px 40px;
+    padding: var(--s3) var(--s4) var(--s5);
 }
 
 .note {
-    margin: 0;
     color: var(--muted);
+    font-size: 14px;
 }
 
-/* Target cards */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 8px;
-    margin-bottom: 20px;
-}
-
-button {
-    padding: 6px 12px;
+/* Buttons */
+button,
+select {
+    padding: var(--s1) var(--s3);
     border: 1px solid var(--line);
     border-radius: 3px;
     background: var(--panel);
     color: var(--text);
     font: inherit;
-    font-size: 13px;
+    font-size: 14px;
     cursor: pointer;
 }
 
-button:hover {
+button:hover,
+select:hover {
     border-color: var(--muted);
 }
 
-button.on {
+button.on,
+select.on {
     border-color: var(--accent);
     color: var(--accent);
 }
 
 button:disabled {
-    opacity: 0.45;
+    color: var(--dim);
     cursor: default;
 }
 
@@ -99,11 +138,119 @@ button:disabled:hover {
     border-color: var(--line);
 }
 
-.card {
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+/* A button that reads as a link */
+button.link {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--accent);
+    font-size: inherit;
+    text-align: left;
+    text-decoration: underline;
+}
+
+.howto-link {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* First row: search box and the guided mode, side by side */
+.top {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: stretch;
+    gap: var(--s3);
+    margin-bottom: var(--s3);
+}
+
+.search label,
+.group h4,
+.results h3,
+.compare h3,
+.flicker h3 {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.search label {
+    display: block;
+    margin-bottom: var(--s1);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s2);
+}
+
+.search .row {
+    flex-wrap: nowrap;
+}
+
+.search input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: var(--s2);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--panel);
+    color: var(--text);
+    font: inherit;
+    font-size: 15px;
+}
+
+.search input::placeholder {
+    color: var(--muted);
+    opacity: 1;
+}
+
+.search button,
+.guide-next {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.guide-start {
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    padding: 10px 12px;
+    justify-content: center;
+    padding: var(--s2) var(--s3);
+    border-color: var(--accent);
+    text-align: left;
+}
+
+.guide-start b {
+    color: var(--accent);
+    font-size: 16px;
+}
+
+.guide-start span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Target selector: five name cards and one drop-down list for the fast movers, in one row */
+.picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s2);
+    margin-bottom: var(--s3);
+}
+
+.card {
+    flex: 1 1 auto;
+    padding: var(--s2) var(--s3);
     text-align: left;
 }
 
@@ -112,33 +259,155 @@ button:disabled:hover {
     font-weight: 600;
 }
 
-.card-meta {
-    color: var(--muted);
-    font-size: 12px;
+.fast-pick {
+    flex: 1 1 240px;
+    min-width: 0;
+    padding: var(--s2);
 }
 
-/* Target view */
-.target h2 {
-    margin: 0 0 12px;
+.fast-pick option {
+    background: var(--panel);
+    color: var(--text);
+}
+
+/* Target view: name, one line of facts, three tabs */
+.target-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s2) var(--s3);
+    margin-bottom: var(--s2);
+}
+
+.target h2,
+.validation h2,
+.howto h2 {
     font-size: 22px;
     font-weight: 600;
 }
 
+.target-sub {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.tabs {
+    display: flex;
+    gap: var(--s1);
+    margin-left: auto;
+}
+
+.tabs button {
+    padding: var(--s1) var(--s3);
+    font-size: 15px;
+}
+
+/* Heading with a "?" button and the explanation that opens under it */
+.head {
+    display: flex;
+    align-items: center;
+    gap: var(--s2);
+}
+
+.help-btn {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border-radius: 50%;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+.help-text {
+    max-width: 720px;
+    margin: var(--s1) 0 var(--s2);
+    padding: var(--s2) var(--s3);
+    border-left: 3px solid var(--muted);
+    background: var(--panel);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.controls .help-text {
+    max-width: 320px;
+    background: var(--bg);
+}
+
+/* "How to read this page" */
+.howto {
+    margin-bottom: var(--s3);
+    padding: var(--s3);
+    border: 1px solid var(--line);
+    background: var(--panel);
+}
+
+.howto-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s3);
+    margin-bottom: var(--s2);
+}
+
+.howto-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--s3) var(--s4);
+    margin: 0;
+    padding-left: var(--s4);
+}
+
+.howto-list b {
+    display: block;
+}
+
+.howto-list span {
+    font-size: 15px;
+}
+
+/* The second line of a card (type, exposures, epochs) is kept in the card's tooltip only. */
+.card-meta {
+    display: none;
+}
+
+/* Image panels: two side by side over the full width of the stage */
 .views {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    gap: var(--s4);
+    margin-bottom: var(--s3);
 }
 
 .fig {
-    margin: 0;
+    position: relative;
     min-width: 0;
+    margin: 0;
+}
+
+/* The explanation of an image panel opens over the top edge of the image,
+   so that the two images stay level. */
+.fig>.help-text {
+    position: absolute;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    max-width: none;
+    margin: 0;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--muted);
 }
 
 .fig figcaption {
-    margin: 0 0 6px;
+    margin-bottom: var(--s1);
     color: var(--muted);
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .view {
@@ -150,6 +419,7 @@ button:disabled:hover {
 }
 
 .view img,
+.view canvas,
 .view .overlay {
     position: absolute;
     top: 0;
@@ -161,20 +431,31 @@ button:disabled:hover {
 
 /* Sky images are shown pixel for pixel: never smoothed. */
 .sky,
-.sky img {
+.sky img,
+.view canvas {
     image-rendering: crisp-edges;
     image-rendering: pixelated;
     background-repeat: no-repeat;
 }
 
-@media (max-width: 720px) {
-    .views {
-        grid-template-columns: minmax(0, 1fr);
-    }
+/* A clickable image (guided mode): crosshair cursor, amber frame and a small label */
+.view.pickable {
+    border-color: var(--accent);
+    cursor: crosshair;
+}
 
-    .stage {
-        padding: 12px 12px 32px;
-    }
+.pick-badge {
+    position: absolute;
+    top: var(--s2);
+    right: var(--s2);
+    z-index: 1;
+    padding: var(--s1) var(--s2);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    background: var(--bg);
+    color: var(--accent);
+    font-size: 13px;
+    pointer-events: none;
 }
 
 /* Overlays (coordinates are grid pixels) */
@@ -212,7 +493,8 @@ button:disabled:hover {
     fill: var(--text);
 }
 
-.marker-label {
+.marker-label,
+.arrow-label {
     fill: var(--accent);
 }
 
@@ -227,10 +509,6 @@ button:disabled:hover {
 .compass,
 .scalebar text {
     fill: var(--muted);
-}
-
-.arrow-label {
-    fill: var(--accent);
 }
 
 /* Dark outline under overlay text keeps it readable on bright or noisy pixels. */
@@ -250,25 +528,29 @@ button:disabled:hover {
     stroke-width: 0.12;
 }
 
+/* The visitor's click: off-white ring with a dark casing. */
+.pick circle {
+    fill: none;
+    stroke: var(--text);
+    stroke-width: 0.14;
+}
+
+.pick .case {
+    stroke: #000;
+    stroke-width: 0.36;
+}
+
 .epoch {
-    margin: 8px 0 2px;
+    margin-top: var(--s2);
     color: var(--accent);
-    font-family: var(--mono);
-    font-size: 14px;
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
 }
 
 .detail {
-    margin: 0 0 10px;
+    margin-bottom: var(--s2);
     color: var(--muted);
-    font-size: 13px;
-}
-
-.flicker {
-    margin: 6px 0 18px;
-    padding: 10px 12px;
-    border: 1px solid var(--line);
-    background: var(--panel);
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .num {
@@ -280,28 +562,15 @@ button:disabled:hover {
 .controls {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px 28px;
-    margin-bottom: 24px;
-    padding: 12px;
+    gap: var(--s3) var(--s4);
+    margin-bottom: var(--s4);
+    padding: var(--s3);
     border: 1px solid var(--line);
     background: var(--panel);
 }
 
-.group h4,
-.results h3,
-.compare h3 {
-    margin: 0 0 6px;
-    color: var(--muted);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
+.group h4 {
+    margin-bottom: var(--s1);
 }
 
 .controls button {
@@ -309,38 +578,50 @@ button:disabled:hover {
 }
 
 .controls .play {
-    min-width: 72px;
+    min-width: 80px;
     border-color: var(--muted);
 }
 
 .check {
     display: flex;
     align-items: center;
-    gap: 8px;
-    min-height: 30px;
-    font-size: 13px;
+    gap: var(--s2);
+    min-height: 32px;
+    font-size: 14px;
 }
 
 .check input {
     accent-color: var(--accent);
 }
 
-/* Short / long wavelength comparison and results */
 .compare {
-    margin-bottom: 24px;
+    margin-bottom: var(--s4);
 }
 
-/* Tables and notes take the full width of the two image panels. */
+.compare h3 {
+    margin-bottom: var(--s1);
+}
+
+/* Results: tables and notes take the full width of the stage */
+.results {
+    margin-bottom: var(--s4);
+}
+
+.results h3,
+.flicker h3 {
+    margin-bottom: var(--s2);
+}
+
 .results table {
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: var(--s3);
     border-collapse: collapse;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .results th,
 .results td {
-    padding: 6px 10px 6px 0;
+    padding: var(--s2) var(--s3) var(--s2) 0;
     border-bottom: 1px solid var(--line);
     text-align: left;
     vertical-align: top;
@@ -366,19 +647,199 @@ button:disabled:hover {
 }
 
 .warn {
-    margin: 0 0 12px;
-    padding: 10px 12px;
+    margin-bottom: var(--s3);
+    padding: var(--s2) var(--s3);
     border-left: 3px solid var(--accent);
     background: var(--panel);
+    font-size: 14px;
+}
+
+.flicker {
+    margin-bottom: var(--s4);
+    padding: var(--s3);
+    border: 1px solid var(--line);
+    background: var(--panel);
+    font-size: 14px;
+}
+
+/* Quick look (images read and stacked in the browser) */
+.quick-banner {
+    margin-bottom: var(--s3);
+    padding: var(--s2) var(--s3);
+    border: 1px solid var(--accent);
+    background: var(--panel);
+    font-size: 14px;
+}
+
+.quick-banner b {
+    color: var(--accent);
+}
+
+.quick-progress {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s2) var(--s3);
+    margin-bottom: var(--s3);
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+}
+
+.quick-progress progress {
+    width: min(320px, 100%);
+    height: 8px;
+    accent-color: var(--accent);
+}
+
+/* Lines up with the image, below the height of its caption */
+.quick-side {
+    min-width: 0;
+    padding-top: var(--s4);
+}
+
+/* Validation tab */
+.validation {
+    margin-bottom: var(--s5);
+}
+
+.validation h2 {
+    margin-bottom: var(--s2);
+}
+
+.validation p {
+    margin-bottom: var(--s3);
+    font-size: 14px;
+}
+
+.validation h3 {
+    margin-top: var(--s4);
+}
+
+.validation .row {
+    margin-bottom: var(--s3);
+}
+
+.validation td.out {
+    color: var(--accent);
+}
+
+.validation details {
+    margin-bottom: var(--s3);
+}
+
+.validation summary {
+    margin-bottom: var(--s2);
+    color: var(--accent);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.validation .stars {
     font-size: 13px;
 }
 
+.validation a {
+    color: var(--accent);
+}
+
+/* Guided mode "Find the mover": only the step is on the page; image left, text and buttons right */
+.guide-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s2) var(--s3);
+    margin-bottom: var(--s3);
+}
+
+.guide-count {
+    flex: 1 1 auto;
+    color: var(--accent);
+    font-size: 14px;
+}
+
+.guide-step {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--s4);
+}
+
+.guide-side {
+    min-width: 0;
+    padding-top: var(--s4);
+}
+
+.guide-ask {
+    max-width: 720px;
+    margin-bottom: var(--s3);
+    font-size: 17px;
+}
+
+.guide-feedback {
+    max-width: 720px;
+    margin-bottom: var(--s3);
+    padding: var(--s2) var(--s3);
+    border-left: 3px solid var(--muted);
+    background: var(--panel);
+    font-size: 15px;
+}
+
+.guide-feedback.hit {
+    border-left-color: var(--accent);
+}
+
+.guide-actions {
+    margin-bottom: var(--s3);
+}
+
+.guide-actions button {
+    padding: var(--s2) var(--s3);
+    font-size: 15px;
+}
+
+.guide-hint {
+    max-width: 320px;
+}
+
+/* Narrow screens: everything in one column */
 @media (max-width: 720px) {
+    .bar {
+        padding: var(--s2) var(--s3);
+    }
+
+    .tagline {
+        font-size: 13px;
+    }
+
+    .stage {
+        padding: var(--s3) var(--s3) var(--s5);
+    }
+
+    .top,
+    .views,
+    .guide-step {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .tabs {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .tabs button {
+        flex: 1 1 0;
+        padding: var(--s2) var(--s1);
+    }
+
+    .quick-side,
+    .guide-side {
+        padding-top: 0;
+    }
+
     .results {
         overflow-x: auto;
     }
 
-    /* Motion table on a narrow screen: one block per epoch pair, one line per method. */
+    /* Motion table: one block per epoch pair, one line per method. */
     .motion thead {
         display: none;
     }
@@ -391,12 +852,12 @@ button:disabled:hover {
     }
 
     .motion tr {
-        padding: 8px 0;
+        padding: var(--s2) 0;
         border-bottom: 1px solid var(--line);
     }
 
     .motion td {
-        padding: 3px 0;
+        padding: var(--s1) 0;
         border-bottom: 0;
     }
 
@@ -404,9 +865,14 @@ button:disabled:hover {
         font-weight: 600;
     }
 
+    /* A cell with no value (no reference for "exposures used") takes no line. */
+    .motion td:empty {
+        display: none;
+    }
+
     /* The header row is hidden, so the unit moves next to the epoch pair. */
     .motion td:first-child::after {
-        content: ' (east / north, arcsec)';
+        content: attr(data-unit);
         color: var(--muted);
         font-weight: 400;
     }
@@ -415,271 +881,7 @@ button:disabled:hover {
         content: attr(data-label);
         display: block;
         color: var(--muted);
-        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-        font-size: 12px;
+        font-family: var(--sans);
+        font-size: 13px;
     }
-}
-
-/* Search box: any star name or position */
-.search {
-    margin-bottom: 14px;
-}
-
-.search label {
-    display: block;
-    margin: 0 0 6px;
-    color: var(--muted);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-.search .row {
-    flex-wrap: nowrap;
-}
-
-.search input {
-    flex: 1 1 auto;
-    min-width: 0;
-    padding: 8px 10px;
-    border: 1px solid var(--line);
-    border-radius: 3px;
-    background: var(--panel);
-    color: var(--text);
-    font: inherit;
-    font-size: 14px;
-}
-
-.search input:focus {
-    border-color: var(--accent);
-    outline: none;
-}
-
-.search input::placeholder {
-    color: var(--muted);
-    opacity: 0.75;
-}
-
-.search button {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-.search .warn {
-    margin: 8px 0 0;
-}
-
-/* Quick look (images read and stacked in the browser) */
-.view canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    image-rendering: crisp-edges;
-    image-rendering: pixelated;
-}
-
-.quick-banner {
-    margin: 0 0 14px;
-    padding: 10px 12px;
-    border: 1px solid var(--accent);
-    background: var(--panel);
-    font-size: 13px;
-}
-
-.quick-banner b {
-    color: var(--accent);
-}
-
-.quick-progress {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px 14px;
-    margin: 0 0 18px;
-    font-family: var(--mono);
-    font-size: 13px;
-}
-
-.quick-progress progress {
-    width: min(320px, 100%);
-    height: 10px;
-    accent-color: var(--accent);
-}
-
-.quick-side {
-    min-width: 0;
-    padding-top: 26px;
-}
-
-.target>.views {
-    margin-bottom: 18px;
-}
-
-@media (max-width: 720px) {
-    .quick-side {
-        padding-top: 0;
-    }
-}
-
-/* Validation: control test on Gaia field stars */
-.validation {
-    margin-top: 36px;
-    padding-top: 20px;
-    border-top: 1px solid var(--line);
-}
-
-.validation h2 {
-    margin: 0 0 10px;
-    font-size: 22px;
-    font-weight: 600;
-}
-
-.validation p {
-    margin: 0 0 12px;
-    font-size: 13px;
-}
-
-.validation h3 {
-    margin-top: 18px;
-}
-
-.validation .row {
-    margin-bottom: 12px;
-}
-
-.validation td.out {
-    color: var(--accent);
-}
-
-.validation details {
-    margin: 0 0 12px;
-}
-
-.validation summary {
-    margin-bottom: 10px;
-    color: var(--accent);
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.validation .stars {
-    font-size: 12px;
-}
-
-.validation a {
-    color: var(--accent);
-}
-
-/* Guided mode "Find the mover" */
-.guide-start {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 4px 12px;
-    width: 100%;
-    margin-bottom: 14px;
-    padding: 10px 12px;
-    border-color: var(--accent);
-    text-align: left;
-}
-
-.guide-start b {
-    color: var(--accent);
-    font-size: 15px;
-}
-
-.guide-start span {
-    color: var(--muted);
-}
-
-.guide {
-    margin-bottom: 8px;
-}
-
-.guide-head {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 6px 16px;
-    margin-bottom: 10px;
-}
-
-.guide-head h2 {
-    margin: 0;
-}
-
-.guide-count {
-    flex: 1 1 auto;
-    color: var(--accent);
-    font-family: var(--mono);
-    font-size: 13px;
-}
-
-.guide-ask {
-    max-width: 760px;
-    margin: 0 0 10px;
-    font-size: 15px;
-}
-
-.guide-feedback {
-    max-width: 760px;
-    margin: 0 0 10px;
-    padding: 8px 12px;
-    border-left: 3px solid var(--muted);
-    background: var(--panel);
-    font-size: 14px;
-}
-
-.guide-feedback.hit {
-    border-left-color: var(--accent);
-}
-
-.guide-actions {
-    margin-bottom: 14px;
-}
-
-.guide-next {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-.view.pickable {
-    cursor: crosshair;
-}
-
-/* The visitor's click: off-white ring with a dark casing. */
-.pick circle {
-    fill: none;
-    stroke: var(--text);
-    stroke-width: 0.14;
-}
-
-.pick .case {
-    stroke: #000;
-    stroke-width: 0.36;
-}
-
-/* Heading over the second group of target cards (fast movers) */
-.cards-title {
-    margin: 0 0 6px;
-    color: var(--muted);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-/* A button that reads as a link (target names in the fast-mover table) */
-button.link {
-    padding: 0;
-    border: 0;
-    background: none;
-    color: var(--accent);
-    font-size: inherit;
-    text-align: left;
-    text-decoration: underline;
 }

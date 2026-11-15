@@ -1,8 +1,11 @@
 import type { ReactNode } from 'react'
+import { HelpTitle } from './Help'
+import { t, useLang, type Key } from './i18n'
 import type { Arrow, XY } from './types'
 
 type Props = {
     title: string
+    help?: Key // explanation behind the "?" button next to the title
     n: number // grid size in pixels
     scaleArcsec: number
     marker?: XY | null
@@ -11,6 +14,7 @@ type Props = {
     neighbourLabel?: string
     arrow?: Arrow | null
     onPick?: (x: number, y: number) => void // click on the image, in grid pixels (pixel centres at whole numbers)
+    pickBadge?: string // short label drawn on a clickable image
     pick?: XY | null // the last click, drawn as a small ring
     background?: React.CSSProperties // sprite-sheet frame (raw playback)
     children?: ReactNode // stacked <img> layers
@@ -24,6 +28,7 @@ export const ARROW_SCALE = 4
 
 // One square sky image with its overlays. All overlay coordinates are grid pixels.
 export default function SkyPanel(p: Props) {
+    useLang()
     const n = p.n
     const u = n / 100 // 1% of the panel, in grid pixels
     const font = 3.4 * u
@@ -45,7 +50,13 @@ export default function SkyPanel(p: Props) {
 
     return (
         <figure className="fig">
-            <figcaption>{p.title}</figcaption>
+            {p.help ? (
+                <HelpTitle as="figcaption" help={p.help}>
+                    {p.title}
+                </HelpTitle>
+            ) : (
+                <figcaption>{p.title}</figcaption>
+            )}
             <div
                 className={`view sky${p.onPick ? ' pickable' : ''}`}
                 style={p.background}
@@ -59,6 +70,7 @@ export default function SkyPanel(p: Props) {
                 }
             >
                 {p.children}
+                {p.onPick && p.pickBadge && <span className="pick-badge">{p.pickBadge}</span>}
                 <svg className="overlay" viewBox={`0 0 ${n} ${n}`}>
                     {p.pick && (
                         <g className="pick" transform={`translate(${p.pick.x + 0.5} ${p.pick.y + 0.5})`}>
@@ -123,12 +135,12 @@ export default function SkyPanel(p: Props) {
                                 fontSize={font}
                                 textAnchor="middle"
                             >
-                                motion ×{ARROW_SCALE}
+                                {t('sky.motion', { k: ARROW_SCALE })}
                             </text>
                         </>
                     )}
                     <text className="compass" x={2 * u} y={5 * u} fontSize={font}>
-                        N up, E left
+                        {t('sky.compass')}
                     </text>
                     <g className="scalebar">
                         <line x1={n - 3 * u - bar} y1={n - 4 * u} x2={n - 3 * u} y2={n - 4 * u} />
