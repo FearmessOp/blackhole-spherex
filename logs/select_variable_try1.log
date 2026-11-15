@@ -1,0 +1,8 @@
+criteria: SIMBAD otype 'Mi*'; 10.0 <= K <= 12.0; |b| >= 30.0 deg; 2MASS: no other source within 20.0 arcsec brighter than K + 2.5, none brighter than K = 8.0 within 150.0 arcsec; SPHEREx exposures in at least 3 epochs; brightest K first, at most 12 checked
+=== candidates
+SELECT b.main_id, b.ra, b.dec, b.pmra, b.pmdec, b.pm_bibcode, b.plx_value, b.plx_bibcode, b.sp_type, b.otype, f.J, f.H, f.K, f.G, f.V FROM basic AS b JOIN allfluxes AS f ON f.oidref = b.oid WHERE b.otype = 'Mi*' AND f.K >= 10.0 AND f.K <= 12.0
+  TAP status=200 bytes=370492 attempt=1
+rows returned: 3044; columns: ['main_id', 'ra', 'dec', 'pmra', 'pmdec', 'pm_bibcode', 'plx_value', 'plx_bibcode', 'sp_type', 'otype', 'J', 'H', 'K', 'G', 'V']
+candidates with position and K: 3044; with |b| >= 30.0: 1353
+  check 1: OGLE LMC-LPV-47121 K=10.0 J=13.067 G=20.456305 V=21.186 sp= ra=80.58564 dec=-69.18972 b=-33.1 pm=(None, None) plx=None
+    2MASS attempt 1 failed: ReadTimeout(ReadTimeoutError("HTTPSConnectionPool(host='irsa.ipac.caltech.edu', port=443): Read timed out. (read timeout=180)"))

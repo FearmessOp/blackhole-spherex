@@ -1,0 +1,27 @@
+[
+  {
+    "main_id": "V* FQ Pav",
+    "ra_deg": 298.77066651357,
+    "dec_deg": -71.23466018423,
+    "coo_bibcode": "",
+    "pmra_masyr": -0.13,
+    "pmdec_masyr": -2.03,
+    "pm_bibcode": "2020yCat.1350....0G",
+    "plx_mas": null,
+    "plx_bibcode": "",
+    "rv_kms": null,
+    "sp_type": "",
+    "otype": "Mi*",
+    "k_mag": 10.014,
+    "slug": "fq-pav",
+    "name": "FQ Pav",
+    "simbad_query": "V* FQ Pav",
+    "coord_epoch": "J2000.0 (ICRS, as returned by SIMBAD)",
+    "query_epoch": 2025.9,
+    "ra_query_deg": 298.7706636,
+    "dec_query_deg": -71.2346748,
+    "shift_arcsec": 0.05,
+    "source": "https://simbad.harvard.edu/simbad/sim-tap/sync",
+    "set": "variable"
+  }
+]

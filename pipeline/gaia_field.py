@@ -3,7 +3,9 @@
 Tries the ESA Gaia archive TAP first, then the Gaia DR3 copy at IRSA.
 Raw CSV: data/gaia/<slug>.csv. No value is hard-coded; everything comes from the response.
 
-Usage: .venv/Scripts/python.exe pipeline/gaia_field.py > logs/gaia_field.log 2>&1
+Usage: .venv/Scripts/python.exe pipeline/gaia_field.py [--radius DEG --tag TAG] [--targets FILE] [slug ...]
+           > logs/gaia_field.log 2>&1
+--targets FILE reads the targets from FILE instead of data/targets.json.
 """
 import csv
 import io
@@ -61,8 +63,13 @@ def main():
         i = args.index("--tag")
         tag = "_" + args[i + 1]
         del args[i:i + 2]
+    targets_path = ROOT / "data" / "targets.json"
+    if "--targets" in args:
+        i = args.index("--targets")
+        targets_path = ROOT / args[i + 1]
+        del args[i:i + 2]
     OUT.mkdir(parents=True, exist_ok=True)
-    targets = json.loads((ROOT / "data" / "targets.json").read_text(encoding="utf-8"))
+    targets = json.loads(targets_path.read_text(encoding="utf-8"))
     if args:
         targets = [t for t in targets if t["slug"] in args]
     failed = 0

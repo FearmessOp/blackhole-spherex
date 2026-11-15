@@ -1,0 +1,6 @@
+warning: in the working copy of 'logs/build_s3.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/commit_lang.log', LF will be replaced by CRLF the next time Git touches it
+dc98015642e900e383f51fa9521e3ac73c0e5355
+dc98015642e900e383f51fa9521e3ac73c0e5355	refs/heads/main
+?? logs/commit_s3.log
+?? logs/preview_design.log

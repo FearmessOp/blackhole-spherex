@@ -1,0 +1,5 @@
+deleted site\src\GuideView.tsx after comparison with FindMover.tsx: older beginning of the same component, nothing in it that FindMover.tsx lacks; user decision 
+2026-11-15 10:45:29
+before: bytes=2594 modified=09:01:45
+tracked by git: 0
+exists after delete: False

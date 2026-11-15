@@ -3,6 +3,102 @@
 Team Blackhole 102, NASA Space Apps Challenge 2026, "Planet X and SPHEREx".
 Times are local (UTC+3). Every number below comes from the log file named next to it.
 
+## Status at 2026-11-15 09:05
+
+Morning list and design block. Work stopped at the 09:00 limit. The task was interrupted between
+06:27 and 09:02; in that time only the FQ Pav download ran (it ended at 06:37).
+
+### Commits (all pushed; remote hash checked with `git ls-remote` after each push)
+
+| Commit | Content | Log |
+|---|---|---|
+| `2059803` | `SOURCES.md`: Playwright 1.53.0 (Apache-2.0), 15 prepared targets | `logs/commit_s1.log` |
+| `762478f` | `logs/design_before.md` (17 defects of the old design), `pipeline/design_shots.py` | `logs/commit_t0.log` |
+| `f7c8a9d` | Redesign: three tabs, guided-mode layout, "?" explanations, English and Turkish | `logs/commit_design.log` |
+| `b1efa30` | Language fix in `site/src/i18n.ts`, `pipeline/design_links.py` | `logs/commit_lang.log` |
+| `dc98015` | README opening; round 2 of `logs/design_after.md` | `logs/commit_s3.log` |
+
+Local and remote HEAD were both `dc98015` at 09:02.
+
+**Not committed and not pushed at 09:05:** this entry and the files of item 4. The build that has to pass before
+a push failed at 09:05 (`logs/build_progress.log`) because of a stray file, see "Seen, not fixed". The live site
+was not affected: that file was never in the repository.
+**Added at 10:45:** the stray file was deleted on the team's decision (`logs/delete_guideview.log`), the build
+passes again (`logs/build_block1.log`, same bundle names as before), and this entry and the files of item 4 were
+committed after that.
+
+### Morning list
+
+| Item | State |
+|---|---|
+| 1. `SOURCES.md` | Done, `2059803`. |
+| 2. Guided-mode layout (inside the design block) | Done, `f7c8a9d`. |
+| 3. README opening | Done, `dc98015`, build `logs/build_s3.log`. "Known limitations" and "Use of SI" were not edited. |
+| 4. Variable star that does not saturate | Not finished, see below. Nothing was added to the site. |
+| 5. Spectrum of a prepared target | Not started. |
+| 6. `docs/SUBMISSION_DRAFT.md` | Not updated. |
+
+### Design block
+
+Details, defects found and fixed, and what was not looked at by eye are in `logs/design_after.md`.
+
+- Screenshots (not in git): before `cache/design/before/` (40 files); after `cache/design/local1/`,
+  `cache/design/local2/` and `cache/design/live1/` (104 files each).
+- Logs: `logs/design_shots_{before,local1,local2,live1}.log`, `logs/design_links_{live1,local1,live2}.log`,
+  `logs/design_contrast.log` (11 pairs, lowest 6.84 : 1).
+- Live site, bundle of `b1efa30` (`logs/design_links_live2.log`): 28 of 30 target loads "ok"; the 2 CHECK lines
+  are WISE 0855 with 4 image panels where the script expects 2. Position link shown. Language kept in the address.
+- The pages of `b1efa30` were checked by script only; the screenshots are of `f7c8a9d`.
+- One table footnote stays English in Turkish mode (`val.nf.row`).
+- Changes of content and placement are listed in `logs/design_after.md` ("to disclose").
+
+### Variable star (item 4): state when work stopped
+
+- **Criteria** (written in `pipeline/select_variable.py` before any SPHEREx result of a candidate was seen):
+  SIMBAD type Mira; K between 10 and 12; galactic latitude at least 30 deg from the plane; in 2MASS no other
+  source within 20 arcsec brighter than K + 2.5 and none brighter than K = 8 within 150 arcsec; SPHEREx
+  exposures in at least 3 epochs; brightest K first.
+- **Reason for K 10 or fainter** (`logs/fast_movers_table.log`): K 9.08 and 9.37 have OVERFLOW in 85 of 368 and
+  64 of 341 exposures; K 10.15 to 11.93 in at most 2 exposures each.
+- **Selection** (`logs/select_variable.log`): 3044 candidates, 1353 at high latitude. The first
+  (OGLE LMC-LPV-47121) has one epoch. The second, **FQ Pav** (K 10.014), passed: 36 2MASS sources within
+  150 arcsec, none of them excluding it; 163 / 180 / 135 rows in three epochs (both collections together,
+  duplicates not removed).
+- **2MASS source.** The IRSA TAP copy did not answer (`logs/twomass_probe.log`, `logs/select_variable_try1.log`)
+  and the CDS TAP service could not be reached (`logs/vizier_probe.log`). The same catalogue (II/246/out) was
+  read from the VizieR mirror at CfA. The criteria were not changed.
+- **Download** (`logs/download_variable.log`): 477 of 478 wide cutouts, 140166720 bytes; 1 failed with
+  HTTP 503 after its retries; the EPSF was stripped from every file.
+- **Not done:** Gaia field stars (the query was never started), saturation check, brightness per detector and
+  epoch, comparison with the scatter of field stars. So it is not known whether FQ Pav saturates or whether its
+  change is visible.
+- FQ Pav is in `data/variable_candidate.json` only. It is not in `data/targets.json` and not on the site.
+- Not committed: `pipeline/select_variable.py` (new), the `--targets` option in `pipeline/download_cutouts.py` and
+  `pipeline/gaia_field.py` (default behaviour unchanged), the SIA files of the two candidates, the logs above.
+
+### Seen, not fixed
+
+- **A file that this work did not create:** `site/src/GuideView.tsx` (61 lines, created 09:01:45, untracked).
+  No file imports it. Where it comes from is not known. It was not touched and is not committed.
+  With it in the working tree `npm run build` fails: 8 TypeScript errors, all in that file (unused imports and
+  declarations, `logs/build_progress.log`). The last build that passed is `logs/build_s3.log` (06:10); no other
+  file in `site/src` changed after it.
+  Added at 10:45: the file was compared with `site/src/FindMover.tsx`. It is an older beginning of that component
+  (same steps and constants; its `useTarget` lacks the slug guard and the `has_diff` check) and holds nothing that
+  `FindMover.tsx` lacks. It was deleted on the team's decision (`logs/delete_guideview.log`).
+- **Ross 128 quick look (live):** the east component of the rough motion has the opposite sign to the catalogue
+  prediction in all three epoch pairs; the north component agrees. Table in `logs/design_after.md`. The cause was
+  not looked into.
+- In the quick look at 1400 px the lower half of the column beside the image is empty.
+
+### Processes and disk at 09:02 (command output, not in a log file)
+
+- Local preview on port 4173 (started 05:18 for the design checks) is still running.
+- Not started by this work and not touched: `node server.js` (PID 24252), `python -m http.server 4321` for
+  `viz3d` (PID 25276), two `hermes_cli` processes (PIDs 27652 and 3472, started 04:06).
+- Free disk on C: 4.6 GB at 06:11 (`logs/disk_free_s4.log`), 5.49 GB at 06:26, 16.38 GB at 09:02. This work
+  deleted nothing; the reason for the increase was not looked into.
+
 ## Status at 2026-11-15 04:05
 
 Night work list, blocks 1 to 5. Sections further down describe the state at their own time.

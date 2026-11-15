@@ -1,0 +1,6 @@
+http=000 seconds=45.002791 bytes=0  
+exit=0  
+--- IRSA TAP, TOP 1 from fp_psc, limit 25 s 
+http=000 seconds=25.013509 bytes=0 
+--- IRSA SIA, spherex_qr3, limit 40 s 
+http=200 seconds=5.649119 bytes=300132

@@ -1,0 +1,679 @@
+2026-11-15 06:25:49 START pid=2304 slugs=['fq-pav'] limit=None workers=8 size_deg=0.2 strip_epsf=True min_free_gb=3.3 free_gb=5.9
+2026-11-15 06:25:49 PLAN fq-pav: 478 cutouts
+2026-11-15 06:25:49 FIRST URL https://irsa.ipac.caltech.edu/ibe/data/spherex/dr1/level2/2025W36_1A/l2b-v27-2026-232/6/level2_2025W36_1A_0486_1D6_spx_l2b-v27-2026-232.fits?center=298.7706636,-71.2346747&size=0.2
+2026-11-15 06:25:50 RETRY fq-pav level2_2025W36_1A_0486_4D3_spx_l2b-v27-2026-232.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:25:50 RETRY fq-pav level2_2025W36_1A_0486_2D6_spx_l2b-v27-2026-232.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:25:50 RETRY fq-pav level2_2025W36_1A_0486_3D3_spx_l2b-v27-2026-232.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:25:50 RETRY fq-pav level2_2025W36_1A_0486_2D3_spx_l2b-v27-2026-232.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:25:57 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_1A_0486_2D3_spx_l2b-v27-2026-232.fits bytes=302400 secs=3.6 (1/478)
+2026-11-15 06:25:59 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0486_1D6_spx_l2b-v27-2026-232.fits bytes=302400 secs=10.5 (2/478)
+2026-11-15 06:25:59 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0486_4D6_spx_l2b-v27-2026-232.fits bytes=302400 secs=10.8 (3/478)
+2026-11-15 06:26:00 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0486_3D6_spx_l2b-v27-2026-232.fits bytes=302400 secs=11.2 (4/478)
+2026-11-15 06:26:00 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0486_1D3_spx_l2b-v27-2026-232.fits bytes=302400 secs=11.4 (5/478)
+2026-11-15 06:26:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0571_1D6_spx_l2b-v27-2026-232.fits bytes=290880 secs=3.2 (6/478)
+2026-11-15 06:26:01 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_1A_0486_2D6_spx_l2b-v27-2026-232.fits bytes=302400 secs=7.1 (7/478)
+2026-11-15 06:26:01 RETRY fq-pav level2_2025W36_1A_0631_3D3_spx_l2b-v27-2026-232.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:02 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_1A_0486_3D3_spx_l2b-v27-2026-232.fits bytes=302400 secs=8.1 (8/478)
+2026-11-15 06:26:02 RETRY fq-pav level2_2025W36_1A_0631_4D3_spx_l2b-v27-2026-232.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:03 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0631_3D6_spx_l2b-v27-2026-232.fits bytes=302400 secs=2.6 (9/478)
+2026-11-15 06:26:04 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_1A_0486_4D3_spx_l2b-v27-2026-232.fits bytes=302400 secs=9.9 (10/478)
+2026-11-15 06:26:04 RETRY fq-pav level2_2025W36_1A_0658_1D3_spx_l2b-v27-2026-232.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:07 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0631_2D3_spx_l2b-v27-2026-232.fits bytes=302400 secs=6.4 (11/478)
+2026-11-15 06:26:07 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_1A_0631_3D3_spx_l2b-v27-2026-232.fits bytes=302400 secs=2.3 (12/478)
+2026-11-15 06:26:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0571_1D3_spx_l2b-v27-2026-232.fits bytes=267840 secs=9.6 (13/478)
+2026-11-15 06:26:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0658_2D3_spx_l2b-v27-2026-232.fits bytes=198720 secs=1.7 (14/478)
+2026-11-15 06:26:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0631_4D6_spx_l2b-v27-2026-232.fits bytes=302400 secs=5.8 (15/478)
+2026-11-15 06:26:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0658_1D6_spx_l2b-v27-2026-232.fits bytes=302400 secs=2.9 (16/478)
+2026-11-15 06:26:11 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0631_1D3_spx_l2b-v27-2026-232.fits bytes=302400 secs=10.9 (17/478)
+2026-11-15 06:26:11 RETRY fq-pav level2_2025W36_2B_0111_3D6_spx_l2b-v27-2026-234.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_1A_0631_1D6_spx_l2b-v27-2026-232.fits bytes=302400 secs=12.0 (18/478)
+2026-11-15 06:26:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0111_1D3_spx_l2b-v27-2026-234.fits bytes=302400 secs=2.8 (19/478)
+2026-11-15 06:26:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0111_2D3_spx_l2b-v27-2026-234.fits bytes=302400 secs=2.7 (20/478)
+2026-11-15 06:26:12 RETRY fq-pav level2_2025W36_2B_0111_4D6_spx_l2b-v27-2026-234.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:13 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_1A_0631_4D3_spx_l2b-v27-2026-232.fits bytes=302400 secs=6.4 (21/478)
+2026-11-15 06:26:14 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0111_4D3_spx_l2b-v27-2026-234.fits bytes=302400 secs=2.7 (22/478)
+2026-11-15 06:26:15 RETRY fq-pav level2_2025W36_2B_0257_1D5_spx_l2b-v27-2026-234.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:15 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0111_2D6_spx_l2b-v27-2026-234.fits bytes=302400 secs=6.1 (23/478)
+2026-11-15 06:26:17 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_1A_0658_1D3_spx_l2b-v27-2026-232.fits bytes=302400 secs=9.6 (24/478)
+2026-11-15 06:26:18 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0257_2D2_spx_l2b-v27-2026-234.fits bytes=305280 secs=2.8 (25/478)
+2026-11-15 06:26:19 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0111_1D6_spx_l2b-v27-2026-234.fits bytes=302400 secs=10.2 (26/478)
+2026-11-15 06:26:19 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_2B_0111_4D6_spx_l2b-v27-2026-234.fits bytes=302400 secs=3.0 (27/478)
+2026-11-15 06:26:20 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0111_3D3_spx_l2b-v27-2026-234.fits bytes=302400 secs=8.7 (28/478)
+2026-11-15 06:26:21 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_2B_0111_3D6_spx_l2b-v27-2026-234.fits bytes=302400 secs=5.5 (29/478)
+2026-11-15 06:26:21 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_2B_0257_1D5_spx_l2b-v27-2026-234.fits bytes=302400 secs=2.3 (30/478)
+2026-11-15 06:26:22 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0257_1D2_spx_l2b-v27-2026-234.fits bytes=305280 secs=9.5 (31/478)
+2026-11-15 06:26:22 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0411_1D6_spx_l2b-v27-2026-234.fits bytes=302400 secs=1.6 (32/478)
+2026-11-15 06:26:23 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0257_4D5_spx_l2b-v27-2026-234.fits bytes=302400 secs=3.4 (33/478)
+2026-11-15 06:26:23 RETRY fq-pav level2_2025W36_2B_0411_3D6_spx_l2b-v27-2026-234.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:24 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0411_1D3_spx_l2b-v27-2026-234.fits bytes=302400 secs=3.4 (34/478)
+2026-11-15 06:26:26 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0257_4D2_spx_l2b-v27-2026-234.fits bytes=305280 secs=5.9 (35/478)
+2026-11-15 06:26:26 RETRY fq-pav level2_2025W36_2B_0499_1D5_spx_l2b-v27-2026-234.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:26 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0257_3D5_spx_l2b-v27-2026-234.fits bytes=302400 secs=8.3 (36/478)
+2026-11-15 06:26:26 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0411_3D3_spx_l2b-v27-2026-234.fits bytes=302400 secs=2.5 (37/478)
+2026-11-15 06:26:27 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0257_2D5_spx_l2b-v27-2026-234.fits bytes=302400 secs=9.2 (38/478)
+2026-11-15 06:26:29 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0257_3D2_spx_l2b-v27-2026-234.fits bytes=305280 secs=10.2 (39/478)
+2026-11-15 06:26:31 RETRY fq-pav level2_2025W36_2B_0499_1D5_spx_l2b-v27-2026-234.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:31 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0411_2D6_spx_l2b-v27-2026-234.fits bytes=302400 secs=8.6 (40/478)
+2026-11-15 06:26:31 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0411_2D3_spx_l2b-v27-2026-234.fits bytes=302400 secs=9.3 (41/478)
+2026-11-15 06:26:32 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0499_1D2_spx_l2b-v27-2026-234.fits bytes=305280 secs=5.3 (42/478)
+2026-11-15 06:26:32 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0499_3D5_spx_l2b-v27-2026-234.fits bytes=302400 secs=2.7 (43/478)
+2026-11-15 06:26:32 RETRY fq-pav level2_2025W36_2B_0499_4D2_spx_l2b-v27-2026-234.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:33 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0499_2D5_spx_l2b-v27-2026-234.fits bytes=302400 secs=6.7 (44/478)
+2026-11-15 06:26:34 RETRY fq-pav level2_2025W36_2B_0706_1D3_spx_l2b-v27-2026-234.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:34 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0706_1D6_spx_l2b-v27-2026-234.fits bytes=302400 secs=2.1 (45/478)
+2026-11-15 06:26:34 RETRY fq-pav level2_2025W37_1A_0028_1D6_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:35 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0499_2D2_spx_l2b-v27-2026-234.fits bytes=305280 secs=9.0 (46/478)
+2026-11-15 06:26:38 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_2B_0411_3D6_spx_l2b-v27-2026-234.fits bytes=302400 secs=10.6 (47/478)
+2026-11-15 06:26:38 RETRY fq-pav level2_2025W37_1A_0245_1D5_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:40 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0499_4D5_spx_l2b-v27-2026-234.fits bytes=302400 secs=8.2 (48/478)
+2026-11-15 06:26:41 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W36_2B_0499_3D2_spx_l2b-v27-2026-234.fits bytes=305280 secs=9.4 (49/478)
+2026-11-15 06:26:41 RETRY fq-pav level2_2025W37_1A_0245_2D2_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:45 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_2B_0706_1D3_spx_l2b-v27-2026-234.fits bytes=302400 secs=7.2 (50/478)
+2026-11-15 06:26:45 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W36_2B_0499_4D2_spx_l2b-v27-2026-234.fits bytes=305280 secs=8.9 (51/478)
+2026-11-15 06:26:45 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0028_1D6_spx_l2b-v27-2026-235.fits bytes=302400 secs=6.6 (52/478)
+2026-11-15 06:26:46 RETRY fq-pav level2_2025W37_1A_0245_3D2_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:46 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0245_1D2_spx_l2b-v27-2026-235.fits bytes=305280 secs=6.4 (53/478)
+2026-11-15 06:26:46 RETRY fq-pav level2_2025W37_1A_0245_4D2_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:50 RETRY fq-pav level2_2025W37_1A_0245_4D2_spx_l2b-v27-2026-235.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0245_2D5_spx_l2b-v27-2026-235.fits bytes=302400 secs=5.8 (54/478)
+2026-11-15 06:26:51 RETRY fq-pav level2_2025W37_1A_0245_4D5_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:52 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0028_1D3_spx_l2b-v27-2026-235.fits bytes=302400 secs=16.4 (55/478)
+2026-11-15 06:26:52 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0245_2D2_spx_l2b-v27-2026-235.fits bytes=305280 secs=7.4 (56/478)
+2026-11-15 06:26:53 RETRY fq-pav level2_2025W37_1A_0402_1D4_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:53 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0245_3D2_spx_l2b-v27-2026-235.fits bytes=305280 secs=3.5 (57/478)
+2026-11-15 06:26:53 OK TRY 3 EPSF_STRIPPED fq-pav level2_2025W36_2B_0499_1D5_spx_l2b-v27-2026-234.fits bytes=302400 secs=14.8 (58/478)
+2026-11-15 06:26:54 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0245_1D5_spx_l2b-v27-2026-235.fits bytes=302400 secs=12.4 (59/478)
+2026-11-15 06:26:55 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0402_2D1_spx_l2b-v27-2026-235.fits bytes=293760 secs=1.9 (60/478)
+2026-11-15 06:26:55 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0245_3D5_spx_l2b-v27-2026-235.fits bytes=302400 secs=10.4 (61/478)
+2026-11-15 06:26:56 RETRY fq-pav level2_2025W37_1A_0402_4D1_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:26:56 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0402_1D1_spx_l2b-v27-2026-235.fits bytes=213120 secs=3.9 (62/478)
+2026-11-15 06:26:59 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0402_4D4_spx_l2b-v27-2026-235.fits bytes=290880 secs=3.3 (63/478)
+2026-11-15 06:27:00 RETRY fq-pav level2_2025W37_1A_0402_4D1_spx_l2b-v27-2026-235.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:00 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0402_1D4_spx_l2b-v27-2026-235.fits bytes=233280 secs=3.9 (64/478)
+2026-11-15 06:27:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0402_2D4_spx_l2b-v27-2026-235.fits bytes=279360 secs=7.5 (65/478)
+2026-11-15 06:27:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0402_3D4_spx_l2b-v27-2026-235.fits bytes=290880 secs=6.5 (66/478)
+2026-11-15 06:27:01 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0245_4D5_spx_l2b-v27-2026-235.fits bytes=302400 secs=6.6 (67/478)
+2026-11-15 06:27:02 RETRY fq-pav level2_2025W37_1A_0533_2D5_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:03 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0533_1D2_spx_l2b-v27-2026-235.fits bytes=305280 secs=2.5 (68/478)
+2026-11-15 06:27:04 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0402_3D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=9.3 (69/478)
+2026-11-15 06:27:05 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0533_3D2_spx_l2b-v27-2026-235.fits bytes=305280 secs=1.8 (70/478)
+2026-11-15 06:27:06 RETRY fq-pav level2_2025W37_1A_0533_2D5_spx_l2b-v27-2026-235.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:07 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0533_4D5_spx_l2b-v27-2026-235.fits bytes=302400 secs=1.8 (71/478)
+2026-11-15 06:27:07 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0533_2D2_spx_l2b-v27-2026-235.fits bytes=305280 secs=5.6 (72/478)
+2026-11-15 06:27:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0561_1D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=1.8 (73/478)
+2026-11-15 06:27:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0533_4D2_spx_l2b-v27-2026-235.fits bytes=305280 secs=2.1 (74/478)
+2026-11-15 06:27:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0533_3D5_spx_l2b-v27-2026-235.fits bytes=302400 secs=5.9 (75/478)
+2026-11-15 06:27:10 RETRY fq-pav level2_2025W37_1A_0561_2D4_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:11 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0561_1D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=1.7 (76/478)
+2026-11-15 06:27:11 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0561_2D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=1.9 (77/478)
+2026-11-15 06:27:12 OK TRY 3 EPSF_STRIPPED fq-pav level2_2025W37_1A_0245_4D2_spx_l2b-v27-2026-235.fits bytes=305280 secs=13.0 (78/478)
+2026-11-15 06:27:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0463_1D2_spx_l2b-v27-2026-235.fits bytes=305280 secs=12.5 (79/478)
+2026-11-15 06:27:12 RETRY fq-pav level2_2025W37_1A_0561_4D1_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0463_1D5_spx_l2b-v27-2026-235.fits bytes=302400 secs=12.0 (80/478)
+2026-11-15 06:27:13 RETRY fq-pav level2_2025W37_1A_0590_1D2_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:14 RETRY fq-pav level2_2025W37_1A_0533_2D5_spx_l2b-v27-2026-235.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:16 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0561_3D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=5.0 (81/478)
+2026-11-15 06:27:16 RETRY fq-pav level2_2025W37_1A_0561_4D1_spx_l2b-v27-2026-235.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:18 OK TRY 3 EPSF_STRIPPED fq-pav level2_2025W37_1A_0402_4D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=9.7 (82/478)
+2026-11-15 06:27:21 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0561_3D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=10.1 (83/478)
+2026-11-15 06:27:21 RETRY fq-pav level2_2025W37_1A_0695_1D4_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:21 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0561_2D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=7.6 (84/478)
+2026-11-15 06:27:21 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0561_4D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=9.8 (85/478)
+2026-11-15 06:27:24 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0590_1D5_spx_l2b-v27-2026-235.fits bytes=302400 secs=8.1 (86/478)
+2026-11-15 06:27:24 RETRY fq-pav level2_2025W37_1A_0695_3D1_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:27 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0695_1D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=9.3 (87/478)
+2026-11-15 06:27:28 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0590_1D2_spx_l2b-v27-2026-235.fits bytes=305280 secs=11.2 (88/478)
+2026-11-15 06:27:28 RETRY fq-pav level2_2025W37_1A_0695_4D1_spx_l2b-v27-2026-235.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:30 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0695_2D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=8.9 (89/478)
+2026-11-15 06:27:32 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0695_2D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=11.0 (90/478)
+2026-11-15 06:27:33 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0695_4D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=2.7 (91/478)
+2026-11-15 06:27:34 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0091_1D5_spx_l2b-v27-2026-236.fits bytes=302400 secs=1.6 (92/478)
+2026-11-15 06:27:34 OK TRY 3 EPSF_STRIPPED fq-pav level2_2025W37_1A_0561_4D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=10.3 (93/478)
+2026-11-15 06:27:35 RETRY fq-pav level2_2025W37_2A_0224_1D1_spx_l2b-v27-2026-236.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:35 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0695_1D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=10.3 (94/478)
+2026-11-15 06:27:36 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_1A_0695_3D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=9.1 (95/478)
+2026-11-15 06:27:36 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0224_1D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=2.1 (96/478)
+2026-11-15 06:27:38 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0695_3D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=9.7 (97/478)
+2026-11-15 06:27:38 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_1A_0695_4D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=6.2 (98/478)
+2026-11-15 06:27:39 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0091_1D2_spx_l2b-v27-2026-236.fits bytes=305280 secs=6.5 (99/478)
+2026-11-15 06:27:40 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0848_2D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=1.9 (100/478)
+2026-11-15 06:27:41 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0848_2D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=2.1 (101/478)
+2026-11-15 06:27:42 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0848_3D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=1.5 (102/478)
+2026-11-15 06:27:42 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0848_1D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=5.3 (103/478)
+2026-11-15 06:27:42 RETRY fq-pav level2_2025W37_2A_0848_4D1_spx_l2b-v27-2026-236.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:27:43 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0848_3D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=1.7 (104/478)
+2026-11-15 06:27:43 OK TRY 4 EPSF_STRIPPED fq-pav level2_2025W37_1A_0533_2D5_spx_l2b-v27-2026-235.fits bytes=302400 secs=12.8 (105/478)
+2026-11-15 06:27:43 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0848_4D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=1.5 (106/478)
+2026-11-15 06:27:45 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_1A_0697_2D1_spx_l2b-v27-2026-237.fits bytes=236160 secs=2.0 (107/478)
+2026-11-15 06:27:45 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_1A_0697_3D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=1.6 (108/478)
+2026-11-15 06:27:45 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0224_2D1_spx_l2b-v27-2026-236.fits bytes=282240 secs=10.2 (109/478)
+2026-11-15 06:27:46 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_1A_0697_4D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=1.8 (110/478)
+2026-11-15 06:27:47 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0224_2D4_spx_l2b-v27-2026-236.fits bytes=256320 secs=10.8 (111/478)
+2026-11-15 06:27:47 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W37_2A_0848_1D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=8.9 (112/478)
+2026-11-15 06:27:48 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_2A_0848_4D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=2.3 (113/478)
+2026-11-15 06:27:49 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_1A_0697_4D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=4.3 (114/478)
+2026-11-15 06:27:50 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W37_2A_0224_1D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=11.2 (115/478)
+2026-11-15 06:27:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0146_2D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=2.9 (116/478)
+2026-11-15 06:27:52 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0146_1D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=4.7 (117/478)
+2026-11-15 06:27:53 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0146_2D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=4.3 (118/478)
+2026-11-15 06:27:54 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_1A_0697_3D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=11.4 (119/478)
+2026-11-15 06:27:55 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_1A_0733_1D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=9.8 (120/478)
+2026-11-15 06:27:56 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_1A_0733_1D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=9.0 (121/478)
+2026-11-15 06:27:56 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0146_3D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=4.9 (122/478)
+2026-11-15 06:27:57 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0146_1D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=9.9 (123/478)
+2026-11-15 06:27:58 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0146_4D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=4.4 (124/478)
+2026-11-15 06:27:59 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0146_3D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=8.9 (125/478)
+2026-11-15 06:27:59 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0408_1D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=3.8 (126/478)
+2026-11-15 06:28:00 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0408_2D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=4.1 (127/478)
+2026-11-15 06:28:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0146_4D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=9.2 (128/478)
+2026-11-15 06:28:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0408_2D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=5.8 (129/478)
+2026-11-15 06:28:03 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0455_1D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=3.0 (130/478)
+2026-11-15 06:28:04 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0455_1D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=2.8 (131/478)
+2026-11-15 06:28:04 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0408_4D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=5.3 (132/478)
+2026-11-15 06:28:05 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W39_2A_0016_1D4_spx_l2b-v27-2026-239.fits bytes=256320 secs=1.5 (133/478)
+2026-11-15 06:28:05 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0408_3D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=8.4 (134/478)
+2026-11-15 06:28:06 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0408_1D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=11.5 (135/478)
+2026-11-15 06:28:06 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W41_1A_0346_1D3_spx_l2b-v27-2026-241.fits bytes=302400 secs=1.6 (136/478)
+2026-11-15 06:28:07 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W41_1A_0346_1D6_spx_l2b-v27-2026-241.fits bytes=302400 secs=2.0 (137/478)
+2026-11-15 06:28:08 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W41_1A_0359_1D6_spx_l2b-v27-2026-241.fits bytes=302400 secs=1.4 (138/478)
+2026-11-15 06:28:08 RETRY fq-pav level2_2025W41_1A_0418_1D3_spx_l2b-v27-2026-241.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:08 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0408_3D4_spx_l2b-v27-2026-237.fits bytes=302400 secs=10.7 (139/478)
+2026-11-15 06:28:08 RETRY fq-pav level2_2025W41_1A_0593_1D3_spx_l2b-v27-2026-241.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W41_1A_0418_1D6_spx_l2b-v27-2026-241.fits bytes=302400 secs=1.5 (140/478)
+2026-11-15 06:28:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W38_2C_0408_4D1_spx_l2b-v27-2026-237.fits bytes=305280 secs=10.4 (141/478)
+2026-11-15 06:28:10 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W41_1A_0593_1D6_spx_l2b-v27-2026-241.fits bytes=302400 secs=1.5 (142/478)
+2026-11-15 06:28:11 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W39_2A_0016_1D1_spx_l2b-v27-2026-239.fits bytes=236160 secs=10.0 (143/478)
+2026-11-15 06:28:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W41_2B_0533_1D5_spx_l2b-v27-2026-242.fits bytes=302400 secs=1.8 (144/478)
+2026-11-15 06:28:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W40_2B_0704_1D6_spx_l2b-v27-2026-241.fits bytes=302400 secs=8.8 (145/478)
+2026-11-15 06:28:13 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W40_2B_0704_1D3_spx_l2b-v27-2026-241.fits bytes=302400 secs=9.0 (146/478)
+2026-11-15 06:28:14 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W41_1A_0418_1D3_spx_l2b-v27-2026-241.fits bytes=302400 secs=2.3 (147/478)
+2026-11-15 06:28:15 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W41_2B_0719_1D5_spx_l2b-v27-2026-242.fits bytes=302400 secs=3.3 (148/478)
+2026-11-15 06:28:15 RETRY fq-pav level2_2025W42_1A_0143_1D2_spx_l2b-v27-2026-243.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:16 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W41_1A_0359_1D3_spx_l2b-v27-2026-241.fits bytes=302400 secs=10.4 (149/478)
+2026-11-15 06:28:19 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W41_2B_0533_1D2_spx_l2b-v27-2026-242.fits bytes=305280 secs=10.2 (150/478)
+2026-11-15 06:28:20 RETRY fq-pav level2_2025W42_1A_0143_1D2_spx_l2b-v27-2026-243.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:20 RETRY fq-pav level2_2025W42_1A_0677_1D1_spx_l2b-v27-2026-243.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:21 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W41_2B_0719_1D2_spx_l2b-v27-2026-242.fits bytes=305280 secs=9.5 (151/478)
+2026-11-15 06:28:22 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W42_1A_0051_1D2_spx_l2b-v27-2026-243.fits bytes=305280 secs=9.1 (152/478)
+2026-11-15 06:28:23 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W42_1A_0763_1D1_spx_l2b-v27-2026-243.fits bytes=305280 secs=1.7 (153/478)
+2026-11-15 06:28:23 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W41_1A_0593_1D3_spx_l2b-v27-2026-241.fits bytes=302400 secs=10.2 (154/478)
+2026-11-15 06:28:23 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W42_1A_0143_1D5_spx_l2b-v27-2026-243.fits bytes=302400 secs=8.6 (155/478)
+2026-11-15 06:28:23 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W42_1A_0051_1D5_spx_l2b-v27-2026-243.fits bytes=302400 secs=11.1 (156/478)
+2026-11-15 06:28:24 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W42_2A_0276_1D1_spx_l2b-v27-2026-243.fits bytes=305280 secs=1.8 (157/478)
+2026-11-15 06:28:26 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W12_2A_0566_3D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=1.6 (158/478)
+2026-11-15 06:28:27 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W12_2A_0566_1D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=3.2 (159/478)
+2026-11-15 06:28:27 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W42_1A_0677_1D4_spx_l2b-v27-2026-243.fits bytes=302400 secs=10.7 (160/478)
+2026-11-15 06:28:28 RETRY fq-pav level2_2025W42_1A_0143_1D2_spx_l2b-v27-2026-243.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:29 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W12_2A_0566_3D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=3.0 (161/478)
+2026-11-15 06:28:32 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W43_1A_0388_1D4_spx_l2b-v27-2026-244.fits bytes=256320 secs=9.4 (162/478)
+2026-11-15 06:28:32 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W42_2A_0276_1D4_spx_l2b-v27-2026-243.fits bytes=302400 secs=9.9 (163/478)
+2026-11-15 06:28:33 OK TRY 1 EPSF_STRIPPED fq-pav level2_2025W43_1A_0388_1D1_spx_l2b-v27-2026-244.fits bytes=236160 secs=10.1 (164/478)
+2026-11-15 06:28:33 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W12_2A_0566_4D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=6.4 (165/478)
+2026-11-15 06:28:34 OK TRY 2 EPSF_STRIPPED fq-pav level2_2025W42_1A_0677_1D1_spx_l2b-v27-2026-243.fits bytes=305280 secs=10.7 (166/478)
+2026-11-15 06:28:37 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W12_2A_0566_4D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=10.6 (167/478)
+2026-11-15 06:28:38 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W12_2A_0600_3D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=4.8 (168/478)
+2026-11-15 06:28:38 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0036_2D4_spx_l2b-v27-2026-236.fits bytes=290880 secs=3.6 (169/478)
+2026-11-15 06:28:39 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W12_2A_0600_1D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=9.5 (170/478)
+2026-11-15 06:28:39 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W12_2A_0600_3D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=5.4 (171/478)
+2026-11-15 06:28:39 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W12_2A_0600_2D1_spx_l2b-v27-2026-235.fits bytes=305280 secs=6.5 (172/478)
+2026-11-15 06:28:41 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0074_2D4_spx_l2b-v27-2026-236.fits bytes=290880 secs=2.2 (173/478)
+2026-11-15 06:28:41 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0036_4D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=2.8 (174/478)
+2026-11-15 06:28:42 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0036_3D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=4.4 (175/478)
+2026-11-15 06:28:42 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W12_2A_0600_1D4_spx_l2b-v27-2026-235.fits bytes=302400 secs=10.1 (176/478)
+2026-11-15 06:28:42 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0036_2D1_spx_l2b-v27-2026-236.fits bytes=270720 secs=4.9 (177/478)
+2026-11-15 06:28:43 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0202_1D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=2.1 (178/478)
+2026-11-15 06:28:43 RETRY fq-pav level2_2026W13_1A_0202_3D4_spx_l2b-v27-2026-236.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:44 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0036_3D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=6.4 (179/478)
+2026-11-15 06:28:45 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0202_3D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=3.1 (180/478)
+2026-11-15 06:28:46 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0215_1D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=1.6 (181/478)
+2026-11-15 06:28:46 RETRY fq-pav level2_2026W13_1A_0215_2D1_spx_l2b-v27-2026-236.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:47 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0215_1D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=1.6 (182/478)
+2026-11-15 06:28:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0202_2D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=8.6 (183/478)
+2026-11-15 06:28:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0202_1D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=9.3 (184/478)
+2026-11-15 06:28:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0074_2D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=12.0 (185/478)
+2026-11-15 06:28:51 RETRY fq-pav level2_2026W13_2A_0111_1D5_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:53 OK TRY 4 EPSF_STRIPPED fq-pav level2_2025W42_1A_0143_1D2_spx_l2b-v27-2026-243.fits bytes=305280 secs=8.8 (186/478)
+2026-11-15 06:28:53 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0202_2D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=10.4 (187/478)
+2026-11-15 06:28:53 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W13_1A_0202_3D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=5.4 (188/478)
+2026-11-15 06:28:53 RETRY fq-pav level2_2026W13_2A_0111_1D2_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:53 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W13_1A_0215_2D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=2.9 (189/478)
+2026-11-15 06:28:54 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0299_1D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=7.5 (190/478)
+2026-11-15 06:28:55 RETRY fq-pav level2_2026W13_2A_0111_1D5_spx_l2b-v27-2026-237.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:28:56 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0111_2D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=3.4 (191/478)
+2026-11-15 06:28:59 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0111_4D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=2.5 (192/478)
+2026-11-15 06:28:59 RETRY fq-pav level2_2026W13_2A_0111_4D2_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0355_1D4_spx_l2b-v27-2026-236.fits bytes=302400 secs=10.2 (193/478)
+2026-11-15 06:29:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_1A_0355_1D1_spx_l2b-v27-2026-236.fits bytes=305280 secs=10.9 (194/478)
+2026-11-15 06:29:02 RETRY fq-pav level2_2026W13_2A_0124_1D2_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:02 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W13_2A_0111_1D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=5.3 (195/478)
+2026-11-15 06:29:03 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0111_3D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=8.5 (196/478)
+2026-11-15 06:29:03 RETRY fq-pav level2_2026W13_2A_0111_1D5_spx_l2b-v27-2026-237.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:04 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0111_3D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=11.4 (197/478)
+2026-11-15 06:29:05 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0111_2D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=11.9 (198/478)
+2026-11-15 06:29:05 RETRY fq-pav level2_2026W13_2A_0124_3D5_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:06 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0124_2D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=3.8 (199/478)
+2026-11-15 06:29:06 RETRY fq-pav level2_2026W13_2A_0124_1D2_spx_l2b-v27-2026-237.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:06 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W13_2A_0111_4D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=3.5 (200/478)
+2026-11-15 06:29:08 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0124_2D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=5.0 (201/478)
+2026-11-15 06:29:08 RETRY fq-pav level2_2026W13_2A_0178_1D2_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:09 RETRY fq-pav level2_2026W13_2A_0124_3D5_spx_l2b-v27-2026-237.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:11 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0124_1D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=10.0 (202/478)
+2026-11-15 06:29:14 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0124_4D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=7.4 (203/478)
+2026-11-15 06:29:14 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0124_3D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=9.4 (204/478)
+2026-11-15 06:29:14 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0124_4D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=8.4 (205/478)
+2026-11-15 06:29:14 RETRY fq-pav level2_2026W13_2A_0418_2D5_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:19 RETRY fq-pav level2_2026W13_2A_0418_2D5_spx_l2b-v27-2026-237.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:20 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W13_2A_0124_1D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=5.6 (206/478)
+2026-11-15 06:29:20 RETRY fq-pav level2_2026W13_2A_0111_1D5_spx_l2b-v27-2026-237.fits try 4: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:21 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0418_1D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=10.6 (207/478)
+2026-11-15 06:29:22 RETRY fq-pav level2_2026W13_2A_0418_4D5_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:23 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W13_2A_0178_1D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=10.5 (208/478)
+2026-11-15 06:29:24 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0418_3D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=4.8 (209/478)
+2026-11-15 06:29:25 RETRY fq-pav level2_2026W13_2A_0430_1D5_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:25 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0418_1D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=11.4 (210/478)
+2026-11-15 06:29:25 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0418_2D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=11.3 (211/478)
+2026-11-15 06:29:25 RETRY fq-pav level2_2026W13_2A_0430_2D2_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:26 RETRY fq-pav level2_2026W13_2A_0418_4D5_spx_l2b-v27-2026-237.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:28 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W13_2A_0124_3D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=10.7 (212/478)
+2026-11-15 06:29:33 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0418_4D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=10.3 (213/478)
+2026-11-15 06:29:33 RETRY fq-pav level2_2026W13_2A_0430_3D2_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:34 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0430_2D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=6.7 (214/478)
+2026-11-15 06:29:34 RETRY fq-pav level2_2026W13_2A_0430_3D5_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:36 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W13_2A_0430_2D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=6.7 (215/478)
+2026-11-15 06:29:37 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W13_2A_0430_1D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=8.0 (216/478)
+2026-11-15 06:29:37 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W13_2A_0418_2D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=10.0 (217/478)
+2026-11-15 06:29:37 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0430_1D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=11.9 (218/478)
+2026-11-15 06:29:38 RETRY fq-pav level2_2026W13_2A_0440_1D2_spx_l2b-v27-2026-237.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:38 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W13_2A_0418_4D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=4.4 (219/478)
+2026-11-15 06:29:39 RETRY fq-pav level2_2026W13_2A_0430_3D5_spx_l2b-v27-2026-237.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:39 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0430_4D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=2.7 (220/478)
+2026-11-15 06:29:40 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0451_1D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=1.6 (221/478)
+2026-11-15 06:29:41 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0430_4D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=4.8 (222/478)
+2026-11-15 06:29:42 RETRY fq-pav level2_2026W13_2A_0440_1D2_spx_l2b-v27-2026-237.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:44 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W13_2A_0430_3D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=6.3 (223/478)
+2026-11-15 06:29:44 RETRY fq-pav level2_2026W14_1A_0023_2D1_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:45 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0023_1D4_spx_l2b-v27-2026-238.fits bytes=302400 secs=5.0 (224/478)
+2026-11-15 06:29:46 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0440_1D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=8.9 (225/478)
+2026-11-15 06:29:46 RETRY fq-pav level2_2026W14_1A_0053_1D4_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:47 RETRY fq-pav level2_2026W13_2A_0430_3D5_spx_l2b-v27-2026-237.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:47 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W13_2A_0451_1D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=9.2 (226/478)
+2026-11-15 06:29:50 RETRY fq-pav level2_2026W14_1A_0053_1D4_spx_l2b-v27-2026-238.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0023_1D1_spx_l2b-v27-2026-238.fits bytes=305280 secs=9.1 (227/478)
+2026-11-15 06:29:51 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0023_2D1_spx_l2b-v27-2026-238.fits bytes=305280 secs=2.8 (228/478)
+2026-11-15 06:29:51 RETRY fq-pav level2_2026W14_1A_0054_1D1_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0023_2D4_spx_l2b-v27-2026-238.fits bytes=302400 secs=5.8 (229/478)
+2026-11-15 06:29:55 RETRY fq-pav level2_2026W14_1A_0054_1D1_spx_l2b-v27-2026-238.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:57 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0053_1D1_spx_l2b-v27-2026-238.fits bytes=305280 secs=9.6 (230/478)
+2026-11-15 06:29:57 OK TRY 5 EPSF_STRIPPED fq-pav level2_2026W13_2A_0111_1D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=5.5 (231/478)
+2026-11-15 06:29:57 RETRY fq-pav level2_2026W14_1A_0344_1D6_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:58 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0069_1D4_spx_l2b-v27-2026-238.fits bytes=302400 secs=7.2 (232/478)
+2026-11-15 06:29:59 RETRY fq-pav level2_2026W14_1A_0053_1D4_spx_l2b-v27-2026-238.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:29:59 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0054_1D4_spx_l2b-v27-2026-238.fits bytes=302400 secs=8.5 (233/478)
+2026-11-15 06:30:00 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W13_2A_0440_1D2_spx_l2b-v27-2026-237.fits bytes=305280 secs=10.2 (234/478)
+2026-11-15 06:30:00 RETRY fq-pav level2_2026W14_1A_0344_2D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:02 RETRY fq-pav level2_2026W14_1A_0344_1D6_spx_l2b-v27-2026-238.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:05 RETRY fq-pav level2_2026W14_1A_0344_2D3_spx_l2b-v27-2026-238.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:05 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0344_1D3_spx_l2b-v27-2026-238.fits bytes=256320 secs=6.1 (235/478)
+2026-11-15 06:30:06 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W14_1A_0054_1D1_spx_l2b-v27-2026-238.fits bytes=305280 secs=3.3 (236/478)
+2026-11-15 06:30:07 OK TRY 4 EPSF_STRIPPED fq-pav level2_2026W13_2A_0430_3D5_spx_l2b-v27-2026-237.fits bytes=302400 secs=3.6 (237/478)
+2026-11-15 06:30:07 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0344_3D6_spx_l2b-v27-2026-238.fits bytes=256320 secs=2.8 (238/478)
+2026-11-15 06:30:08 RETRY fq-pav level2_2026W14_1A_0344_4D6_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:08 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0344_2D6_spx_l2b-v27-2026-238.fits bytes=256320 secs=9.5 (239/478)
+2026-11-15 06:30:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0069_1D1_spx_l2b-v27-2026-238.fits bytes=305280 secs=11.6 (240/478)
+2026-11-15 06:30:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0344_3D3_spx_l2b-v27-2026-238.fits bytes=256320 secs=2.3 (241/478)
+2026-11-15 06:30:09 RETRY fq-pav level2_2026W14_1A_0391_1D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:09 RETRY fq-pav level2_2026W14_1A_0391_2D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:09 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0344_4D3_spx_l2b-v27-2026-238.fits bytes=244800 secs=3.0 (242/478)
+2026-11-15 06:30:10 RETRY fq-pav level2_2026W14_1A_0344_1D6_spx_l2b-v27-2026-238.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:11 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0391_2D6_spx_l2b-v27-2026-238.fits bytes=244800 secs=1.6 (243/478)
+2026-11-15 06:30:15 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0344_4D6_spx_l2b-v27-2026-238.fits bytes=244800 secs=3.3 (244/478)
+2026-11-15 06:30:15 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0391_2D3_spx_l2b-v27-2026-238.fits bytes=244800 secs=2.4 (245/478)
+2026-11-15 06:30:16 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0391_1D3_spx_l2b-v27-2026-238.fits bytes=244800 secs=3.2 (246/478)
+2026-11-15 06:30:16 RETRY fq-pav level2_2026W14_1A_0391_4D6_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:17 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0391_4D3_spx_l2b-v27-2026-238.fits bytes=244800 secs=1.8 (247/478)
+2026-11-15 06:30:17 RETRY fq-pav level2_2026W14_1A_0451_2D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:17 OK TRY 4 EPSF_STRIPPED fq-pav level2_2026W14_1A_0053_1D4_spx_l2b-v27-2026-238.fits bytes=302400 secs=2.8 (248/478)
+2026-11-15 06:30:18 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0391_1D6_spx_l2b-v27-2026-238.fits bytes=244800 secs=9.2 (249/478)
+2026-11-15 06:30:19 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0391_3D3_spx_l2b-v27-2026-238.fits bytes=244800 secs=7.4 (250/478)
+2026-11-15 06:30:19 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0451_2D6_spx_l2b-v27-2026-238.fits bytes=233280 secs=1.9 (251/478)
+2026-11-15 06:30:20 RETRY fq-pav level2_2026W14_1A_0463_1D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:22 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0391_3D6_spx_l2b-v27-2026-238.fits bytes=244800 secs=7.3 (252/478)
+2026-11-15 06:30:22 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W14_1A_0344_2D3_spx_l2b-v27-2026-238.fits bytes=256320 secs=9.8 (253/478)
+2026-11-15 06:30:22 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0463_1D6_spx_l2b-v27-2026-238.fits bytes=233280 secs=3.8 (254/478)
+2026-11-15 06:30:22 RETRY fq-pav level2_2026W14_1A_0463_2D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:23 RETRY fq-pav level2_2026W14_1A_0551_1D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:27 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0463_1D3_spx_l2b-v27-2026-238.fits bytes=233280 secs=3.3 (255/478)
+2026-11-15 06:30:27 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0391_4D6_spx_l2b-v27-2026-238.fits bytes=244800 secs=6.8 (256/478)
+2026-11-15 06:30:27 RETRY fq-pav level2_2026W14_1A_0551_2D6_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:27 RETRY fq-pav level2_2026W14_1A_0551_2D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:28 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0451_3D3_spx_l2b-v27-2026-238.fits bytes=233280 secs=10.1 (257/478)
+2026-11-15 06:30:29 OK TRY 4 EPSF_STRIPPED fq-pav level2_2026W14_1A_0344_1D6_spx_l2b-v27-2026-238.fits bytes=256320 secs=3.0 (258/478)
+2026-11-15 06:30:29 RETRY fq-pav level2_2026W14_1A_0551_3D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:31 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0451_2D3_spx_l2b-v27-2026-238.fits bytes=233280 secs=9.9 (259/478)
+2026-11-15 06:30:32 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0551_1D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=5.3 (260/478)
+2026-11-15 06:30:32 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0463_2D3_spx_l2b-v27-2026-238.fits bytes=164160 secs=5.7 (261/478)
+2026-11-15 06:30:32 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0551_1D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=9.9 (262/478)
+2026-11-15 06:30:32 RETRY fq-pav level2_2026W14_1A_0654_1D6_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:33 RETRY fq-pav level2_2026W14_1A_0551_3D3_spx_l2b-v27-2026-238.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:35 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0551_2D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=4.2 (263/478)
+2026-11-15 06:30:36 RETRY fq-pav level2_2026W14_1A_0654_2D6_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:37 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0654_1D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=4.6 (264/478)
+2026-11-15 06:30:39 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0551_3D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=10.8 (265/478)
+2026-11-15 06:30:39 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0551_4D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=7.3 (266/478)
+2026-11-15 06:30:39 RETRY fq-pav level2_2026W14_2A_0514_1D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:39 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0654_1D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=3.0 (267/478)
+2026-11-15 06:30:40 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0551_4D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=8.5 (268/478)
+2026-11-15 06:30:40 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0551_2D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=9.0 (269/478)
+2026-11-15 06:30:40 RETRY fq-pav level2_2026W14_2A_0514_4D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:41 RETRY fq-pav level2_2026W14_1A_0551_3D3_spx_l2b-v27-2026-238.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:43 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_2A_0514_3D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=3.5 (270/478)
+2026-11-15 06:30:43 RETRY fq-pav level2_2026W14_2A_0514_4D6_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:43 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_1A_0654_2D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=3.6 (271/478)
+2026-11-15 06:30:47 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_2A_0524_2D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=3.5 (272/478)
+2026-11-15 06:30:47 RETRY fq-pav level2_2026W14_2A_0524_3D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:47 RETRY fq-pav level2_2026W14_2A_0514_4D6_spx_l2b-v27-2026-238.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:48 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_1A_0654_2D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=11.5 (273/478)
+2026-11-15 06:30:49 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_2A_0025_2D2_spx_l2b-v27-2026-238.fits bytes=305280 secs=10.6 (274/478)
+2026-11-15 06:30:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_2A_0514_3D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=11.5 (275/478)
+2026-11-15 06:30:52 RETRY fq-pav level2_2026W14_2A_0589_1D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:52 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_2A_0524_3D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=3.8 (276/478)
+2026-11-15 06:30:52 RETRY fq-pav level2_2026W14_2A_0589_2D3_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:54 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_2A_0514_1D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=10.3 (277/478)
+2026-11-15 06:30:55 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_2A_0514_4D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=10.4 (278/478)
+2026-11-15 06:30:56 RETRY fq-pav level2_2026W14_2A_0514_4D6_spx_l2b-v27-2026-238.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:56 RETRY fq-pav level2_2026W14_2A_0589_1D3_spx_l2b-v27-2026-238.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:30:59 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_2A_0589_1D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=9.5 (279/478)
+2026-11-15 06:31:01 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_2A_0524_3D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=10.0 (280/478)
+2026-11-15 06:31:01 RETRY fq-pav level2_2026W14_2A_0589_4D6_spx_l2b-v27-2026-238.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:02 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_2A_0589_2D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=8.1 (281/478)
+2026-11-15 06:31:03 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W14_2A_0589_2D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=7.0 (282/478)
+2026-11-15 06:31:04 RETRY fq-pav level2_2026W14_2A_0589_1D3_spx_l2b-v27-2026-238.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:05 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_2A_0589_3D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=10.5 (283/478)
+2026-11-15 06:31:05 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_2A_0589_3D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=6.5 (284/478)
+2026-11-15 06:31:05 RETRY fq-pav level2_2026W14_2A_0589_4D6_spx_l2b-v27-2026-238.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:08 OK TRY 4 EPSF_STRIPPED fq-pav level2_2026W14_1A_0551_3D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=10.6 (285/478)
+2026-11-15 06:31:08 RETRY fq-pav level2_2026W15_1A_0045_1D3_spx_l2b-v27-2026-239.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_1A_0045_1D6_spx_l2b-v27-2026-239.fits bytes=152640 secs=6.5 (286/478)
+2026-11-15 06:31:12 RETRY fq-pav level2_2026W14_2A_0514_4D6_spx_l2b-v27-2026-238.fits try 4: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W14_2A_0589_4D3_spx_l2b-v27-2026-238.fits bytes=256320 secs=10.1 (287/478)
+2026-11-15 06:31:12 RETRY fq-pav level2_2026W15_1A_0045_1D3_spx_l2b-v27-2026-239.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:13 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_1A_0072_1D3_spx_l2b-v27-2026-239.fits bytes=233280 secs=1.5 (288/478)
+2026-11-15 06:31:14 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_1A_0002_1D4_spx_l2b-v27-2026-239.fits bytes=302400 secs=10.9 (289/478)
+2026-11-15 06:31:14 RETRY fq-pav level2_2026W15_2A_0010_2D2_spx_l2b-v27-2026-240.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:15 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0010_1D2_spx_l2b-v27-2026-240.fits bytes=305280 secs=3.5 (290/478)
+2026-11-15 06:31:17 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0010_2D5_spx_l2b-v27-2026-240.fits bytes=302400 secs=1.7 (291/478)
+2026-11-15 06:31:17 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0010_1D5_spx_l2b-v27-2026-240.fits bytes=302400 secs=3.9 (292/478)
+2026-11-15 06:31:17 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_1A_0002_1D1_spx_l2b-v27-2026-239.fits bytes=305280 secs=12.1 (293/478)
+2026-11-15 06:31:20 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0030_1D6_spx_l2b-v27-2026-240.fits bytes=302400 secs=2.9 (294/478)
+2026-11-15 06:31:23 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W14_2A_0589_4D6_spx_l2b-v27-2026-238.fits bytes=233280 secs=10.0 (295/478)
+2026-11-15 06:31:25 OK TRY 4 EPSF_STRIPPED fq-pav level2_2026W14_2A_0589_1D3_spx_l2b-v27-2026-238.fits bytes=302400 secs=5.0 (296/478)
+2026-11-15 06:31:26 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0030_1D3_spx_l2b-v27-2026-240.fits bytes=302400 secs=9.1 (297/478)
+2026-11-15 06:31:27 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W15_1A_0045_1D3_spx_l2b-v27-2026-239.fits bytes=164160 secs=6.4 (298/478)
+2026-11-15 06:31:27 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0048_1D3_spx_l2b-v27-2026-240.fits bytes=302400 secs=3.9 (299/478)
+2026-11-15 06:31:28 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0030_2D6_spx_l2b-v27-2026-240.fits bytes=302400 secs=10.2 (300/478)
+2026-11-15 06:31:28 RETRY fq-pav level2_2026W16_1A_0001_1D6_spx_l2b-v27-2026-241.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:28 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W15_2A_0010_2D2_spx_l2b-v27-2026-240.fits bytes=305280 secs=9.7 (301/478)
+2026-11-15 06:31:29 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0048_1D6_spx_l2b-v27-2026-240.fits bytes=302400 secs=4.1 (302/478)
+2026-11-15 06:31:29 RETRY fq-pav level2_2026W16_1A_0003_1D6_spx_l2b-v27-2026-241.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:30 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W16_1A_0001_1D3_spx_l2b-v27-2026-241.fits bytes=233280 secs=2.4 (303/478)
+2026-11-15 06:31:30 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0030_2D3_spx_l2b-v27-2026-240.fits bytes=302400 secs=10.2 (304/478)
+2026-11-15 06:31:33 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0048_2D6_spx_l2b-v27-2026-240.fits bytes=302400 secs=7.0 (305/478)
+2026-11-15 06:31:33 RETRY fq-pav level2_2026W16_1A_0003_1D6_spx_l2b-v27-2026-241.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:35 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W16_1A_0003_1D3_spx_l2b-v27-2026-241.fits bytes=233280 secs=6.6 (306/478)
+2026-11-15 06:31:38 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W15_2A_0048_2D3_spx_l2b-v27-2026-240.fits bytes=302400 secs=11.2 (307/478)
+2026-11-15 06:31:40 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W16_2A_0007_1D5_spx_l2b-v27-2026-242.fits bytes=302400 secs=9.7 (308/478)
+2026-11-15 06:31:40 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W16_2A_0007_1D2_spx_l2b-v27-2026-242.fits bytes=305280 secs=10.3 (309/478)
+2026-11-15 06:31:42 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W16_1A_0001_1D6_spx_l2b-v27-2026-241.fits bytes=233280 secs=10.2 (310/478)
+2026-11-15 06:31:43 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_1A_0680_1D3_spx_l2b-v27-2026-245.fits bytes=244800 secs=8.4 (311/478)
+2026-11-15 06:31:43 RETRY fq-pav level2_2026W19_2A_0260_1D5_spx_l2b-v27-2026-245.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:44 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_1A_0680_1D6_spx_l2b-v27-2026-245.fits bytes=244800 secs=11.1 (312/478)
+2026-11-15 06:31:45 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W16_1A_0003_1D6_spx_l2b-v27-2026-241.fits bytes=233280 secs=3.2 (313/478)
+2026-11-15 06:31:48 RETRY fq-pav level2_2026W19_2A_0260_1D5_spx_l2b-v27-2026-245.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:48 OK TRY 5 EPSF_STRIPPED fq-pav level2_2026W14_2A_0514_4D6_spx_l2b-v27-2026-238.fits bytes=302400 secs=3.9 (314/478)
+2026-11-15 06:31:48 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_0261_1D6_spx_l2b-v27-2026-245.fits bytes=244800 secs=3.4 (315/478)
+2026-11-15 06:31:48 RETRY fq-pav level2_2026W19_2A_0283_1D5_spx_l2b-v27-2026-245.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:49 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_0032_1D6_spx_l2b-v27-2026-245.fits bytes=302400 secs=10.9 (316/478)
+2026-11-15 06:31:49 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_0259_1D2_spx_l2b-v27-2026-245.fits bytes=305280 secs=9.0 (317/478)
+2026-11-15 06:31:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_0032_1D3_spx_l2b-v27-2026-245.fits bytes=302400 secs=10.9 (318/478)
+2026-11-15 06:31:52 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_0283_1D2_spx_l2b-v27-2026-245.fits bytes=305280 secs=3.8 (319/478)
+2026-11-15 06:31:52 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_0261_1D3_spx_l2b-v27-2026-245.fits bytes=244800 secs=7.8 (320/478)
+2026-11-15 06:31:53 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_1275_1D6_spx_l2b-v27-2026-245.fits bytes=233280 secs=2.4 (321/478)
+2026-11-15 06:31:54 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_0260_1D2_spx_l2b-v27-2026-245.fits bytes=305280 secs=11.9 (322/478)
+2026-11-15 06:31:54 RETRY fq-pav level2_2026W20_1A_0091_1D3_spx_l2b-v27-2026-246.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:31:54 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_1275_1D3_spx_l2b-v27-2026-245.fits bytes=233280 secs=3.0 (323/478)
+2026-11-15 06:31:58 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_0551_1D3_spx_l2b-v27-2026-245.fits bytes=233280 secs=8.5 (324/478)
+2026-11-15 06:31:58 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0091_1D6_spx_l2b-v27-2026-246.fits bytes=233280 secs=3.3 (325/478)
+2026-11-15 06:32:00 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_0551_1D6_spx_l2b-v27-2026-245.fits bytes=233280 secs=11.1 (326/478)
+2026-11-15 06:32:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0249_1D3_spx_l2b-v27-2026-246.fits bytes=233280 secs=2.7 (327/478)
+2026-11-15 06:32:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_1353_1D6_spx_l2b-v27-2026-245.fits bytes=233280 secs=9.1 (328/478)
+2026-11-15 06:32:02 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W19_2A_1353_1D3_spx_l2b-v27-2026-245.fits bytes=233280 secs=8.6 (329/478)
+2026-11-15 06:32:02 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0249_1D6_spx_l2b-v27-2026-246.fits bytes=233280 secs=4.7 (330/478)
+2026-11-15 06:32:02 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W19_2A_0260_1D5_spx_l2b-v27-2026-245.fits bytes=302400 secs=6.7 (331/478)
+2026-11-15 06:32:02 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W20_1A_0091_1D3_spx_l2b-v27-2026-246.fits bytes=233280 secs=4.3 (332/478)
+2026-11-15 06:32:03 RETRY fq-pav level2_2026W20_1A_0487_1D6_spx_l2b-v27-2026-246.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:03 RETRY fq-pav level2_2026W20_1A_0710_1D6_spx_l2b-v27-2026-246.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:03 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0276_1D6_spx_l2b-v27-2026-246.fits bytes=302400 secs=2.5 (333/478)
+2026-11-15 06:32:03 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0383_1D6_spx_l2b-v27-2026-246.fits bytes=221760 secs=1.9 (334/478)
+2026-11-15 06:32:05 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0809_1D6_spx_l2b-v27-2026-246.fits bytes=221760 secs=1.5 (335/478)
+2026-11-15 06:32:05 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0710_1D3_spx_l2b-v27-2026-246.fits bytes=302400 secs=2.2 (336/478)
+2026-11-15 06:32:05 RETRY fq-pav level2_2026W36_2A_0651_1D6_spx_l2b-v27-2026-254.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:06 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W19_2A_0283_1D5_spx_l2b-v27-2026-245.fits bytes=302400 secs=13.9 (337/478)
+2026-11-15 06:32:07 RETRY fq-pav level2_2026W20_1A_0487_1D6_spx_l2b-v27-2026-246.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:10 RETRY fq-pav level2_2026W36_2A_0651_1D6_spx_l2b-v27-2026-254.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:11 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W20_1A_0710_1D6_spx_l2b-v27-2026-246.fits bytes=302400 secs=4.5 (338/478)
+2026-11-15 06:32:11 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0276_1D3_spx_l2b-v27-2026-246.fits bytes=302400 secs=11.3 (339/478)
+2026-11-15 06:32:12 RETRY fq-pav level2_2026W36_2A_0651_2D3_spx_l2b-v27-2026-254.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0487_1D3_spx_l2b-v27-2026-246.fits bytes=302400 secs=9.6 (340/478)
+2026-11-15 06:32:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0383_1D3_spx_l2b-v27-2026-246.fits bytes=233280 secs=10.3 (341/478)
+2026-11-15 06:32:12 RETRY fq-pav level2_2026W36_2A_0651_3D6_spx_l2b-v27-2026-254.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:12 RETRY fq-pav level2_2026W36_2A_0651_3D3_spx_l2b-v27-2026-254.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:14 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W20_1A_0809_1D3_spx_l2b-v27-2026-246.fits bytes=221760 secs=9.7 (342/478)
+2026-11-15 06:32:15 RETRY fq-pav level2_2026W36_2A_0651_4D6_spx_l2b-v27-2026-254.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:15 RETRY fq-pav level2_2026W20_1A_0487_1D6_spx_l2b-v27-2026-246.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:16 RETRY fq-pav level2_2026W36_2A_0651_2D3_spx_l2b-v27-2026-254.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:16 RETRY fq-pav level2_2026W36_2A_0651_3D6_spx_l2b-v27-2026-254.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:25 RETRY fq-pav level2_2026W36_2A_0651_2D3_spx_l2b-v27-2026-254.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:26 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W36_2A_0651_1D3_spx_l2b-v27-2026-254.fits bytes=302400 secs=19.6 (343/478)
+2026-11-15 06:32:27 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W36_2A_0651_3D3_spx_l2b-v27-2026-254.fits bytes=302400 secs=11.1 (344/478)
+2026-11-15 06:32:30 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W36_2A_0651_1D6_spx_l2b-v27-2026-254.fits bytes=302400 secs=12.7 (345/478)
+2026-11-15 06:32:31 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W36_2A_0651_2D6_spx_l2b-v27-2026-254.fits bytes=302400 secs=19.8 (346/478)
+2026-11-15 06:32:31 RETRY fq-pav level2_2026W20_1A_0487_1D6_spx_l2b-v27-2026-246.fits try 4: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:34 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W36_2A_0651_3D6_spx_l2b-v27-2026-254.fits bytes=302400 secs=9.9 (347/478)
+2026-11-15 06:32:35 RETRY fq-pav level2_2026W36_2A_0891_3D6_spx_l2b-v27-2026-254.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:40 RETRY fq-pav level2_2026W36_2A_0891_3D6_spx_l2b-v27-2026-254.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:40 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W36_2A_0651_4D6_spx_l2b-v27-2026-254.fits bytes=302400 secs=21.4 (348/478)
+2026-11-15 06:32:40 RETRY fq-pav level2_2026W36_2A_0891_4D3_spx_l2b-v27-2026-254.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:41 RETRY fq-pav level2_2026W36_2A_0651_2D3_spx_l2b-v27-2026-254.fits try 4: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:43 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W36_2A_0651_4D3_spx_l2b-v27-2026-254.fits bytes=302400 secs=17.0 (349/478)
+2026-11-15 06:32:43 RETRY fq-pav level2_2026W36_2A_0891_4D6_spx_l2b-v27-2026-254.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:47 RETRY fq-pav level2_2026W36_2A_0891_4D6_spx_l2b-v27-2026-254.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:50 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W36_2A_0891_2D6_spx_l2b-v27-2026-254.fits bytes=302400 secs=22.1 (350/478)
+2026-11-15 06:32:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W36_2A_0891_2D3_spx_l2b-v27-2026-254.fits bytes=302400 secs=20.7 (351/478)
+2026-11-15 06:32:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W36_2A_0891_3D3_spx_l2b-v27-2026-254.fits bytes=302400 secs=20.3 (352/478)
+2026-11-15 06:32:51 RETRY fq-pav level2_2026W37_1A_0017_1D3_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:52 RETRY fq-pav level2_2026W37_1A_0017_2D6_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:56 RETRY fq-pav level2_2026W37_1A_0017_1D3_spx_l2b-v27-2026-255.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:32:56 RETRY fq-pav level2_2026W37_1A_0017_2D6_spx_l2b-v27-2026-255.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:02 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W36_2A_0891_3D6_spx_l2b-v27-2026-254.fits bytes=302400 secs=14.1 (353/478)
+2026-11-15 06:33:02 RETRY fq-pav level2_2026W37_1A_0017_2D3_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:04 RETRY fq-pav level2_2026W20_1A_0487_1D6_spx_l2b-v27-2026-246.fits try 5: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:04 RETRY fq-pav level2_2026W37_1A_0017_2D6_spx_l2b-v27-2026-255.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:04 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0017_1D6_spx_l2b-v27-2026-255.fits bytes=302400 secs=14.7 (354/478)
+2026-11-15 06:33:04 RETRY fq-pav level2_2026W37_1A_0054_1D6_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:07 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W36_2A_0891_4D3_spx_l2b-v27-2026-254.fits bytes=302400 secs=22.5 (355/478)
+2026-11-15 06:33:07 RETRY fq-pav level2_2026W37_1A_0054_1D3_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:09 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W36_2A_0891_4D6_spx_l2b-v27-2026-254.fits bytes=302400 secs=13.1 (356/478)
+2026-11-15 06:33:09 RETRY fq-pav level2_2026W37_1A_0054_1D6_spx_l2b-v27-2026-255.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:15 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W37_1A_0017_1D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=11.2 (357/478)
+2026-11-15 06:33:23 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_1A_0054_1D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=12.4 (358/478)
+2026-11-15 06:33:24 RETRY fq-pav level2_2026W37_1A_0054_3D3_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:25 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0054_2D6_spx_l2b-v27-2026-255.fits bytes=302400 secs=16.4 (359/478)
+2026-11-15 06:33:27 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_1A_0017_2D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=20.7 (360/478)
+2026-11-15 06:33:30 OK TRY 5 EPSF_STRIPPED fq-pav level2_2026W36_2A_0651_2D3_spx_l2b-v27-2026-254.fits bytes=302400 secs=17.2 (361/478)
+2026-11-15 06:33:31 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W37_1A_0054_1D6_spx_l2b-v27-2026-255.fits bytes=302400 secs=14.8 (362/478)
+2026-11-15 06:33:35 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0054_2D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=20.1 (363/478)
+2026-11-15 06:33:36 OK TRY 4 EPSF_STRIPPED fq-pav level2_2026W37_1A_0017_2D6_spx_l2b-v27-2026-255.fits bytes=279360 secs=15.7 (364/478)
+2026-11-15 06:33:36 RETRY fq-pav level2_2026W37_1A_0338_1D6_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:40 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0054_4D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=13.3 (365/478)
+2026-11-15 06:33:40 RETRY fq-pav level2_2026W37_1A_0338_1D6_spx_l2b-v27-2026-255.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:40 RETRY fq-pav level2_2026W37_1A_0338_1D3_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:43 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0289_4D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=11.9 (366/478)
+2026-11-15 06:33:44 RETRY fq-pav level2_2026W37_1A_0338_1D3_spx_l2b-v27-2026-255.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:47 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0054_4D6_spx_l2b-v27-2026-255.fits bytes=302400 secs=16.4 (367/478)
+2026-11-15 06:33:48 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_1A_0054_3D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=20.0 (368/478)
+2026-11-15 06:33:48 RETRY fq-pav level2_2026W37_1A_0338_1D6_spx_l2b-v27-2026-255.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:51 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0054_3D6_spx_l2b-v27-2026-255.fits bytes=302400 secs=25.6 (369/478)
+2026-11-15 06:33:51 RETRY fq-pav level2_2026W37_1A_0407_2D3_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:33:52 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0289_4D6_spx_l2b_retry-v27-2026-257.fits bytes=302400 secs=17.5 (370/478)
+2026-11-15 06:34:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0407_1D6_spx_l2b-v27-2026-255.fits bytes=302400 secs=18.0 (371/478)
+2026-11-15 06:34:01 RETRY fq-pav level2_2026W37_1A_0407_3D3_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:34:03 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0407_2D6_spx_l2b-v27-2026-255.fits bytes=302400 secs=15.2 (372/478)
+2026-11-15 06:34:04 RETRY fq-pav level2_2026W20_1A_0487_1D6_spx_l2b-v27-2026-246.fits try 6: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:34:06 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_1A_0407_2D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=11.5 (373/478)
+2026-11-15 06:34:10 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0407_1D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=23.1 (374/478)
+2026-11-15 06:34:10 RETRY fq-pav level2_2026W37_1A_0442_1D2_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:34:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0407_3D6_spx_l2b-v27-2026-255.fits bytes=302400 secs=19.3 (375/478)
+2026-11-15 06:34:12 RETRY fq-pav level2_2026W37_1A_0442_1D5_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:34:13 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W37_1A_0338_1D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=20.4 (376/478)
+2026-11-15 06:34:16 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0407_4D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=10.0 (377/478)
+2026-11-15 06:34:18 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0407_4D6_spx_l2b-v27-2026-255.fits bytes=302400 secs=15.7 (378/478)
+2026-11-15 06:34:26 OK TRY 4 EPSF_STRIPPED fq-pav level2_2026W37_1A_0338_1D6_spx_l2b-v27-2026-255.fits bytes=302400 secs=21.5 (379/478)
+2026-11-15 06:34:26 RETRY fq-pav level2_2026W37_1A_0442_3D5_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:34:28 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_1A_0442_1D2_spx_l2b-v27-2026-255.fits bytes=305280 secs=13.7 (380/478)
+2026-11-15 06:34:29 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0442_2D5_spx_l2b-v27-2026-255.fits bytes=302400 secs=12.7 (381/478)
+2026-11-15 06:34:30 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_1A_0407_3D3_spx_l2b-v27-2026-255.fits bytes=302400 secs=24.2 (382/478)
+2026-11-15 06:34:32 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0442_2D2_spx_l2b-v27-2026-255.fits bytes=305280 secs=19.3 (383/478)
+2026-11-15 06:34:32 RETRY fq-pav level2_2026W37_1A_0607_1D2_spx_l2b-v27-2026-255.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:34:36 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0442_3D2_spx_l2b-v27-2026-255.fits bytes=305280 secs=17.3 (384/478)
+2026-11-15 06:34:36 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_1A_0442_1D5_spx_l2b-v27-2026-255.fits bytes=302400 secs=19.9 (385/478)
+2026-11-15 06:34:39 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_1A_0442_3D5_spx_l2b-v27-2026-255.fits bytes=302400 secs=9.2 (386/478)
+2026-11-15 06:34:40 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0442_4D2_spx_l2b-v27-2026-255.fits bytes=305280 secs=11.0 (387/478)
+2026-11-15 06:34:40 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0442_4D5_spx_l2b-v27-2026-255.fits bytes=302400 secs=12.5 (388/478)
+2026-11-15 06:34:42 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0607_1D5_spx_l2b-v27-2026-255.fits bytes=210240 secs=6.6 (389/478)
+2026-11-15 06:34:46 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0582_1D6_spx_l2b-v27-2026-255.fits bytes=187200 secs=16.8 (390/478)
+2026-11-15 06:34:48 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0607_2D2_spx_l2b-v27-2026-255.fits bytes=305280 secs=9.0 (391/478)
+2026-11-15 06:34:49 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0607_4D5_spx_l2b-v27-2026-255.fits bytes=302400 secs=6.4 (392/478)
+2026-11-15 06:34:49 RETRY fq-pav level2_2026W37_2A_0036_1D5_spx_l2b-v27-2026-259.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:34:49 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0607_3D5_spx_l2b-v27-2026-255.fits bytes=302400 secs=8.9 (393/478)
+2026-11-15 06:34:49 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0607_3D2_spx_l2b-v27-2026-255.fits bytes=305280 secs=9.2 (394/478)
+2026-11-15 06:34:50 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0607_2D5_spx_l2b-v27-2026-255.fits bytes=302400 secs=14.5 (395/478)
+2026-11-15 06:34:52 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_1A_0607_1D2_spx_l2b-v27-2026-255.fits bytes=190080 secs=15.2 (396/478)
+2026-11-15 06:34:53 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_1A_0607_4D2_spx_l2b-v27-2026-255.fits bytes=305280 secs=6.7 (397/478)
+2026-11-15 06:35:02 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0036_2D2_spx_l2b-v27-2026-259.fits bytes=282240 secs=13.1 (398/478)
+2026-11-15 06:35:02 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0036_1D2_spx_l2b-v27-2026-259.fits bytes=305280 secs=13.9 (399/478)
+2026-11-15 06:35:03 RETRY fq-pav level2_2026W37_2A_0333_3D5_spx_l2b-v27-2026-259.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:03 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0036_2D5_spx_l2b-v27-2026-259.fits bytes=256320 secs=14.1 (400/478)
+2026-11-15 06:35:03 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0333_1D5_spx_l2b-v27-2026-259.fits bytes=302400 secs=11.8 (401/478)
+2026-11-15 06:35:03 RETRY fq-pav level2_2026W37_2A_0333_3D2_spx_l2b-v27-2026-259.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:04 FAIL fq-pav level2_2026W20_1A_0487_1D6_spx_l2b-v27-2026-246.fits (402/478): http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:04 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0333_1D2_spx_l2b-v27-2026-259.fits bytes=305280 secs=13.4 (403/478)
+2026-11-15 06:35:08 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0333_2D2_spx_l2b-v27-2026-259.fits bytes=305280 secs=14.8 (404/478)
+2026-11-15 06:35:08 RETRY fq-pav level2_2026W37_2A_0536_1D2_spx_l2b-v27-2026-259.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:09 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_2A_0036_1D5_spx_l2b-v27-2026-259.fits bytes=302400 secs=16.1 (405/478)
+2026-11-15 06:35:12 RETRY fq-pav level2_2026W37_2A_0536_1D2_spx_l2b-v27-2026-259.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:15 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0333_4D2_spx_l2b-v27-2026-259.fits bytes=305280 secs=11.5 (406/478)
+2026-11-15 06:35:15 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0333_4D5_spx_l2b-v27-2026-259.fits bytes=302400 secs=11.4 (407/478)
+2026-11-15 06:35:15 RETRY fq-pav level2_2026W37_2A_0536_3D2_spx_l2b-v27-2026-259.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:19 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0333_2D5_spx_l2b-v27-2026-259.fits bytes=302400 secs=17.2 (408/478)
+2026-11-15 06:35:20 RETRY fq-pav level2_2026W37_2A_0536_3D2_spx_l2b-v27-2026-259.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:21 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_2A_0333_3D2_spx_l2b-v27-2026-259.fits bytes=305280 secs=14.0 (409/478)
+2026-11-15 06:35:22 RETRY fq-pav level2_2026W37_2A_0536_4D5_spx_l2b-v27-2026-259.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:24 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_2A_0333_3D5_spx_l2b-v27-2026-259.fits bytes=302400 secs=17.9 (410/478)
+2026-11-15 06:35:25 RETRY fq-pav level2_2026W37_2A_0536_4D2_spx_l2b-v27-2026-259.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:26 RETRY fq-pav level2_2026W37_2A_0536_4D5_spx_l2b-v27-2026-259.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:26 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0536_2D2_spx_l2b-v27-2026-259.fits bytes=305280 secs=16.9 (411/478)
+2026-11-15 06:35:26 RETRY fq-pav level2_2026W37_2A_0575_1D4_spx_l2b-v27-2026-259.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:27 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0536_1D5_spx_l2b-v27-2026-259.fits bytes=302400 secs=23.1 (412/478)
+2026-11-15 06:35:28 RETRY fq-pav level2_2026W37_2A_0536_3D2_spx_l2b-v27-2026-259.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:34 RETRY fq-pav level2_2026W37_2A_0536_4D5_spx_l2b-v27-2026-259.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:35 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0536_3D5_spx_l2b-v27-2026-259.fits bytes=302400 secs=15.9 (413/478)
+2026-11-15 06:35:36 RETRY fq-pav level2_2026W37_2A_0575_2D1_spx_l2b-v27-2026-259.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:37 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0536_2D5_spx_l2b-v27-2026-259.fits bytes=302400 secs=21.9 (414/478)
+2026-11-15 06:35:40 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W37_2A_0536_1D2_spx_l2b-v27-2026-259.fits bytes=305280 secs=19.3 (415/478)
+2026-11-15 06:35:40 RETRY fq-pav level2_2026W37_2A_0575_2D1_spx_l2b-v27-2026-259.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:41 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_2A_0575_1D4_spx_l2b-v27-2026-259.fits bytes=302400 secs=11.0 (416/478)
+2026-11-15 06:35:44 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0575_1D1_spx_l2b-v27-2026-259.fits bytes=305280 secs=16.7 (417/478)
+2026-11-15 06:35:44 RETRY fq-pav level2_2026W37_2A_0536_3D2_spx_l2b-v27-2026-259.fits try 4: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:45 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_2A_0536_4D2_spx_l2b-v27-2026-259.fits bytes=305280 secs=16.4 (418/478)
+2026-11-15 06:35:52 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0575_4D4_spx_l2b-v27-2026-259.fits bytes=302400 secs=8.2 (419/478)
+2026-11-15 06:35:52 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0575_2D4_spx_l2b-v27-2026-259.fits bytes=302400 secs=15.4 (420/478)
+2026-11-15 06:35:55 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0575_3D4_spx_l2b-v27-2026-259.fits bytes=302400 secs=15.3 (421/478)
+2026-11-15 06:35:55 RETRY fq-pav level2_2026W37_2A_0688_3D4_spx_l2b_retry-v27-2026-261.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:35:56 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0575_3D1_spx_l2b-v27-2026-259.fits bytes=305280 secs=14.6 (422/478)
+2026-11-15 06:36:01 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0575_4D1_spx_l2b-v27-2026-259.fits bytes=305280 secs=15.7 (423/478)
+2026-11-15 06:36:01 RETRY fq-pav level2_2026W37_2A_0688_4D1_spx_l2b-v27-2026-259.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:04 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0688_2D1_spx_l2b-v27-2026-259.fits bytes=305280 secs=11.8 (424/478)
+2026-11-15 06:36:04 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0688_2D4_spx_l2b-v27-2026-259.fits bytes=302400 secs=11.7 (425/478)
+2026-11-15 06:36:04 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W37_2A_0575_2D1_spx_l2b-v27-2026-259.fits bytes=305280 secs=15.9 (426/478)
+2026-11-15 06:36:04 RETRY fq-pav level2_2026W38_1A_0145_1D4_spx_l2b-v27-2026-261.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:08 OK TRY 4 EPSF_STRIPPED fq-pav level2_2026W37_2A_0536_4D5_spx_l2b-v27-2026-259.fits bytes=302400 secs=17.6 (427/478)
+2026-11-15 06:36:08 RETRY fq-pav level2_2026W38_1A_0145_1D4_spx_l2b-v27-2026-261.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:13 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0145_1D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=8.9 (428/478)
+2026-11-15 06:36:13 RETRY fq-pav level2_2026W38_1A_0145_2D4_spx_l2b-v27-2026-261.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:14 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_2A_0688_4D1_spx_l2b-v27-2026-259.fits bytes=305280 secs=9.2 (429/478)
+2026-11-15 06:36:15 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0688_4D4_spx_l2b-v27-2026-259.fits bytes=302400 secs=11.1 (430/478)
+2026-11-15 06:36:17 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W37_2A_0688_3D1_spx_l2b-v27-2026-259.fits bytes=305280 secs=21.7 (431/478)
+2026-11-15 06:36:19 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0196_1D5_spx_l2b-v27-2026-261.fits bytes=302400 secs=4.0 (432/478)
+2026-11-15 06:36:19 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W37_2A_0688_3D4_spx_l2b_retry-v27-2026-261.fits bytes=302400 secs=19.6 (433/478)
+2026-11-15 06:36:19 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0196_1D2_spx_l2b-v27-2026-261.fits bytes=305280 secs=4.9 (434/478)
+2026-11-15 06:36:20 OK TRY 5 EPSF_STRIPPED fq-pav level2_2026W37_2A_0536_3D2_spx_l2b-v27-2026-259.fits bytes=305280 secs=3.7 (435/478)
+2026-11-15 06:36:20 RETRY fq-pav level2_2026W38_1A_0338_3D4_spx_l2b-v27-2026-261.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:20 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W38_1A_0145_2D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=3.3 (436/478)
+2026-11-15 06:36:20 RETRY fq-pav level2_2026W38_1A_0338_3D1_spx_l2b-v27-2026-261.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:22 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0145_2D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=14.7 (437/478)
+2026-11-15 06:36:27 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W38_1A_0145_1D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=10.5 (438/478)
+2026-11-15 06:36:27 RETRY fq-pav level2_2026W38_1A_0338_4D4_spx_l2b-v27-2026-261.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:28 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0338_2D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=8.9 (439/478)
+2026-11-15 06:36:29 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W38_1A_0338_3D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=4.6 (440/478)
+2026-11-15 06:36:29 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0338_1D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=11.7 (441/478)
+2026-11-15 06:36:30 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0338_1D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=11.6 (442/478)
+2026-11-15 06:36:31 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0338_2D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=11.6 (443/478)
+2026-11-15 06:36:31 RETRY fq-pav level2_2026W38_1A_0338_4D4_spx_l2b-v27-2026-261.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:33 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0338_4D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=10.6 (444/478)
+2026-11-15 06:36:35 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W38_1A_0338_3D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=10.5 (445/478)
+2026-11-15 06:36:41 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0584_1D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=12.5 (446/478)
+2026-11-15 06:36:41 RETRY fq-pav level2_2026W38_1A_0584_4D4_spx_l2b-v27-2026-261.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:42 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0584_1D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=13.7 (447/478)
+2026-11-15 06:36:44 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0584_2D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=14.7 (448/478)
+2026-11-15 06:36:44 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0584_3D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=13.9 (449/478)
+2026-11-15 06:36:45 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0584_2D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=14.5 (450/478)
+2026-11-15 06:36:45 RETRY fq-pav level2_2026W38_1A_0584_4D4_spx_l2b-v27-2026-261.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:48 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0584_3D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=14.7 (451/478)
+2026-11-15 06:36:48 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0633_1D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=5.9 (452/478)
+2026-11-15 06:36:49 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0584_4D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=13.6 (453/478)
+2026-11-15 06:36:54 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W38_1A_0338_4D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=14.3 (454/478)
+2026-11-15 06:36:54 RETRY fq-pav level2_2026W38_2A_0329_1D4_spx_l2b-v27-2026-264.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:57 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0663_4D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=8.6 (455/478)
+2026-11-15 06:36:57 RETRY fq-pav level2_2026W38_2A_0329_2D4_spx_l2b-v27-2026-264.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:36:58 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0633_1D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=13.7 (456/478)
+2026-11-15 06:36:59 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0663_3D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=14.1 (457/478)
+2026-11-15 06:37:00 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0663_3D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=14.7 (458/478)
+2026-11-15 06:37:00 RETRY fq-pav level2_2026W38_2A_0329_3D4_spx_l2b-v27-2026-264.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:37:01 RETRY fq-pav level2_2026W38_2A_0329_2D4_spx_l2b-v27-2026-264.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:37:02 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W38_1A_0584_4D4_spx_l2b-v27-2026-261.fits bytes=302400 secs=8.8 (459/478)
+2026-11-15 06:37:02 RETRY fq-pav level2_2026W38_2A_0329_4D4_spx_l2b-v27-2026-264.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:37:04 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_1A_0663_4D1_spx_l2b-v27-2026-261.fits bytes=305280 secs=15.8 (460/478)
+2026-11-15 06:37:04 RETRY fq-pav level2_2026W38_2A_0329_3D4_spx_l2b-v27-2026-264.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:37:04 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0329_1D1_spx_l2b-v27-2026-264.fits bytes=305280 secs=15.8 (461/478)
+2026-11-15 06:37:06 RETRY fq-pav level2_2026W38_2A_0329_4D4_spx_l2b-v27-2026-264.fits try 2: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:37:09 RETRY fq-pav level2_2026W38_2A_0329_2D4_spx_l2b-v27-2026-264.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:37:12 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0329_2D1_spx_l2b-v27-2026-264.fits bytes=305280 secs=14.8 (462/478)
+2026-11-15 06:37:13 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W38_2A_0329_1D4_spx_l2b-v27-2026-264.fits bytes=302400 secs=15.6 (463/478)
+2026-11-15 06:37:14 RETRY fq-pav level2_2026W38_2A_0329_4D4_spx_l2b-v27-2026-264.fits try 3: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:37:15 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0329_3D1_spx_l2b-v27-2026-264.fits bytes=305280 secs=16.3 (464/478)
+2026-11-15 06:37:21 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0329_4D1_spx_l2b-v27-2026-264.fits bytes=305280 secs=17.2 (465/478)
+2026-11-15 06:37:23 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0523_1D4_spx_l2b-v27-2026-264.fits bytes=302400 secs=18.2 (466/478)
+2026-11-15 06:37:25 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0523_2D1_spx_l2b-v27-2026-264.fits bytes=305280 secs=11.7 (467/478)
+2026-11-15 06:37:25 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0523_1D1_spx_l2b-v27-2026-264.fits bytes=305280 secs=13.2 (468/478)
+2026-11-15 06:37:26 OK TRY 3 EPSF_STRIPPED fq-pav level2_2026W38_2A_0329_3D4_spx_l2b-v27-2026-264.fits bytes=302400 secs=13.7 (469/478)
+2026-11-15 06:37:26 RETRY fq-pav level2_2026W38_2A_0702_1D1_spx_l2b-v27-2026-264.fits try 1: http 503 bytes 25 head b'Server busy, retry later.'
+2026-11-15 06:37:27 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0523_2D4_spx_l2b-v27-2026-264.fits bytes=302400 secs=11.8 (470/478)
+2026-11-15 06:37:31 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0523_3D4_spx_l2b-v27-2026-264.fits bytes=302400 secs=8.6 (471/478)
+2026-11-15 06:37:32 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0523_3D1_spx_l2b-v27-2026-264.fits bytes=305280 secs=11.0 (472/478)
+2026-11-15 06:37:37 OK TRY 4 EPSF_STRIPPED fq-pav level2_2026W38_2A_0329_4D4_spx_l2b-v27-2026-264.fits bytes=302400 secs=6.4 (473/478)
+2026-11-15 06:37:38 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0523_4D1_spx_l2b-v27-2026-264.fits bytes=305280 secs=13.2 (474/478)
+2026-11-15 06:37:39 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0523_4D4_spx_l2b-v27-2026-264.fits bytes=302400 secs=13.6 (475/478)
+2026-11-15 06:37:39 OK TRY 4 EPSF_STRIPPED fq-pav level2_2026W38_2A_0329_2D4_spx_l2b-v27-2026-264.fits bytes=302400 secs=14.0 (476/478)
+2026-11-15 06:37:40 OK TRY 2 EPSF_STRIPPED fq-pav level2_2026W38_2A_0702_1D1_spx_l2b-v27-2026-264.fits bytes=305280 secs=9.5 (477/478)
+2026-11-15 06:37:40 OK TRY 1 EPSF_STRIPPED fq-pav level2_2026W38_2A_0702_1D4_spx_l2b-v27-2026-264.fits bytes=302400 secs=13.8 (478/478)
+2026-11-15 06:37:40 DONE ok=477 cached=0 failed=1 total=478 bytes=140166720 elapsed_s=712 free_gb=5.8

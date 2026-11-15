@@ -1,0 +1,12 @@
+
+> blackhole-spherex-site@0.1.0 build
+> tsc --noEmit && vite build
+
+src/GuideView.tsx(2,1): error TS6192: All imports in import declaration are unused.
+src/GuideView.tsx(3,36): error TS6196: 'XY' is declared but never used.
+src/GuideView.tsx(17,7): error TS6133: 'STEPS' is declared but its value is never read.
+src/GuideView.tsx(30,7): error TS6133: 'HIT_PX' is declared but its value is never read.
+src/GuideView.tsx(31,7): error TS6133: 'BLINK_MS' is declared but its value is never read.
+src/GuideView.tsx(34,6): error TS6196: 'Feedback' is declared but never used.
+src/GuideView.tsx(36,7): error TS6133: 'signed' is declared but its value is never read.
+src/GuideView.tsx(38,10): error TS6133: 'useTarget' is declared but its value is never read.

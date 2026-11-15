@@ -1,0 +1,5 @@
+http=000 seconds=21.197255 bytes=0--- VizieR CfA mirror, asu-tsv, II/246/out, 150 arcsec, limit 40 s 
+http=200 seconds=2.092725 bytes=16826 
+--- CDS TAP again with the error shown, limit 25 s 
+curl: (28) Failed to connect to tapvizier.cds.unistra.fr:443 after 21079 ms: Could not connect to server
+http=000 seconds=21.079272 bytes=0

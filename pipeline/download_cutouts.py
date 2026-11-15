@@ -11,9 +11,11 @@
   the file is kept whole and the log line says EPSF_KEPT. astrom.open_cutout
   reads the stored table when a file has no EPSF HDU.
 - --log NAME writes to logs/NAME.log; --min-free GB sets the free-disk guard.
+- --targets FILE reads the targets from FILE instead of data/targets.json (used for
+  a candidate that is not in the target list yet, e.g. data/variable_candidate.json).
 
 Usage: .venv/Scripts/python.exe pipeline/download_cutouts.py [--limit N] [--size DEG --tag TAG]
-           [--strip-epsf] [--log NAME] [--min-free GB] [slug ...]
+           [--strip-epsf] [--log NAME] [--min-free GB] [--targets FILE] [slug ...]
 """
 import hashlib
 import io
@@ -189,8 +191,12 @@ def main():
         i = args.index("--limit")
         limit = int(args[i + 1])
         del args[i:i + 2]
-    targets = {t["slug"]: t for t in
-               json.loads((ROOT / "data" / "targets.json").read_text(encoding="utf-8"))}
+    targets_path = ROOT / "data" / "targets.json"
+    if "--targets" in args:
+        i = args.index("--targets")
+        targets_path = ROOT / args[i + 1]
+        del args[i:i + 2]
+    targets = {t["slug"]: t for t in json.loads(targets_path.read_text(encoding="utf-8"))}
     slugs = args or [s for s in ORDER if s in targets]
     LOG.parent.mkdir(parents=True, exist_ok=True)
     MANIFEST.mkdir(parents=True, exist_ok=True)
