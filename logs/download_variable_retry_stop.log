@@ -1,0 +1,22 @@
+
+
+ProcessId   : 26072
+CommandLine : C:\Users\user\AppData\Local\hermes\hermes-agent\venv\Scripts\python.exe -m hermes_cli.main serve --host 1
+              27.0.0.1 --port 0
+
+ProcessId   : 26136
+CommandLine : "C:\Users\user\AppData\Local\hermes\hermes-agent\.hermes-runtime\python\cpython-3.11-windows-x86_64-none\
+              python.exe"  -m hermes_cli.main serve --host 127.0.0.1 --port 0
+
+ProcessId   : 37976
+CommandLine : .venv\Scripts\python.exe  pipeline\download_cutouts.py --strip-epsf --log download_variable_retry --targe
+              ts data/variable_candidate.json fq-pav 
+
+ProcessId   : 25884
+CommandLine : .venv\Scripts\python.exe  pipeline\download_cutouts.py --strip-epsf --log download_variable_retry --targe
+              ts data/variable_candidate.json fq-pav 
+
+
+
+STOPPED 37976
+STOPPED 25884

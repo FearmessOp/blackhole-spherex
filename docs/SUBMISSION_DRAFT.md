@@ -114,7 +114,9 @@ has at least 30 usable exposures in at least 3 epochs of at least 5.
   (`logs/saturation_check.log`).
 - With 3 epochs, a parallax cannot be checked by leaving one epoch out.
 - The quick look is unmasked and uses 6 to 8 exposures per epoch; its rough
-  motions are not aligned to field stars.
+  motions are not aligned to field stars. For stars brighter than K = 8.0 it
+  gives no motion ("probably saturated"); the limit rests on the prepared
+  targets (`logs/k_saturation.log`) and was not checked on Ross 128's flags.
 - IRSA SIA answered 9 of 12 test queries with "502 Proxy Error"
   (`logs/sia_probe.log`); the quick look can fail when this happens.
 - No spectrum on click and no automatic search for unknown movers.

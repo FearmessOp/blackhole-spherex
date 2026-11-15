@@ -3,6 +3,57 @@
 Team Blackhole 102, NASA Space Apps Challenge 2026, "Planet X and SPHEREx".
 Times are local (UTC+3). Every number below comes from the log file named next to it.
 
+## Status at 2026-11-15 12:10
+
+Last round before the 16:00 deadline. Times are local.
+
+### Commits (all pushed; remote hash checked with `git ls-remote` after each push)
+
+| Commit | Content | Log |
+|---|---|---|
+| `b83da40` | Block 1, first screen: tabs in the target row, search label as `aria-label`, play/pause and epoch buttons directly under the panels, one-sentence result (EN/TR), note on black core pixels, motion arrow starts at the marker gap, quick-look motion table in the side column | `logs/first_screen_local2.log`, `logs/first_screen_live1.log` |
+| `c6a253f` | Block 2, Ross 128: no sign error found; the quick look gives no rough motion for K < 8.0; `lookup.js` returns `k_mag` | `logs/ross128_sign.log`, `logs/k_saturation.log` |
+
+### Block 1: first screen
+
+- `--chrome` (vertical space outside the two images) measured, not guessed: at 430 px the result sentence ended
+  7 px above the bottom of a 1400x900 window (EN and TR, `logs/first_screen_local1.log`,
+  `logs/first_screen_local_tr.log`); set to 440 px, the sentence now ends at 883 px (863 px for WISE 0855)
+  (`logs/first_screen_local2.log`). Live, 1400x900: Barnard, Epsilon Indi B and WISE 0855 show both panels,
+  the play bar and the sentence without scrolling (`logs/first_screen_live1.log`). At 390x800 the first image is
+  fully visible; no horizontal overflow.
+- Result sentence, from `results.json` only. Fit: method with the id of `fit.arrow.method` ("psf", ePSF fit).
+  Stack motion (WISE 0855): first-to-last epoch pair, method "two" (Gaussian fit, neighbour modelled), the method
+  the guide (`FindMover.tsx`) puts first. Saturated: `overflow > exposures / 2`, as in `ResultsPanel.tsx`.
+- Black-pixel note: shown where `saturation.core_empty > 0`. That includes Epsilon Indi B (2 exposures), not
+  only the saturated targets.
+- `res.arrow` (Measurement tab) still holds: arrow = ePSF proper motion, 4x the real length.
+- Not seen: the quick-look table in the side column (IRSA did not answer, see Block 2).
+
+### Block 2: Ross 128 east sign
+
+Details in `logs/ross128_sign.log`.
+- No sign error: the same code gives the right east sign in both directions on Epsilon Indi B (east positive)
+  and WISE 0855 (east negative) against the full pipeline (`logs/test_motion.log`).
+- Saturation is probable, not measured: SIMBAD K = 5.65; prepared targets with K 2.23 to 7.02 are saturated in
+  91–98% of exposures, those with K 9.08 to 11.93 in 0–23%, except omi02 Eri B (K 9.86, 92%, bright companion)
+  (`logs/k_saturation.log`).
+- Not done because IRSA answered 502 (`logs/lookup_ross128_live.json`, `logs/irsa_probe_t1.log`): OVERFLOW flags
+  of Ross 128 cutouts; comparison of quick look and full pipeline on LAWD 37 or SSSPM J1444-2019.
+- Limit K < 8.0 chosen. A K limit does not catch a faint star next to a bright one (omi02 Eri B). Stars without a
+  K value in SIMBAD still get the table (checked: WISE J085510.83-071442.5, `logs/lookup_k_field_check3.log`).
+
+### Block 3: FQ Pav
+
+- The missing cutout was fetched: 478 of 478 (`logs/download_variable_retry2.log`).
+- **Mistake on the way:** a first retry was started without `--size 0.2 --tag wide`. It wrote 238 cutouts of
+  0.05 deg into `cache/cutouts/fq-pav/` before it was stopped (`logs/download_variable_retry.log`,
+  `logs/download_variable_retry_stop.log`). The 477 wide cutouts in `cache/cutouts_wide/fq-pav/` were not touched
+  (last write 06:37:40, `logs/fq_pav_cache_check.log`). The 238 extra files were not deleted (`cache/` rule).
+- Gaia field stars: ESA archive connection timed out, IRSA copy answered 502 (`logs/gaia_field_fq-pav_wide.log`).
+  Without them no saturation check against field stars, no brightness per detector and epoch, no comparison.
+  FQ Pav is not on the site.
+
 ## Status at 2026-11-15 09:05
 
 Morning list and design block. Work stopped at the 09:00 limit. The task was interrupted between

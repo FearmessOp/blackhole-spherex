@@ -69,7 +69,8 @@ WISE 0855-0714, RW Aurigae, R Draconis):
 - **Flicker.** How much constant Gaia stars of the same field change between
   raw exposures and between epoch means.
 - **Measured.** Position and motion measurements where they could be made, next
-  to the catalogue values, and a warning where they could not.
+  to the catalogue values, and a warning where they could not. The main result
+  is also given in one plain sentence directly under the images.
 
 All brightness scales are fixed per target and band; pixels are not smoothed.
 
@@ -101,10 +102,13 @@ For any other star name or position (**quick look**):
   pixels and blinks one clipped-mean stack per epoch.
 - The flag images are not read, so nothing is masked. The view is labelled
   "Quick look, unmasked, no measurement".
-- Below the image: rough motion between epochs (windowed centroid on these
+- Beside the image: rough motion between epochs (windowed centroid on these
   stacks, bootstrap error) next to the catalogue prediction, if SIMBAD has a
   proper motion. Where the error is not smaller than the motion, the table
   says "too slow to measure with this data" instead of a number.
+- For a star brighter than K = 8.0 in SIMBAD no rough motion is given; the
+  table is replaced by "probably saturated in SPHEREx, no motion given"
+  (`logs/k_saturation.log`, `logs/ross128_sign.log`).
 
 ## Results so far
 
@@ -220,6 +224,11 @@ same two targets, so the 9 of 9 is not an independent confirmation.
   for up to 45 seconds; a lookup took 6 to 11 seconds in the tests
   (`logs/lookup_local.log`, `logs/lookup_live.log`) and can fail.
 - Names are resolved by SIMBAD only. Coordinates must be given in degrees.
+- The K < 8.0 limit for "probably saturated" rests on the prepared targets
+  (K 2.23 to 7.02 saturated in 91–98% of exposures, K 9.08 to 11.93 in 0–23%).
+  It does not catch a faint star next to a bright one (omi02 Eri B, K 9.86,
+  saturated in 92%), and stars without a K value in SIMBAD still get numbers.
+  Ross 128 (K 5.65) is below the limit; its OVERFLOW flags were not checked.
 - Tested with three names (Epsilon Indi B, WISE 0855, Wolf 359) and one
   position. Positions near the edge of a detector, crowded fields and
   positions without coverage were not tried.
