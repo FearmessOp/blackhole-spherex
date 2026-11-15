@@ -1,0 +1,15 @@
+ok   starts playing: button reads 'Pause'
+ok   right arrow steps the epoch: selected '3' then '4'
+ok   right arrow pauses: button reads 'Play'
+ok   left arrow steps back: selected '3', expected '3'
+ok   space plays: button reads 'Pause'
+ok   space pauses: button reads 'Play'
+ok   no shortcut while typing: selected '3' -> '3', button 'Play'
+ok   keys hint shown: 'Keys: Space play / pause, ← → epoch'
+ok   tab panel role: 'tabpanel'
+ok   epoch button has dates: '2025-04-24 – 2025-06-10'
+ok   no console errors: []
+ok   reduced motion: not playing at start: button reads 'Play'
+ok   390 px: keys hint hidden: 
+ok   390 px: card second line shown: 'M4V · 364 exposures · 3 epochs'
+checks failed: 0

@@ -167,10 +167,7 @@ export default function App() {
             <header className="bar">
                 <div className="bar-text">
                     <h1>
-                        <svg className="logo" viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
-                            <circle cx="16" cy="16" r="10" fill="none" stroke="var(--accent)" strokeWidth="3" />
-                            <circle cx="16" cy="16" r="4.5" fill="#000" stroke="var(--accent)" strokeWidth="1" />
-                        </svg>
+                        <img className="logo" src={`${import.meta.env.BASE_URL}logo.svg`} width="24" height="24" alt="" />
                         {t('app.title')}
                     </h1>
                     <p className="tagline">{t('app.tagline')}</p>
@@ -263,6 +260,7 @@ export default function App() {
                                                 type="button"
                                                 role="tab"
                                                 aria-selected={id === tab}
+                                                aria-controls="target-panel"
                                                 className={id === tab ? 'on' : ''}
                                                 onClick={() => setTab(id)}
                                             >
@@ -282,6 +280,7 @@ export default function App() {
                                         type="button"
                                         role="tab"
                                         aria-selected={id === tab}
+                                        aria-controls="target-panel"
                                         className={id === tab ? 'on' : ''}
                                         onClick={() => setTab(id)}
                                     >

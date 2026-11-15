@@ -1,0 +1,14 @@
+
+> blackhole-spherex-site@0.1.0 build
+> tsc --noEmit && vite build
+
+[36mvite v8.3.8 [32mbuilding client environment for production...[36m[39m
+transforming...
+✓ 28 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   1.39 kB │ gzip:   0.69 kB
+dist/assets/index-DpJE2u31.css   12.89 kB │ gzip:   3.21 kB
+dist/assets/index-Cv5S-T6M.js   337.02 kB │ gzip: 105.41 kB
+
+[32m✓ built in 993ms[39m

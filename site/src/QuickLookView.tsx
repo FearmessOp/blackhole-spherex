@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { reducedMotion, useBlinkKeys } from './BlinkView'
 import { HelpTitle } from './Help'
 import SkyPanel from './SkyPanel'
 import { bandLabel, t, useLang, type Key } from './i18n'
@@ -246,7 +247,7 @@ export default function QuickLookView({ query }: { query: Query }) {
     const [progress, setProgress] = useState<Progress | null>(null)
     const [sceneError, setSceneError] = useState<{ key: Key; msg?: string } | null>(null)
     const [pos, setPos] = useState(0)
-    const [playing, setPlaying] = useState(true)
+    const [playing, setPlaying] = useState(() => !reducedMotion())
     const [ms, setMs] = useState(600)
     const [marker, setMarker] = useState(true)
     const [view, setView] = useState<'blink' | 'diff'>('blink')
@@ -307,6 +308,17 @@ export default function QuickLookView({ query }: { query: Query }) {
         const id = window.setInterval(() => setPos((p) => (p + 1) % count), ms)
         return () => window.clearInterval(id)
     }, [playing, ms, count])
+
+    const toggle = useCallback(() => setPlaying((p) => !p), [])
+    const step = useCallback(
+        (d: number) => {
+            if (count < 1) return
+            setPlaying(false)
+            setPos((p) => (((p % count) + d) % count + count) % count)
+        },
+        [count]
+    )
+    useBlinkKeys(count > 0, toggle, step)
 
     const title =
         'target' in query
@@ -530,7 +542,10 @@ export default function QuickLookView({ query }: { query: Query }) {
                         {shown.map((e, i) => (
                             <button
                                 key={e.index}
+                                type="button"
                                 className={count && i === pos % count ? 'on' : ''}
+                                aria-pressed={count > 0 && i === pos % count}
+                                title={`${e.tStart} – ${e.tEnd}`}
                                 onClick={() => {
                                     setPlaying(false)
                                     setPos(i)

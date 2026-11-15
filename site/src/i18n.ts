@@ -182,7 +182,8 @@ const enPanels = {
     'sum.nofit': 'Too few clean exposures to measure its motion: {u} of {b} are usable.',
     'sum.none': 'No measurement for this target yet.',
     'raw.black': 'Black pixels in the core: saturated, no value.',
-    'search.aria': 'Any star or position'
+    'search.aria': 'Any star or position',
+    'ctl.keys': 'Keys: Space play / pause, ← → epoch'
 } as const
 
 const trPanels = {
@@ -241,7 +242,8 @@ const trPanels = {
     'sum.nofit': 'Hareketini ölçmek için temiz pozlama az: {b} pozlamanın {u} tanesi kullanılabilir.',
     'sum.none': 'Bu hedef için henüz ölçüm yok.',
     'raw.black': 'Çekirdekteki siyah pikseller: doymuş, değer yok.',
-    'search.aria': 'Herhangi bir yıldız ya da konum'
+    'search.aria': 'Herhangi bir yıldız ya da konum',
+    'ctl.keys': 'Tuşlar: Boşluk oynat / duraklat, ← → dönem'
 }
 
 // ---------------------------------------------------------------- guided mode "Find the mover"

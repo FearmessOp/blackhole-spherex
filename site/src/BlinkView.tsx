@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from 'react'
+import { useCallback, useEffect, useState, type ReactNode } from 'react'
 import { HelpTitle } from './Help'
 import RawView from './RawView'
 import ResultsPanel, { FlickerNote, NeighbourNote } from './ResultsPanel'
@@ -23,6 +23,35 @@ const bandName = (id: string) =>
     id === 'all' ? t('band.all') : id === 'd123' ? 'D1–3' : id === 'd56' ? 'D5+6' : id.toUpperCase()
 
 const pct = (v: number | null) => (v === null ? 'n/a' : `${(100 * v).toFixed(0)}%`)
+
+// A visitor who asked the system for less motion gets a still image first; Play starts the blink.
+export const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+// Space: play / pause, left / right: previous / next epoch. Not while typing, and Space on a
+// focused button keeps the button's own click.
+export function useBlinkKeys(active: boolean, toggle: () => void, step: (d: number) => void) {
+    useEffect(() => {
+        if (!active) return
+        const onKey = (e: KeyboardEvent) => {
+            if (e.altKey || e.ctrlKey || e.metaKey) return
+            const el = e.target as HTMLElement | null
+            const tag = el?.tagName ?? ''
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || el?.isContentEditable) return
+            if (e.key === ' ' && tag !== 'BUTTON') {
+                e.preventDefault()
+                toggle()
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault()
+                step(-1)
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault()
+                step(1)
+            }
+        }
+        window.addEventListener('keydown', onKey)
+        return () => window.removeEventListener('keydown', onKey)
+    }, [active, toggle, step])
+}
 
 type StackProps = {
     base: string
@@ -119,7 +148,7 @@ export default function BlinkView({ slug, tab, validation }: Props) {
     const [bandId, setBandId] = useState<string | null>(null)
     const [view, setView] = useState<'blink' | 'diff'>('blink')
     const [pos, setPos] = useState(0)
-    const [playing, setPlaying] = useState(true)
+    const [playing, setPlaying] = useState(() => !reducedMotion())
     const [ms, setMs] = useState(600)
     const [marker, setMarker] = useState(true)
 
@@ -159,8 +188,34 @@ export default function BlinkView({ slug, tab, validation }: Props) {
         return () => window.clearInterval(id)
     }, [playing, ms, nFrames])
 
+    const toggle = useCallback(() => setPlaying((p) => !p), [])
+    const step = useCallback(
+        (d: number) => {
+            if (nFrames < 1) return
+            setPlaying(false)
+            setPos((p) => (((p % nFrames) + d) % nFrames + nFrames) % nFrames)
+        },
+        [nFrames]
+    )
+    useBlinkKeys(tab === 'images' && nFrames > 0, toggle, step)
+
     if (failed) return <p className="note">{t('load.failed')}</p>
-    if (!meta || !res || !band) return <p className="note">{t('load.target')}</p>
+    if (!meta || !res || !band)
+        return (
+            <div className="target" aria-busy="true">
+                {tab === 'images' && (
+                    <div className="views" aria-hidden="true">
+                        <div className="fig">
+                            <div className="view skeleton" />
+                        </div>
+                        <div className="fig">
+                            <div className="view skeleton" />
+                        </div>
+                    </div>
+                )}
+                <p className="note">{t('load.target')}</p>
+            </div>
+        )
 
     const epoch = band.frames[pos % nFrames].epoch
     const diff = data?.diff ?? null
@@ -178,7 +233,7 @@ export default function BlinkView({ slug, tab, validation }: Props) {
     const blackCore = satd && (res.saturation?.core_empty ?? 0) > 0
 
     return (
-        <div className="target">
+        <div className="target" id="target-panel" role="tabpanel">
             {tab === 'images' && (
                 <>
                     <div className="views">
@@ -237,6 +292,8 @@ export default function BlinkView({ slug, tab, validation }: Props) {
                                 key={f.png}
                                 type="button"
                                 className={i === pos % nFrames ? 'on' : ''}
+                                aria-pressed={i === pos % nFrames}
+                                title={`${meta.epochs[f.epoch].t_start.slice(0, 10)} – ${meta.epochs[f.epoch].t_end.slice(0, 10)}`}
                                 onClick={() => {
                                     setPlaying(false)
                                     setPos(i)
@@ -245,6 +302,7 @@ export default function BlinkView({ slug, tab, validation }: Props) {
                                 {f.epoch + 1}
                             </button>
                         ))}
+                        <span className="keys-hint">{t('ctl.keys')}</span>
                     </div>
 
                     <p className="summary">{summary(res)}</p>
