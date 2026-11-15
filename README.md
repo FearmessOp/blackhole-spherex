@@ -426,8 +426,8 @@ checked the results.
 - Roo Code in Visual Studio Code (model: claude-fable-5.2): wrote and ran the
   code of the data pipeline and the site.
 - Hermes Agent by Nous Research (models: claude-fable-5.2 and claude-opus-5.5):
-  gathering information, ideas and suggestions,
-  independent checks of its reports, the Turkish README and the README
+  looking up documentation and archive services, answering technical questions,
+  independent checks of Roo Code's reports, the Turkish README and the README
   screenshots. The code that renders the demo video was also written with it
   (claude-opus-5.5). I wrote most of the tasks I gave Roo Code myself.
 
@@ -438,7 +438,8 @@ checked the results.
   `docs/SUBMISSION_DRAFT.md` and the English and Turkish text on the site.
 - Running the pipeline, reading the logs, trying the live site in a browser and
   checking the numbers in the reports against the logs.
-- When choosing the challenge, I discussed the pros and cons of the options with SI.
+- While comparing the challenges, I used SI to summarise their statements; the
+  choice of challenge was mine.
 - Team logo: a vector drawing made by a short Python script written with SI. No
   image-generation model was used. The logo is on the site and in the video.
 - Demo video: rendered frame by frame from the SPHEREx images of the site, by
