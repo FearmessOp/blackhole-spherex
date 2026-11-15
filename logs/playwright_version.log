@@ -1,0 +1,15 @@
+Name: playwright
+Version: 1.53.0
+Summary: A high-level API to automate web browsers
+Home-page: https://github.com/Microsoft/playwright-python
+Author: Microsoft Corporation
+Author-email: 
+License-Expression: Apache-2.0
+Location: C:\Users\user\AppData\Roaming\Python\Python313\site-packages
+Requires: greenlet, pyee
+Required-by: camoufox, playwright-stealth
+metadata License: None
+classifiers: []
+license files: ['playwright-1.53.0.dist-info/licenses/LICENSE', 'playwright/driver/LICENSE']
+targets in data/targets.json: 15 fast: 10
+chromium version: 138.0.7204.23

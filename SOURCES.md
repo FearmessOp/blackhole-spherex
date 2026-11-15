@@ -23,7 +23,7 @@ for it. It does not replace the terms of the data below.
 | Files | Content | Terms |
 |---|---|---|
 | `data/gaia/*.csv` (10 files) | Rows of the Gaia DR3 source catalogue | CC BY-NC 3.0 IGO, credit ESA/Gaia/DPAC (non-commercial) |
-| `data/targets.json` | Values returned by SIMBAD for the five targets | ODbL |
+| `data/targets.json` | Values returned by SIMBAD for the 15 prepared targets (5 test targets, 10 fast movers) | ODbL |
 | `data/astrometry/*_neighbours.json`, `data/flicker/*.json`, `site/public/data/*/results.json` | Measurements of this project; they also contain Gaia DR3 source identifiers and G magnitudes of the stars used | Gaia terms for those values |
 | `site/public/data/*/*.png`, `raw.json`, `meta.json` | Images and metadata derived from SPHEREx Level-2 cutouts | IRSA public data, see above |
 | `data/quicklook/wcs_reference.json` | IMAGE headers and 3x3 pixel values of eight SPHEREx Level-2 files, with positions computed by astropy (test reference) | IRSA public data, see above |
@@ -124,8 +124,11 @@ images are computed in the visitor's browser from SPHEREx Level-2 files
 (`site/src/quicklook.ts`). The site contains no other images, logos or icons and
 loads no web fonts (system fonts only).
 
-For the five prepared targets the site reads only its own static files
-(`logs/site_assets.log`, checked before the quick look was added). When a
+For the prepared targets the site reads only its own static files
+(`logs/site_assets.log`, checked when there were five prepared targets and
+before the quick look was added; the later live checks of all 15 prepared pages,
+`logs/live_check_block4.log`, recorded no failed request but did not list the
+requested hosts). When a
 visitor searches for a name or a position, two more kinds of request are made:
 
 - the browser calls the site's own function `/api/lookup`, which queries SIMBAD
@@ -149,6 +152,7 @@ Versions from `logs/setup_env.log`, `logs/sources_check2.log` and
 | Node.js | v22.23.2 | site build; runs the tests in `site/scripts/` (it loads `site/src/quicklook.ts` directly, no extra package) | Node.js licence file; it begins with an MIT-style permission notice, the rest of the file was not read |
 | npm | 11.4.2 | site package install | Artistic License 2.0 |
 | Visual Studio Code | not recorded | editor | not checked |
+| Playwright for Python, with its bundled Chromium (installed in the system Python `C:\Python313`, not in `.venv`) | 1.53.0, Chromium 138.0.7204.23 (`logs/playwright_version.log`) | checks of the local preview and the live site (4xx, console errors, layout, screenshots), e.g. `pipeline/live_tour.py`; not used by the pipeline or the site | Apache-2.0 (package metadata `License-Expression`, `logs/playwright_version.log`); the licence of the bundled Chromium was not checked |
 | SI coding assistant running in Visual Studio Code (it presents itself as "Roo"; model id shown by the tool: `anthropic/claude-fable-5.2`; exact product name and version to be confirmed by the team), including its built-in browser | not recorded | writing the code and documents, running the pipeline, looking at the local preview; see "Use of SI" in `README.md` | not checked |
 
 ## Hosting
