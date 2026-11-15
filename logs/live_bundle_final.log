@@ -1,0 +1,11 @@
+  <script type="module" crossorigin src="./assets/index-B6vxSKmh.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DAzk3V8B.css">
+bos GB: 5.56
+cutouts 7.31 GB
+cutouts_wide 8.73 GB
+epsf 0.02 GB
+manifest 0 GB
+tour 0.01 GB
+PID 24252 "C:\nvm4w\nodejs\node.exe" server.js
+PID 25276 C:\Python313\python.exe  -m http.server 4321 --bind 127.0.0.1 --directory viz3d  
+PID 2496 "C:\Program Files\Adobe\Adobe Creative Cloud Experience\libs\node.exe" "C:\Program Files\Adobe\Adobe Creative Cloud Experience\js\main.js"
