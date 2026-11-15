@@ -417,24 +417,40 @@ in the visitor's browser by `site/src/quicklook.ts` for the quick look.
 
 ## Use of SI
 
-*Draft: this section was written by the SI tool itself and has not yet been
-confirmed by the team.*
+I used Super Intelligence (SI) tools in this project. I chose the challenge,
+told the tools what to do and which rules to follow, made the decisions and
+checked the results.
 
-This project was built with a Super Intelligence (SI) coding assistant.
-The team member set the task and its rules.
+**Tools**
 
-- **Code written with SI:** all Python scripts in `pipeline/`, and the site code
-  in `site/` (`site/src/*.tsx`, `*.ts`, `styles.css`, `index.html` and the build
-  configuration).
-- **Text written with SI:** `README.md`, `SOURCES.md`, `PROGRESS.md` and the text
-  shown on the site.
-- **Other work done by SI:** running the pipeline, reading the logs, and looking
-  at the site in a browser.
-- **Not made with SI:** no image is SI-generated. The SPHEREx, SIMBAD and Gaia
-  data are used as served by their archives.
-- The site does not call any SI service when it runs.
+- Roo Code in Visual Studio Code (model: claude-fable-5.2): wrote and ran the
+  code of the data pipeline and the site.
+- Hermes Agent by Nous Research (models: claude-fable-5.2 and claude-opus-5.5):
+  gathering information, ideas and suggestions,
+  independent checks of its reports, the Turkish README and the README
+  screenshots. The code that renders the demo video was also written with it
+  (claude-opus-5.5). I wrote most of the tasks I gave Roo Code myself.
 
-The tool is listed in [SOURCES.md](SOURCES.md).
+**Made with SI**
+
+- All code: the Python scripts in `pipeline/` and the site code in `site/`.
+- Text: `README.md`, `README.tr.md`, `SOURCES.md`, `PROGRESS.md`,
+  `docs/SUBMISSION_DRAFT.md` and the English and Turkish text on the site.
+- Running the pipeline, reading the logs, trying the live site in a browser and
+  checking the numbers in the reports against the logs.
+- When choosing the challenge, I discussed the pros and cons of the options with SI.
+- Team logo: a vector drawing made by a short Python script written with SI. No
+  image-generation model was used. The logo is on the site and in the video.
+- Demo video: rendered frame by frame from the SPHEREx images of the site, by
+  code written with SI. The script and the English subtitles were prepared with
+  SI; I recorded the Turkish narration in my own voice.
+
+**Not made with SI**
+
+- No model that generates images, video or voice was used. Every image on the
+  site and in the video is computed from SPHEREx data.
+- The SPHEREx, SIMBAD and Gaia data are used as served by their archives.
+- The site does not connect to any SI service when it runs.
 
 ## License
 
