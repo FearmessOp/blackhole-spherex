@@ -174,7 +174,7 @@ export default function App() {
             <header className="bar">
                 <div className="bar-text">
                     <h1>
-                        <img className="logo" src={`${import.meta.env.BASE_URL}mark.svg`} width="24" height="24" alt="" />
+                        <img className="logo" src={`${import.meta.env.BASE_URL}logo.svg`} width="36" height="36" alt="" />
                         {t('app.title')}
                     </h1>
                     <p className="tagline">{t('app.tagline')}</p>

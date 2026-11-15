@@ -78,10 +78,12 @@ p {
     white-space: nowrap;
 }
 
-/* Team mark (site/public/mark.svg: blackhole_mark.svg, transparent, in the site's amber) */
+/* Team logo: site/public/logo.svg is blackhole_spectral.svg unchanged (102 lines on its own dark square).
+   36 px, so that the lines can be told apart in the top bar. */
 .logo {
     flex: none;
     display: block;
+    border-radius: 4px;
 }
 
 /* Footer: team, data sources, code and licence; below the first screen, so --chrome is not affected */
