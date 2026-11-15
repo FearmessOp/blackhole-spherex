@@ -257,6 +257,11 @@ button.link {
     margin-left: auto;
 }
 
+/* The second copy of the tabs is for narrow screens only. */
+.tabs-narrow {
+    display: none;
+}
+
 .card {
     flex: 1 1 auto;
     padding: var(--s2) var(--s3);
@@ -949,8 +954,18 @@ button.link {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .picker .tabs {
-        margin-left: 0;
+    .picker .tabs-wide {
+        display: none;
+    }
+
+    .tabs-narrow {
+        display: flex;
+        margin-bottom: var(--s2);
+    }
+
+    .tabs-narrow button {
+        flex: 1 1 0;
+        padding: var(--s2) var(--s1);
     }
 
     .quick-side,

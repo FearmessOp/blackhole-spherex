@@ -36,3 +36,5 @@ logs/prepush_author.log
 .DS_Store
 Thumbs.db
 .vscode/
+# Screenshots of the first-screen checks (pipeline/first_screen.py)
+logs/shots_t1_*/

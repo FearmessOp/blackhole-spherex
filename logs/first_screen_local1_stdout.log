@@ -1,0 +1,6 @@
+http://localhost:4173/?target=barnard [1400, 900] {'picker': True, 'view0': True, 'view1': True, 'playbar': True, 'summary': True, 'controls': False} 
+http://localhost:4173/?target=eps-indi-b [1400, 900] {'picker': True, 'view0': True, 'view1': True, 'playbar': True, 'summary': True, 'controls': False} 
+http://localhost:4173/?target=wise-0855 [1400, 900] {'picker': True, 'view0': True, 'view1': True, 'playbar': True, 'summary': True, 'controls': False} 
+http://localhost:4173/?target=barnard [390, 800] {'picker': True, 'view0': True, 'view1': False, 'playbar': False, 'summary': False, 'controls': False} 
+http://localhost:4173/?target=eps-indi-b [390, 800] {'picker': True, 'view0': True, 'view1': False, 'playbar': False, 'summary': False, 'controls': False} 
+http://localhost:4173/?target=wise-0855 [390, 800] {'picker': True, 'view0': True, 'view1': False, 'playbar': False, 'summary': False, 'controls': False} 

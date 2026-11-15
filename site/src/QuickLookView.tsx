@@ -250,6 +250,7 @@ export default function QuickLookView({ query }: { query: Query }) {
     const [ms, setMs] = useState(600)
     const [marker, setMarker] = useState(true)
     const [view, setView] = useState<'blink' | 'diff'>('blink')
+    const [attempt, setAttempt] = useState(0) // "Try again" sends the lookup once more
 
     // 1. name -> position, and the exposure list
     useEffect(() => {
@@ -272,7 +273,7 @@ export default function QuickLookView({ query }: { query: Query }) {
                 if (!ctl.signal.aborted) setLookup({ status: 'error', key: ERRORS.no_answer })
             })
         return () => ctl.abort()
-    }, [queryString])
+    }, [queryString, attempt])
 
     const data = lookup.status === 'ready' ? lookup.data : null
     // A Y dwarf is only seen at long wavelength: start with detectors 5+6 there.
@@ -338,6 +339,9 @@ export default function QuickLookView({ query }: { query: Query }) {
             <div className="target">
                 {heading}
                 <p className="warn">{t(lookup.key)}</p>
+                <button type="button" onClick={() => setAttempt(attempt + 1)}>
+                    {t('quick.retry')}
+                </button>
             </div>
         )
     }

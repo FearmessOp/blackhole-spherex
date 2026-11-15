@@ -173,7 +173,9 @@ export default function BlinkView({ slug, tab, validation }: Props) {
     const neighbour = res.stack_motion?.neighbour ?? null
     const neighbourXY = neighbour?.xy?.[epoch] ?? null
 
-    const blackCore = (res.saturation?.core_empty ?? 0) > 0
+    // Only for saturated targets (same criterion as ResultsPanel.tsx: overflow > exposures / 2).
+    const satd = res.saturation !== null && res.saturation.overflow > res.saturation.exposures / 2
+    const blackCore = satd && (res.saturation?.core_empty ?? 0) > 0
 
     return (
         <div className="target">

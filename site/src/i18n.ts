@@ -381,7 +381,9 @@ const enQuick = {
     'quick.err.name_not_found': 'SIMBAD does not know this name. Check the spelling, or enter RA and Dec in degrees.',
     'quick.err.simbad_unreachable':
         'SIMBAD could not be reached, so the name was not resolved. Try again, or enter RA and Dec in degrees.',
-    'quick.err.archive_unreachable': 'The IRSA archive did not return the exposure list. Try again in a moment.',
+    'quick.err.archive_unreachable':
+        'The NASA archive (IRSA) is not answering right now, so the list of SPHEREx images could not be fetched. This is on the archive side; try again in a minute. The prepared targets above work without it.',
+    'quick.retry': 'Try again',
     'quick.err.bad_request': 'Enter a star name, or RA and Dec in degrees (RA 0 to 360, Dec -90 to +90).',
     'quick.err.no_answer': 'The lookup service did not answer. Try again in a moment.',
     'quick.err.no_exposures': 'The public SPHEREx releases at IRSA hold no exposure of this position.',
@@ -425,7 +427,9 @@ const trQuick = {
     'quick.err.name_not_found': 'SIMBAD bu adı tanımıyor. Yazımı kontrol edin ya da RA ve Dec değerlerini derece olarak girin.',
     'quick.err.simbad_unreachable':
         'SIMBAD\'a ulaşılamadı, bu yüzden ad çözülemedi. Yeniden deneyin ya da RA ve Dec değerlerini derece olarak girin.',
-    'quick.err.archive_unreachable': 'IRSA arşivi pozlama listesini döndürmedi. Biraz sonra yeniden deneyin.',
+    'quick.err.archive_unreachable':
+        'NASA arşivi (IRSA) şu anda yanıt vermiyor, bu yüzden SPHEREx görüntülerinin listesi alınamadı. Sorun arşiv tarafında; bir dakika sonra yeniden deneyin. Yukarıdaki hazır hedefler arşiv olmadan da çalışır.',
+    'quick.retry': 'Yeniden dene',
     'quick.err.bad_request': 'Bir yıldız adı ya da derece olarak RA ve Dec girin (RA 0 ile 360, Dec -90 ile +90).',
     'quick.err.no_answer': 'Arama hizmeti yanıt vermedi. Biraz sonra yeniden deneyin.',
     'quick.err.no_exposures': 'IRSA\'daki açık SPHEREx sürümlerinde bu konumun pozlaması yok.',

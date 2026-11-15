@@ -250,7 +250,7 @@ export default function App() {
                                     </select>
                                 )}
                                 {prepared && (
-                                    <div className="tabs" role="tablist">
+                                    <div className="tabs tabs-wide" role="tablist">
                                         {TABS.map(([id, key]) => (
                                             <button
                                                 key={id}
@@ -266,6 +266,23 @@ export default function App() {
                                     </div>
                                 )}
                             </nav>
+                        )}
+                        {/* Narrow screens: the tabs get their own row, the target row scrolls sideways. */}
+                        {targets.length > 0 && prepared && (
+                            <div className="tabs tabs-narrow" role="tablist">
+                                {TABS.map(([id, key]) => (
+                                    <button
+                                        key={id}
+                                        type="button"
+                                        role="tab"
+                                        aria-selected={id === tab}
+                                        className={id === tab ? 'on' : ''}
+                                        onClick={() => setTab(id)}
+                                    >
+                                        {t(key)}
+                                    </button>
+                                ))}
+                            </div>
                         )}
                         {index.status === 'loading' && <p className="note">{t('targets.loading')}</p>}
                         {route.kind === 'bad' && (

@@ -3,6 +3,22 @@
 Team Blackhole 102, NASA Space Apps Challenge 2026, "Planet X and SPHEREx".
 Times are local (UTC+3). Every number below comes from the log file named next to it.
 
+## Status at 2026-11-15 13:20
+
+| Commit | Content |
+|---|---|
+| `0e357f9` | Block A: guide click judged against catalogue positions over all epochs; amber track; click ring hidden after found |
+| `7069c8b` | Block B: game mode `?game=1`; pool of 11 (`logs/game_pool.log`); shifted 15x15 window; clicks one per epoch, in epoch order (guide and game, team decision during the block); scoring constants in `site/src/Game.tsx` |
+| this commit | Block C: tabs in their own row below 720 px; black-pixel note only for saturated targets (`overflow > exposures / 2`); quick look "Try again" button and plainer IRSA error text (EN/TR); `logs/shots_t1_*/` in `.gitignore`; untracked logs committed |
+
+- Game pool: Barnard, Epsilon Indi B, WISE 0855 (D5+6) by shift >= 1 px; SSSPM J1444-2019, Wolf 28, LAWD 37, LP 651-7,
+  LEHPM 3396, LSR J1826+3014, 2MASS J0251-0352, G 221-5 by a distinct difference image. G 275-92 out (criterion 3 of
+  `diff_image.py`). Difference images of the nine fast movers were made for the game only; their `results.json`
+  files are unchanged, so the prepared views do not request them.
+- **FQ Pav dropped.** 478 of 478 cutouts are on disk, but the Gaia field could not be fetched (ESA timeout, IRSA 502,
+  `logs/gaia_field_fq-pav_wide.log`, `logs/gaia_field_fq-pav_wide_retry.log`). It is not on the site.
+- Not seen live: the game at 390 px, six rounds on the live site, the guide steps 2 and 3, the narrow-screen tabs.
+
 ## Status at 2026-11-15 12:10
 
 Last round before the 16:00 deadline. Times are local.
