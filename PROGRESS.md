@@ -3,6 +3,31 @@
 Team Blackhole 102, NASA Space Apps Challenge 2026, "Planet X and SPHEREx".
 Times are local (UTC+3). Every number below comes from the log file named next to it.
 
+## Status at 2026-11-15 14:25 (last fixes)
+
+| Commit | Content |
+|---|---|
+| `cf60d61` | Tabs once per width (`.tabs.tabs-narrow`); game link moved to the top bar; header and favicon use `site/public/mark.svg` (`blackhole_mark.svg` without the dark square, amber; ring stroke 28 -> 56, small circles 30/40 -> 40/60 so that it reads at 24 px); `og.png` kept |
+| `df53673` | Motion arrow starts at the marker of the epoch on screen; selected card scrolled into view on narrow screens |
+| `7698482` | Saved exposure list for FQ Pav (478 exposures, `site/public/data/lookup/fq-pav.json`), used when `/api/lookup` answers `archive_unreachable` / `no_answer`; note with save date (EN/TR); saved names linked on the error screen; README outage entry |
+
+- **Cause of the earlier first-screen shift:** `.tabs-narrow { display: none }` came before `.tabs { display: flex }`
+  with the same specificity, so both tab rows showed at 1400 px (about 31 px). Earlier block entries that called the
+  shift unexplained were wrong; it was seen only by script, not by eye.
+- First screen at 1400x900 (`logs/first_screen_fix2.log`): gap under the result sentence 39 px (home, EN and TR),
+  38 / 60 px (Epsilon Indi B EN / TR), 60 px (WISE 0855).
+- Arrow: tail now about 1.47 px from the marker centre (was about 1.2 px), read off a screenshot. It still lies on
+  bright pixels, because the core is about 3 px wide.
+- **Not done:** item 5 (guide and game: fixed expected epoch, Blink button, previous clicks as numbered rings,
+  duplicate instruction). Not started.
+- Not done: copy of `%TEMP%\lookup_saved\*.json`; `logs/save_lookup.log` has no line for that folder, so whether
+  it exists is not known.
+- Not looked at: the error screen with the saved-name link (IRSA answered, through the function, only with a timeout).
+- Browser screenshots taken with the built-in browser were not saved to files; the screenshot script for FQ Pav failed
+  (syntax error), so there is no file for it.
+- Tool note: the built-in browser served an old `index.html` from its cache after F5; two of its screenshots showed
+  the old build. Checks were repeated with a query parameter or a clean Playwright session.
+
 ## Status at 2026-11-15 13:45 (frontend block)
 
 | Commit | Content | Logs |
