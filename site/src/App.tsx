@@ -154,6 +154,13 @@ export default function App() {
     const metaLine = (x: TargetEntry) =>
         `${x.sp_type ? `${x.sp_type} · ` : ''}${t('card.meta', { n: x.n_exposures ?? '?', e: x.n_epochs ?? '?' })}`
     const fastOn = prepared?.set === 'fast'
+    // Narrow screens: the target row scrolls sideways; keep the selected card in view.
+    const preparedSlug = prepared?.slug ?? null
+    useEffect(() => {
+        if (!preparedSlug) return
+        const el = document.querySelector('.picker .card.on')
+        el?.scrollIntoView({ block: 'nearest', inline: 'nearest' })
+    }, [preparedSlug])
     const validation =
         index.status !== 'loading' ? (
             <>

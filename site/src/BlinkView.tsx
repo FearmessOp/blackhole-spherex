@@ -81,7 +81,9 @@ function StackPanel({ base, meta, band, epoch, title, help, marker, markerLabel,
             markerLabel={markerLabel}
             neighbour={neighbour}
             neighbourLabel={neighbourLabel}
-            arrow={arrow}
+            // The arrow starts at the marker of the epoch on screen, so that its tail is outside the
+            // marker's inner gap (1.5 px) in every epoch; direction and length are unchanged.
+            arrow={arrow ? { ...arrow, x: ep.predicted.x, y: ep.predicted.y } : arrow}
             caption={t('panel.epoch', {
                 i: epoch + 1,
                 n: meta.epochs.length,
