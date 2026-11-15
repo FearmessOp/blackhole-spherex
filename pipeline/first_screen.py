@@ -41,8 +41,12 @@ def main():
             for tgt in targets:
                 page = br.new_page(viewport={"width": w, "height": h})
                 url = f"{base}/?target={tgt}"
-                page.goto(url, wait_until="networkidle")
                 quick = "Ross" in tgt
+                # The quick look keeps reading from the archive, so "networkidle" never comes there.
+                try:
+                    page.goto(url, wait_until="load" if quick else "networkidle", timeout=60000)
+                except Exception as e:
+                    print("goto timeout", url, e.__class__.__name__)
                 try:
                     page.wait_for_selector(".quick-side .motion" if quick else ".summary", timeout=90000 if quick else 15000)
                 except Exception:

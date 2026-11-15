@@ -372,7 +372,9 @@ const enQuick = {
     'quick.motion.note':
         'Rough: windowed centroid on the stacks shown above (a few unmasked exposures per epoch), looked for within 1.5 pixels of the {where}. Errors are a bootstrap over the exposures; nothing is aligned to field stars. A number is only given when the motion is larger than its error; otherwise the line reads “too slow to measure with this data”, which also covers a source that is too faint in these few exposures. “Not measured” means that no source was found at that place in one of the two epochs.',
     'quick.motion.where.cat': 'catalogue position (proper motion and parallax)',
-    'quick.motion.where.entered': 'entered position'
+    'quick.motion.where.entered': 'entered position',
+    'quick.motion.sat':
+        'Probably saturated in SPHEREx, no motion given: SIMBAD gives K = {k}, brighter than K = {lim}. Prepared targets that bright are saturated in most exposures, and a saturated core does not give a reliable position.'
 } as const
 
 const trQuick = {
@@ -414,7 +416,9 @@ const trQuick = {
     'quick.motion.note':
         'Kaba: yukarıdaki toplamlarda (dönem başına birkaç maskesiz pozlama) pencereli merkez; {where} çevresinde 1.5 piksel içinde arandı. Hatalar pozlamalar üzerinden bootstrap ile bulundu; hiçbir şey alan yıldızlarına hizalanmadı. Sayı yalnızca hareket hatasından büyükse verilir; değilse satırda “bu veriyle ölçülemeyecek kadar yavaş” yazar; bu, bu birkaç pozlamada fazla sönük kalan bir kaynağı da kapsar. “Ölçülmedi”, iki dönemden birinde o yerde kaynak bulunamadı demektir.',
     'quick.motion.where.cat': 'katalog konumu (özdevinim ve paralaks)',
-    'quick.motion.where.entered': 'girilen konum'
+    'quick.motion.where.entered': 'girilen konum',
+    'quick.motion.sat':
+        'SPHEREx\'te büyük olasılıkla doymuş, hareket verilmiyor: SIMBAD K = {k} diyor, bu K = {lim} değerinden parlak. Bu kadar parlak hazır hedefler pozlamaların çoğunda doymuş; doymuş bir çekirdek güvenilir bir konum vermez.'
 }
 
 // ---------------------------------------------------------------- explanations ("?" buttons, "How to read this page")

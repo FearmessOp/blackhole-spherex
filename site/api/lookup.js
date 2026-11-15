@@ -24,10 +24,12 @@ const QUERY_EPOCH = 2026.0
 // time budget is the real limit, not the number of attempts.
 const SIA_TRIES = 40
 const SIA_BUDGET_MS = 45000
+// The last field is the K magnitude: the quick look gives no rough motion for stars that are
+// probably saturated (logs/k_saturation.log).
 const FORMAT =
     '%IDLIST(1)|%COO(d;A;ICRS;J2000;2000)|%COO(d;D;ICRS;J2000;2000)|%COO(B)|' +
-    '%PM(A)|%PM(D)|%PM(B)|%PLX(V)|%PLX(B)|%RV(V)|%SP(S)|%OTYPE(S)'
-const N_FIELDS = 12
+    '%PM(A)|%PM(D)|%PM(B)|%PLX(V)|%PLX(B)|%RV(V)|%SP(S)|%OTYPE(S)|%FLUXLIST(K;F)'
+const N_FIELDS = 13
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 const num = (s) => {
@@ -80,6 +82,7 @@ async function resolveName(name) {
                         plx_bibcode: p[8] || null,
                         sp_type: p[10] || null,
                         otype: p[11] || null,
+                        k_mag: num(p[12]),
                         source: `SIMBAD (${new URL(base).host})`
                     }
                 }

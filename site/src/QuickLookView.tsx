@@ -40,8 +40,14 @@ type SimbadTarget = {
     pmdec_masyr: number | null
     plx_mas: number | null
     sp_type: string | null
+    k_mag?: number | null
     source: string
 }
+
+// Brighter than this in K, a star is probably saturated in SPHEREx and the rough motion is not
+// given: prepared targets with K < 7.1 are saturated in 91-98% of exposures, those with
+// K 9.1-11.9 in 0-23% except one next to a bright companion (logs/k_saturation.log).
+const K_SATURATED = 8.0
 
 type Lookup = {
     ok: boolean
@@ -342,8 +348,15 @@ export default function QuickLookView({ query }: { query: Query }) {
     const showDiff = view === 'diff' && dif !== null
     const partial = lookup.data.collections.filter((c) => !c.ok).map((c) => c.id)
     // Rough motion table: in the side column next to the image, under the notes.
+    const kMag = data?.target?.k_mag ?? null
+    const tooBright = kMag !== null && kMag < K_SATURATED
     const motionTable =
-        scene && scene.motions.length > 0 ? (
+        scene && scene.motions.length > 0 && tooBright ? (
+            <section className="results">
+                <h3>{t('quick.motion.title')}</h3>
+                <p className="warn">{t('quick.motion.sat', { k: kMag.toFixed(2), lim: K_SATURATED.toFixed(1) })}</p>
+            </section>
+        ) : scene && scene.motions.length > 0 ? (
             <section className="results">
                 <h3>{t('quick.motion.title')}</h3>
                 <table className="motion">

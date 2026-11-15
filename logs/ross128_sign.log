@@ -1,0 +1,26 @@
+Block 2: Ross 128, quick-look east component opposite in sign to the catalogue prediction (2026-11-15)
+
+Reported (live quick look): east 1->2 pred +0.87 meas -1.68+-0.75; 1->3 +0.60 / -1.20+-0.79; 2->3 -0.26 / +0.47+-0.44; north agrees.
+
+1) Sign error in the code? Not found.
+   - Code read: site/src/quicklook.ts measureEpoch() and the prediction in QuickLookView.tsx both use east = (c - x) * 6.15 on the same grid (column 0 = east edge); worldToGrid/gridToWorld are inverses.
+   - Evidence: logs/test_motion.log (same code, quick look vs full pipeline):
+     Epsilon Indi B (unsaturated, east motion positive): all 6 pairs same sign as prediction and full pipeline, e.g. 0->1 pred +1.24, quick +0.99+-0.63, full +1.05+-0.06.
+     WISE 0855 (east motion negative): 0->1 pred -3.49, quick -4.28+-1.63, full -3.02+-0.85.
+     So the east sign is right in both directions.
+   - NOT done: the comparison on LAWD 37 or SSSPM J1444-2019 asked for in the task. IRSA did not answer (see 3).
+
+2) Saturation? Probable, not measured.
+   - SIMBAD K of Ross 128 = 5.65 (logs/k_saturation.log, logs/lookup_k_field_check.log).
+   - Prepared targets: K 2.23 / 4.52 / 7.02 (R Dra, Barnard, RW Aur) saturated in 97% / 98% / 91% of exposures;
+     K 9.08-11.93: 0-23%, except omi02 Eri B (K 9.86, 92%; bright companion omi02 Eri A, not caught by a K limit).
+   - NOT done: OVERFLOW flag at the Ross 128 position in downloaded cutouts. IRSA did not answer (see 3).
+
+3) IRSA at the time of the check: live /api/lookup?target=Ross%20128 -> HTTP 502 after 46 s,
+   spherex_dr1 8 attempts and spherex_qr3 20 attempts aborted (logs/lookup_ross128_live.json).
+
+Decision: K limit 8.0 (all three saturated prepared targets are brighter; the next target is K 9.08).
+   site/api/lookup.js now also returns k_mag (SIMBAD %FLUXLIST(K;F)); 13-field rows checked for a star
+   with K (Ross 128, LAWD 37, eps Ind B) and without K (WISE J085510.83-071442.5: K empty -> null), logs/lookup_k_field_check3.log.
+   QuickLookView.tsx: K < 8.0 -> no rough-motion table, text "probably saturated in SPHEREx, no motion given" (EN/TR).
+   Stars without a K value in SIMBAD still get the table.
