@@ -126,9 +126,11 @@ p {
 /* The stage is as wide as two square image panels that still fit on the first screen, together with
    the play bar and the result sentence under them. --chrome is the vertical space outside the
    two images: at 430px the sentence ended 7 px above the bottom of a 1400x900 window
-   (logs/first_screen_local1.log, EN and TR); 440px leaves about 17 px. */
+   (logs/first_screen_local1.log, EN and TR); 440px left about 17 px. Later blocks added about 31 px
+   above the images, so at 440px the Barnard sentence ended at 915 px (logs/first_screen_baseline_live.log);
+   470px, measured in logs/first_screen_chrome470.log. */
 .stage {
-    --chrome: 440px;
+    --chrome: 470px;
     max-width: clamp(900px, calc(2 * (100vh - var(--chrome)) + 72px), 1400px);
     margin: 0 auto;
     padding: var(--s3) var(--s4) var(--s5);
