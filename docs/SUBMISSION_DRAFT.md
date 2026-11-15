@@ -1,4 +1,4 @@
-# Submission draft (not yet confirmed by the team)
+# Submission draft
 
 Draft for the NASA Space Apps Challenge 2026 project page. Every number below is
 taken from a log file in `logs/`, named in brackets. Fields the team has to fill
@@ -119,6 +119,8 @@ has at least 30 usable exposures in at least 3 epochs of at least 5.
   targets (`logs/k_saturation.log`) and was not checked on Ross 128's flags.
 - IRSA SIA answered 9 of 12 test queries with "502 Proxy Error"
   (`logs/sia_probe.log`); the quick look can fail when this happens.
+  On 15 November 2026 the IRSA query service answered HTTP 502 from at least 12:13 (UTC+3)
+  (`logs/irsa_probe_fix4.log`: HTTP 502 at 14:15:51); see Known limitations in the README.
 - No spectrum on click and no automatic search for unknown movers.
 
 ## Tools

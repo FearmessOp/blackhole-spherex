@@ -12,6 +12,8 @@ What works and what was measured:
 - **Quick look at any star.** A star name or a position (search box, or
   `?target=` / `?ra=&dec=` in the URL) is read from the SPHEREx archive and
   blinked in the browser. It is unmasked and gives rough numbers only.
+  It depends on the IRSA query service, which answered HTTP 502 on 15 November 2026 from at least 12:13 (UTC+3);
+  see [Known limitations](#known-limitations).
 - **Proper motion of Epsilon Indi B.** 3939.6 ± 24.6 mas/yr east and
   −2440.7 ± 20.8 mas/yr north (ePSF fit on 384 exposures, statistical errors)
   against 3982.0 and −2466.8 from SIMBAD. The measured parallax is 11% above
@@ -30,7 +32,7 @@ Click-for-spectrum and an automatic search for unknown movers are not
 implemented. See [Known limitations](#known-limitations) and
 [PROGRESS.md](PROGRESS.md).
 A draft of the project-page text is in
-[docs/SUBMISSION_DRAFT.md](docs/SUBMISSION_DRAFT.md) (not yet confirmed by the team).
+[docs/SUBMISSION_DRAFT.md](docs/SUBMISSION_DRAFT.md).
 
 ## Live site
 
@@ -39,8 +41,9 @@ https://blackhole-spherex.vercel.app
 Links that open a view directly:
 
 - `https://blackhole-spherex.vercel.app/?target=wise-0855` (prepared target)
-- `https://blackhole-spherex.vercel.app/?target=Wolf%20359` (quick look by name)
+- `https://blackhole-spherex.vercel.app/?target=FQ%20Pav` (quick look by name; saved exposure list; works while the IRSA query service is down)
 - `https://blackhole-spherex.vercel.app/?ra=164.0924&dec=6.9952` (quick look by position, degrees)
+- `https://blackhole-spherex.vercel.app/?target=Wolf%20359` (quick look by name; needs the IRSA query service)
 
 The site is deployed by Vercel from the `site/` directory on every push to `main`.
 The fifteen prepared targets are static PNG and JSON files. For the quick look the
@@ -200,6 +203,7 @@ same two targets, so the 9 of 9 is not an independent confirmation.
   During an outage the quick look works only for names with a saved exposure list (`site/public/data/lookup/`,
   made by `site/scripts/save_lookup.mjs` from `data/sia/`; at present FQ Pav, 478 exposures, saved
   2026-11-15 03:24 UTC); the images are still read live from the cloud copy. The prepared targets do not need IRSA.
+
 **Scope**
 
 - Measurements with masking, field-star alignment and a motion fit exist only
