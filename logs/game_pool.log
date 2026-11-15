@@ -1,0 +1,18 @@
+rule: shift >= 1.0 px (first to last epoch, catalogue) or difference image distinct
+barnard band=all shift=1.66 px distinct=None -> IN
+eps-indi-b band=all shift=1.06 px distinct=True -> IN
+wise-0855 band=d56 shift=1.31 px distinct=True -> IN
+ssspm-j1444-2019 band=all shift=0.56 px distinct=True -> IN
+wolf-28 band=all shift=0.48 px distinct=True -> IN
+lawd-37 band=all shift=0.44 px distinct=True -> IN
+g-275-92 band=all shift=0.42 px distinct=False -> OUT
+lp-651-7 band=all shift=0.41 px distinct=True -> IN
+lehpm-3396 band=all shift=0.39 px distinct=True -> IN
+lsr-j1826-3014 band=all shift=0.39 px distinct=True -> IN
+2mass-j02511490-0352459 band=all shift=0.35 px distinct=True -> IN
+g-221-5 band=all shift=0.34 px distinct=True -> IN
+omi02-eri-b: not a candidate, no fit shown (8 of 432 exposures usable)
+rw-aur: not a candidate, saturated, no motion measured
+r-dra: not a candidate, saturated, no motion measured
+pool: 11 targets
+wrote site/public/data/game.json

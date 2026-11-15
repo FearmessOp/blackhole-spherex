@@ -1,0 +1,60 @@
+{
+ "rule": "shift >= 1.0 px or distinct difference image",
+ "targets": [
+  {
+   "slug": "barnard",
+   "band": "all",
+   "has_diff": false
+  },
+  {
+   "slug": "eps-indi-b",
+   "band": "all",
+   "has_diff": true
+  },
+  {
+   "slug": "wise-0855",
+   "band": "d56",
+   "has_diff": true
+  },
+  {
+   "slug": "ssspm-j1444-2019",
+   "band": "all",
+   "has_diff": true
+  },
+  {
+   "slug": "wolf-28",
+   "band": "all",
+   "has_diff": true
+  },
+  {
+   "slug": "lawd-37",
+   "band": "all",
+   "has_diff": true
+  },
+  {
+   "slug": "lp-651-7",
+   "band": "all",
+   "has_diff": true
+  },
+  {
+   "slug": "lehpm-3396",
+   "band": "all",
+   "has_diff": true
+  },
+  {
+   "slug": "lsr-j1826-3014",
+   "band": "all",
+   "has_diff": true
+  },
+  {
+   "slug": "2mass-j02511490-0352459",
+   "band": "all",
+   "has_diff": true
+  },
+  {
+   "slug": "g-221-5",
+   "band": "all",
+   "has_diff": true
+  }
+ ]
+}

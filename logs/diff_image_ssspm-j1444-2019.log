@@ -1,0 +1,34 @@
+ssspm-j1444-2019: wide cutouts on disk=347 epochs=[119, 112, 116] (site meta.json has 3 epochs); difference = epoch 3 minus epoch 1
+grid: 81x81 px at 6.15 arcsec/px, centre=(221.0622968, -20.3379343) as the site grid; displayed field = central 29x29 px
+epoch 1: frames loaded=119 per detector={1: 21, 2: 18, 3: 21, 4: 20, 5: 18, 6: 21}
+epoch 3: frames loaded=116 per detector={1: 19, 2: 19, 3: 20, 4: 19, 5: 19, 6: 20}
+
+=== band all: detectors used=[1, 2, 3, 4, 5, 6] frames first/last=119/116 noise of the difference=0.002951 MJy/sr, of the mean stack=0.006049
+target: first position px=(39.77, 40.16) last=(40.23, 39.85) shift=0.56 px (3.46 arcsec); peak first/last=3.034/3.221 MJy/sr
+target lobes: bright=+1.058 (358.4 noise, 0.338 of peak) dark=-1.175 (398.2 noise, 0.376 of peak)
+field stars: 19 (Gaia DR3, isolated: no source within 25.0 arcsec that is less than 3.0 mag fainter; peak >= 10.0 x noise of the mean stack)
+  G=14.11 id=6281435716745724032 px=(21.5, 65.4) peak=2.58 residual max/min=+0.06513/-0.03733 |residual|/peak=0.025 (22.1 noise)
+  G=15.42 id=6281431043821289984 px=(8.9, 8.0) peak=1.073 residual max/min=+0.08728/-0.02349 |residual|/peak=0.081 (29.6 noise)
+  G=15.56 id=6281408538192663808 px=(56.9, 13.0) peak=0.8133 residual max/min=+0.0346/-0.01199 |residual|/peak=0.043 (11.7 noise)
+  G=16.02 id=6281435648026253312 px=(55.9, 71.3) peak=0.3748 residual max/min=+0.01196/-0.009194 |residual|/peak=0.032 (4.1 noise)
+  G=16.42 id=6281408641271879296 px=(46.3, 18.1) peak=0.3044 residual max/min=+0.007821/-0.007037 |residual|/peak=0.026 (2.7 noise)
+  G=16.59 id=6281436365284598400 px=(72.5, 74.1) peak=0.1831 residual max/min=+0.008063/-0.003845 |residual|/peak=0.044 (2.7 noise)
+  G=16.68 id=6281435579306773888 px=(46.8, 63.5) peak=0.2079 residual max/min=+0.004478/-0.00636 |residual|/peak=0.031 (2.2 noise)
+  G=16.84 id=6281432315131620608 px=(17.9, 46.6) peak=0.2227 residual max/min=+0.0106/-0.01525 |residual|/peak=0.068 (5.2 noise)
+  G=17.26 id=6281432688792547328 px=(14.3, 55.1) peak=0.1601 residual max/min=+0.007568/-0.007206 |residual|/peak=0.047 (2.6 noise)
+  G=17.40 id=6281435368852160384 px=(41.8, 63.8) peak=0.1376 residual max/min=+0.01198/-0.004299 |residual|/peak=0.087 (4.1 noise)
+  G=17.44 id=6281431108244505344 px=(14.3, 13.8) peak=0.389 residual max/min=+0.01449/-0.01425 |residual|/peak=0.037 (4.9 noise)
+  G=17.48 id=6281435373148340480 px=(41.5, 59.0) peak=0.1026 residual max/min=+0.005981/-0.004948 |residual|/peak=0.058 (2.0 noise)
+  G=17.50 id=6281435270069123968 px=(46.9, 53.6) peak=0.08477 residual max/min=+0.004261/-0.004197 |residual|/peak=0.050 (1.4 noise) in displayed field
+  G=17.51 id=6281408602615880320 px=(65.0, 19.6) peak=0.3101 residual max/min=+0.006934/-0.004069 |residual|/peak=0.022 (2.3 noise)
+  G=17.71 id=6281436262205373824 px=(73.0, 69.7) peak=0.3841 residual max/min=+0.01613/-0.00871 |residual|/peak=0.042 (5.5 noise)
+  G=18.02 id=6281436296565104896 px=(68.7, 67.0) peak=0.06159 residual max/min=+0.003119/-0.005337 |residual|/peak=0.087 (1.8 noise)
+  G=18.04 id=6281431864158754688 px=(29.6, 19.2) peak=0.06231 residual max/min=+0.005747/-0.005256 |residual|/peak=0.092 (1.9 noise)
+  G=18.35 id=6281408602615886208 px=(61.6, 22.2) peak=0.06815 residual max/min=+0.005292/-0.004522 |residual|/peak=0.078 (1.8 noise)
+  G=19.27 id=6281411935510542208 px=(73.3, 40.6) peak=0.06081 residual max/min=+0.004624/-0.004879 |residual|/peak=0.080 (1.7 noise)
+field-star |residual|/peak: median=0.047 90th percentile=0.087 largest=0.092
+displayed field: largest |difference|=1.175; largest elsewhere (more than 2.5 px from both target positions)=0.02208 (7.5 noise)
+criteria: (1) both lobes >= 5.0 noise: True; (2) both lobes/peak > 90th percentile of field stars: True; (3) both lobes > largest elsewhere in the displayed field: True -> DISTINCT=True
+wrote diff_all.png: 29x29 px, linear, zero = grey 127.5, +-1.175 MJy/sr, empty pixels=0
+
+wrote site/public/data/ssspm-j1444-2019/diff.json and data/diff/ssspm-j1444-2019.json

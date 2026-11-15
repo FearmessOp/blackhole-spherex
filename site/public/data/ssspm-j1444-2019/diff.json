@@ -1,0 +1,33 @@
+{
+ "from_epoch": 0,
+ "to_epoch": 2,
+ "label": "bright = where it is now, dark = where it was",
+ "stretch": "linear, zero = mid grey, symmetric",
+ "source": "data/diff/ssspm-j1444-2019.json",
+ "bands": [
+  {
+   "id": "all",
+   "png": "diff_all.png",
+   "dets_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "n_first": 119,
+   "n_last": 116,
+   "vmax": 1.1752647500904072,
+   "unit": "MJy/sr",
+   "distinct": true,
+   "n_stars": 19,
+   "star_ratio_median": 0.047,
+   "star_ratio_p90": 0.087,
+   "lobe_bright_ratio": 0.338,
+   "lobe_dark_ratio": 0.376,
+   "lobe_bright_sigma": 358.4,
+   "lobe_dark_sigma": 398.2
+  }
+ ]
+}

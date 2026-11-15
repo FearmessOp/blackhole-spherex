@@ -79,7 +79,7 @@ function StackPanel({ base, meta, band, epoch, title, help, marker, markerLabel,
 // One plain sentence with the main result, read from results.json.
 // stack_motion (WISE 0855): the first-to-last epoch pair, method "two" (Gaussian fit, neighbour
 // modelled), the one the Measurement tab and the guide put first; falls back to the first method.
-function summary(res: Results): string {
+export function summary(res: Results): string {
     const sat = res.saturation
     const saturated = sat !== null && sat.overflow > sat.exposures / 2
     const fit = res.fit

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import BlinkView, { TABS, type Tab } from './BlinkView'
 import FastMoversPanel from './FastMoversPanel'
 import FindMover from './FindMover'
+import Game from './Game'
 import { HowTo, LangSwitch } from './Help'
 import QuickLookView, { type Query } from './QuickLookView'
 import ValidationPanel from './ValidationPanel'
@@ -20,6 +21,7 @@ type Route =
     | { kind: 'name'; name: string }
     | { kind: 'pos'; ra: number; dec: number }
     | { kind: 'guide' }
+    | { kind: 'game' }
     | { kind: 'bad' }
 
 const INDEX_URL = `${import.meta.env.BASE_URL}data/index.json`
@@ -30,6 +32,7 @@ const validPos = (ra: number, dec: number) =>
 function readRoute(): Route {
     const q = new URLSearchParams(window.location.search)
     if (q.has('guide')) return { kind: 'guide' }
+    if (q.has('game')) return { kind: 'game' }
     const name = (q.get('target') ?? '').trim()
     if (name) return { kind: 'name', name }
     if (!q.has('ra') && !q.has('dec')) return { kind: 'none' }
@@ -41,6 +44,7 @@ function readRoute(): Route {
 function routeUrl(r: Route): string {
     const path = window.location.pathname
     if (r.kind === 'guide') return withLang(`${path}?guide=1`)
+    if (r.kind === 'game') return withLang(`${path}?game=1`)
     if (r.kind === 'name') return withLang(`${path}?target=${encodeURIComponent(r.name)}`)
     if (r.kind === 'pos') return withLang(`${path}?ra=${r.ra}&dec=${r.dec}`)
     return withLang(path)
@@ -166,7 +170,7 @@ export default function App() {
                     <p className="tagline">{t('app.tagline')}</p>
                 </div>
                 <div className="bar-tools">
-                    {route.kind !== 'guide' && (
+                    {route.kind !== 'guide' && route.kind !== 'game' && (
                         <button type="button" className="link howto-link" aria-expanded={howTo} onClick={() => setHowTo(!howTo)}>
                             {t('app.howto')}
                         </button>
@@ -177,7 +181,9 @@ export default function App() {
             <main className="stage">
                 {route.kind === 'guide' ? (
                     // Guided mode: only the step is on the page.
-                    <FindMover onExit={leaveGuide} />
+                    <FindMover onExit={leaveGuide} onGame={() => go({ kind: 'game' })} />
+                ) : route.kind === 'game' ? (
+                    <Game onExit={() => go({ kind: 'none' })} />
                 ) : (
                     <>
                         {howTo && <HowTo onClose={() => setHowTo(false)} />}
@@ -198,10 +204,18 @@ export default function App() {
                                     <button type="submit">{t('search.show')}</button>
                                 </div>
                             </form>
-                            <button type="button" className="guide-start" onClick={() => go({ kind: 'guide' })}>
-                                <b>{t('guide.start')}</b>
-                                <span>{t('guide.start.sub')}</span>
-                            </button>
+                            <div className="start-col">
+                                <button type="button" className="guide-start" onClick={() => go({ kind: 'guide' })}>
+                                    <b>{t('guide.start')}</b>
+                                    <span>{t('guide.start.sub')}</span>
+                                </button>
+                                {/* Only on the opening page: the ?target= screens stay as they are (demo video). */}
+                                {route.kind === 'none' && (
+                                    <button type="button" className="link game-link" onClick={() => go({ kind: 'game' })}>
+                                        {t('game.play')}
+                                    </button>
+                                )}
+                            </div>
                         </div>
                         {badInput && <p className="warn">{t('search.badpos')}</p>}
                         {targets.length > 0 && (

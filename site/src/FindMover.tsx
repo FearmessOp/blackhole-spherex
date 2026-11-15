@@ -4,11 +4,11 @@ import { bandLabel, diffCaption, label, t, useLang, type Key } from './i18n'
 import type { Diff, Meta, Results, XY } from './types'
 
 // Guided mode "Find the mover": three prepared targets, blinked without the catalogue
-// marker until the visitor has clicked. The feedback is the distance of the click from
-// the nearest of the target's catalogue positions over all epochs (the image blinks, so
-// the epoch on screen at the moment of the click is chance). After it is found, the
-// positions of all epochs are drawn as amber dots. There is no score. Every number shown
-// comes from meta.json, results.json or diff.json.
+// marker. The visitor clicks the moving object once for every epoch, in epoch order; click k
+// is judged against the target's catalogue position in epoch k (within HIT_PX). The clicks
+// already made are drawn as amber dots; after the last one, the catalogue positions of all
+// epochs replace them. There is no score. Every number shown comes from meta.json,
+// results.json or diff.json.
 
 type Step = {
     slug: string
@@ -30,11 +30,17 @@ const STEPS: Step[] = [
     }
 ]
 
-export const HIT_PX = 2 // a click within 2 grid pixels of the nearest catalogue position counts as found
+export const HIT_PX = 2 // a click within 2 grid pixels of the catalogue position of the epoch asked for counts
 const BLINK_MS = 700
 
 type Data = { meta: Meta; res: Results; diff: Diff | null }
-type Feedback = { kind: 'hit' | 'miss' | 'neighbour' | 'band' | 'shown'; arcsec: number; px: number; epoch: number }
+type Feedback = {
+    kind: 'hit' | 'step' | 'miss' | 'neighbour' | 'band' | 'shown'
+    arcsec: number
+    px: number
+    epoch: number
+    next?: number // epoch asked for after a correct intermediate click
+}
 
 const signed = (v: number, digits = 1) => (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(digits)
 
@@ -77,8 +83,10 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
     const [pick, setPick] = useState<XY | null>(null)
     const [fb, setFb] = useState<Feedback | null>(null)
     const [hint, setHint] = useState(false)
+    const [got, setGot] = useState<XY[]>([]) // correct clicks so far, one per epoch in order
     const band = meta.bands.find((b) => b.id === bandId) ?? meta.bands[0]
     const n = band.frames.length
+    const seq = band.frames.map((f) => f.epoch) // epochs to click, in order
 
     useEffect(() => {
         if (n < 2) return
@@ -96,23 +104,18 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
     const hintBand = step.hint ? (diff?.bands.find((b) => b.id === bandId && b.distinct) ?? null) : null
 
     const onPick = (x: number, y: number) => {
-        // Nearest catalogue position of the target over all epochs.
-        let d = Infinity
-        let near = 0
-        meta.epochs.forEach((e, k) => {
-            const dk = Math.hypot(x - e.predicted.x, y - e.predicted.y)
-            if (dk < d) {
-                d = dk
-                near = k
-            }
-        })
+        // Click number got.length is judged against the catalogue position of that epoch.
+        const k = seq[got.length]
+        const e = meta.epochs[k].predicted
+        const d = Math.hypot(x - e.x, y - e.y)
         const dn = nb ? Math.hypot(x - nb.x, y - nb.y) : Infinity
         let kind: Feedback['kind'] = 'miss'
         if (!inNeedBand) kind = dn <= HIT_PX ? 'neighbour' : 'band'
-        else if (d <= HIT_PX) kind = 'hit'
+        else if (d <= HIT_PX) kind = got.length + 1 === seq.length ? 'hit' : 'step'
         else if (dn <= HIT_PX) kind = 'neighbour'
+        if (kind === 'hit' || kind === 'step') setGot([...got, { x, y }])
         setPick({ x, y })
-        setFb({ kind, arcsec: d * scale, px: d, epoch: near })
+        setFb({ kind, arcsec: d * scale, px: d, epoch: k, next: kind === 'step' ? seq[got.length + 1] : undefined })
         if (kind === 'miss' && hintBand) setHint(true)
     }
 
@@ -126,6 +129,7 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
     const where = fb ? t('guide.where', { arcsec: fb.arcsec.toFixed(1), px: fb.px.toFixed(1), e: fb.epoch + 1, n: nEp }) : ''
     let feedback: string | null = null
     if (fb?.kind === 'hit') feedback = t('guide.fb.hit', { where, n: nEp })
+    else if (fb?.kind === 'step') feedback = t('guide.fb.step', { where, e: fb.epoch + 1, next: (fb.next ?? 0) + 1 })
     else if (fb?.kind === 'shown') feedback = t('guide.fb.shown')
     else if (fb?.kind === 'neighbour') feedback = t('guide.fb.neighbour', { where })
     else if (fb?.kind === 'band') feedback = t('guide.fb.band', { where })
@@ -173,6 +177,7 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
         if (!found) {
             setPick(null)
             setFb(null)
+            setGot([])
         }
     }
     const reveal = () => {
@@ -192,7 +197,7 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
                 neighbour={nb}
                 neighbourLabel={t('label.gaia')}
                 arrow={found ? res.fit?.arrow : null}
-                track={found && inNeedBand ? meta.epochs.map((e) => e.predicted) : null}
+                track={found && inNeedBand ? meta.epochs.map((e) => e.predicted) : got.length ? got : null}
                 onPick={found ? undefined : onPick}
                 pickBadge={t('guide.click.badge')}
                 pick={found ? null : pick}
@@ -202,7 +207,11 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
                     from: ep.t_start.slice(0, 10),
                     to: ep.t_end.slice(0, 10)
                 })}
-                detail={found ? t('guide.stacked', { n: frame.n_frames }) : t('guide.click')}
+                detail={
+                    found
+                        ? t('guide.stacked', { n: frame.n_frames })
+                        : t('guide.click', { e: seq[got.length] + 1, n: meta.epochs.length })
+                }
             >
                 {band.frames.map((f) => (
                     <img key={f.png} src={base + f.png} alt="" style={{ visibility: f === frame ? 'visible' : 'hidden' }} />
@@ -253,7 +262,7 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
 }
 
 // onExit(true) leaves the guide and puts the cursor into the search box.
-export default function FindMover({ onExit }: { onExit: (toSearch: boolean) => void }) {
+export default function FindMover({ onExit, onGame }: { onExit: (toSearch: boolean) => void; onGame?: () => void }) {
     useLang()
     const [i, setI] = useState(0)
     const done = i >= STEPS.length
@@ -278,6 +287,11 @@ export default function FindMover({ onExit }: { onExit: (toSearch: boolean) => v
                         <button type="button" className="guide-again" onClick={() => setI(0)}>
                             {t('guide.again')}
                         </button>
+                        {onGame && (
+                            <button type="button" className="guide-next" onClick={onGame}>
+                                {t('game.play')}
+                            </button>
+                        )}
                     </div>
                 </>
             ) : data === 'failed' ? (

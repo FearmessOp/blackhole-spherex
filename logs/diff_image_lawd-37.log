@@ -1,0 +1,21 @@
+lawd-37: wide cutouts on disk=486 epochs=[151, 191, 144] (site meta.json has 3 epochs); difference = epoch 3 minus epoch 1
+grid: 81x81 px at 6.15 arcsec/px, centre=(176.4741069, -64.8440122) as the site grid; displayed field = central 29x29 px
+epoch 1: frames loaded=151 per detector={1: 22, 2: 33, 3: 21, 4: 23, 5: 33, 6: 19}
+epoch 3: frames loaded=144 per detector={1: 21, 2: 30, 3: 21, 4: 21, 5: 30, 6: 21}
+
+=== band all: detectors used=[1, 2, 3, 4, 5, 6] frames first/last=151/144 noise of the difference=0.01012 MJy/sr, of the mean stack=0.2357
+target: first position px=(40.25, 40.05) last=(39.82, 39.99) shift=0.44 px (2.68 arcsec); peak first/last=11.66/11.87 MJy/sr
+target lobes: bright=+3.628 (358.6 noise, 0.308 of peak) dark=-3.673 (363.1 noise, 0.312 of peak)
+field stars: 6 (Gaia DR3, isolated: no source within 25.0 arcsec that is less than 3.0 mag fainter; peak >= 10.0 x noise of the mean stack)
+  G=11.61 id=5332606586985483648 px=(61.6, 52.6) peak=13.66 residual max/min=+0.9439/-1.064 |residual|/peak=0.078 (105.2 noise)
+  G=12.14 id=5332605384392839168 px=(24.2, 15.7) peak=26.36 residual max/min=+1.778/-1.132 |residual|/peak=0.067 (175.7 noise)
+  G=12.19 id=5332606140307082880 px=(28.2, 21.3) peak=7.067 residual max/min=+0.4549/-0.1748 |residual|/peak=0.064 (45.0 noise)
+  G=12.60 id=5332606415187820288 px=(46.8, 34.0) peak=33.39 residual max/min=+0.9041/-0.6136 |residual|/peak=0.027 (89.4 noise) in displayed field
+  G=12.96 id=5332606861862625792 px=(33.5, 61.3) peak=20.37 residual max/min=+1.492/-1.032 |residual|/peak=0.073 (147.5 noise)
+  G=13.56 id=5332606247717724800 px=(25.4, 25.8) peak=21.08 residual max/min=+0.7677/-0.6296 |residual|/peak=0.036 (75.9 noise)
+field-star |residual|/peak: median=0.066 90th percentile=0.076 largest=0.078
+displayed field: largest |difference|=3.673; largest elsewhere (more than 2.5 px from both target positions)=1.035 (102.3 noise)
+criteria: (1) both lobes >= 5.0 noise: True; (2) both lobes/peak > 90th percentile of field stars: True; (3) both lobes > largest elsewhere in the displayed field: True -> DISTINCT=True
+wrote diff_all.png: 29x29 px, linear, zero = grey 127.5, +-3.673 MJy/sr, empty pixels=0
+
+wrote site/public/data/lawd-37/diff.json and data/diff/lawd-37.json

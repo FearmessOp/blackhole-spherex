@@ -537,6 +537,49 @@ button.link {
     stroke-width: 0.12;
 }
 
+/* Column of the "Find the mover" card; the card fills it, so its height is the same as before. */
+.start-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s1);
+}
+
+.start-col .guide-start {
+    flex: 1 1 auto;
+}
+
+.game-link {
+    font-size: 14px;
+}
+
+/* Game: the window is a crop of the full grid; the enlarged image is clipped to the panel. */
+.game .view {
+    overflow: hidden;
+}
+
+.game-clock {
+    margin-bottom: var(--s2);
+    color: var(--accent);
+    font-size: 20px;
+    font-variant-numeric: tabular-nums;
+}
+
+.game-open {
+    align-self: center;
+    color: var(--accent);
+    font-size: 14px;
+}
+
+.game-rules {
+    margin-top: var(--s4);
+    font-size: 14px;
+}
+
+.game-rules summary {
+    color: var(--accent);
+    cursor: pointer;
+}
+
 /* Catalogue positions of the target in all epochs (guided mode, after it is found) */
 .track polyline {
     fill: none;

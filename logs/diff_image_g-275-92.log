@@ -1,0 +1,36 @@
+g-275-92: wide cutouts on disk=341 epochs=[113, 111, 117] (site meta.json has 3 epochs); difference = epoch 3 minus epoch 1
+grid: 81x81 px at 6.15 arcsec/px, centre=(355.8300232, -24.2037935) as the site grid; displayed field = central 29x29 px
+epoch 1: frames loaded=113 per detector={1: 20, 2: 18, 3: 18, 4: 20, 5: 19, 6: 18}
+epoch 3: frames loaded=117 per detector={1: 18, 2: 20, 3: 21, 4: 18, 5: 19, 6: 21}
+
+=== band all: detectors used=[1, 2, 3, 4, 5, 6] frames first/last=113/117 noise of the difference=0.003177 MJy/sr, of the mean stack=0.004482
+target: first position px=(40.10, 40.18) last=(39.89, 39.82) shift=0.42 px (2.59 arcsec); peak first/last=33.25/34.62 MJy/sr
+target lobes: bright=+9.196 (2894.7 noise, 0.271 of peak) dark=-9.067 (2854.2 noise, 0.267 of peak)
+field stars: 21 (Gaia DR3, isolated: no source within 25.0 arcsec that is less than 3.0 mag fainter; peak >= 10.0 x noise of the mean stack)
+  G=11.49 id=2338944532617922304 px=(46.9, 53.7) peak=51.8 residual max/min=+19.13/-16.19 |residual|/peak=0.369 (6022.4 noise) in displayed field
+  G=13.59 id=2338945013654253952 px=(20.6, 48.7) peak=2.758 residual max/min=+0.1238/-0.05413 |residual|/peak=0.045 (39.0 noise)
+  G=13.69 id=2338945322891900672 px=(20.3, 61.1) peak=3.508 residual max/min=+0.05847/-0.05032 |residual|/peak=0.017 (18.4 noise)
+  G=13.97 id=2338945357251638784 px=(15.2, 70.7) peak=3.402 residual max/min=+0.1698/-0.08227 |residual|/peak=0.050 (53.5 noise)
+  G=14.70 id=2338943501825768192 px=(32.3, 43.2) peak=1.167 residual max/min=+0.0144/-0.02141 |residual|/peak=0.018 (6.7 noise) in displayed field
+  G=15.21 id=2338945082373729280 px=(4.2, 58.1) peak=4.229 residual max/min=+0.09025/-0.1461 |residual|/peak=0.035 (46.0 noise)
+  G=15.30 id=2338943398746550784 px=(31.0, 27.2) peak=0.6614 residual max/min=+0.02479/-0.01315 |residual|/peak=0.037 (7.8 noise) in displayed field
+  G=15.36 id=2338933193904294912 px=(5.5, 43.4) peak=0.877 residual max/min=+0.01885/-0.02 |residual|/peak=0.023 (6.3 noise)
+  G=15.84 id=2338942952069955840 px=(53.2, 20.4) peak=0.3376 residual max/min=+0.01417/-0.01229 |residual|/peak=0.042 (4.5 noise)
+  G=16.25 id=2338945735208759296 px=(6.1, 73.2) peak=0.516 residual max/min=+0.00907/-0.009368 |residual|/peak=0.018 (2.9 noise)
+  G=17.11 id=2338943570545245952 px=(48.6, 28.2) peak=0.199 residual max/min=+0.007805/-0.005194 |residual|/peak=0.039 (2.5 noise) in displayed field
+  G=17.49 id=2338946280669404416 px=(52.8, 71.3) peak=0.1548 residual max/min=+0.006979/-0.01289 |residual|/peak=0.083 (4.1 noise)
+  G=17.77 id=2338933090825037568 px=(6.7, 32.6) peak=0.05877 residual max/min=+0.006454/-0.004759 |residual|/peak=0.110 (2.0 noise)
+  G=17.84 id=2338943776703677184 px=(41.6, 53.5) peak=0.08214 residual max/min=+0.07986/-0.004061 |residual|/peak=0.972 (25.1 noise) in displayed field
+  G=18.63 id=2338943016494225664 px=(72.3, 15.0) peak=0.06595 residual max/min=+0.006061/-0.005247 |residual|/peak=0.092 (1.9 noise)
+  G=19.04 id=2338942947774748416 px=(54.1, 14.7) peak=0.05488 residual max/min=+0.006366/-0.004093 |residual|/peak=0.116 (2.0 noise)
+  G=19.19 id=2338931510277075584 px=(38.5, 10.2) peak=0.08682 residual max/min=+0.008149/-0.00639 |residual|/peak=0.094 (2.6 noise)
+  G=19.39 id=2338946044446409856 px=(35.8, 73.6) peak=0.284 residual max/min=+0.00595/-0.01082 |residual|/peak=0.038 (3.4 noise)
+  G=19.68 id=2338931609061320960 px=(17.9, 21.9) peak=0.08828 residual max/min=+0.005889/-0.003092 |residual|/peak=0.067 (1.9 noise)
+  G=20.01 id=2338931128025090944 px=(39.3, 4.7) peak=0.05094 residual max/min=+0.005884/-0.005959 |residual|/peak=0.117 (1.9 noise)
+  G=21.05 id=2338945387316206464 px=(25.0, 71.9) peak=0.06071 residual max/min=+0.004534/-0.004737 |residual|/peak=0.078 (1.5 noise)
+field-star |residual|/peak: median=0.050 90th percentile=0.117 largest=0.972
+displayed field: largest |difference|=19.13; largest elsewhere (more than 2.5 px from both target positions)=19.13 (6022.4 noise)
+criteria: (1) both lobes >= 5.0 noise: True; (2) both lobes/peak > 90th percentile of field stars: True; (3) both lobes > largest elsewhere in the displayed field: False -> DISTINCT=False
+wrote diff_all.png: 29x29 px, linear, zero = grey 127.5, +-19.13 MJy/sr, empty pixels=0
+
+wrote site/public/data/g-275-92/diff.json and data/diff/g-275-92.json

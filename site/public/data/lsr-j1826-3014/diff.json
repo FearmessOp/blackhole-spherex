@@ -1,0 +1,33 @@
+{
+ "from_epoch": 0,
+ "to_epoch": 3,
+ "label": "bright = where it is now, dark = where it was",
+ "stretch": "linear, zero = mid grey, symmetric",
+ "source": "data/diff/lsr-j1826-3014.json",
+ "bands": [
+  {
+   "id": "all",
+   "png": "diff_all.png",
+   "dets_used": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "n_first": 132,
+   "n_last": 154,
+   "vmax": 2.5683182331144025,
+   "unit": "MJy/sr",
+   "distinct": true,
+   "n_stars": 16,
+   "star_ratio_median": 0.035,
+   "star_ratio_p90": 0.065,
+   "lobe_bright_ratio": 0.264,
+   "lobe_dark_ratio": 0.308,
+   "lobe_bright_sigma": 804.0,
+   "lobe_dark_sigma": 939.3
+  }
+ ]
+}

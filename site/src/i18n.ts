@@ -261,9 +261,10 @@ const enGuide = {
     'guide.ask.wise.long': 'At long wavelength a faint source appears and moves towards the marked Gaia star. Click it.',
     'guide.ask.wise.short':
         'At short wavelength this cold object is not seen; the marked source is a Gaia star, not the target. Switch to long wavelength, then click what appears and moves.',
-    'guide.where': '{arcsec} arcsec ({px} pixels) from its nearest catalogue position (epoch {e} of {n})',
+    'guide.where': '{arcsec} arcsec ({px} pixels) from its catalogue position in epoch {e} of {n}',
+    'guide.fb.step': 'Right for epoch {e}: your click was {where}. Now click it in epoch {next}.',
     'guide.fb.hit':
-        'Found: this is the object that moves. Your click was {where}. The amber dots are its catalogue positions in all {n} epochs.',
+        'Found in every epoch: this is the object that moves. Your last click was {where}. The amber dots are its catalogue positions in all {n} epochs.',
     'guide.fb.shown': 'The amber marker now shows the catalogue position of the target.',
     'guide.fb.neighbour': 'That is the marked Gaia star. The target is the object that moves; your click was {where}.',
     'guide.fb.band': 'The target is not visible at short wavelength. Your click was {where}; switch to long wavelength.',
@@ -277,12 +278,32 @@ const enGuide = {
         '{name}, a pair of brown dwarfs: measured proper motion (ePSF fit) {e} ± {ee} east and {n} ± {ne} north in mas/yr; SIMBAD gives {re} and {rn}. The arrow is drawn {k} times longer than the motion.',
     'guide.explain.wise':
         '{name}, seen only at long wavelength: from the first to the last epoch it moved {e} ± {ee} arcsec east and {n} ± {ne} north ({method}). The catalogue predicts {pe} and {pn}.',
-    'guide.click': 'Click the object that moves. One click is enough.',
+    'guide.click': 'Click the object that moves where it is in epoch {e} of {n} (see the epoch line under the image). One click per epoch, in order.',
     'guide.click.badge': 'Click the image',
     'guide.stacked': '{n} exposures stacked',
     'guide.hint.title': 'Hint: epoch {b} minus epoch {a}',
     'guide.hint.detail':
-        'Whatever stays in place cancels to grey; a source that moved leaves a bright and a dark side.'
+        'Whatever stays in place cancels to grey; a source that moved leaves a bright and a dark side.',
+    'game.play': 'Play the game',
+    'game.title': 'Find the mover: game',
+    'game.hud': 'Round {i} · score {s} · found {f} of {p}',
+    'game.end': 'End game',
+    'game.close': 'Close the game',
+    'game.ask': 'Somewhere in this patch of sky one object moves between the epochs. Click it in every epoch, in order.',
+    'game.step': 'Epoch {e} of {n}: click the mover where it is in this epoch.',
+    'game.time': '{s} s',
+    'game.hint': 'Hint (−{p})',
+    'game.miss': 'Not the mover ({n} wrong, −{p} each). Try again.',
+    'game.hit': 'Found in {s} s: {name}. Round score {r}.',
+    'game.shown': 'Shown: {name}. No points for this round.',
+    'game.next': 'Next star',
+    'game.open': 'Open this target',
+    'game.failed': 'Could not load the game targets.',
+    'game.summary':
+        'Game over. Rounds played: {r}; found: {f}; mean time: {t} s; total score: {s}. Best score in this browser: {b}.',
+    'game.rules.title': 'How scoring works',
+    'game.rules':
+        'The object is clicked once per epoch, in epoch order; a click counts when it is within {px} pixels of the object\'s catalogue position in that epoch. Found in every epoch: {f} points; each wrong click −{w}; hint opened −{h}; time bonus from +{b} at 0 s down to 0 at {s} s, linear. A round opened with "Show me" scores 0. A round never scores below 0.'
 } as const
 
 const trGuide = {
@@ -310,9 +331,10 @@ const trGuide = {
         'Uzun dalga boyunda sönük bir kaynak beliriyor ve işaretli Gaia yıldızına doğru hareket ediyor. Ona tıklayın.',
     'guide.ask.wise.short':
         'Bu soğuk cisim kısa dalga boyunda görülmez; işaretli kaynak bir Gaia yıldızıdır, hedef değildir. Uzun dalga boyuna geçin, sonra beliren ve hareket eden şeye tıklayın.',
-    'guide.where': 'en yakın katalog konumundan (dönem {e} / {n}) {arcsec} arcsec ({px} piksel) uzakta',
+    'guide.where': 'dönem {e} / {n} katalog konumundan {arcsec} arcsec ({px} piksel) uzakta',
+    'guide.fb.step': 'Dönem {e} doğru: tıkladığınız yer {where}. Şimdi dönem {next} içinde tıklayın.',
     'guide.fb.hit':
-        'Bulundu: hareket eden cisim bu. Tıkladığınız yer {where}. Amber noktalar cismin {n} dönemdeki katalog konumları.',
+        'Her dönemde bulundu: hareket eden cisim bu. Son tıkladığınız yer {where}. Amber noktalar cismin {n} dönemdeki katalog konumları.',
     'guide.fb.shown': 'Amber işaret artık hedefin katalog konumunu gösteriyor.',
     'guide.fb.neighbour': 'Bu, işaretli Gaia yıldızı; hareket eden hedef değil. Tıkladığınız yer hedefin {where}.',
     'guide.fb.band': 'Hedef kısa dalga boyunda görünmüyor. Tıkladığınız yer {where}; uzun dalga boyuna geçin.',
@@ -326,12 +348,32 @@ const trGuide = {
         '{name}, bir kahverengi cüce çifti: ölçülen özdevinim (ePSF fit) doğuya {e} ± {ee}, kuzeye {n} ± {ne} mas/yr; SIMBAD {re} ve {rn} veriyor. Ok, hareketin {k} katı uzunlukta çizildi.',
     'guide.explain.wise':
         '{name}, yalnızca uzun dalga boyunda görülüyor: ilk dönemden son döneme doğuya {e} ± {ee} arcsec, kuzeye {n} ± {ne} hareket etti ({method}). Katalog {pe} ve {pn} öngörüyor.',
-    'guide.click': 'Hareket eden cisme tıklayın. Tek tıklama yeterli.',
+    'guide.click': 'Hareket eden cisme, dönem {e} / {n} içindeki yerinde tıklayın (görüntünün altındaki dönem satırına bakın). Her dönem için bir tıklama, sırayla.',
     'guide.click.badge': 'Görüntüye tıklayın',
     'guide.stacked': '{n} pozlama toplandı',
     'guide.hint.title': 'İpucu: dönem {b} eksi dönem {a}',
     'guide.hint.detail':
-        'Yerinde duran her şey griye sıfırlanır; hareket eden kaynak bir parlak, bir koyu yan bırakır.'
+        'Yerinde duran her şey griye sıfırlanır; hareket eden kaynak bir parlak, bir koyu yan bırakır.',
+    'game.play': 'Oyunu oyna',
+    'game.title': 'Hareket edeni bul: oyun',
+    'game.hud': 'Tur {i} · puan {s} · bulunan {f} / {p}',
+    'game.end': 'Oyunu bitir',
+    'game.close': 'Oyunu kapat',
+    'game.ask': 'Gökyüzünün bu parçasında bir cisim dönemler arasında hareket ediyor. Her dönemde, sırayla ona tıklayın.',
+    'game.step': 'Dönem {e} / {n}: hareket eden cisme bu dönemdeki yerinde tıklayın.',
+    'game.time': '{s} sn',
+    'game.hint': 'İpucu (−{p})',
+    'game.miss': 'Hareket eden bu değil ({n} yanlış, her biri −{p}). Yeniden deneyin.',
+    'game.hit': '{s} sn içinde bulundu: {name}. Tur puanı {r}.',
+    'game.shown': 'Gösterildi: {name}. Bu tur puan yok.',
+    'game.next': 'Sonraki yıldız',
+    'game.open': 'Bu hedefi aç',
+    'game.failed': 'Oyun hedefleri yüklenemedi.',
+    'game.summary':
+        'Oyun bitti. Oynanan tur: {r}; bulunan: {f}; ortalama süre: {t} sn; toplam puan: {s}. Bu tarayıcıdaki en iyi puan: {b}.',
+    'game.rules.title': 'Puan nasıl hesaplanır',
+    'game.rules':
+        'Cisme her dönem için bir kez, dönem sırasıyla tıklanır; tıklama, cismin o dönemdeki katalog konumuna {px} piksel içindeyse sayılır. Her dönemde bulundu: {f} puan; her yanlış tıklama −{w}; ipucu açıldıysa −{h}; süre bonusu 0 sn\'de +{b}\'den {s} sn\'de 0\'a doğrusal iner. "Göster" ile açılan tur 0 puan alır. Tur puanı 0\'ın altına inmez.'
 }
 
 // ---------------------------------------------------------------- quick look
