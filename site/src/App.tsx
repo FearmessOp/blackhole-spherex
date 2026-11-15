@@ -167,12 +167,19 @@ export default function App() {
             <header className="bar">
                 <div className="bar-text">
                     <h1>
-                        <img className="logo" src={`${import.meta.env.BASE_URL}logo.svg`} width="24" height="24" alt="" />
+                        <img className="logo" src={`${import.meta.env.BASE_URL}mark.svg`} width="24" height="24" alt="" />
                         {t('app.title')}
                     </h1>
                     <p className="tagline">{t('app.tagline')}</p>
                 </div>
                 <div className="bar-tools">
+                    {/* Only on the opening page: the ?target= screens stay as they are (demo video).
+                        In the top bar, so that it adds no height above the images. */}
+                    {route.kind === 'none' && (
+                        <button type="button" className="link game-link" onClick={() => go({ kind: 'game' })}>
+                            {t('game.play')}
+                        </button>
+                    )}
                     {route.kind !== 'guide' && route.kind !== 'game' && (
                         <button type="button" className="link howto-link" aria-expanded={howTo} onClick={() => setHowTo(!howTo)}>
                             {t('app.howto')}
@@ -212,12 +219,6 @@ export default function App() {
                                     <b>{t('guide.start')}</b>
                                     <span>{t('guide.start.sub')}</span>
                                 </button>
-                                {/* Only on the opening page: the ?target= screens stay as they are (demo video). */}
-                                {route.kind === 'none' && (
-                                    <button type="button" className="link game-link" onClick={() => go({ kind: 'game' })}>
-                                        {t('game.play')}
-                                    </button>
-                                )}
                             </div>
                         </div>
                         {badInput && <p className="warn">{t('search.badpos')}</p>}

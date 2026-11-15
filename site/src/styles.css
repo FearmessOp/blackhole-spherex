@@ -78,11 +78,10 @@ p {
     white-space: nowrap;
 }
 
-/* Team logo (site/public/logo.svg, a ring of 102 lines on its own dark square) */
+/* Team mark (site/public/mark.svg: blackhole_mark.svg, transparent, in the site's amber) */
 .logo {
     flex: none;
     display: block;
-    border-radius: 4px;
 }
 
 /* Footer: team, data sources, code and licence; below the first screen, so --chrome is not affected */
@@ -300,8 +299,9 @@ button.link {
     margin-left: auto;
 }
 
-/* The second copy of the tabs is for narrow screens only. */
-.tabs-narrow {
+/* The second copy of the tabs is for narrow screens only. Two classes, so that this rule wins over
+   the later `.tabs { display: flex }`; with one class both copies showed at 1400 px. */
+.tabs.tabs-narrow {
     display: none;
 }
 
@@ -606,6 +606,7 @@ button.link {
 
 .game-link {
     font-size: 14px;
+    white-space: nowrap;
 }
 
 /* Game: the window is a crop of the full grid; the enlarged image is clipped to the panel. */
@@ -1078,7 +1079,7 @@ button.link {
         display: none;
     }
 
-    .tabs-narrow {
+    .tabs.tabs-narrow {
         display: flex;
         margin-bottom: var(--s2);
     }
