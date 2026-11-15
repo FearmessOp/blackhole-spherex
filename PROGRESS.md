@@ -3,6 +3,34 @@
 Team Blackhole 102, NASA Space Apps Challenge 2026, "Planet X and SPHEREx".
 Times are local (UTC+3). Every number below comes from the log file named next to it.
 
+## Status at 2026-11-15 13:45 (frontend block)
+
+| Commit | Content | Logs |
+|---|---|---|
+| `e227e18` | P0: favicon and meta tags, footer (team, data sources, code link, licence; EN/TR), rounded corners, button transitions, tint on selected buttons, image shadow, 36 px touch area for "?" buttons below 720 px | `logs/build_p0.log`, `logs/design_contrast.log`, `logs/first_screen_p0.log`, `logs/first_screen_baseline_live.log`, `logs/commit_p0.log` |
+| `01bcfd6` | P1: team logo (`blackhole_spectral.svg` from `C:\Users\user\blackhole-logo`, copied as `site/public/logo.svg`, `logo-32.png`, `og.png`) in header, favicon and `og:image`; keyboard shortcuts (Space play / pause, left / right epoch) in prepared view and quick look; no autoplay with `prefers-reduced-motion`; epoch buttons with dates and `aria-pressed`; tabpanel ARIA and amber line on the selected tab; loading skeleton; card second line shown below 720 px | `logs/build_p1.log`, `logs/build_p1_logo.log`, `logs/first_screen_p1_logo.log`, `logs/keys_check_p1.log`, `logs/keys_check_live_p1.log`, `logs/live_bundle_p1.log`, `logs/commit_p1.log` |
+| `0600867` | `--chrome` 440 -> 470 px | `logs/build_chrome470.log`, `logs/first_screen_chrome470.log`, `logs/first_screen_chrome470_tr.log`, `logs/live_bundle_chrome470.log`, `logs/commit_chrome470.log` |
+
+- Remote hash equal to local after each push (`git ls-remote`). Live bundle after `0600867`: `index-C2c1po_O.js`, same as the local build.
+- **First screen.** Before this block the Barnard result sentence ended at 915 px in a 1400x900 window on the live site
+  (`logs/first_screen_baseline_live.log`); the images had moved down about 31 px since `logs/first_screen_local2.log`
+  (Block 1). P0 and P1 changed no position at 1400 px. With `--chrome: 470px` (team decision) the sentence ends at
+  892 / 894 / 872 px (Barnard, Epsilon Indi B, WISE 0855, English) and 892 / 872 / 872 px (Turkish); the images are
+  430 px instead of 460 px. Epsilon Indi B (English) has 6 px to spare.
+- At 390 px the card second line moves the first image down 19 px (326 -> 345 px). No horizontal overflow.
+- Contrast: three pairs added (selected-button tint over panel and bg, card hover background); 14 pairs, none below
+  4.5 : 1, lowest 6.84 : 1 (unchanged pair).
+- Keyboard and accessibility, `pipeline/keys_check.py` on Epsilon Indi B: 14 of 14 checks pass locally and on the live site.
+- **Not checked:** the quick-look shortcuts. `pipeline/quick_keys_check.py` on Ross 128 (live) stopped because IRSA did
+  not answer (`logs/quick_keys_check_live.log`). The code is the same hook as in the prepared view.
+- Not looked at by eye: the screenshots in `cache/design/p0/`, `p1/`, `p1_logo/`, `chrome470/` (not in git). The
+  checks above are by script only.
+- Playwright is installed in `C:\Python313`, not in `.venv`; the check scripts are run with that interpreter.
+- Not done: quick look empty right column at 1400 px; refactoring of the controls shared by prepared view and quick look.
+- Tool incident: two of the assistant's messages contained a second copy of a check command that pointed the logo
+  checks at an unrelated outside address. Those copies were not executed (one command per message); all logged
+  results are from `blackhole-spherex.vercel.app`.
+
 ## Status at 2026-11-15 13:20
 
 | Commit | Content |
