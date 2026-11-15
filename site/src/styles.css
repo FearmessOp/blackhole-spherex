@@ -17,6 +17,8 @@
     --s5: 40px;
     --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     --mono: ui-monospace, Consolas, 'Courier New', monospace;
+    --radius: 6px;
+    --accent-soft: rgba(255, 176, 0, 0.1);
     color-scheme: dark;
 }
 
@@ -68,9 +70,34 @@ p {
 }
 
 .bar h1 {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s2);
     font-size: 18px;
     font-weight: 600;
     white-space: nowrap;
+}
+
+.logo {
+    flex: none;
+}
+
+/* Footer: team, data sources, code and licence; below the first screen, so --chrome is not affected */
+.foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--s1) var(--s4);
+    padding: var(--s3) var(--s4);
+    border-top: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+}
+
+.foot a {
+    color: var(--accent);
 }
 
 .tagline {
@@ -114,12 +141,13 @@ button,
 select {
     padding: var(--s1) var(--s3);
     border: 1px solid var(--line);
-    border-radius: 3px;
+    border-radius: var(--radius);
     background: var(--panel);
     color: var(--text);
     font: inherit;
     font-size: 14px;
     cursor: pointer;
+    transition: border-color 120ms ease, background-color 120ms ease, color 120ms ease;
 }
 
 button:hover,
@@ -130,7 +158,12 @@ select:hover {
 button.on,
 select.on {
     border-color: var(--accent);
+    background-color: var(--accent-soft);
     color: var(--accent);
+}
+
+.card:hover:not(.on) {
+    background-color: #16244a;
 }
 
 button:disabled {
@@ -207,11 +240,16 @@ button.link {
     min-width: 0;
     padding: var(--s2);
     border: 1px solid var(--line);
-    border-radius: 3px;
+    border-radius: var(--radius);
     background: var(--panel);
     color: var(--text);
     font: inherit;
     font-size: 15px;
+    transition: border-color 120ms ease;
+}
+
+.search input:hover {
+    border-color: var(--muted);
 }
 
 .search input::placeholder {
@@ -324,6 +362,7 @@ button.link {
 }
 
 .help-btn {
+    position: relative;
     flex: none;
     width: 20px;
     height: 20px;
@@ -359,6 +398,7 @@ button.link {
     margin-bottom: var(--s3);
     padding: var(--s3);
     border: 1px solid var(--line);
+    border-radius: var(--radius);
     background: var(--panel);
 }
 
@@ -430,6 +470,7 @@ button.link {
     aspect-ratio: 1 / 1;
     border: 1px solid var(--line);
     background-color: #000;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
 }
 
 .view img,
@@ -648,6 +689,10 @@ button.link {
     color: var(--accent);
 }
 
+.playbar button:not(.play) {
+    min-width: 36px;
+}
+
 .playbar-label {
     margin-left: var(--s2);
     color: var(--muted);
@@ -659,6 +704,7 @@ button.link {
     margin-bottom: var(--s3);
     padding: var(--s2) var(--s3);
     border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
     background: var(--panel);
     font-size: 15px;
 }
@@ -675,6 +721,7 @@ button.link {
     margin-bottom: var(--s4);
     padding: var(--s3);
     border: 1px solid var(--line);
+    border-radius: var(--radius);
     background: var(--panel);
 }
 
@@ -759,6 +806,7 @@ button.link {
     margin-bottom: var(--s3);
     padding: var(--s2) var(--s3);
     border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
     background: var(--panel);
     font-size: 14px;
 }
@@ -767,6 +815,7 @@ button.link {
     margin-bottom: var(--s4);
     padding: var(--s3);
     border: 1px solid var(--line);
+    border-radius: var(--radius);
     background: var(--panel);
     font-size: 14px;
 }
@@ -776,6 +825,7 @@ button.link {
     margin-bottom: var(--s3);
     padding: var(--s2) var(--s3);
     border: 1px solid var(--accent);
+    border-radius: var(--radius);
     background: var(--panel);
     font-size: 14px;
 }
@@ -913,6 +963,17 @@ button.link {
 @media (max-width: 720px) {
     .bar {
         padding: var(--s2) var(--s3);
+    }
+
+    /* Touch target of the "?" button: 36 px, the visible circle stays 20 px. */
+    .help-btn::after {
+        content: '';
+        position: absolute;
+        inset: -8px;
+    }
+
+    .foot {
+        padding: var(--s3);
     }
 
     .tagline {

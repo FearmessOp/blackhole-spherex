@@ -23,6 +23,10 @@ PAIRS = [
     ("dim", "panel", "disabled buttons elsewhere"),
     ("accent", "bg", "selected buttons in controls, epoch caption, links, amber table cells, click badge"),
     ("accent", "panel", "selected buttons and tabs, guide-start title, quick-look banner title, numbers in the flicker note"),
+    # --accent-soft is rgba(255, 176, 0, 0.1); the hex values are that colour blended over panel / bg
+    ("accent", "#292c31", "selected buttons and tabs: accent-soft over panel"),
+    ("accent", "#232422", "selected buttons in controls: accent-soft over bg"),
+    ("text", "#16244a", "target card under the mouse (hover background)"),
     ("text", "#000000", "labels on the images (outlined in black)"),
     ("muted", "#000000", "compass and scale bar on the images (outlined in black)"),
     ("accent", "#000000", "marker and arrow labels on the images (outlined in black)")]

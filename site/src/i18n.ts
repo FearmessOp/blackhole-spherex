@@ -89,7 +89,11 @@ const enOpening = {
     'tab.measurement': 'Measurement',
     'tab.validation': 'Validation',
     'load.target': 'Loading…',
-    'load.failed': 'Could not load the data for this target.'
+    'load.failed': 'Could not load the data for this target.',
+    'foot.team': 'NASA Space Apps Challenge 2026 · team Blackhole 102',
+    'foot.data': 'Data: SPHEREx (NASA/IPAC IRSA), SIMBAD (CDS), Gaia DR3 (ESA)',
+    'foot.code': 'Source code',
+    'foot.license': 'Apache-2.0; Gaia rows CC BY-NC 3.0 IGO'
 } as const
 
 const trOpening = {
@@ -114,7 +118,11 @@ const trOpening = {
     'tab.measurement': 'Ölçüm',
     'tab.validation': 'Doğrulama',
     'load.target': 'Yükleniyor…',
-    'load.failed': 'Bu hedefin verisi yüklenemedi.'
+    'load.failed': 'Bu hedefin verisi yüklenemedi.',
+    'foot.team': 'NASA Space Apps Challenge 2026 · Blackhole 102 takımı',
+    'foot.data': 'Veri: SPHEREx (NASA/IPAC IRSA), SIMBAD (CDS), Gaia DR3 (ESA)',
+    'foot.code': 'Kaynak kod',
+    'foot.license': 'Apache-2.0; Gaia satırları CC BY-NC 3.0 IGO'
 }
 
 // ---------------------------------------------------------------- controls, image panels

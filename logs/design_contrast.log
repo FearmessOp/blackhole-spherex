@@ -9,8 +9,11 @@ ok    7.50 : 1  dim #9aa6bd on bg #0b1426  (disabled buttons inside the controls
 ok    6.84 : 1  dim #9aa6bd on panel #111d36  (disabled buttons elsewhere)
 ok   10.03 : 1  accent #ffb000 on bg #0b1426  (selected buttons in controls, epoch caption, links, amber table cells, click badge)
 ok    9.15 : 1  accent #ffb000 on panel #111d36  (selected buttons and tabs, guide-start title, quick-look banner title, numbers in the flicker note)
+ok    7.65 : 1  accent #ffb000 on #292c31 #292c31  (selected buttons and tabs: accent-soft over panel)
+ok    8.51 : 1  accent #ffb000 on #232422 #232422  (selected buttons in controls: accent-soft over bg)
+ok   12.38 : 1  text #ece8dd on #16244a #16244a  (target card under the mouse (hover background))
 ok   17.15 : 1  text #ece8dd on #000000 #000000  (labels on the images (outlined in black))
 ok   11.98 : 1  muted #bcc4d4 on #000000 #000000  (compass and scale bar on the images (outlined in black))
 ok   11.46 : 1  accent #ffb000 on #000000 #000000  (marker and arrow labels on the images (outlined in black))
-pairs: 11, below 4.5: 0
+pairs: 14, below 4.5: 0
 not covered: text on the sky images over bright pixels (it has a black outline; the pixel values change from frame to frame)

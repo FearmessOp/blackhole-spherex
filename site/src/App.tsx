@@ -166,7 +166,13 @@ export default function App() {
         <div className="app">
             <header className="bar">
                 <div className="bar-text">
-                    <h1>{t('app.title')}</h1>
+                    <h1>
+                        <svg className="logo" viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
+                            <circle cx="16" cy="16" r="10" fill="none" stroke="var(--accent)" strokeWidth="3" />
+                            <circle cx="16" cy="16" r="4.5" fill="#000" stroke="var(--accent)" strokeWidth="1" />
+                        </svg>
+                        {t('app.title')}
+                    </h1>
                     <p className="tagline">{t('app.tagline')}</p>
                 </div>
                 <div className="bar-tools">
@@ -298,6 +304,16 @@ export default function App() {
                     </>
                 )}
             </main>
+            <footer className="foot">
+                <span>{t('foot.team')}</span>
+                <span>{t('foot.data')}</span>
+                <span>
+                    <a href="https://github.com/FearmessOp/blackhole-spherex" target="_blank" rel="noopener noreferrer">
+                        {t('foot.code')}
+                    </a>{' '}
+                    · {t('foot.license')}
+                </span>
+            </footer>
         </div>
     )
 }
