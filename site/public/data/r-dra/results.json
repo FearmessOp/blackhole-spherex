@@ -9,6 +9,8 @@
   "check_source": "data/astrometry/saturation_check.json"
  },
  "fit": null,
+ "off_target": null,
+ "fit_not_shown": null,
  "stack_motion": null,
  "per_exposure_fit": null,
  "flicker": {

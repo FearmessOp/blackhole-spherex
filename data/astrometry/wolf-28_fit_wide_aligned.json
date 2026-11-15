@@ -1,0 +1,44 @@
+{
+ "slug": "wolf-28",
+ "t0_year": 2026.0293,
+ "reference": [
+  1231.399,
+  -2711.883,
+  231.78
+ ],
+ "win": {
+  "n_used": 304,
+  "values": {
+   "e0_mas": 226.73,
+   "n0_mas": 443.34,
+   "pm_east_masyr": 1176.89,
+   "pm_north_masyr": -2818.88,
+   "plx_mas": 234.57
+  },
+  "bootstrap_err": {
+   "e0_mas": 17.18,
+   "n0_mas": 20.53,
+   "pm_east_masyr": 40.2,
+   "pm_north_masyr": 50.73,
+   "plx_mas": 18.54
+  }
+ },
+ "psf": {
+  "n_used": 296,
+  "values": {
+   "e0_mas": -0.13,
+   "n0_mas": 52.91,
+   "pm_east_masyr": 1237.36,
+   "pm_north_masyr": -2756.5,
+   "plx_mas": 221.86
+  },
+  "bootstrap_err": {
+   "e0_mas": 13.36,
+   "n0_mas": 11.8,
+   "pm_east_masyr": 24.17,
+   "pm_north_masyr": 26.65,
+   "plx_mas": 13.12
+  }
+ },
+ "aligned_to_field_stars": true
+}

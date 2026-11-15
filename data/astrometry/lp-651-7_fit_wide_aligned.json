@@ -1,0 +1,44 @@
+{
+ "slug": "lp-651-7",
+ "t0_year": 2026.0909,
+ "reference": [
+  1691.164,
+  -1881.04,
+  59.8398
+ ],
+ "win": {
+  "n_used": 318,
+  "values": {
+   "e0_mas": 60.06,
+   "n0_mas": 4.35,
+   "pm_east_masyr": 1751.85,
+   "pm_north_masyr": -1884.1,
+   "plx_mas": 100.66
+  },
+  "bootstrap_err": {
+   "e0_mas": 15.43,
+   "n0_mas": 18.7,
+   "pm_east_masyr": 32.16,
+   "pm_north_masyr": 41.38,
+   "plx_mas": 15.64
+  }
+ },
+ "psf": {
+  "n_used": 314,
+  "values": {
+   "e0_mas": 33.79,
+   "n0_mas": -7.48,
+   "pm_east_masyr": 1703.19,
+   "pm_north_masyr": -1847.36,
+   "plx_mas": 51.72
+  },
+  "bootstrap_err": {
+   "e0_mas": 11.39,
+   "n0_mas": 8.95,
+   "pm_east_masyr": 25.2,
+   "pm_north_masyr": 18.42,
+   "plx_mas": 10.62
+  }
+ },
+ "aligned_to_field_stars": true
+}

@@ -1,0 +1,49 @@
+lp-651-7: manifest=351 on_disk=351 missing=0
+working grid: 29x29 px, 6.15 arcsec/px, centre=(41.5744515, -5.0026763) at MJD 61074.013; masked flags=['NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'SNOWBALL']
+frames loaded=351 of 351; wavelength outside SIA detector range: 0
+files where a masked flag plane is not declared in the header: {'SNOWBALL': 39}
+output grid: 29x29 px, cropped from 29x29 (every stack has at least half of its frames on every pixel)
+epoch 0: 2025-07-23T06:21 .. 2025-08-17T11:17 n=113 predicted_px=(14.14, 14.16) measured_px=(14.04, 14.22) offset_arcsec={'east': 0.66, 'north': 0.38, 'total': 0.76} on_target=True
+epoch 1: 2026-01-17T07:18 .. 2026-02-01T15:36 n=109 predicted_px=(14.01, 14.01) measured_px=(13.98, 14.04) offset_arcsec={'east': 0.16, 'north': 0.18, 'total': 0.24} on_target=True
+epoch 2: 2026-07-20T20:29 .. 2026-08-07T13:48 n=129 predicted_px=(13.87, 13.85) measured_px=(13.77, 13.93) offset_arcsec={'east': 0.61, 'north': 0.48, 'total': 0.77} on_target=True
+shift epoch 0 -> 2 (measured): east=1.63 north=-1.78 total=2.42 arcsec
+shift epoch 0 -> 2 (predicted): east=1.69 north=-1.88 total=2.52 arcsec
+band all epoch 0: n=113 wave=0.7551..4.9759 um min_coverage=109 -> all_e0.png
+band all epoch 1: n=109 wave=0.7421..4.9658 um min_coverage=105 -> all_e1.png
+band all epoch 2: n=129 wave=0.748..4.9951 um min_coverage=124 -> all_e2.png
+band all scale: vmin=-0.01168 vmax=10.87 soft=0.01507 MJy/sr
+band d123 epoch 0: n=56 wave=0.7551..2.3751 um min_coverage=54 -> d123_e0.png
+band d123 epoch 1: n=55 wave=0.7421..2.4106 um min_coverage=53 -> d123_e1.png
+band d123 epoch 2: n=64 wave=0.748..2.4033 um min_coverage=61 -> d123_e2.png
+band d123 scale: vmin=-0.01204 vmax=14.71 soft=0.01485 MJy/sr
+band d56 epoch 0: n=38 wave=3.8006..4.9759 um min_coverage=35 -> d56_e0.png
+band d56 epoch 1: n=35 wave=3.8212..4.9658 um min_coverage=32 -> d56_e1.png
+band d56 epoch 2: n=39 wave=3.8204..4.9951 um min_coverage=36 -> d56_e2.png
+band d56 scale: vmin=-0.01714 vmax=6.258 soft=0.02526 MJy/sr
+band d1 epoch 0: n=19 wave=0.7551..1.1014 um min_coverage=17 -> d1_e0.png
+band d1 epoch 1: n=19 wave=0.7421..1.1123 um min_coverage=17 -> d1_e1.png
+band d1 epoch 2: n=25 wave=0.748..1.115 um min_coverage=24 -> d1_e2.png
+band d1 scale: vmin=-0.01408 vmax=9.332 soft=0.0184 MJy/sr
+band d2 epoch 0: n=18 wave=1.1106..1.6256 um min_coverage=17 -> d2_e0.png
+band d2 epoch 1: n=18 wave=1.1009..1.6227 um min_coverage=17 -> d2_e1.png
+band d2 epoch 2: n=20 wave=1.1001..1.6458 um min_coverage=18 -> d2_e2.png
+band d2 scale: vmin=-0.0146 vmax=17.29 soft=0.01808 MJy/sr
+band d3 epoch 0: n=19 wave=1.6441..2.3751 um min_coverage=18 -> d3_e0.png
+band d3 epoch 1: n=18 wave=1.6553..2.4106 um min_coverage=16 -> d3_e1.png
+band d3 epoch 2: n=19 wave=1.629..2.4033 um min_coverage=17 -> d3_e2.png
+band d3 scale: vmin=-0.01428 vmax=15.96 soft=0.01939 MJy/sr
+band d4 epoch 0: n=19 wave=2.4538..3.7758 um min_coverage=17 -> d4_e0.png
+band d4 epoch 1: n=19 wave=2.4207..3.8183 um min_coverage=16 -> d4_e1.png
+band d4 epoch 2: n=26 wave=2.4224..3.83 um min_coverage=24 -> d4_e2.png
+band d4 scale: vmin=-0.01245 vmax=8.47 soft=0.01805 MJy/sr
+band d5 epoch 0: n=19 wave=3.8006..4.4038 um min_coverage=16 -> d5_e0.png
+band d5 epoch 1: n=18 wave=3.8212..4.401 um min_coverage=16 -> d5_e1.png
+band d5 epoch 2: n=20 wave=3.8204..4.4237 um min_coverage=17 -> d5_e2.png
+band d5 scale: vmin=-0.01671 vmax=7.439 soft=0.02566 MJy/sr
+band d6 epoch 0: n=19 wave=4.4284..4.9759 um min_coverage=17 -> d6_e0.png
+band d6 epoch 1: n=17 wave=4.4066..4.9658 um min_coverage=15 -> d6_e1.png
+band d6 epoch 2: n=19 wave=4.4157..4.9951 um min_coverage=18 -> d6_e2.png
+band d6 scale: vmin=-0.02581 vmax=4.907 soft=0.03833 MJy/sr
+raw playback: dropped 6 of 351 exposures with more than 20% of the pixels masked
+raw playback: 345 exposures -> raw.png (696x435 px, 24 per row), raw.json; scale vmin=-0.03744 vmax=11.94 soft=0.05694 MJy/sr
+wrote C:\Users\user\blackhole-spherex\site\public\data\lp-651-7\meta.json and C:\Users\user\blackhole-spherex\site\public\data\index.json

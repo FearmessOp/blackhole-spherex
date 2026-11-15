@@ -1,0 +1,44 @@
+{
+ "slug": "lehpm-3396",
+ "t0_year": 2026.0399,
+ "reference": [
+  2360.592,
+  483.128,
+  112.61
+ ],
+ "win": {
+  "n_used": 314,
+  "values": {
+   "e0_mas": 52.34,
+   "n0_mas": -0.09,
+   "pm_east_masyr": 2387.76,
+   "pm_north_masyr": 516.2,
+   "plx_mas": 140.6
+  },
+  "bootstrap_err": {
+   "e0_mas": 18.83,
+   "n0_mas": 15.27,
+   "pm_east_masyr": 42.93,
+   "pm_north_masyr": 33.77,
+   "plx_mas": 18.05
+  }
+ },
+ "psf": {
+  "n_used": 306,
+  "values": {
+   "e0_mas": -7.06,
+   "n0_mas": -4.07,
+   "pm_east_masyr": 2343.49,
+   "pm_north_masyr": 513.13,
+   "plx_mas": 121.35
+  },
+  "bootstrap_err": {
+   "e0_mas": 9.56,
+   "n0_mas": 8.29,
+   "pm_east_masyr": 26.13,
+   "pm_north_masyr": 19.68,
+   "plx_mas": 9.82
+  }
+ },
+ "aligned_to_field_stars": true
+}

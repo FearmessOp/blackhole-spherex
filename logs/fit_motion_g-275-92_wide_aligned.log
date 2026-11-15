@@ -1,0 +1,27 @@
+methods=('win', 'psf') ignore_clean=False align=wide align_with=same estimator
+alignment: g-275-92_field_wide.csv; exposures with at least 5 field stars: 340 of 341; target exposures kept 252 of 252
+g-275-92_wide: input=g-275-92_target_wide.csv exposures=252 detectors=all epochs=[0, 1, 2] span=60824.6..61230.0 MJD t0=2025.9491
+reference (SIMBAD, 2020yCat.1350....0G): pm_east=1302.517 pm_north=-2208.534 mas/yr plx=34.4234 mas
+alignment applied (win): median correction east=+11 north=+37 mas; scatter between exposures east=239 north=236 mas
+--- method=win: used=249 of 252 (clipped 3); residual rms east=245 north=256 mas
+e0_mas = +49.1 +- 16.1
+n0_mas = +9.2 +- 16.7
+pm_east_masyr = +1318.7 +- 37.5   SIMBAD +1302.5   difference +16.2 (0.4 x bootstrap error)
+pm_north_masyr = -2242.1 +- 39.3   SIMBAD -2208.5   difference -33.6 (0.9 x bootstrap error)
+plx_mas = +57.0 +- 16.6   SIMBAD +34.4   difference +22.6 (1.4 x bootstrap error)
+leave-one-epoch-out: not done, only 3 epochs
+epoch 0: n=78 mean residual east=-4 north=+8 mas
+epoch 1: n=82 mean residual east=+8 north=-14 mas
+epoch 2: n=89 mean residual east=-3 north=+7 mas
+alignment applied (psf): median correction east=-16 north=-17 mas; scatter between exposures east=187 north=193 mas
+--- method=psf: used=245 of 252 (clipped 7); residual rms east=147 north=147 mas
+e0_mas = +18.0 +- 10.2
+n0_mas = +10.3 +- 9.6
+pm_east_masyr = +1292.4 +- 23.8   SIMBAD +1302.5   difference -10.1 (0.4 x bootstrap error)
+pm_north_masyr = -2200.7 +- 23.7   SIMBAD -2208.5   difference +7.8 (0.3 x bootstrap error)
+plx_mas = +36.3 +- 10.0   SIMBAD +34.4   difference +1.9 (0.2 x bootstrap error)
+leave-one-epoch-out: not done, only 3 epochs
+epoch 0: n=75 mean residual east=-3 north=+6 mas
+epoch 1: n=80 mean residual east=+5 north=-11 mas
+epoch 2: n=90 mean residual east=-2 north=+5 mas
+wrote C:\Users\user\blackhole-spherex\data\astrometry\g-275-92_fit_wide_aligned.json

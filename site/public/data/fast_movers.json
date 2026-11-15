@@ -1,0 +1,713 @@
+{
+ "criterion": "|measured - SIMBAD| <= 2 x bootstrap error (statistical only)",
+ "selection": {
+  "min_exposures": 30,
+  "min_epochs": 3,
+  "min_per_epoch": 5,
+  "note": "usable = clean core and measured by both estimators; a target that does not pass is listed but not judged"
+ },
+ "fit": "5 parameters, aligned per exposure to Gaia field stars, as for Epsilon Indi B",
+ "summary": {
+  "win": {
+   "n_targets": 10,
+   "n_fitted": 9,
+   "n_not_passing_selection": 1,
+   "pm_east_within2": 8,
+   "pm_north_within2": 8,
+   "plx_within2": 7,
+   "pm_both_within2": 7
+  },
+  "psf": {
+   "n_targets": 10,
+   "n_fitted": 9,
+   "n_not_passing_selection": 1,
+   "pm_east_within2": 8,
+   "pm_north_within2": 9,
+   "plx_within2": 9,
+   "pm_both_within2": 8
+  }
+ },
+ "targets": [
+  {
+   "slug": "omi02-eri-b",
+   "name": "omi02 Eri B",
+   "sp_type": "DA2.9",
+   "k_mag": 9.861,
+   "reference": {
+    "pm_east": -2236.169,
+    "pm_north": -3338.955,
+    "plx": 199.6911,
+    "source": "SIMBAD",
+    "bibcode": "2020yCat.1350....0G"
+   },
+   "exposures": 432,
+   "overflow": 399,
+   "clean": 8,
+   "epochs": 3,
+   "usable": 8,
+   "usable_per_epoch": [
+    3,
+    1,
+    4
+   ],
+   "passes_selection": false,
+   "fit": {
+    "t0_year": 2026.209,
+    "aligned_to_field_stars": true,
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "n_used": 8,
+      "pm_east": -1902.5,
+      "pm_east_err": 7058769.11,
+      "pm_east_diff": 333.67,
+      "pm_east_within2": null,
+      "pm_north": -3920.2,
+      "pm_north_err": 2295206.84,
+      "pm_north_diff": -581.24,
+      "pm_north_within2": null,
+      "plx": 610.12,
+      "plx_err": 1995493.57,
+      "plx_diff": 410.43,
+      "plx_within2": null,
+      "pm_both_within2": null
+     },
+     {
+      "id": "psf",
+      "label": "ePSF fit",
+      "n_used": 7,
+      "pm_east": -2144.35,
+      "pm_east_err": 10077329.03,
+      "pm_east_diff": 91.82,
+      "pm_east_within2": null,
+      "pm_north": -3427.05,
+      "pm_north_err": 59048124.95,
+      "pm_north_diff": -88.1,
+      "pm_north_within2": null,
+      "plx": 414.51,
+      "plx_err": 20243430.76,
+      "plx_diff": 214.82,
+      "plx_within2": null,
+      "pm_both_within2": null
+     }
+    ],
+    "source": "data/astrometry/omi02-eri-b_fit_wide_aligned.json",
+    "log": "logs/fit_motion_omi02-eri-b_wide_aligned.log"
+   }
+  },
+  {
+   "slug": "ssspm-j1444-2019",
+   "name": "SSSPM J1444-2019",
+   "sp_type": "sdL0",
+   "k_mag": 11.933,
+   "reference": {
+    "pm_east": -2908.634,
+    "pm_north": -1960.916,
+    "plx": 58.1427,
+    "source": "SIMBAD",
+    "bibcode": "2020yCat.1350....0G"
+   },
+   "exposures": 347,
+   "overflow": 0,
+   "clean": 331,
+   "epochs": 3,
+   "usable": 324,
+   "usable_per_epoch": [
+    109,
+    103,
+    112
+   ],
+   "passes_selection": true,
+   "fit": {
+    "t0_year": 2026.057,
+    "aligned_to_field_stars": true,
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "n_used": 318,
+      "pm_east": -2893.76,
+      "pm_east_err": 32.62,
+      "pm_east_diff": 14.87,
+      "pm_east_within2": true,
+      "pm_north": -1959.16,
+      "pm_north_err": 40.5,
+      "pm_north_diff": 1.76,
+      "pm_north_within2": true,
+      "plx": 67.74,
+      "plx_err": 16.08,
+      "plx_diff": 9.6,
+      "plx_within2": true,
+      "pm_both_within2": true
+     },
+     {
+      "id": "psf",
+      "label": "ePSF fit",
+      "n_used": 306,
+      "pm_east": -2881.53,
+      "pm_east_err": 24.56,
+      "pm_east_diff": 27.1,
+      "pm_east_within2": true,
+      "pm_north": -1934.59,
+      "pm_north_err": 25.71,
+      "pm_north_diff": 26.33,
+      "pm_north_within2": true,
+      "plx": 55.01,
+      "plx_err": 13.01,
+      "plx_diff": -3.13,
+      "plx_within2": true,
+      "pm_both_within2": true
+     }
+    ],
+    "source": "data/astrometry/ssspm-j1444-2019_fit_wide_aligned.json",
+    "log": "logs/fit_motion_ssspm-j1444-2019_wide_aligned.log"
+   }
+  },
+  {
+   "slug": "wolf-28",
+   "name": "Wolf   28",
+   "sp_type": "DZ7.5",
+   "k_mag": 11.498,
+   "reference": {
+    "pm_east": 1231.399,
+    "pm_north": -2711.883,
+    "plx": 231.78,
+    "source": "SIMBAD",
+    "bibcode": "2020yCat.1350....0G"
+   },
+   "exposures": 328,
+   "overflow": 0,
+   "clean": 315,
+   "epochs": 3,
+   "usable": 307,
+   "usable_per_epoch": [
+    95,
+    106,
+    106
+   ],
+   "passes_selection": true,
+   "fit": {
+    "t0_year": 2026.0293,
+    "aligned_to_field_stars": true,
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "n_used": 304,
+      "pm_east": 1176.89,
+      "pm_east_err": 40.2,
+      "pm_east_diff": -54.51,
+      "pm_east_within2": true,
+      "pm_north": -2818.88,
+      "pm_north_err": 50.73,
+      "pm_north_diff": -107.0,
+      "pm_north_within2": false,
+      "plx": 234.57,
+      "plx_err": 18.54,
+      "plx_diff": 2.79,
+      "plx_within2": true,
+      "pm_both_within2": false
+     },
+     {
+      "id": "psf",
+      "label": "ePSF fit",
+      "n_used": 296,
+      "pm_east": 1237.36,
+      "pm_east_err": 24.17,
+      "pm_east_diff": 5.96,
+      "pm_east_within2": true,
+      "pm_north": -2756.5,
+      "pm_north_err": 26.65,
+      "pm_north_diff": -44.62,
+      "pm_north_within2": true,
+      "plx": 221.86,
+      "plx_err": 13.12,
+      "plx_diff": -9.92,
+      "plx_within2": true,
+      "pm_both_within2": true
+     }
+    ],
+    "source": "data/astrometry/wolf-28_fit_wide_aligned.json",
+    "log": "logs/fit_motion_wolf-28_wide_aligned.log"
+   }
+  },
+  {
+   "slug": "lawd-37",
+   "name": "LAWD 37",
+   "sp_type": "DQ",
+   "k_mag": 11.104,
+   "reference": {
+    "pm_east": 2661.64,
+    "pm_north": -344.933,
+    "plx": 215.6753,
+    "source": "SIMBAD",
+    "bibcode": "2020yCat.1350....0G"
+   },
+   "exposures": 486,
+   "overflow": 0,
+   "clean": 438,
+   "epochs": 3,
+   "usable": 426,
+   "usable_per_epoch": [
+    129,
+    171,
+    126
+   ],
+   "passes_selection": true,
+   "fit": {
+    "t0_year": 2026.0446,
+    "aligned_to_field_stars": true,
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "n_used": 421,
+      "pm_east": 2675.47,
+      "pm_east_err": 32.39,
+      "pm_east_diff": 13.83,
+      "pm_east_within2": true,
+      "pm_north": -333.4,
+      "pm_north_err": 57.98,
+      "pm_north_diff": 11.53,
+      "pm_north_within2": true,
+      "plx": 206.82,
+      "plx_err": 16.36,
+      "plx_diff": -8.86,
+      "plx_within2": true,
+      "pm_both_within2": true
+     },
+     {
+      "id": "psf",
+      "label": "ePSF fit",
+      "n_used": 395,
+      "pm_east": 2724.73,
+      "pm_east_err": 23.22,
+      "pm_east_diff": 63.09,
+      "pm_east_within2": false,
+      "pm_north": -364.08,
+      "pm_north_err": 25.78,
+      "pm_north_diff": -19.15,
+      "pm_north_within2": true,
+      "plx": 209.49,
+      "plx_err": 10.08,
+      "plx_diff": -6.19,
+      "plx_within2": true,
+      "pm_both_within2": false
+     }
+    ],
+    "source": "data/astrometry/lawd-37_fit_wide_aligned.json",
+    "log": "logs/fit_motion_lawd-37_wide_aligned.log"
+   }
+  },
+  {
+   "slug": "g-275-92",
+   "name": "G 275-92",
+   "sp_type": "sdK7",
+   "k_mag": 9.373,
+   "reference": {
+    "pm_east": 1302.517,
+    "pm_north": -2208.534,
+    "plx": 34.4234,
+    "source": "SIMBAD",
+    "bibcode": "2020yCat.1350....0G"
+   },
+   "exposures": 341,
+   "overflow": 64,
+   "clean": 258,
+   "epochs": 3,
+   "usable": 252,
+   "usable_per_epoch": [
+    78,
+    83,
+    91
+   ],
+   "passes_selection": true,
+   "fit": {
+    "t0_year": 2025.9491,
+    "aligned_to_field_stars": true,
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "n_used": 249,
+      "pm_east": 1318.72,
+      "pm_east_err": 37.47,
+      "pm_east_diff": 16.2,
+      "pm_east_within2": true,
+      "pm_north": -2242.1,
+      "pm_north_err": 39.33,
+      "pm_north_diff": -33.57,
+      "pm_north_within2": true,
+      "plx": 56.99,
+      "plx_err": 16.62,
+      "plx_diff": 22.57,
+      "plx_within2": true,
+      "pm_both_within2": true
+     },
+     {
+      "id": "psf",
+      "label": "ePSF fit",
+      "n_used": 245,
+      "pm_east": 1292.39,
+      "pm_east_err": 23.82,
+      "pm_east_diff": -10.13,
+      "pm_east_within2": true,
+      "pm_north": -2200.69,
+      "pm_north_err": 23.71,
+      "pm_north_diff": 7.84,
+      "pm_north_within2": true,
+      "plx": 36.31,
+      "plx_err": 9.99,
+      "plx_diff": 1.89,
+      "plx_within2": true,
+      "pm_both_within2": true
+     }
+    ],
+    "source": "data/astrometry/g-275-92_fit_wide_aligned.json",
+    "log": "logs/fit_motion_g-275-92_wide_aligned.log"
+   }
+  },
+  {
+   "slug": "lp-651-7",
+   "name": "LP  651-7",
+   "sp_type": "M6V",
+   "k_mag": 10.152,
+   "reference": {
+    "pm_east": 1691.164,
+    "pm_north": -1881.04,
+    "plx": 59.8398,
+    "source": "SIMBAD",
+    "bibcode": "2020yCat.1350....0G"
+   },
+   "exposures": 351,
+   "overflow": 2,
+   "clean": 327,
+   "epochs": 3,
+   "usable": 325,
+   "usable_per_epoch": [
+    104,
+    101,
+    120
+   ],
+   "passes_selection": true,
+   "fit": {
+    "t0_year": 2026.0909,
+    "aligned_to_field_stars": true,
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "n_used": 318,
+      "pm_east": 1751.85,
+      "pm_east_err": 32.16,
+      "pm_east_diff": 60.69,
+      "pm_east_within2": true,
+      "pm_north": -1884.1,
+      "pm_north_err": 41.38,
+      "pm_north_diff": -3.06,
+      "pm_north_within2": true,
+      "plx": 100.66,
+      "plx_err": 15.64,
+      "plx_diff": 40.82,
+      "plx_within2": false,
+      "pm_both_within2": true
+     },
+     {
+      "id": "psf",
+      "label": "ePSF fit",
+      "n_used": 314,
+      "pm_east": 1703.19,
+      "pm_east_err": 25.2,
+      "pm_east_diff": 12.03,
+      "pm_east_within2": true,
+      "pm_north": -1847.36,
+      "pm_north_err": 18.42,
+      "pm_north_diff": 33.68,
+      "pm_north_within2": true,
+      "plx": 51.72,
+      "plx_err": 10.62,
+      "plx_diff": -8.12,
+      "plx_within2": true,
+      "pm_both_within2": true
+     }
+    ],
+    "source": "data/astrometry/lp-651-7_fit_wide_aligned.json",
+    "log": "logs/fit_motion_lp-651-7_wide_aligned.log"
+   }
+  },
+  {
+   "slug": "lehpm-3396",
+   "name": "LEHPM 3396",
+   "sp_type": "M9",
+   "k_mag": 10.392,
+   "reference": {
+    "pm_east": 2360.592,
+    "pm_north": 483.128,
+    "plx": 112.61,
+    "source": "SIMBAD",
+    "bibcode": "2020yCat.1350....0G"
+   },
+   "exposures": 374,
+   "overflow": 1,
+   "clean": 324,
+   "epochs": 3,
+   "usable": 319,
+   "usable_per_epoch": [
+    97,
+    105,
+    117
+   ],
+   "passes_selection": true,
+   "fit": {
+    "t0_year": 2026.0399,
+    "aligned_to_field_stars": true,
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "n_used": 314,
+      "pm_east": 2387.76,
+      "pm_east_err": 42.93,
+      "pm_east_diff": 27.17,
+      "pm_east_within2": true,
+      "pm_north": 516.2,
+      "pm_north_err": 33.77,
+      "pm_north_diff": 33.07,
+      "pm_north_within2": true,
+      "plx": 140.6,
+      "plx_err": 18.05,
+      "plx_diff": 27.99,
+      "plx_within2": true,
+      "pm_both_within2": true
+     },
+     {
+      "id": "psf",
+      "label": "ePSF fit",
+      "n_used": 306,
+      "pm_east": 2343.49,
+      "pm_east_err": 26.13,
+      "pm_east_diff": -17.1,
+      "pm_east_within2": true,
+      "pm_north": 513.13,
+      "pm_north_err": 19.68,
+      "pm_north_diff": 30.0,
+      "pm_north_within2": true,
+      "plx": 121.35,
+      "plx_err": 9.82,
+      "plx_diff": 8.74,
+      "plx_within2": true,
+      "pm_both_within2": true
+     }
+    ],
+    "source": "data/astrometry/lehpm-3396_fit_wide_aligned.json",
+    "log": "logs/fit_motion_lehpm-3396_wide_aligned.log"
+   }
+  },
+  {
+   "slug": "lsr-j1826-3014",
+   "name": "LSR J1826+3014",
+   "sp_type": "M8.5V",
+   "k_mag": 10.811,
+   "reference": {
+    "pm_east": -2290.752,
+    "pm_north": -683.274,
+    "plx": 90.0858,
+    "source": "SIMBAD",
+    "bibcode": "2020yCat.1350....0G"
+   },
+   "exposures": 419,
+   "overflow": 2,
+   "clean": 398,
+   "epochs": 4,
+   "usable": 395,
+   "usable_per_epoch": [
+    125,
+    118,
+    3,
+    149
+   ],
+   "passes_selection": true,
+   "fit": {
+    "t0_year": 2026.2192,
+    "aligned_to_field_stars": true,
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "n_used": 388,
+      "pm_east": -2227.95,
+      "pm_east_err": 27.16,
+      "pm_east_diff": 62.8,
+      "pm_east_within2": false,
+      "pm_north": -652.09,
+      "pm_north_err": 33.02,
+      "pm_north_diff": 31.18,
+      "pm_north_within2": true,
+      "plx": 127.39,
+      "plx_err": 13.29,
+      "plx_diff": 37.3,
+      "plx_within2": false,
+      "pm_both_within2": false
+     },
+     {
+      "id": "psf",
+      "label": "ePSF fit",
+      "n_used": 381,
+      "pm_east": -2283.87,
+      "pm_east_err": 15.36,
+      "pm_east_diff": 6.88,
+      "pm_east_within2": true,
+      "pm_north": -661.73,
+      "pm_north_err": 13.77,
+      "pm_north_diff": 21.54,
+      "pm_north_within2": true,
+      "plx": 104.47,
+      "plx_err": 8.99,
+      "plx_diff": 14.38,
+      "plx_within2": true,
+      "pm_both_within2": true
+     }
+    ],
+    "source": "data/astrometry/lsr-j1826-3014_fit_wide_aligned.json",
+    "log": "logs/fit_motion_lsr-j1826-3014_wide_aligned.log"
+   }
+  },
+  {
+   "slug": "2mass-j02511490-0352459",
+   "name": "2MASS J02511490-0352459",
+   "sp_type": "L3",
+   "k_mag": 11.662,
+   "reference": {
+    "pm_east": 1112.662,
+    "pm_north": -1853.86,
+    "plx": 86.2932,
+    "source": "SIMBAD",
+    "bibcode": "2020yCat.1350....0G"
+   },
+   "exposures": 358,
+   "overflow": 0,
+   "clean": 337,
+   "epochs": 3,
+   "usable": 329,
+   "usable_per_epoch": [
+    109,
+    111,
+    109
+   ],
+   "passes_selection": true,
+   "fit": {
+    "t0_year": 2026.0736,
+    "aligned_to_field_stars": true,
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "n_used": 309,
+      "pm_east": 1091.16,
+      "pm_east_err": 45.62,
+      "pm_east_diff": -21.5,
+      "pm_east_within2": true,
+      "pm_north": -1816.69,
+      "pm_north_err": 41.12,
+      "pm_north_diff": 37.17,
+      "pm_north_within2": true,
+      "plx": 100.36,
+      "plx_err": 22.12,
+      "plx_diff": 14.07,
+      "plx_within2": true,
+      "pm_both_within2": true
+     },
+     {
+      "id": "psf",
+      "label": "ePSF fit",
+      "n_used": 312,
+      "pm_east": 1144.14,
+      "pm_east_err": 35.27,
+      "pm_east_diff": 31.48,
+      "pm_east_within2": true,
+      "pm_north": -1869.88,
+      "pm_north_err": 38.5,
+      "pm_north_diff": -16.02,
+      "pm_north_within2": true,
+      "plx": 95.47,
+      "plx_err": 15.49,
+      "plx_diff": 9.18,
+      "plx_within2": true,
+      "pm_both_within2": true
+     }
+    ],
+    "source": "data/astrometry/2mass-j02511490-0352459_fit_wide_aligned.json",
+    "log": "logs/fit_motion_2mass-j02511490-0352459_wide_aligned.log"
+   }
+  },
+  {
+   "slug": "g-221-5",
+   "name": "G 221-5",
+   "sp_type": "M5V",
+   "k_mag": 9.083,
+   "reference": {
+    "pm_east": 1825.649,
+    "pm_north": -1074.927,
+    "plx": 82.6606,
+    "source": "SIMBAD",
+    "bibcode": "2020yCat.1350....0G"
+   },
+   "exposures": 368,
+   "overflow": 85,
+   "clean": 238,
+   "epochs": 3,
+   "usable": 234,
+   "usable_per_epoch": [
+    73,
+    72,
+    89
+   ],
+   "passes_selection": true,
+   "fit": {
+    "t0_year": 2026.1765,
+    "aligned_to_field_stars": true,
+    "methods": [
+     {
+      "id": "win",
+      "label": "Windowed centroid",
+      "n_used": 233,
+      "pm_east": 1808.37,
+      "pm_east_err": 28.95,
+      "pm_east_diff": -17.28,
+      "pm_east_within2": true,
+      "pm_north": -1125.32,
+      "pm_north_err": 32.65,
+      "pm_north_diff": -50.39,
+      "pm_north_within2": true,
+      "plx": 98.86,
+      "plx_err": 12.53,
+      "plx_diff": 16.2,
+      "plx_within2": true,
+      "pm_both_within2": true
+     },
+     {
+      "id": "psf",
+      "label": "ePSF fit",
+      "n_used": 228,
+      "pm_east": 1847.8,
+      "pm_east_err": 20.76,
+      "pm_east_diff": 22.15,
+      "pm_east_within2": true,
+      "pm_north": -1079.96,
+      "pm_north_err": 17.6,
+      "pm_north_diff": -5.03,
+      "pm_north_within2": true,
+      "plx": 83.46,
+      "plx_err": 9.59,
+      "plx_diff": 0.8,
+      "plx_within2": true,
+      "pm_both_within2": true
+     }
+    ],
+    "source": "data/astrometry/g-221-5_fit_wide_aligned.json",
+    "log": "logs/fit_motion_g-221-5_wide_aligned.log"
+   }
+  }
+ ]
+}

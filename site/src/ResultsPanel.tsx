@@ -66,18 +66,56 @@ export function NeighbourNote({ nb }: { nb: Neighbour }) {
     )
 }
 
+// "22% (windowed centroid) and 5% (ePSF fit) above" if both estimators are on the same side of the
+// reference, else one side per estimator, each labelled with its method.
+function plxSide(ms: { label: string; pct: number }[]): string {
+    const above = ms.every((m) => m.pct >= 0)
+    const below = ms.every((m) => m.pct < 0)
+    if (above || below)
+        return `${ms.map((m) => `${f(Math.abs(m.pct), 0)}% (${m.label})`).join(' and ')} ${above ? 'above' : 'below'}`
+    return ms.map((m) => `${f(Math.abs(m.pct), 0)}% ${m.pct >= 0 ? 'above' : 'below'} (${m.label})`).join(' and ')
+}
+
 export default function ResultsPanel({ r }: { r: Results }) {
     const sat = r.saturation
     const saturated = sat !== null && sat.overflow > sat.exposures / 2
     const fit = r.fit
     const sm = r.stack_motion
     const pe = r.per_exposure_fit
+    const nf = r.fit_not_shown ?? null
+    const off = r.off_target ?? null
+    const hasLoo = fit !== null && fit.methods.every((m) => m.plx_loo_min !== null && m.plx_loo_max !== null)
 
     return (
         <section className="results">
             <h3>Measured</h3>
 
-            {saturated && sat && (
+            {off && (
+                <p className="warn">
+                    <b>The bright source next to the amber marker is not at the catalogue position of the target.</b>{' '}
+                    Its centroid on the stacks lies {off.offset_arcsec.map((v) => f(v)).join(', ')} arcsec from the
+                    catalogue position in the {off.offset_arcsec.length} epochs (more than {f(off.limit_arcsec, 0)}{' '}
+                    arcsec counts as another source). The amber marker is the catalogue position.
+                </p>
+            )}
+
+            {saturated && sat && fit && (
+                <p className="warn">
+                    The OVERFLOW flag is set at the target position in {sat.overflow} of {sat.exposures} exposures.
+                    The fit below uses only exposures with an unsaturated core.
+                </p>
+            )}
+
+            {nf && (
+                <p className="warn">
+                    No motion fit is shown for this target: {nf.usable} of {nf.exposures} exposures have a clean core
+                    measured by both position methods ({nf.usable_per_epoch.join(', ')} in the{' '}
+                    {nf.usable_per_epoch.length} epochs). The rule is at least {nf.min_exposures} exposures, in at
+                    least {nf.min_epochs} epochs of at least {nf.min_per_epoch}.
+                </p>
+            )}
+
+            {saturated && sat && !fit && (
                 <p className="warn">
                     Saturated target: the OVERFLOW flag is set at the target position in {sat.overflow} of{' '}
                     {sat.exposures} exposures. Too few exposures have an unsaturated core to measure a motion,
@@ -151,10 +189,20 @@ export default function ResultsPanel({ r }: { r: Results }) {
                         </tbody>
                     </table>
                     <p className="warn">
-                        The measured parallax is {fit.methods.map((m) => f(m.plx_excess_pct, 0) + '%').join(' and ')} above
-                        the {fit.reference.source} value. The ± values are statistical only (bootstrap over exposures);
-                        leaving one epoch out moves the parallax between{' '}
-                        {fit.methods.map((m) => `${f(m.plx_loo_min ?? m.plx, 0)}–${f(m.plx_loo_max ?? m.plx, 0)}`).join(' and ')} mas.
+                        The measured parallax is{' '}
+                        {plxSide(fit.methods.map((m) => ({ label: m.label, pct: m.plx_excess_pct })))} the{' '}
+                        {fit.reference.source} value. The ± values are statistical only (bootstrap over exposures)
+                        {hasLoo ? (
+                            <>
+                                ; leaving one epoch out moves the parallax between{' '}
+                                {fit.methods
+                                    .map((m) => `${f(m.plx_loo_min ?? m.plx, 0)}–${f(m.plx_loo_max ?? m.plx, 0)}`)
+                                    .join(' and ')}{' '}
+                                mas.
+                            </>
+                        ) : (
+                            <>; there are too few epochs to repeat the fit with one epoch left out.</>
+                        )}
                     </p>
                     <p className="detail">
                         Positions are aligned to Gaia DR3 field stars exposure by exposure. The arrow on the stacked
@@ -213,7 +261,7 @@ export default function ResultsPanel({ r }: { r: Results }) {
                 </p>
             )}
 
-            {!saturated && !fit && !sm && (
+            {!saturated && !fit && !sm && !nf && (
                 <p className="detail">No position or motion measurement has been made for this target.</p>
             )}
         </section>

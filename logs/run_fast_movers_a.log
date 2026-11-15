@@ -1,0 +1,16 @@
+2026-11-15 02:58:05 omi02-eri-b target_astrometry exit=0 secs=31
+2026-11-15 03:04:09 omi02-eri-b field_astrometry exit=0 secs=364
+2026-11-15 03:04:12 omi02-eri-b fit_motion exit=0 secs=2
+2026-11-15 03:04:33 ssspm-j1444-2019 target_astrometry exit=0 secs=21
+2026-11-15 03:10:35 ssspm-j1444-2019 field_astrometry exit=0 secs=362
+2026-11-15 03:10:37 ssspm-j1444-2019 fit_motion exit=0 secs=2
+2026-11-15 03:10:52 wolf-28 target_astrometry exit=0 secs=15
+2026-11-15 03:13:12 wolf-28 field_astrometry exit=0 secs=140
+2026-11-15 03:13:14 wolf-28 fit_motion exit=0 secs=2
+2026-11-15 03:13:44 lawd-37 target_astrometry exit=0 secs=30
+2026-11-15 03:18:33 lawd-37 field_astrometry exit=0 secs=290
+2026-11-15 03:18:37 lawd-37 fit_motion exit=0 secs=3
+2026-11-15 03:18:55 g-275-92 target_astrometry exit=0 secs=18
+2026-11-15 03:22:07 g-275-92 field_astrometry exit=0 secs=192
+2026-11-15 03:22:09 g-275-92 fit_motion exit=0 secs=2
+2026-11-15 03:22:09 DONE

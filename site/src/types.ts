@@ -8,6 +8,7 @@ export type TargetEntry = {
     sp_type?: string
     n_exposures?: number
     n_epochs?: number
+    set?: string // "fast": one of the ten fast movers added as a test of the fit
 }
 
 export type Epoch = {
@@ -126,6 +127,17 @@ export type Results = {
         core_filled: number | null
     } | null
     fit: Fit | null
+    // fast mover whose fit is not shown: too few usable exposures (pipeline/fast_movers_table.py)
+    fit_not_shown?: {
+        usable: number
+        usable_per_epoch: number[]
+        exposures: number
+        min_exposures: number
+        min_epochs: number
+        min_per_epoch: number
+    } | null
+    // fast mover: the brightest source near the marker is not at the catalogue position (per epoch, arcsec)
+    off_target?: { offset_arcsec: number[]; limit_arcsec: number } | null
     stack_motion: StackMotion | null
     per_exposure_fit: PerExposureFit | null
     flicker: Flicker | null

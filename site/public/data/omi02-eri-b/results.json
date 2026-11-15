@@ -1,0 +1,42 @@
+{
+ "slug": "omi02-eri-b",
+ "saturation": {
+  "overflow": 399,
+  "exposures": 432,
+  "source": "data/astrometry/omi02-eri-b_target_wide.csv",
+  "core_empty": null,
+  "core_filled": null
+ },
+ "fit": null,
+ "off_target": {
+  "offset_arcsec": [
+   8.0,
+   7.8,
+   7.93
+  ],
+  "limit_arcsec": 3.0
+ },
+ "fit_not_shown": {
+  "usable": 8,
+  "usable_per_epoch": [
+   3,
+   1,
+   4
+  ],
+  "exposures": 432,
+  "min_exposures": 30,
+  "min_epochs": 3,
+  "min_per_epoch": 5
+ },
+ "stack_motion": null,
+ "per_exposure_fit": null,
+ "flicker": null,
+ "raw_dropped": {
+  "dropped": 17,
+  "total": 432,
+  "max_masked_fraction": 0.2
+ },
+ "has_diff": false,
+ "default_band": "all",
+ "compare_bands": null
+}

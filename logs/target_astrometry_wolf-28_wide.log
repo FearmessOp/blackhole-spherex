@@ -1,0 +1,16 @@
+wolf-28_wide: manifest=328 on_disk=328; starting point = SIMBAD pm=(1231.399, -2711.883) mas/yr plx=231.78 mas
+exposures=328 -> C:\Users\user\blackhole-spherex\data\astrometry\wolf-28_target_wide.csv
+flags in the central 3x3 px (exposures with the flag): {'SOURCE': 328, 'NONFUNC': 11, 'TRANSIENT': 9, 'SUR_ERROR': 7, 'HALO': 6, 'DICHROIC': 3, 'PERSIST': 2, 'COLD': 1}
+saturation: OVERFLOW in 0 of 328 exposures; clean core (none of ['OVERFLOW', 'SUR_ERROR', 'NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'NONLINEAR', 'SNOWBALL', 'TRANSIENT'], no NaN): 315 of 328; usable rows (clean=1): 315; of these measured by both methods within 1.5 px of the starting point: 307
+--- by epoch and collection: offset from the starting point, arcsec, median (1.4826 MAD)
+(0, 'spherex_dr1'): exposures=104 usable=95 median_snr=87 de_win=+0.342 (0.237) dn_win=+0.564 (0.351) de_psf=-0.044 (0.163) dn_psf=+0.038 (0.150)
+(1, 'spherex_dr1'): exposures=112 usable=106 median_snr=85 de_win=+0.160 (0.297) dn_win=+0.336 (0.319) de_psf=+0.058 (0.182) dn_psf=+0.017 (0.189)
+(2, 'spherex_qr3'): exposures=112 usable=106 median_snr=74 de_win=+0.201 (0.224) dn_win=+0.471 (0.305) de_psf=-0.025 (0.191) dn_psf=+0.004 (0.164)
+--- by detector: offset from the starting point, arcsec, median (1.4826 MAD)
+D1: exposures=56 usable=54 median_snr=129 de_win=+0.178 (0.202) dn_win=+0.207 (0.356) de_psf=-0.013 (0.123) dn_psf=-0.003 (0.105)
+D2: exposures=56 usable=56 median_snr=121 de_win=+0.174 (0.259) dn_win=+0.335 (0.412) de_psf=-0.019 (0.173) dn_psf=-0.044 (0.130)
+D3: exposures=52 usable=48 median_snr=97 de_win=+0.304 (0.407) dn_win=+0.456 (0.423) de_psf=+0.013 (0.188) dn_psf=+0.076 (0.179)
+D4: exposures=56 usable=52 median_snr=64 de_win=+0.309 (0.210) dn_win=+0.636 (0.258) de_psf=-0.025 (0.175) dn_psf=+0.042 (0.176)
+D5: exposures=56 usable=51 median_snr=26 de_win=+0.250 (0.239) dn_win=+0.589 (0.254) de_psf=-0.030 (0.206) dn_psf=+0.040 (0.211)
+D6: exposures=52 usable=46 median_snr=18 de_win=+0.287 (0.297) dn_win=+0.455 (0.277) de_psf=+0.020 (0.270) dn_psf=-0.021 (0.305)
+windowed centroid versus ePSF fit, same exposure: median separation 0.549 arcsec, 90th percentile 0.943

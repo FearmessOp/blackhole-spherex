@@ -662,3 +662,24 @@ button:disabled:hover {
     stroke: #000;
     stroke-width: 0.36;
 }
+
+/* Heading over the second group of target cards (fast movers) */
+.cards-title {
+    margin: 0 0 6px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* A button that reads as a link (target names in the fast-mover table) */
+button.link {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--accent);
+    font-size: inherit;
+    text-align: left;
+    text-decoration: underline;
+}

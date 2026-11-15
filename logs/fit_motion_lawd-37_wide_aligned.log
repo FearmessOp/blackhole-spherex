@@ -1,0 +1,27 @@
+methods=('win', 'psf') ignore_clean=False align=wide align_with=same estimator
+alignment: lawd-37_field_wide.csv; exposures with at least 5 field stars: 485 of 485; target exposures kept 426 of 426
+lawd-37_wide: input=lawd-37_target_wide.csv exposures=426 detectors=all epochs=[0, 1, 2] span=60856.8..61269.7 MJD t0=2026.0446
+reference (SIMBAD, 2020yCat.1350....0G): pm_east=2661.64 pm_north=-344.933 mas/yr plx=215.6753 mas
+alignment applied (win): median correction east=+10 north=-90 mas; scatter between exposures east=172 north=168 mas
+--- method=win: used=421 of 426 (clipped 5); residual rms east=275 north=464 mas
+e0_mas = -236.0 +- 14.7
+n0_mas = -635.8 +- 22.8
+pm_east_masyr = +2675.5 +- 32.4   SIMBAD +2661.6   difference +13.8 (0.4 x bootstrap error)
+pm_north_masyr = -333.4 +- 58.0   SIMBAD -344.9   difference +11.5 (0.2 x bootstrap error)
+plx_mas = +206.8 +- 16.4   SIMBAD +215.7   difference -8.9 (0.5 x bootstrap error)
+leave-one-epoch-out: not done, only 3 epochs
+epoch 0: n=128 mean residual east=+4 north=-6 mas
+epoch 1: n=170 mean residual east=-7 north=+19 mas
+epoch 2: n=123 mean residual east=+5 north=-19 mas
+alignment applied (psf): median correction east=+34 north=-6 mas; scatter between exposures east=158 north=113 mas
+--- method=psf: used=395 of 426 (clipped 31); residual rms east=185 north=188 mas
+e0_mas = -81.9 +- 9.5
+n0_mas = -73.8 +- 9.4
+pm_east_masyr = +2724.7 +- 23.2   SIMBAD +2661.6   difference +63.1 (2.7 x bootstrap error)
+pm_north_masyr = -364.1 +- 25.8   SIMBAD -344.9   difference -19.1 (0.7 x bootstrap error)
+plx_mas = +209.5 +- 10.1   SIMBAD +215.7   difference -6.2 (0.6 x bootstrap error)
+leave-one-epoch-out: not done, only 3 epochs
+epoch 0: n=120 mean residual east=-3 north=-8 mas
+epoch 1: n=161 mean residual east=+7 north=+12 mas
+epoch 2: n=114 mean residual east=-6 north=-9 mas
+wrote C:\Users\user\blackhole-spherex\data\astrometry\lawd-37_fit_wide_aligned.json

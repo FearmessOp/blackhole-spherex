@@ -1,0 +1,16 @@
+2026-11-15 02:58:01 lp-651-7 target_astrometry exit=0 secs=27
+2026-11-15 03:01:32 lp-651-7 field_astrometry exit=0 secs=211
+2026-11-15 03:01:36 lp-651-7 fit_motion exit=0 secs=4
+2026-11-15 03:02:03 lehpm-3396 target_astrometry exit=0 secs=27
+2026-11-15 03:05:49 lehpm-3396 field_astrometry exit=0 secs=226
+2026-11-15 03:05:52 lehpm-3396 fit_motion exit=0 secs=3
+2026-11-15 03:06:10 lsr-j1826-3014 target_astrometry exit=0 secs=18
+2026-11-15 03:10:45 lsr-j1826-3014 field_astrometry exit=0 secs=274
+2026-11-15 03:10:47 lsr-j1826-3014 fit_motion exit=0 secs=2
+2026-11-15 03:11:06 2mass-j02511490-0352459 target_astrometry exit=0 secs=19
+2026-11-15 03:13:54 2mass-j02511490-0352459 field_astrometry exit=0 secs=168
+2026-11-15 03:14:00 2mass-j02511490-0352459 fit_motion exit=0 secs=5
+2026-11-15 03:14:18 g-221-5 target_astrometry exit=0 secs=18
+2026-11-15 03:17:57 g-221-5 field_astrometry exit=0 secs=220
+2026-11-15 03:18:01 g-221-5 fit_motion exit=0 secs=3
+2026-11-15 03:18:01 DONE

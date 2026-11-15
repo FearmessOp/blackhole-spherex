@@ -1,0 +1,73 @@
+{
+ "slug": "lehpm-3396",
+ "saturation": {
+  "overflow": 1,
+  "exposures": 374,
+  "source": "data/astrometry/lehpm-3396_target_wide.csv",
+  "core_empty": null,
+  "core_filled": null
+ },
+ "fit": {
+  "t0_year": 2026.0399,
+  "aligned_to_field_stars": true,
+  "reference": {
+   "pm_east": 2360.592,
+   "pm_north": 483.128,
+   "plx": 112.61,
+   "source": "SIMBAD",
+   "bibcode": "2020yCat.1350....0G"
+  },
+  "methods": [
+   {
+    "id": "win",
+    "label": "Windowed centroid",
+    "n_used": 314,
+    "pm_east": 2387.76,
+    "pm_east_err": 42.93,
+    "pm_north": 516.2,
+    "pm_north_err": 33.77,
+    "plx": 140.6,
+    "plx_err": 18.05,
+    "plx_loo_min": null,
+    "plx_loo_max": null,
+    "plx_excess_pct": 24.9
+   },
+   {
+    "id": "psf",
+    "label": "ePSF fit",
+    "n_used": 306,
+    "pm_east": 2343.49,
+    "pm_east_err": 26.13,
+    "pm_north": 513.13,
+    "pm_north_err": 19.68,
+    "plx": 121.35,
+    "plx_err": 9.82,
+    "plx_loo_min": null,
+    "plx_loo_max": null,
+    "plx_excess_pct": 7.8
+   }
+  ],
+  "arrow": {
+   "x": 14.119,
+   "y": 13.981,
+   "span_years": 1.0,
+   "dx": -0.381,
+   "dy": -0.083,
+   "method": "psf"
+  },
+  "source": "data/astrometry/lehpm-3396_fit_wide_aligned.json"
+ },
+ "off_target": null,
+ "fit_not_shown": null,
+ "stack_motion": null,
+ "per_exposure_fit": null,
+ "flicker": null,
+ "raw_dropped": {
+  "dropped": 29,
+  "total": 374,
+  "max_masked_fraction": 0.2
+ },
+ "has_diff": false,
+ "default_band": "all",
+ "compare_bands": null
+}

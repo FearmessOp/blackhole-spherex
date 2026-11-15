@@ -1,0 +1,44 @@
+{
+ "slug": "ssspm-j1444-2019",
+ "t0_year": 2026.057,
+ "reference": [
+  -2908.634,
+  -1960.916,
+  58.1427
+ ],
+ "win": {
+  "n_used": 318,
+  "values": {
+   "e0_mas": -51.79,
+   "n0_mas": 37.61,
+   "pm_east_masyr": -2893.76,
+   "pm_north_masyr": -1959.16,
+   "plx_mas": 67.74
+  },
+  "bootstrap_err": {
+   "e0_mas": 14.85,
+   "n0_mas": 16.97,
+   "pm_east_masyr": 32.62,
+   "pm_north_masyr": 40.5,
+   "plx_mas": 16.08
+  }
+ },
+ "psf": {
+  "n_used": 306,
+  "values": {
+   "e0_mas": -3.78,
+   "n0_mas": -12.25,
+   "pm_east_masyr": -2881.53,
+   "pm_north_masyr": -1934.59,
+   "plx_mas": 55.01
+  },
+  "bootstrap_err": {
+   "e0_mas": 11.86,
+   "n0_mas": 11.18,
+   "pm_east_masyr": 24.56,
+   "pm_north_masyr": 25.71,
+   "plx_mas": 13.01
+  }
+ },
+ "aligned_to_field_stars": true
+}

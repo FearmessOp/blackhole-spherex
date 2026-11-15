@@ -1,0 +1,73 @@
+{
+ "slug": "lawd-37",
+ "saturation": {
+  "overflow": 0,
+  "exposures": 486,
+  "source": "data/astrometry/lawd-37_target_wide.csv",
+  "core_empty": null,
+  "core_filled": null
+ },
+ "fit": {
+  "t0_year": 2026.0446,
+  "aligned_to_field_stars": true,
+  "reference": {
+   "pm_east": 2661.64,
+   "pm_north": -344.933,
+   "plx": 215.6753,
+   "source": "SIMBAD",
+   "bibcode": "2020yCat.1350....0G"
+  },
+  "methods": [
+   {
+    "id": "win",
+    "label": "Windowed centroid",
+    "n_used": 421,
+    "pm_east": 2675.47,
+    "pm_east_err": 32.39,
+    "pm_north": -333.4,
+    "pm_north_err": 57.98,
+    "plx": 206.82,
+    "plx_err": 16.36,
+    "plx_loo_min": null,
+    "plx_loo_max": null,
+    "plx_excess_pct": -4.1
+   },
+   {
+    "id": "psf",
+    "label": "ePSF fit",
+    "n_used": 395,
+    "pm_east": 2724.73,
+    "pm_east_err": 23.22,
+    "pm_north": -364.08,
+    "pm_north_err": 25.78,
+    "plx": 209.49,
+    "plx_err": 10.08,
+    "plx_loo_min": null,
+    "plx_loo_max": null,
+    "plx_excess_pct": -2.9
+   }
+  ],
+  "arrow": {
+   "x": 14.3,
+   "y": 14.146,
+   "span_years": 0.998,
+   "dx": -0.442,
+   "dy": 0.059,
+   "method": "psf"
+  },
+  "source": "data/astrometry/lawd-37_fit_wide_aligned.json"
+ },
+ "off_target": null,
+ "fit_not_shown": null,
+ "stack_motion": null,
+ "per_exposure_fit": null,
+ "flicker": null,
+ "raw_dropped": {
+  "dropped": 14,
+  "total": 486,
+  "max_masked_fraction": 0.2
+ },
+ "has_diff": false,
+ "default_band": "all",
+ "compare_bands": null
+}

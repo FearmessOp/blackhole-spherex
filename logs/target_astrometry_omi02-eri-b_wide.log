@@ -1,0 +1,16 @@
+omi02-eri-b_wide: manifest=432 on_disk=432; starting point = SIMBAD pm=(-2236.169, -3338.955) mas/yr plx=199.6911 mas
+exposures=432 -> C:\Users\user\blackhole-spherex\data\astrometry\omi02-eri-b_target_wide.csv
+flags in the central 3x3 px (exposures with the flag): {'SOURCE': 426, 'OVERFLOW': 399, 'TRANSIENT': 286, 'BLOOM': 284, 'SUR_ERROR': 281, 'NONFUNC': 10, 'PERSIST': 6, 'HALO': 3, 'DICHROIC': 2, 'STREAK': 1}
+saturation: OVERFLOW in 399 of 432 exposures; clean core (none of ['OVERFLOW', 'SUR_ERROR', 'NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'NONLINEAR', 'SNOWBALL', 'TRANSIENT'], no NaN): 8 of 432; usable rows (clean=1): 8; of these measured by both methods within 1.5 px of the starting point: 8
+--- by epoch and collection: offset from the starting point, arcsec, median (1.4826 MAD)
+(0, 'spherex_dr1'): exposures=134 usable=3 median_snr=222 de_win=-3.848 (0.335) dn_win=+6.519 (0.199) de_psf=-4.227 (0.282) dn_psf=+6.444 (0.279)
+(1, 'spherex_dr1'): exposures=139 usable=1
+(2, 'spherex_qr3'): exposures=159 usable=4 median_snr=195 de_win=-3.990 (0.102) dn_win=+6.351 (0.096) de_psf=-4.175 (0.069) dn_psf=+6.392 (0.206)
+--- by detector: offset from the starting point, arcsec, median (1.4826 MAD)
+D1: exposures=61 usable=0
+D2: exposures=92 usable=0
+D3: exposures=64 usable=0
+D4: exposures=61 usable=0
+D5: exposures=90 usable=0
+D6: exposures=64 usable=8 median_snr=203 de_win=-3.990 (0.149) dn_win=+6.351 (0.166) de_psf=-4.193 (0.069) dn_psf=+6.393 (0.206)
+windowed centroid versus ePSF fit, same exposure: median separation 0.184 arcsec, 90th percentile 1.006

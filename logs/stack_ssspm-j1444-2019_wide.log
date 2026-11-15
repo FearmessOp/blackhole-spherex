@@ -1,0 +1,49 @@
+ssspm-j1444-2019: manifest=347 on_disk=347 missing=0
+working grid: 29x29 px, 6.15 arcsec/px, centre=(221.0622968, -20.3379343) at MJD 61058.882; masked flags=['NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'SNOWBALL']
+frames loaded=347 of 347; wavelength outside SIA detector range: 0
+files where a masked flag plane is not declared in the header: {'SNOWBALL': 19}
+output grid: 29x29 px, cropped from 29x29 (every stack has at least half of its frames on every pixel)
+epoch 0: 2025-07-02T13:56 .. 2025-08-17T07:19 n=119 predicted_px=(13.76, 14.16) measured_px=(13.82, 14.18) offset_arcsec={'east': -0.35, 'north': 0.09, 'total': 0.36} on_target=True
+epoch 1: 2026-01-28T04:48 .. 2026-02-15T04:39 n=112 predicted_px=(14.02, 13.99) measured_px=(13.98, 13.98) offset_arcsec={'east': 0.23, 'north': -0.03, 'total': 0.23} on_target=True
+epoch 2: 2026-07-02T13:32 .. 2026-08-06T19:12 n=116 predicted_px=(14.23, 13.85) measured_px=(14.28, 13.86) offset_arcsec={'east': -0.34, 'north': 0.09, 'total': 0.36} on_target=True
+shift epoch 0 -> 2 (measured): east=-2.87 north=-1.92 total=3.45 arcsec
+shift epoch 0 -> 2 (predicted): east=-2.87 north=-1.93 total=3.46 arcsec
+band all epoch 0: n=119 wave=0.7486..5.0067 um min_coverage=115 -> all_e0.png
+band all epoch 1: n=112 wave=0.7391..4.9994 um min_coverage=106 -> all_e1.png
+band all epoch 2: n=116 wave=0.7419..4.9853 um min_coverage=111 -> all_e2.png
+band all scale: vmin=-0.01491 vmax=2.338 soft=0.01737 MJy/sr
+band d123 epoch 0: n=60 wave=0.7486..2.417 um min_coverage=57 -> d123_e0.png
+band d123 epoch 1: n=56 wave=0.7391..2.4089 um min_coverage=53 -> d123_e1.png
+band d123 epoch 2: n=58 wave=0.7419..2.3905 um min_coverage=55 -> d123_e2.png
+band d123 scale: vmin=-0.0159 vmax=2.978 soft=0.01754 MJy/sr
+band d56 epoch 0: n=39 wave=3.8362..5.0067 um min_coverage=36 -> d56_e0.png
+band d56 epoch 1: n=37 wave=3.8443..4.9994 um min_coverage=35 -> d56_e1.png
+band d56 epoch 2: n=39 wave=3.815..4.9853 um min_coverage=36 -> d56_e2.png
+band d56 scale: vmin=-0.01825 vmax=1.581 soft=0.02441 MJy/sr
+band d1 epoch 0: n=21 wave=0.7486..1.1221 um min_coverage=19 -> d1_e0.png
+band d1 epoch 1: n=19 wave=0.7391..1.1088 um min_coverage=17 -> d1_e1.png
+band d1 epoch 2: n=19 wave=0.7419..1.112 um min_coverage=17 -> d1_e2.png
+band d1 scale: vmin=-0.01733 vmax=1.835 soft=0.02035 MJy/sr
+band d2 epoch 0: n=18 wave=1.1126..1.6323 um min_coverage=17 -> d2_e0.png
+band d2 epoch 1: n=18 wave=1.1188..1.6438 um min_coverage=17 -> d2_e1.png
+band d2 epoch 2: n=19 wave=1.096..1.6474 um min_coverage=17 -> d2_e2.png
+band d2 scale: vmin=-0.01784 vmax=3.951 soft=0.02168 MJy/sr
+band d3 epoch 0: n=21 wave=1.6331..2.417 um min_coverage=19 -> d3_e0.png
+band d3 epoch 1: n=19 wave=1.6258..2.4089 um min_coverage=17 -> d3_e1.png
+band d3 epoch 2: n=20 wave=1.6474..2.3905 um min_coverage=19 -> d3_e2.png
+band d3 scale: vmin=-0.01798 vmax=3.284 soft=0.02174 MJy/sr
+band d4 epoch 0: n=20 wave=2.4386..3.7591 um min_coverage=19 -> d4_e0.png
+band d4 epoch 1: n=19 wave=2.4148..3.8068 um min_coverage=16 -> d4_e1.png
+band d4 epoch 2: n=19 wave=2.423..3.8187 um min_coverage=17 -> d4_e2.png
+band d4 scale: vmin=-0.01506 vmax=2.052 soft=0.01953 MJy/sr
+band d5 epoch 0: n=18 wave=3.8362..4.409 um min_coverage=16 -> d5_e0.png
+band d5 epoch 1: n=18 wave=3.8443..4.4212 um min_coverage=16 -> d5_e1.png
+band d5 epoch 2: n=19 wave=3.815..4.4249 um min_coverage=17 -> d5_e2.png
+band d5 scale: vmin=-0.01917 vmax=1.994 soft=0.0261 MJy/sr
+band d6 epoch 0: n=21 wave=4.4193..5.0067 um min_coverage=18 -> d6_e0.png
+band d6 epoch 1: n=19 wave=4.4132..4.9994 um min_coverage=17 -> d6_e1.png
+band d6 epoch 2: n=20 wave=4.4312..4.9853 um min_coverage=18 -> d6_e2.png
+band d6 scale: vmin=-0.02413 vmax=1.251 soft=0.03359 MJy/sr
+raw playback: dropped 6 of 347 exposures with more than 20% of the pixels masked
+raw playback: 341 exposures -> raw.png (696x435 px, 24 per row), raw.json; scale vmin=-0.0408 vmax=3.131 soft=0.05973 MJy/sr
+wrote C:\Users\user\blackhole-spherex\site\public\data\ssspm-j1444-2019\meta.json and C:\Users\user\blackhole-spherex\site\public\data\index.json

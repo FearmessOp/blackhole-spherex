@@ -1,0 +1,21 @@
+g-275-92_wide: manifest=341 on_disk=341 gaia_sources=143 reference_stars=32 (brightest 40 with G<17.5, proper motion, isolated 20.0 arcsec; G range 10.76..17.49)
+measurements kept=5751 dropped={'NONFUNC': 91, 'SUR_ERROR': 275, 'no_win': 595, 'far': 428, 'TRANSIENT': 89, 'OVERFLOW': 181, 'no_psf': 1, 'SNOWBALL': 1} -> C:\Users\user\blackhole-spherex\data\astrometry\g-275-92_field_wide.csv
+--- by collection: median offset measured-Gaia, arcsec (scatter = 1.4826 MAD, err = error of the median)
+spherex_dr1: n=3779 stars=23 exposures=224 de_win=-0.013 (scatter 0.445, err 0.009) dn_win=+0.011 (scatter 0.452, err 0.009) de_psf=-0.005 (scatter 0.277, err 0.006) dn_psf=-0.007 (scatter 0.256, err 0.005)
+spherex_qr3: n=1972 stars=23 exposures=117 de_win=+0.052 (scatter 0.428, err 0.012) dn_win=+0.081 (scatter 0.458, err 0.013) de_psf=-0.037 (scatter 0.249, err 0.007) dn_psf=-0.021 (scatter 0.272, err 0.008)
+--- by epoch and collection: median offset measured-Gaia, arcsec (scatter = 1.4826 MAD, err = error of the median)
+(0, 'spherex_dr1'): n=1927 stars=23 exposures=113 de_win=+0.069 (scatter 0.421, err 0.012) dn_win=+0.065 (scatter 0.443, err 0.013) de_psf=-0.040 (scatter 0.274, err 0.008) dn_psf=-0.030 (scatter 0.271, err 0.008)
+(1, 'spherex_dr1'): n=1852 stars=23 exposures=111 de_win=-0.113 (scatter 0.436, err 0.013) dn_win=-0.053 (scatter 0.452, err 0.013) de_psf=+0.029 (scatter 0.269, err 0.008) dn_psf=+0.007 (scatter 0.249, err 0.007)
+(2, 'spherex_qr3'): n=1972 stars=23 exposures=117 de_win=+0.052 (scatter 0.428, err 0.012) dn_win=+0.081 (scatter 0.458, err 0.013) de_psf=-0.037 (scatter 0.249, err 0.007) dn_psf=-0.021 (scatter 0.272, err 0.008)
+--- by detector: median offset measured-Gaia, arcsec (scatter = 1.4826 MAD, err = error of the median)
+D1: n=1087 stars=23 exposures=57 de_win=+0.036 (scatter 0.331, err 0.013) dn_win=+0.030 (scatter 0.335, err 0.013) de_psf=-0.029 (scatter 0.199, err 0.008) dn_psf=-0.007 (scatter 0.200, err 0.008)
+D2: n=1104 stars=22 exposures=57 de_win=+0.002 (scatter 0.320, err 0.012) dn_win=+0.034 (scatter 0.362, err 0.014) de_psf=-0.018 (scatter 0.223, err 0.008) dn_psf=-0.005 (scatter 0.215, err 0.008)
+D3: n=1108 stars=22 exposures=57 de_win=+0.036 (scatter 0.423, err 0.016) dn_win=+0.036 (scatter 0.446, err 0.017) de_psf=+0.012 (scatter 0.254, err 0.010) dn_psf=+0.006 (scatter 0.222, err 0.008)
+D4: n=1039 stars=23 exposures=57 de_win=+0.008 (scatter 0.473, err 0.018) dn_win=+0.067 (scatter 0.537, err 0.021) de_psf=-0.028 (scatter 0.258, err 0.010) dn_psf=-0.037 (scatter 0.286, err 0.011)
+D5: n=767 stars=23 exposures=56 de_win=-0.083 (scatter 0.857, err 0.039) dn_win=+0.022 (scatter 0.703, err 0.032) de_psf=-0.064 (scatter 0.427, err 0.019) dn_psf=-0.022 (scatter 0.400, err 0.018)
+D6: n=646 stars=22 exposures=57 de_win=+0.025 (scatter 1.022, err 0.050) dn_win=-0.014 (scatter 0.983, err 0.048) de_psf=+0.018 (scatter 0.721, err 0.036) dn_psf=-0.032 (scatter 0.607, err 0.030)
+spherex_qr3 minus spherex_dr1 de_win: +0.066 +- 0.015 arcsec
+spherex_qr3 minus spherex_dr1 dn_win: +0.070 +- 0.016 arcsec
+spherex_qr3 minus spherex_dr1 de_psf: -0.032 +- 0.009 arcsec
+spherex_qr3 minus spherex_dr1 dn_psf: -0.014 +- 0.009 arcsec
+windowed centroid versus ePSF fit, same star and exposure: median separation 0.480 arcsec, 90th percentile 2.325

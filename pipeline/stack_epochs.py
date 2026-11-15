@@ -14,6 +14,7 @@ Sanity check written to the log: flux-weighted centroid of the target in each
 "all" stack versus the SIMBAD position propagated with proper motion only.
 
 Usage: .venv/Scripts/python.exe pipeline/stack_epochs.py barnard > logs/stack_barnard.log 2>&1
+       --tag wide reads cache/manifest/<slug>_wide.json (targets that only have the 0.2 deg cutouts)
 """
 import json
 import math
@@ -186,11 +187,17 @@ def write_png(stack, scale, path):
     Image.fromarray(to_la(stack, scale)).save(path)
 
 def main():
-    slug = sys.argv[1] if len(sys.argv) > 1 else "barnard"
+    args = sys.argv[1:]
+    tag = ""
+    if "--tag" in args:  # e.g. --tag wide: the 0.2 deg cutouts; the grid and the stacking are the same
+        i = args.index("--tag")
+        tag = "_" + args[i + 1]
+        del args[i:i + 2]
+    slug = args[0] if args else "barnard"
     targets = {t["slug"]: t for t in
                json.loads((ROOT / "data" / "targets.json").read_text(encoding="utf-8"))}
     target = targets[slug]
-    jobs = json.loads((ROOT / "cache" / "manifest" / f"{slug}.json").read_text(encoding="utf-8"))
+    jobs = json.loads((ROOT / "cache" / "manifest" / f"{slug}{tag}.json").read_text(encoding="utf-8"))
     have = [j for j in jobs if (ROOT / j["path"]).exists()]
     print(f"{slug}: manifest={len(jobs)} on_disk={len(have)} missing={len(jobs) - len(have)}")
     for j in jobs:

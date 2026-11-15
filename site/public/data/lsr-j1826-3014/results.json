@@ -1,0 +1,73 @@
+{
+ "slug": "lsr-j1826-3014",
+ "saturation": {
+  "overflow": 2,
+  "exposures": 419,
+  "source": "data/astrometry/lsr-j1826-3014_target_wide.csv",
+  "core_empty": null,
+  "core_filled": null
+ },
+ "fit": {
+  "t0_year": 2026.2192,
+  "aligned_to_field_stars": true,
+  "reference": {
+   "pm_east": -2290.752,
+   "pm_north": -683.274,
+   "plx": 90.0858,
+   "source": "SIMBAD",
+   "bibcode": "2020yCat.1350....0G"
+  },
+  "methods": [
+   {
+    "id": "win",
+    "label": "Windowed centroid",
+    "n_used": 388,
+    "pm_east": -2227.95,
+    "pm_east_err": 27.16,
+    "pm_north": -652.09,
+    "pm_north_err": 33.02,
+    "plx": 127.39,
+    "plx_err": 13.29,
+    "plx_loo_min": 43.79,
+    "plx_loo_max": 218.2,
+    "plx_excess_pct": 41.4
+   },
+   {
+    "id": "psf",
+    "label": "ePSF fit",
+    "n_used": 381,
+    "pm_east": -2283.87,
+    "pm_east_err": 15.36,
+    "pm_north": -661.73,
+    "pm_north_err": 13.77,
+    "plx": 104.47,
+    "plx_err": 8.99,
+    "plx_loo_min": -2.93,
+    "plx_loo_max": 105.49,
+    "plx_excess_pct": 16.0
+   }
+  ],
+  "arrow": {
+   "x": 13.822,
+   "y": 13.938,
+   "span_years": 1.001,
+   "dx": 0.372,
+   "dy": 0.108,
+   "method": "psf"
+  },
+  "source": "data/astrometry/lsr-j1826-3014_fit_wide_aligned.json"
+ },
+ "off_target": null,
+ "fit_not_shown": null,
+ "stack_motion": null,
+ "per_exposure_fit": null,
+ "flicker": null,
+ "raw_dropped": {
+  "dropped": 5,
+  "total": 419,
+  "max_masked_fraction": 0.2
+ },
+ "has_diff": false,
+ "default_band": "all",
+ "compare_bands": null
+}

@@ -1,0 +1,44 @@
+{
+ "slug": "omi02-eri-b",
+ "t0_year": 2026.209,
+ "reference": [
+  -2236.169,
+  -3338.955,
+  199.6911
+ ],
+ "win": {
+  "n_used": 8,
+  "values": {
+   "e0_mas": -3944.4,
+   "n0_mas": 6608.92,
+   "pm_east_masyr": -1902.5,
+   "pm_north_masyr": -3920.2,
+   "plx_mas": 610.12
+  },
+  "bootstrap_err": {
+   "e0_mas": 1208331.94,
+   "n0_mas": 843423.49,
+   "pm_east_masyr": 7058769.11,
+   "pm_north_masyr": 2295206.84,
+   "plx_mas": 1995493.57
+  }
+ },
+ "psf": {
+  "n_used": 7,
+  "values": {
+   "e0_mas": -4229.69,
+   "n0_mas": 6319.47,
+   "pm_east_masyr": -2144.35,
+   "pm_north_masyr": -3427.05,
+   "plx_mas": 414.51
+  },
+  "bootstrap_err": {
+   "e0_mas": 15707162.11,
+   "n0_mas": 29732138.44,
+   "pm_east_masyr": 10077329.03,
+   "pm_north_masyr": 59048124.95,
+   "plx_mas": 20243430.76
+  }
+ },
+ "aligned_to_field_stars": true
+}

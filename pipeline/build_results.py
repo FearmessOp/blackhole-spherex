@@ -12,6 +12,8 @@ import statistics
 import sys
 from pathlib import Path
 
+from stack_epochs import ON_TARGET_ARCSEC  # a stack centroid further than this from the prediction is not the target
+
 ROOT = Path(__file__).resolve().parent.parent
 AST = ROOT / "data" / "astrometry"
 SITE = ROOT / "site" / "public" / "data"
@@ -27,6 +29,8 @@ def load(path):
 
 def saturation(slug):
     name = SAT_SRC.get(slug)
+    if not name and (AST / f"{slug}_target_wide.csv").exists():
+        name = f"{slug}_target_wide.csv"  # fast movers: only the 0.2 deg cutouts exist
     if not name or not (AST / name).exists():
         return None
     rows = list(csv.DictReader((AST / name).open(encoding="utf-8")))
@@ -43,9 +47,17 @@ def saturation(slug):
               f"core counts not used")
     return res
 
-def motion_fit(slug, meta):
-    fit = load(AST / f"{slug}_fit_aligned.json")
-    if not fit or slug != "eps-indi-b":  # the Barnard fit exists but is not usable
+def motion_fit(slug, meta, fast_row=None):
+    """fast_row: the target's row in data/fast_movers.json (fast movers only).
+
+    A fast mover's fit is shown only if the target passes the selection of
+    fast_movers_table.py; of the first five targets only Epsilon Indi B has a usable fit.
+    """
+    name = f"{slug}_fit_wide_aligned.json" if fast_row else f"{slug}_fit_aligned.json"
+    fit = load(AST / name)
+    if fast_row and not fast_row["passes_selection"]:
+        return None
+    if not fit or not (fast_row or slug == "eps-indi-b"):  # the Barnard fit exists but is not usable
         return None
     ref = fit["reference"]
     methods = []
@@ -73,7 +85,7 @@ def motion_fit(slug, meta):
             "reference": {"pm_east": ref[0], "pm_north": ref[1], "plx": ref[2],
                           "source": "SIMBAD", "bibcode": meta["reference"]["pm_bibcode"]},
             "methods": methods, "arrow": arrow,
-            "source": f"data/astrometry/{slug}_fit_aligned.json"}
+            "source": f"data/astrometry/{name}"}
 
 def stack_motion(slug):
     rows = load(AST / f"{slug}_stack_d56.json")
@@ -152,15 +164,37 @@ def per_exposure_attempt(slug):
 
 def main():
     index = []
+    # fast_movers_table.py must have run before: it holds the selection verdict per fast mover
+    fast_table = load(ROOT / "data" / "fast_movers.json") or {}
+    fast_rows = {r["slug"]: r for r in fast_table.get("targets", [])}
+    fast_sel = fast_table.get("selection", {})
     for t in load(ROOT / "data" / "targets.json"):
         slug = t["slug"]
         meta = load(SITE / slug / "meta.json")
         if not meta:
             print(f"{slug}: no meta.json, skipped")
             continue
+        fast = t.get("set") == "fast"
+        fr = fast_rows.get(slug) if fast else None
+        if fast and not fr:
+            print(f"{slug}: fast mover without a row in data/fast_movers.json, skipped")
+            continue
         raw = load(SITE / slug / "raw.json")
         sm = stack_motion(slug)
-        res = {"slug": slug, "saturation": saturation(slug), "fit": motion_fit(slug, meta),
+        res = {"slug": slug, "saturation": saturation(slug), "fit": motion_fit(slug, meta, fr),
+               # fast mover that does not pass the selection: why no fit is shown
+               # fast movers: stack_epochs.py found the brightest source near the marker away from the
+               # catalogue position in every epoch (meta.json: on_target, offset_arcsec)
+               "off_target": ({"offset_arcsec": [e["offset_arcsec"]["total"] for e in meta["epochs"]],
+                               "limit_arcsec": ON_TARGET_ARCSEC}
+                              if fast and all(not e["on_target"] and "offset_arcsec" in e
+                                              for e in meta["epochs"]) else None),
+               "fit_not_shown": ({"usable": fr["usable"], "usable_per_epoch": fr["usable_per_epoch"],
+                                  "exposures": fr["exposures"],
+                                  "min_exposures": fast_sel.get("min_exposures"),
+                                  "min_epochs": fast_sel.get("min_epochs"),
+                                  "min_per_epoch": fast_sel.get("min_per_epoch")}
+                                 if fr and not fr["passes_selection"] else None),
                "stack_motion": sm, "per_exposure_fit": per_exposure_attempt(slug),
                "flicker": load(ROOT / "data" / "flicker" / f"{slug}.json"),
                "raw_dropped": {"dropped": raw["n_dropped"], "total": raw["n_total"],
@@ -172,7 +206,8 @@ def main():
                "compare_bands": ["d123", "d56"] if sm else None}
         (SITE / slug / "results.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
         index.append({"slug": slug, "name": t["name"], "sp_type": t["sp_type"],
-                      "n_exposures": meta["n_exposures"], "n_epochs": len(meta["epochs"])})
+                      "n_exposures": meta["n_exposures"], "n_epochs": len(meta["epochs"]),
+                      **({"set": "fast"} if fast else {})})
         fl = res["flicker"]
         print(f"{slug}: saturation={res['saturation']} raw_dropped={res['raw_dropped']} "
               f"flicker={None if not fl else (fl['raw_scatter_median'], fl['epoch_std_median'], fl['n_stars'])}")

@@ -1,0 +1,44 @@
+{
+ "slug": "lawd-37",
+ "t0_year": 2026.0446,
+ "reference": [
+  2661.64,
+  -344.933,
+  215.6753
+ ],
+ "win": {
+  "n_used": 421,
+  "values": {
+   "e0_mas": -236.01,
+   "n0_mas": -635.75,
+   "pm_east_masyr": 2675.47,
+   "pm_north_masyr": -333.4,
+   "plx_mas": 206.82
+  },
+  "bootstrap_err": {
+   "e0_mas": 14.66,
+   "n0_mas": 22.78,
+   "pm_east_masyr": 32.39,
+   "pm_north_masyr": 57.98,
+   "plx_mas": 16.36
+  }
+ },
+ "psf": {
+  "n_used": 395,
+  "values": {
+   "e0_mas": -81.85,
+   "n0_mas": -73.84,
+   "pm_east_masyr": 2724.73,
+   "pm_north_masyr": -364.08,
+   "plx_mas": 209.49
+  },
+  "bootstrap_err": {
+   "e0_mas": 9.47,
+   "n0_mas": 9.41,
+   "pm_east_masyr": 23.22,
+   "pm_north_masyr": 25.78,
+   "plx_mas": 10.08
+  }
+ },
+ "aligned_to_field_stars": true
+}

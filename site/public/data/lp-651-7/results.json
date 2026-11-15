@@ -1,0 +1,73 @@
+{
+ "slug": "lp-651-7",
+ "saturation": {
+  "overflow": 2,
+  "exposures": 351,
+  "source": "data/astrometry/lp-651-7_target_wide.csv",
+  "core_empty": null,
+  "core_filled": null
+ },
+ "fit": {
+  "t0_year": 2026.0909,
+  "aligned_to_field_stars": true,
+  "reference": {
+   "pm_east": 1691.164,
+   "pm_north": -1881.04,
+   "plx": 59.8398,
+   "source": "SIMBAD",
+   "bibcode": "2020yCat.1350....0G"
+  },
+  "methods": [
+   {
+    "id": "win",
+    "label": "Windowed centroid",
+    "n_used": 318,
+    "pm_east": 1751.85,
+    "pm_east_err": 32.16,
+    "pm_north": -1884.1,
+    "pm_north_err": 41.38,
+    "plx": 100.66,
+    "plx_err": 15.64,
+    "plx_loo_min": null,
+    "plx_loo_max": null,
+    "plx_excess_pct": 68.2
+   },
+   {
+    "id": "psf",
+    "label": "ePSF fit",
+    "n_used": 314,
+    "pm_east": 1703.19,
+    "pm_east_err": 25.2,
+    "pm_north": -1847.36,
+    "pm_north_err": 18.42,
+    "plx": 51.72,
+    "plx_err": 10.62,
+    "plx_loo_min": null,
+    "plx_loo_max": null,
+    "plx_excess_pct": -13.6
+   }
+  ],
+  "arrow": {
+   "x": 14.035,
+   "y": 13.779,
+   "span_years": 0.997,
+   "dx": -0.276,
+   "dy": 0.299,
+   "method": "psf"
+  },
+  "source": "data/astrometry/lp-651-7_fit_wide_aligned.json"
+ },
+ "off_target": null,
+ "fit_not_shown": null,
+ "stack_motion": null,
+ "per_exposure_fit": null,
+ "flicker": null,
+ "raw_dropped": {
+  "dropped": 6,
+  "total": 351,
+  "max_masked_fraction": 0.2
+ },
+ "has_diff": false,
+ "default_band": "all",
+ "compare_bands": null
+}

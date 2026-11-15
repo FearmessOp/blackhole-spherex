@@ -1,0 +1,44 @@
+{
+ "slug": "g-275-92",
+ "t0_year": 2025.9491,
+ "reference": [
+  1302.517,
+  -2208.534,
+  34.4234
+ ],
+ "win": {
+  "n_used": 249,
+  "values": {
+   "e0_mas": 49.07,
+   "n0_mas": 9.24,
+   "pm_east_masyr": 1318.72,
+   "pm_north_masyr": -2242.1,
+   "plx_mas": 56.99
+  },
+  "bootstrap_err": {
+   "e0_mas": 16.14,
+   "n0_mas": 16.75,
+   "pm_east_masyr": 37.47,
+   "pm_north_masyr": 39.33,
+   "plx_mas": 16.62
+  }
+ },
+ "psf": {
+  "n_used": 245,
+  "values": {
+   "e0_mas": 17.97,
+   "n0_mas": 10.26,
+   "pm_east_masyr": 1292.39,
+   "pm_north_masyr": -2200.69,
+   "plx_mas": 36.31
+  },
+  "bootstrap_err": {
+   "e0_mas": 10.22,
+   "n0_mas": 9.57,
+   "pm_east_masyr": 23.82,
+   "pm_north_masyr": 23.71,
+   "plx_mas": 9.99
+  }
+ },
+ "aligned_to_field_stars": true
+}

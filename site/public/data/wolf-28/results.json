@@ -1,0 +1,73 @@
+{
+ "slug": "wolf-28",
+ "saturation": {
+  "overflow": 0,
+  "exposures": 328,
+  "source": "data/astrometry/wolf-28_target_wide.csv",
+  "core_empty": null,
+  "core_filled": null
+ },
+ "fit": {
+  "t0_year": 2026.0293,
+  "aligned_to_field_stars": true,
+  "reference": {
+   "pm_east": 1231.399,
+   "pm_north": -2711.883,
+   "plx": 231.78,
+   "source": "SIMBAD",
+   "bibcode": "2020yCat.1350....0G"
+  },
+  "methods": [
+   {
+    "id": "win",
+    "label": "Windowed centroid",
+    "n_used": 304,
+    "pm_east": 1176.89,
+    "pm_east_err": 40.2,
+    "pm_north": -2818.88,
+    "pm_north_err": 50.73,
+    "plx": 234.57,
+    "plx_err": 18.54,
+    "plx_loo_min": null,
+    "plx_loo_max": null,
+    "plx_excess_pct": 1.2
+   },
+   {
+    "id": "psf",
+    "label": "ePSF fit",
+    "n_used": 296,
+    "pm_east": 1237.36,
+    "pm_east_err": 24.17,
+    "pm_north": -2756.5,
+    "pm_north_err": 26.65,
+    "plx": 221.86,
+    "plx_err": 13.12,
+    "plx_loo_min": null,
+    "plx_loo_max": null,
+    "plx_excess_pct": -4.3
+   }
+  ],
+  "arrow": {
+   "x": 13.893,
+   "y": 13.503,
+   "span_years": 0.993,
+   "dx": -0.2,
+   "dy": 0.445,
+   "method": "psf"
+  },
+  "source": "data/astrometry/wolf-28_fit_wide_aligned.json"
+ },
+ "off_target": null,
+ "fit_not_shown": null,
+ "stack_motion": null,
+ "per_exposure_fit": null,
+ "flicker": null,
+ "raw_dropped": {
+  "dropped": 3,
+  "total": 328,
+  "max_masked_fraction": 0.2
+ },
+ "has_diff": false,
+ "default_band": "all",
+ "compare_bands": null
+}

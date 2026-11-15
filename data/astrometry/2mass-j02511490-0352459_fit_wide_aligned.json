@@ -1,0 +1,44 @@
+{
+ "slug": "2mass-j02511490-0352459",
+ "t0_year": 2026.0736,
+ "reference": [
+  1112.662,
+  -1853.86,
+  86.2932
+ ],
+ "win": {
+  "n_used": 309,
+  "values": {
+   "e0_mas": 58.76,
+   "n0_mas": -21.35,
+   "pm_east_masyr": 1091.16,
+   "pm_north_masyr": -1816.69,
+   "plx_mas": 100.36
+  },
+  "bootstrap_err": {
+   "e0_mas": 21.83,
+   "n0_mas": 19.83,
+   "pm_east_masyr": 45.62,
+   "pm_north_masyr": 41.12,
+   "plx_mas": 22.12
+  }
+ },
+ "psf": {
+  "n_used": 312,
+  "values": {
+   "e0_mas": 45.07,
+   "n0_mas": -8.29,
+   "pm_east_masyr": 1144.14,
+   "pm_north_masyr": -1869.88,
+   "plx_mas": 95.47
+  },
+  "bootstrap_err": {
+   "e0_mas": 14.94,
+   "n0_mas": 14.84,
+   "pm_east_masyr": 35.27,
+   "pm_north_masyr": 38.5,
+   "plx_mas": 15.49
+  }
+ },
+ "aligned_to_field_stars": true
+}

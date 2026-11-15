@@ -1,0 +1,44 @@
+{
+ "slug": "g-221-5",
+ "t0_year": 2026.1765,
+ "reference": [
+  1825.649,
+  -1074.927,
+  82.6606
+ ],
+ "win": {
+  "n_used": 233,
+  "values": {
+   "e0_mas": -98.89,
+   "n0_mas": 25.52,
+   "pm_east_masyr": 1808.37,
+   "pm_north_masyr": -1125.32,
+   "plx_mas": 98.86
+  },
+  "bootstrap_err": {
+   "e0_mas": 12.04,
+   "n0_mas": 14.6,
+   "pm_east_masyr": 28.95,
+   "pm_north_masyr": 32.65,
+   "plx_mas": 12.53
+  }
+ },
+ "psf": {
+  "n_used": 228,
+  "values": {
+   "e0_mas": -40.48,
+   "n0_mas": -0.48,
+   "pm_east_masyr": 1847.8,
+   "pm_north_masyr": -1079.96,
+   "plx_mas": 83.46
+  },
+  "bootstrap_err": {
+   "e0_mas": 9.05,
+   "n0_mas": 7.54,
+   "pm_east_masyr": 20.76,
+   "pm_north_masyr": 17.6,
+   "plx_mas": 9.59
+  }
+ },
+ "aligned_to_field_stars": true
+}

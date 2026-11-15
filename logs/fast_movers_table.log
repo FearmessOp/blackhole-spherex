@@ -1,0 +1,34 @@
+omi02-eri-b (omi02 Eri B): exposures=432 overflow=399 clean=8 epochs=3 usable=8 per epoch=[3, 1, 4] passes_selection=False reference pm=(-2236.169, -3338.955) plx=199.6911
+  win: n_used=8 pm_east=-1902.5+-7058769.1 (diff +333.7, within2=None) pm_north=-3920.2+-2295206.8 (diff -581.2, within2=None) plx=+610.1+-1995493.6 (diff +410.4, within2=None)
+  psf: n_used=7 pm_east=-2144.3+-10077329.0 (diff +91.8, within2=None) pm_north=-3427.1+-59048125.0 (diff -88.1, within2=None) plx=+414.5+-20243430.8 (diff +214.8, within2=None)
+ssspm-j1444-2019 (SSSPM J1444-2019): exposures=347 overflow=0 clean=331 epochs=3 usable=324 per epoch=[109, 103, 112] passes_selection=True reference pm=(-2908.634, -1960.916) plx=58.1427
+  win: n_used=318 pm_east=-2893.8+-32.6 (diff +14.9, within2=True) pm_north=-1959.2+-40.5 (diff +1.8, within2=True) plx=+67.7+-16.1 (diff +9.6, within2=True)
+  psf: n_used=306 pm_east=-2881.5+-24.6 (diff +27.1, within2=True) pm_north=-1934.6+-25.7 (diff +26.3, within2=True) plx=+55.0+-13.0 (diff -3.1, within2=True)
+wolf-28 (Wolf   28): exposures=328 overflow=0 clean=315 epochs=3 usable=307 per epoch=[95, 106, 106] passes_selection=True reference pm=(1231.399, -2711.883) plx=231.78
+  win: n_used=304 pm_east=+1176.9+-40.2 (diff -54.5, within2=True) pm_north=-2818.9+-50.7 (diff -107.0, within2=False) plx=+234.6+-18.5 (diff +2.8, within2=True)
+  psf: n_used=296 pm_east=+1237.4+-24.2 (diff +6.0, within2=True) pm_north=-2756.5+-26.6 (diff -44.6, within2=True) plx=+221.9+-13.1 (diff -9.9, within2=True)
+lawd-37 (LAWD 37): exposures=486 overflow=0 clean=438 epochs=3 usable=426 per epoch=[129, 171, 126] passes_selection=True reference pm=(2661.64, -344.933) plx=215.6753
+  win: n_used=421 pm_east=+2675.5+-32.4 (diff +13.8, within2=True) pm_north=-333.4+-58.0 (diff +11.5, within2=True) plx=+206.8+-16.4 (diff -8.9, within2=True)
+  psf: n_used=395 pm_east=+2724.7+-23.2 (diff +63.1, within2=False) pm_north=-364.1+-25.8 (diff -19.1, within2=True) plx=+209.5+-10.1 (diff -6.2, within2=True)
+g-275-92 (G 275-92): exposures=341 overflow=64 clean=258 epochs=3 usable=252 per epoch=[78, 83, 91] passes_selection=True reference pm=(1302.517, -2208.534) plx=34.4234
+  win: n_used=249 pm_east=+1318.7+-37.5 (diff +16.2, within2=True) pm_north=-2242.1+-39.3 (diff -33.6, within2=True) plx=+57.0+-16.6 (diff +22.6, within2=True)
+  psf: n_used=245 pm_east=+1292.4+-23.8 (diff -10.1, within2=True) pm_north=-2200.7+-23.7 (diff +7.8, within2=True) plx=+36.3+-10.0 (diff +1.9, within2=True)
+lp-651-7 (LP  651-7): exposures=351 overflow=2 clean=327 epochs=3 usable=325 per epoch=[104, 101, 120] passes_selection=True reference pm=(1691.164, -1881.04) plx=59.8398
+  win: n_used=318 pm_east=+1751.8+-32.2 (diff +60.7, within2=True) pm_north=-1884.1+-41.4 (diff -3.1, within2=True) plx=+100.7+-15.6 (diff +40.8, within2=False)
+  psf: n_used=314 pm_east=+1703.2+-25.2 (diff +12.0, within2=True) pm_north=-1847.4+-18.4 (diff +33.7, within2=True) plx=+51.7+-10.6 (diff -8.1, within2=True)
+lehpm-3396 (LEHPM 3396): exposures=374 overflow=1 clean=324 epochs=3 usable=319 per epoch=[97, 105, 117] passes_selection=True reference pm=(2360.592, 483.128) plx=112.61
+  win: n_used=314 pm_east=+2387.8+-42.9 (diff +27.2, within2=True) pm_north=+516.2+-33.8 (diff +33.1, within2=True) plx=+140.6+-18.1 (diff +28.0, within2=True)
+  psf: n_used=306 pm_east=+2343.5+-26.1 (diff -17.1, within2=True) pm_north=+513.1+-19.7 (diff +30.0, within2=True) plx=+121.3+-9.8 (diff +8.7, within2=True)
+lsr-j1826-3014 (LSR J1826+3014): exposures=419 overflow=2 clean=398 epochs=4 usable=395 per epoch=[125, 118, 3, 149] passes_selection=True reference pm=(-2290.752, -683.274) plx=90.0858
+  win: n_used=388 pm_east=-2227.9+-27.2 (diff +62.8, within2=False) pm_north=-652.1+-33.0 (diff +31.2, within2=True) plx=+127.4+-13.3 (diff +37.3, within2=False)
+  psf: n_used=381 pm_east=-2283.9+-15.4 (diff +6.9, within2=True) pm_north=-661.7+-13.8 (diff +21.5, within2=True) plx=+104.5+-9.0 (diff +14.4, within2=True)
+2mass-j02511490-0352459 (2MASS J02511490-0352459): exposures=358 overflow=0 clean=337 epochs=3 usable=329 per epoch=[109, 111, 109] passes_selection=True reference pm=(1112.662, -1853.86) plx=86.2932
+  win: n_used=309 pm_east=+1091.2+-45.6 (diff -21.5, within2=True) pm_north=-1816.7+-41.1 (diff +37.2, within2=True) plx=+100.4+-22.1 (diff +14.1, within2=True)
+  psf: n_used=312 pm_east=+1144.1+-35.3 (diff +31.5, within2=True) pm_north=-1869.9+-38.5 (diff -16.0, within2=True) plx=+95.5+-15.5 (diff +9.2, within2=True)
+g-221-5 (G 221-5): exposures=368 overflow=85 clean=238 epochs=3 usable=234 per epoch=[73, 72, 89] passes_selection=True reference pm=(1825.649, -1074.927) plx=82.6606
+  win: n_used=233 pm_east=+1808.4+-28.9 (diff -17.3, within2=True) pm_north=-1125.3+-32.6 (diff -50.4, within2=True) plx=+98.9+-12.5 (diff +16.2, within2=True)
+  psf: n_used=228 pm_east=+1847.8+-20.8 (diff +22.1, within2=True) pm_north=-1080.0+-17.6 (diff -5.0, within2=True) plx=+83.5+-9.6 (diff +0.8, within2=True)
+summary win: {'n_targets': 10, 'n_fitted': 9, 'n_not_passing_selection': 1, 'pm_east_within2': 8, 'pm_north_within2': 8, 'plx_within2': 7, 'pm_both_within2': 7}
+summary psf: {'n_targets': 10, 'n_fitted': 9, 'n_not_passing_selection': 1, 'pm_east_within2': 8, 'pm_north_within2': 9, 'plx_within2': 9, 'pm_both_within2': 8}
+wrote data\fast_movers.json
+wrote site\public\data\fast_movers.json

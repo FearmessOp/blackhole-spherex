@@ -1,0 +1,478 @@
+{
+ "slug": "lp-651-7",
+ "name": "LP  651-7",
+ "simbad_id": "LP  651-7",
+ "grid": {
+  "npix": 29,
+  "scale_arcsec": 6.15,
+  "orientation": "north up, east left",
+  "center_ra_deg": 41.5744515,
+  "center_dec_deg": -5.0026763
+ },
+ "reference": {
+  "source": "SIMBAD (Harvard mirror)",
+  "pmra_masyr": 1691.164,
+  "pmdec_masyr": -1881.04,
+  "plx_mas": 59.8398,
+  "pm_bibcode": "2020yCat.1350....0G"
+ },
+ "n_exposures": 351,
+ "n_missing": 0,
+ "masked_flags": [
+  "NONFUNC",
+  "MISSING_DATA",
+  "HOT",
+  "COLD",
+  "SNOWBALL"
+ ],
+ "epochs": [
+  {
+   "index": 0,
+   "t_start": "2025-07-23T06:21",
+   "t_end": "2025-08-17T11:17",
+   "mjd_mean": 60884.217,
+   "year_mean": 2025.5708,
+   "n_exposures": 113,
+   "predicted": {
+    "ra_deg": 41.5742065,
+    "dec_deg": -5.0024048,
+    "x": 14.143,
+    "y": 13.841,
+    "model": "SIMBAD J2000 position + proper motion, no parallax"
+   },
+   "on_target": true,
+   "measured": {
+    "ra_deg": 41.5743912,
+    "dec_deg": -5.0022986,
+    "x": 14.035,
+    "y": 13.779,
+    "method": "flux-weighted centroid, 7x7 px box, 'all' stack"
+   },
+   "offset_arcsec": {
+    "east": 0.66,
+    "north": 0.38,
+    "total": 0.76
+   }
+  },
+  {
+   "index": 1,
+   "t_start": "2026-01-17T07:18",
+   "t_end": "2026-02-01T15:36",
+   "mjd_mean": 61064.402,
+   "year_mean": 2026.0641,
+   "n_exposures": 109,
+   "predicted": {
+    "ra_deg": 41.5744391,
+    "dec_deg": -5.0026625,
+    "x": 14.007,
+    "y": 13.992,
+    "model": "SIMBAD J2000 position + proper motion, no parallax"
+   },
+   "on_target": true,
+   "measured": {
+    "ra_deg": 41.5744838,
+    "dec_deg": -5.0026134,
+    "x": 13.981,
+    "y": 13.963,
+    "method": "flux-weighted centroid, 7x7 px box, 'all' stack"
+   },
+   "offset_arcsec": {
+    "east": 0.16,
+    "north": 0.18,
+    "total": 0.24
+   }
+  },
+  {
+   "index": 2,
+   "t_start": "2026-07-20T20:29",
+   "t_end": "2026-08-07T13:48",
+   "mjd_mean": 61248.389,
+   "year_mean": 2026.5678,
+   "n_exposures": 129,
+   "predicted": {
+    "ra_deg": 41.5746766,
+    "dec_deg": -5.0029257,
+    "x": 13.869,
+    "y": 14.146,
+    "model": "SIMBAD J2000 position + proper motion, no parallax"
+   },
+   "on_target": true,
+   "measured": {
+    "ra_deg": 41.5748459,
+    "dec_deg": -5.0027933,
+    "x": 13.77,
+    "y": 14.069,
+    "method": "flux-weighted centroid, 7x7 px box, 'all' stack"
+   },
+   "offset_arcsec": {
+    "east": 0.61,
+    "north": 0.48,
+    "total": 0.77
+   }
+  }
+ ],
+ "bands": [
+  {
+   "id": "all",
+   "label": "All detectors",
+   "dets": null,
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.011679397877960873,
+    "vmax": 10.868485502108001,
+    "soft": 0.01507430115174333,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "all_e0.png",
+     "n_frames": 113,
+     "wave_min_um": 0.7551,
+     "wave_max_um": 4.9759,
+     "min_coverage": 109
+    },
+    {
+     "epoch": 1,
+     "png": "all_e1.png",
+     "n_frames": 109,
+     "wave_min_um": 0.7421,
+     "wave_max_um": 4.9658,
+     "min_coverage": 105
+    },
+    {
+     "epoch": 2,
+     "png": "all_e2.png",
+     "n_frames": 129,
+     "wave_min_um": 0.748,
+     "wave_max_um": 4.9951,
+     "min_coverage": 124
+    }
+   ]
+  },
+  {
+   "id": "d123",
+   "label": "Detectors 1-3 (short wavelength)",
+   "dets": [
+    1,
+    2,
+    3
+   ],
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.012041805730466856,
+    "vmax": 14.712783680746645,
+    "soft": 0.01484917494886557,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "d123_e0.png",
+     "n_frames": 56,
+     "wave_min_um": 0.7551,
+     "wave_max_um": 2.3751,
+     "min_coverage": 54
+    },
+    {
+     "epoch": 1,
+     "png": "d123_e1.png",
+     "n_frames": 55,
+     "wave_min_um": 0.7421,
+     "wave_max_um": 2.4106,
+     "min_coverage": 53
+    },
+    {
+     "epoch": 2,
+     "png": "d123_e2.png",
+     "n_frames": 64,
+     "wave_min_um": 0.748,
+     "wave_max_um": 2.4033,
+     "min_coverage": 61
+    }
+   ]
+  },
+  {
+   "id": "d56",
+   "label": "Detectors 5+6 (long wavelength)",
+   "dets": [
+    5,
+    6
+   ],
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.017140949850537476,
+    "vmax": 6.257520041617912,
+    "soft": 0.025259378079003462,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "d56_e0.png",
+     "n_frames": 38,
+     "wave_min_um": 3.8006,
+     "wave_max_um": 4.9759,
+     "min_coverage": 35
+    },
+    {
+     "epoch": 1,
+     "png": "d56_e1.png",
+     "n_frames": 35,
+     "wave_min_um": 3.8212,
+     "wave_max_um": 4.9658,
+     "min_coverage": 32
+    },
+    {
+     "epoch": 2,
+     "png": "d56_e2.png",
+     "n_frames": 39,
+     "wave_min_um": 3.8204,
+     "wave_max_um": 4.9951,
+     "min_coverage": 36
+    }
+   ]
+  },
+  {
+   "id": "d1",
+   "label": "Detector 1",
+   "dets": [
+    1
+   ],
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.01407897638164319,
+    "vmax": 9.331836577755395,
+    "soft": 0.018401089979653604,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "d1_e0.png",
+     "n_frames": 19,
+     "wave_min_um": 0.7551,
+     "wave_max_um": 1.1014,
+     "min_coverage": 17
+    },
+    {
+     "epoch": 1,
+     "png": "d1_e1.png",
+     "n_frames": 19,
+     "wave_min_um": 0.7421,
+     "wave_max_um": 1.1123,
+     "min_coverage": 17
+    },
+    {
+     "epoch": 2,
+     "png": "d1_e2.png",
+     "n_frames": 25,
+     "wave_min_um": 0.748,
+     "wave_max_um": 1.115,
+     "min_coverage": 24
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "label": "Detector 2",
+   "dets": [
+    2
+   ],
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.014598649617401059,
+    "vmax": 17.29379518437025,
+    "soft": 0.01808054773527254,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "d2_e0.png",
+     "n_frames": 18,
+     "wave_min_um": 1.1106,
+     "wave_max_um": 1.6256,
+     "min_coverage": 17
+    },
+    {
+     "epoch": 1,
+     "png": "d2_e1.png",
+     "n_frames": 18,
+     "wave_min_um": 1.1009,
+     "wave_max_um": 1.6227,
+     "min_coverage": 17
+    },
+    {
+     "epoch": 2,
+     "png": "d2_e2.png",
+     "n_frames": 20,
+     "wave_min_um": 1.1001,
+     "wave_max_um": 1.6458,
+     "min_coverage": 18
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "label": "Detector 3",
+   "dets": [
+    3
+   ],
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.014281025269968665,
+    "vmax": 15.957359344227848,
+    "soft": 0.019389258153430587,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "d3_e0.png",
+     "n_frames": 19,
+     "wave_min_um": 1.6441,
+     "wave_max_um": 2.3751,
+     "min_coverage": 18
+    },
+    {
+     "epoch": 1,
+     "png": "d3_e1.png",
+     "n_frames": 18,
+     "wave_min_um": 1.6553,
+     "wave_max_um": 2.4106,
+     "min_coverage": 16
+    },
+    {
+     "epoch": 2,
+     "png": "d3_e2.png",
+     "n_frames": 19,
+     "wave_min_um": 1.629,
+     "wave_max_um": 2.4033,
+     "min_coverage": 17
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "label": "Detector 4",
+   "dets": [
+    4
+   ],
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.012452970152704239,
+    "vmax": 8.469747319218063,
+    "soft": 0.018047037071361634,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "d4_e0.png",
+     "n_frames": 19,
+     "wave_min_um": 2.4538,
+     "wave_max_um": 3.7758,
+     "min_coverage": 17
+    },
+    {
+     "epoch": 1,
+     "png": "d4_e1.png",
+     "n_frames": 19,
+     "wave_min_um": 2.4207,
+     "wave_max_um": 3.8183,
+     "min_coverage": 16
+    },
+    {
+     "epoch": 2,
+     "png": "d4_e2.png",
+     "n_frames": 26,
+     "wave_min_um": 2.4224,
+     "wave_max_um": 3.83,
+     "min_coverage": 24
+    }
+   ]
+  },
+  {
+   "id": "d5",
+   "label": "Detector 5",
+   "dets": [
+    5
+   ],
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.016707800642072845,
+    "vmax": 7.438964084746504,
+    "soft": 0.025662530912507694,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "d5_e0.png",
+     "n_frames": 19,
+     "wave_min_um": 3.8006,
+     "wave_max_um": 4.4038,
+     "min_coverage": 16
+    },
+    {
+     "epoch": 1,
+     "png": "d5_e1.png",
+     "n_frames": 18,
+     "wave_min_um": 3.8212,
+     "wave_max_um": 4.401,
+     "min_coverage": 16
+    },
+    {
+     "epoch": 2,
+     "png": "d5_e2.png",
+     "n_frames": 20,
+     "wave_min_um": 3.8204,
+     "wave_max_um": 4.4237,
+     "min_coverage": 17
+    }
+   ]
+  },
+  {
+   "id": "d6",
+   "label": "Detector 6",
+   "dets": [
+    6
+   ],
+   "scale": {
+    "stretch": "asinh",
+    "vmin": -0.02580854919734199,
+    "vmax": 4.90669697274299,
+    "soft": 0.038331209149999115,
+    "unit": "MJy/sr"
+   },
+   "frames": [
+    {
+     "epoch": 0,
+     "png": "d6_e0.png",
+     "n_frames": 19,
+     "wave_min_um": 4.4284,
+     "wave_max_um": 4.9759,
+     "min_coverage": 17
+    },
+    {
+     "epoch": 1,
+     "png": "d6_e1.png",
+     "n_frames": 17,
+     "wave_min_um": 4.4066,
+     "wave_max_um": 4.9658,
+     "min_coverage": 15
+    },
+    {
+     "epoch": 2,
+     "png": "d6_e2.png",
+     "n_frames": 19,
+     "wave_min_um": 4.4157,
+     "wave_max_um": 4.9951,
+     "min_coverage": 18
+    }
+   ]
+  }
+ ],
+ "raw": "raw.json"
+}

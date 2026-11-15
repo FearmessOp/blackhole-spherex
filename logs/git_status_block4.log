@@ -1,0 +1,111 @@
+ M data/fast_movers.json
+ M pipeline/build_results.py
+ M pipeline/stack_epochs.py
+ M site/public/data/barnard/results.json
+ M site/public/data/eps-indi-b/results.json
+ M site/public/data/index.json
+ M site/public/data/r-dra/results.json
+ M site/public/data/rw-aur/results.json
+ M site/public/data/wise-0855/results.json
+ M site/src/App.tsx
+ M site/src/ResultsPanel.tsx
+ M site/src/styles.css
+ M site/src/types.ts
+?? data/astrometry/2mass-j02511490-0352459_field_wide.csv
+?? data/astrometry/2mass-j02511490-0352459_fit_wide_aligned.json
+?? data/astrometry/2mass-j02511490-0352459_target_wide.csv
+?? data/astrometry/g-221-5_field_wide.csv
+?? data/astrometry/g-221-5_fit_wide_aligned.json
+?? data/astrometry/g-221-5_target_wide.csv
+?? data/astrometry/g-275-92_field_wide.csv
+?? data/astrometry/g-275-92_fit_wide_aligned.json
+?? data/astrometry/g-275-92_target_wide.csv
+?? data/astrometry/lawd-37_field_wide.csv
+?? data/astrometry/lawd-37_fit_wide_aligned.json
+?? data/astrometry/lawd-37_target_wide.csv
+?? data/astrometry/lehpm-3396_field_wide.csv
+?? data/astrometry/lehpm-3396_fit_wide_aligned.json
+?? data/astrometry/lehpm-3396_target_wide.csv
+?? data/astrometry/lp-651-7_field_wide.csv
+?? data/astrometry/lp-651-7_fit_wide_aligned.json
+?? data/astrometry/lp-651-7_target_wide.csv
+?? data/astrometry/lsr-j1826-3014_field_wide.csv
+?? data/astrometry/lsr-j1826-3014_fit_wide_aligned.json
+?? data/astrometry/lsr-j1826-3014_target_wide.csv
+?? data/astrometry/omi02-eri-b_field_wide.csv
+?? data/astrometry/omi02-eri-b_fit_wide_aligned.json
+?? data/astrometry/omi02-eri-b_target_wide.csv
+?? data/astrometry/ssspm-j1444-2019_field_wide.csv
+?? data/astrometry/ssspm-j1444-2019_fit_wide_aligned.json
+?? data/astrometry/ssspm-j1444-2019_target_wide.csv
+?? data/astrometry/wolf-28_field_wide.csv
+?? data/astrometry/wolf-28_fit_wide_aligned.json
+?? data/astrometry/wolf-28_target_wide.csv
+?? logs/build_plx_label.log
+?? logs/build_results_fast.log
+?? logs/fast_local_check.log
+?? logs/fast_movers_table.log
+?? logs/field_astrometry_2mass-j02511490-0352459_wide.log
+?? logs/field_astrometry_g-221-5_wide.log
+?? logs/field_astrometry_g-275-92_wide.log
+?? logs/field_astrometry_lawd-37_wide.log
+?? logs/field_astrometry_lehpm-3396_wide.log
+?? logs/field_astrometry_lp-651-7_wide.log
+?? logs/field_astrometry_lsr-j1826-3014_wide.log
+?? logs/field_astrometry_omi02-eri-b_wide.log
+?? logs/field_astrometry_ssspm-j1444-2019_wide.log
+?? logs/field_astrometry_wolf-28_wide.log
+?? logs/fit_motion_2mass-j02511490-0352459_wide_aligned.log
+?? logs/fit_motion_g-221-5_wide_aligned.log
+?? logs/fit_motion_g-275-92_wide_aligned.log
+?? logs/fit_motion_lawd-37_wide_aligned.log
+?? logs/fit_motion_lehpm-3396_wide_aligned.log
+?? logs/fit_motion_lp-651-7_wide_aligned.log
+?? logs/fit_motion_lsr-j1826-3014_wide_aligned.log
+?? logs/fit_motion_omi02-eri-b_wide_aligned.log
+?? logs/fit_motion_ssspm-j1444-2019_wide_aligned.log
+?? logs/fit_motion_wolf-28_wide_aligned.log
+?? logs/git_status_block4.log
+?? logs/guide_live_after_fix.log
+?? logs/omi02_eri_b_neighbours.log
+?? logs/plx_label_check.log
+?? logs/run_fast_movers_a.log
+?? logs/run_fast_movers_a_stdout.log
+?? logs/run_fast_movers_b.log
+?? logs/run_fast_movers_b_stdout.log
+?? logs/run_fast_movers_stack.log
+?? logs/run_fast_movers_stack_stdout.log
+?? logs/stack_2mass-j02511490-0352459_wide.log
+?? logs/stack_g-221-5_wide.log
+?? logs/stack_g-275-92_wide.log
+?? logs/stack_lawd-37_wide.log
+?? logs/stack_lehpm-3396_wide.log
+?? logs/stack_lp-651-7_wide.log
+?? logs/stack_lsr-j1826-3014_wide.log
+?? logs/stack_omi02-eri-b_wide.log
+?? logs/stack_ssspm-j1444-2019_wide.log
+?? logs/stack_wolf-28_wide.log
+?? logs/target_astrometry_2mass-j02511490-0352459_wide.log
+?? logs/target_astrometry_g-221-5_wide.log
+?? logs/target_astrometry_g-275-92_wide.log
+?? logs/target_astrometry_lawd-37_wide.log
+?? logs/target_astrometry_lehpm-3396_wide.log
+?? logs/target_astrometry_lp-651-7_wide.log
+?? logs/target_astrometry_lsr-j1826-3014_wide.log
+?? logs/target_astrometry_omi02-eri-b_wide.log
+?? logs/target_astrometry_ssspm-j1444-2019_wide.log
+?? logs/target_astrometry_wolf-28_wide.log
+?? pipeline/fast_movers_table.py
+?? pipeline/run_fast_movers.py
+?? site/public/data/2mass-j02511490-0352459/
+?? site/public/data/fast_movers.json
+?? site/public/data/g-221-5/
+?? site/public/data/g-275-92/
+?? site/public/data/lawd-37/
+?? site/public/data/lehpm-3396/
+?? site/public/data/lp-651-7/
+?? site/public/data/lsr-j1826-3014/
+?? site/public/data/omi02-eri-b/
+?? site/public/data/ssspm-j1444-2019/
+?? site/public/data/wolf-28/
+?? site/src/FastMoversPanel.tsx

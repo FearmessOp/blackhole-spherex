@@ -58,6 +58,8 @@
   },
   "source": "data/astrometry/eps-indi-b_fit_aligned.json"
  },
+ "off_target": null,
+ "fit_not_shown": null,
  "stack_motion": null,
  "per_exposure_fit": null,
  "flicker": {

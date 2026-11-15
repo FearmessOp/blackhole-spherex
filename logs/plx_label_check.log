@@ -1,0 +1,4 @@
+lp-651-7 | The measured parallax is 68% above (Windowed centroid) and 14% below (ePSF fit) the SIMBAD value. The ± values are statistical only (bootstrap over exposures); there are too few epochs to repeat the fit with one epoch left out.
+eps-indi-b | The measured parallax is 22% (Windowed centroid) and 11% (ePSF fit) above the SIMBAD value. The ± values are statistical only (bootstrap over exposures); leaving one epoch out moves the parallax between 320–355 and 284–325 mas.
+lawd-37 | The measured parallax is 4% (Windowed centroid) and 3% (ePSF fit) below the SIMBAD value. The ± values are statistical only (bootstrap over exposures); there are too few epochs to repeat the fit with one epoch left out.
+console errors []

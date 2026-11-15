@@ -1,0 +1,49 @@
+lawd-37: manifest=486 on_disk=486 missing=0
+working grid: 29x29 px, 6.15 arcsec/px, centre=(176.4741069, -64.8440122) at MJD 61055.498; masked flags=['NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'SNOWBALL']
+frames loaded=486 of 486; wavelength outside SIA detector range: 0
+files where a masked flag plane is not declared in the header: {}
+output grid: 29x29 px, cropped from 29x29 (every stack has at least half of its frames on every pixel)
+epoch 0: 2025-06-30T19:46 .. 2025-08-17T00:59 n=151 predicted_px=(14.22, 14.03) measured_px=(14.3, 13.85) offset_arcsec={'east': -0.48, 'north': -1.07, 'total': 1.18} on_target=True
+epoch 1: 2026-01-12T13:44 .. 2026-03-08T13:36 n=191 predicted_px=(13.98, 14.00) measured_px=(14.01, 13.77) offset_arcsec={'east': -0.15, 'north': -1.42, 'total': 1.43} on_target=True
+epoch 2: 2026-06-25T12:17 .. 2026-08-17T17:38 n=144 predicted_px=(13.79, 13.97) measured_px=(13.91, 13.81) offset_arcsec={'east': -0.77, 'north': -1.02, 'total': 1.28} on_target=True
+shift epoch 0 -> 2 (measured): east=2.37 north=-0.30 total=2.39 arcsec
+shift epoch 0 -> 2 (predicted): east=2.66 north=-0.34 total=2.68 arcsec
+band all epoch 0: n=151 wave=0.7499..4.9772 um min_coverage=129 -> all_e0.png
+band all epoch 1: n=191 wave=0.744..5.0007 um min_coverage=186 -> all_e1.png
+band all epoch 2: n=144 wave=0.7403..4.9967 um min_coverage=141 -> all_e2.png
+band all scale: vmin=-0.4535 vmax=32.87 soft=0.7318 MJy/sr
+band d123 epoch 0: n=76 wave=0.7499..2.378 um min_coverage=65 -> d123_e0.png
+band d123 epoch 1: n=101 wave=0.744..2.4112 um min_coverage=98 -> d123_e1.png
+band d123 epoch 2: n=72 wave=0.7403..2.4068 um min_coverage=70 -> d123_e2.png
+band d123 scale: vmin=-0.6016 vmax=48.57 soft=0.9864 MJy/sr
+band d56 epoch 0: n=52 wave=3.8147..4.9772 um min_coverage=42 -> d56_e0.png
+band d56 epoch 1: n=67 wave=3.821..5.0007 um min_coverage=65 -> d56_e1.png
+band d56 epoch 2: n=51 wave=3.8288..4.9967 um min_coverage=49 -> d56_e2.png
+band d56 scale: vmin=-0.2574 vmax=12.39 soft=0.3835 MJy/sr
+band d1 epoch 0: n=22 wave=0.7499..1.0959 um min_coverage=21 -> d1_e0.png
+band d1 epoch 1: n=29 wave=0.744..1.1128 um min_coverage=27 -> d1_e1.png
+band d1 epoch 2: n=21 wave=0.7403..1.1076 um min_coverage=19 -> d1_e2.png
+band d1 scale: vmin=-0.3809 vmax=37.28 soft=0.631 MJy/sr
+band d2 epoch 0: n=33 wave=1.0958..1.6473 um min_coverage=23 -> d2_e0.png
+band d2 epoch 1: n=49 wave=1.1004..1.6556 um min_coverage=46 -> d2_e1.png
+band d2 epoch 2: n=30 wave=1.1067..1.6258 um min_coverage=28 -> d2_e2.png
+band d2 scale: vmin=-0.6695 vmax=54.36 soft=1.107 MJy/sr
+band d3 epoch 0: n=21 wave=1.6395..2.378 um min_coverage=20 -> d3_e0.png
+band d3 epoch 1: n=23 wave=1.6425..2.4112 um min_coverage=22 -> d3_e1.png
+band d3 epoch 2: n=21 wave=1.6221..2.4068 um min_coverage=20 -> d3_e2.png
+band d3 scale: vmin=-0.6817 vmax=51.62 soft=1.101 MJy/sr
+band d4 epoch 0: n=23 wave=2.3995..3.7571 um min_coverage=19 -> d4_e0.png
+band d4 epoch 1: n=23 wave=2.4273..3.7198 um min_coverage=21 -> d4_e1.png
+band d4 epoch 2: n=21 wave=2.4175..3.8018 um min_coverage=19 -> d4_e2.png
+band d4 scale: vmin=-0.4495 vmax=24.94 soft=0.7019 MJy/sr
+band d5 epoch 0: n=33 wave=3.8147..4.4248 um min_coverage=24 -> d5_e0.png
+band d5 epoch 1: n=44 wave=3.821..4.4329 um min_coverage=42 -> d5_e1.png
+band d5 epoch 2: n=30 wave=3.8288..4.4039 um min_coverage=28 -> d5_e2.png
+band d5 scale: vmin=-0.2747 vmax=14.22 soft=0.4162 MJy/sr
+band d6 epoch 0: n=19 wave=4.4246..4.9772 um min_coverage=17 -> d6_e0.png
+band d6 epoch 1: n=23 wave=4.4272..5.0007 um min_coverage=21 -> d6_e1.png
+band d6 epoch 2: n=21 wave=4.4101..4.9967 um min_coverage=19 -> d6_e2.png
+band d6 scale: vmin=-0.2234 vmax=9.223 soft=0.3167 MJy/sr
+raw playback: dropped 14 of 486 exposures with more than 20% of the pixels masked
+raw playback: 472 exposures -> raw.png (696x580 px, 24 per row), raw.json; scale vmin=-0.4085 vmax=50.01 soft=0.6444 MJy/sr
+wrote C:\Users\user\blackhole-spherex\site\public\data\lawd-37\meta.json and C:\Users\user\blackhole-spherex\site\public\data\index.json

@@ -1,0 +1,49 @@
+wolf-28: manifest=328 on_disk=328 missing=0
+working grid: 29x29 px, 6.15 arcsec/px, centre=(12.3001836, 5.3690069) at MJD 61049.064; masked flags=['NONFUNC', 'MISSING_DATA', 'HOT', 'COLD', 'SNOWBALL']
+frames loaded=328 of 328; wavelength outside SIA detector range: 0
+files where a masked flag plane is not declared in the header: {'SNOWBALL': 34}
+output grid: 29x29 px, cropped from 29x29 (every stack has at least half of its frames on every pixel)
+epoch 0: 2025-06-29T03:37 .. 2025-07-19T20:59 n=104 predicted_px=(14.10, 14.22) measured_px=(13.89, 14.5) offset_arcsec={'east': 1.27, 'north': 1.7, 'total': 2.12} on_target=True
+epoch 1: 2025-12-19T08:59 .. 2026-01-06T17:00 n=112 predicted_px=(14.01, 14.01) measured_px=(13.93, 14.27) offset_arcsec={'east': 0.49, 'north': 1.57, 'total': 1.65} on_target=True
+epoch 2: 2026-06-27T23:34 .. 2026-08-06T13:24 n=112 predicted_px=(13.90, 13.78) measured_px=(13.7, 14.13) offset_arcsec={'east': 1.25, 'north': 2.12, 'total': 2.46} on_target=True
+shift epoch 0 -> 2 (measured): east=1.19 north=-2.27 total=2.56 arcsec
+shift epoch 0 -> 2 (predicted): east=1.22 north=-2.69 total=2.96 arcsec
+band all epoch 0: n=104 wave=0.7394..4.9878 um min_coverage=99 -> all_e0.png
+band all epoch 1: n=112 wave=0.7376..4.9832 um min_coverage=108 -> all_e1.png
+band all epoch 2: n=112 wave=0.7487..5.0063 um min_coverage=108 -> all_e2.png
+band all scale: vmin=-0.009359 vmax=5.093 soft=0.01215 MJy/sr
+band d123 epoch 0: n=52 wave=0.7394..2.3931 um min_coverage=50 -> d123_e0.png
+band d123 epoch 1: n=56 wave=0.7376..2.3861 um min_coverage=53 -> d123_e1.png
+band d123 epoch 2: n=56 wave=0.7487..2.4147 um min_coverage=54 -> d123_e2.png
+band d123 scale: vmin=-0.01001 vmax=8.93 soft=0.01288 MJy/sr
+band d56 epoch 0: n=33 wave=3.8096..4.9878 um min_coverage=31 -> d56_e0.png
+band d56 epoch 1: n=37 wave=3.8056..4.9832 um min_coverage=34 -> d56_e1.png
+band d56 epoch 2: n=38 wave=3.8268..5.0063 um min_coverage=35 -> d56_e2.png
+band d56 scale: vmin=-0.0153 vmax=1.471 soft=0.02232 MJy/sr
+band d1 epoch 0: n=19 wave=0.7394..1.1096 um min_coverage=18 -> d1_e0.png
+band d1 epoch 1: n=19 wave=0.7376..1.1065 um min_coverage=17 -> d1_e1.png
+band d1 epoch 2: n=18 wave=0.7487..1.0974 um min_coverage=16 -> d1_e2.png
+band d1 scale: vmin=-0.01386 vmax=11.88 soft=0.01948 MJy/sr
+band d2 epoch 0: n=19 wave=1.092..1.6448 um min_coverage=17 -> d2_e0.png
+band d2 epoch 1: n=19 wave=1.0889..1.6396 um min_coverage=18 -> d2_e1.png
+band d2 epoch 2: n=18 wave=1.1053..1.6261 um min_coverage=17 -> d2_e2.png
+band d2 scale: vmin=-0.01279 vmax=8.978 soft=0.01715 MJy/sr
+band d3 epoch 0: n=14 wave=1.6471..2.3931 um min_coverage=12 -> d3_e0.png
+band d3 epoch 1: n=18 wave=1.6423..2.3861 um min_coverage=17 -> d3_e1.png
+band d3 epoch 2: n=20 wave=1.6282..2.4147 um min_coverage=18 -> d3_e2.png
+band d3 scale: vmin=-0.01215 vmax=5.663 soft=0.01645 MJy/sr
+band d4 epoch 0: n=19 wave=2.4135..3.8072 um min_coverage=17 -> d4_e0.png
+band d4 epoch 1: n=19 wave=2.4088..3.7953 um min_coverage=17 -> d4_e1.png
+band d4 epoch 2: n=18 wave=2.4371..3.7601 um min_coverage=16 -> d4_e2.png
+band d4 scale: vmin=-0.01053 vmax=2.638 soft=0.01428 MJy/sr
+band d5 epoch 0: n=19 wave=3.8096..4.4225 um min_coverage=17 -> d5_e0.png
+band d5 epoch 1: n=19 wave=3.8056..4.4174 um min_coverage=16 -> d5_e1.png
+band d5 epoch 2: n=18 wave=3.8268..4.4042 um min_coverage=15 -> d5_e2.png
+band d5 scale: vmin=-0.01574 vmax=1.651 soft=0.02309 MJy/sr
+band d6 epoch 0: n=14 wave=4.4312..4.9878 um min_coverage=12 -> d6_e0.png
+band d6 epoch 1: n=18 wave=4.427..4.9832 um min_coverage=16 -> d6_e1.png
+band d6 epoch 2: n=20 wave=4.4152..5.0063 um min_coverage=17 -> d6_e2.png
+band d6 scale: vmin=-0.02302 vmax=1.256 soft=0.03469 MJy/sr
+raw playback: dropped 3 of 328 exposures with more than 20% of the pixels masked
+raw playback: 325 exposures -> raw.png (696x406 px, 24 per row), raw.json; scale vmin=-0.03924 vmax=6.403 soft=0.05913 MJy/sr
+wrote C:\Users\user\blackhole-spherex\site\public\data\wolf-28\meta.json and C:\Users\user\blackhole-spherex\site\public\data\index.json

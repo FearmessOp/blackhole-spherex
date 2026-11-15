@@ -34,6 +34,86 @@
    "sp_type": "M4.5-6+e",
    "n_exposures": 548,
    "n_epochs": 3
+  },
+  {
+   "slug": "omi02-eri-b",
+   "name": "omi02 Eri B",
+   "sp_type": "DA2.9",
+   "n_exposures": 432,
+   "n_epochs": 3,
+   "set": "fast"
+  },
+  {
+   "slug": "ssspm-j1444-2019",
+   "name": "SSSPM J1444-2019",
+   "sp_type": "sdL0",
+   "n_exposures": 347,
+   "n_epochs": 3,
+   "set": "fast"
+  },
+  {
+   "slug": "wolf-28",
+   "name": "Wolf   28",
+   "sp_type": "DZ7.5",
+   "n_exposures": 328,
+   "n_epochs": 3,
+   "set": "fast"
+  },
+  {
+   "slug": "lawd-37",
+   "name": "LAWD 37",
+   "sp_type": "DQ",
+   "n_exposures": 486,
+   "n_epochs": 3,
+   "set": "fast"
+  },
+  {
+   "slug": "g-275-92",
+   "name": "G 275-92",
+   "sp_type": "sdK7",
+   "n_exposures": 341,
+   "n_epochs": 3,
+   "set": "fast"
+  },
+  {
+   "slug": "lp-651-7",
+   "name": "LP  651-7",
+   "sp_type": "M6V",
+   "n_exposures": 351,
+   "n_epochs": 3,
+   "set": "fast"
+  },
+  {
+   "slug": "lehpm-3396",
+   "name": "LEHPM 3396",
+   "sp_type": "M9",
+   "n_exposures": 374,
+   "n_epochs": 3,
+   "set": "fast"
+  },
+  {
+   "slug": "lsr-j1826-3014",
+   "name": "LSR J1826+3014",
+   "sp_type": "M8.5V",
+   "n_exposures": 419,
+   "n_epochs": 4,
+   "set": "fast"
+  },
+  {
+   "slug": "2mass-j02511490-0352459",
+   "name": "2MASS J02511490-0352459",
+   "sp_type": "L3",
+   "n_exposures": 358,
+   "n_epochs": 3,
+   "set": "fast"
+  },
+  {
+   "slug": "g-221-5",
+   "name": "G 221-5",
+   "sp_type": "M5V",
+   "n_exposures": 368,
+   "n_epochs": 3,
+   "set": "fast"
   }
  ]
 }

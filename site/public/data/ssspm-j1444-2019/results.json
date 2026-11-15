@@ -1,0 +1,73 @@
+{
+ "slug": "ssspm-j1444-2019",
+ "saturation": {
+  "overflow": 0,
+  "exposures": 347,
+  "source": "data/astrometry/ssspm-j1444-2019_target_wide.csv",
+  "core_empty": null,
+  "core_filled": null
+ },
+ "fit": {
+  "t0_year": 2026.057,
+  "aligned_to_field_stars": true,
+  "reference": {
+   "pm_east": -2908.634,
+   "pm_north": -1960.916,
+   "plx": 58.1427,
+   "source": "SIMBAD",
+   "bibcode": "2020yCat.1350....0G"
+  },
+  "methods": [
+   {
+    "id": "win",
+    "label": "Windowed centroid",
+    "n_used": 318,
+    "pm_east": -2893.76,
+    "pm_east_err": 32.62,
+    "pm_north": -1959.16,
+    "pm_north_err": 40.5,
+    "plx": 67.74,
+    "plx_err": 16.08,
+    "plx_loo_min": null,
+    "plx_loo_max": null,
+    "plx_excess_pct": 16.5
+   },
+   {
+    "id": "psf",
+    "label": "ePSF fit",
+    "n_used": 306,
+    "pm_east": -2881.53,
+    "pm_east_err": 24.56,
+    "pm_north": -1934.59,
+    "pm_north_err": 25.71,
+    "plx": 55.01,
+    "plx_err": 13.01,
+    "plx_loo_min": null,
+    "plx_loo_max": null,
+    "plx_excess_pct": -5.4
+   }
+  ],
+  "arrow": {
+   "x": 13.816,
+   "y": 13.824,
+   "span_years": 0.986,
+   "dx": 0.462,
+   "dy": 0.31,
+   "method": "psf"
+  },
+  "source": "data/astrometry/ssspm-j1444-2019_fit_wide_aligned.json"
+ },
+ "off_target": null,
+ "fit_not_shown": null,
+ "stack_motion": null,
+ "per_exposure_fit": null,
+ "flicker": null,
+ "raw_dropped": {
+  "dropped": 6,
+  "total": 347,
+  "max_masked_fraction": 0.2
+ },
+ "has_diff": false,
+ "default_band": "all",
+ "compare_bands": null
+}

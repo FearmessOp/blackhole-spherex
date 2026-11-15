@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import BlinkView from './BlinkView'
+import FastMoversPanel from './FastMoversPanel'
 import FindMover from './FindMover'
 import QuickLookView, { type Query } from './QuickLookView'
 import ValidationPanel from './ValidationPanel'
@@ -112,6 +113,15 @@ export default function App() {
 
     const targets = index.status === 'ready' ? index.targets : []
     const names: Record<string, string> = Object.fromEntries(targets.map((t) => [t.slug, t.name]))
+    // The fast movers (a test of the fit) are listed after the first targets, under their own heading.
+    const groups = [
+        { title: null, list: targets.filter((t) => t.set !== 'fast') },
+        { title: 'Fast movers, a test of the fit', list: targets.filter((t) => t.set === 'fast') }
+    ].filter((g) => g.list.length > 0)
+    const openTarget = (slug: string) => {
+        go({ kind: 'name', name: slug })
+        window.scrollTo({ top: 0 })
+    }
     // A name that is one of the prepared targets opens the prepared view.
     const wanted = route.kind === 'name' ? route.name.toLowerCase() : null
     const prepared =
@@ -155,23 +165,26 @@ export default function App() {
                     </div>
                     {inputError && <p className="warn">{inputError}</p>}
                 </form>
-                {targets.length > 0 && (
-                    <nav className="cards">
-                        {targets.map((t) => (
-                            <button
-                                key={t.slug}
-                                className={`card${t === prepared ? ' on' : ''}`}
-                                onClick={() => go({ kind: 'name', name: t.slug })}
-                            >
-                                <span className="card-name">{t.name}</span>
-                                <span className="card-meta">
-                                    {t.sp_type ? `${t.sp_type} · ` : ''}
-                                    {t.n_exposures} exposures · {t.n_epochs} epochs
-                                </span>
-                            </button>
-                        ))}
-                    </nav>
-                )}
+                {groups.map((g) => (
+                    <div key={g.title ?? 'first'}>
+                        {g.title && <h4 className="cards-title">{g.title}</h4>}
+                        <nav className="cards">
+                            {g.list.map((t) => (
+                                <button
+                                    key={t.slug}
+                                    className={`card${t === prepared ? ' on' : ''}`}
+                                    onClick={() => go({ kind: 'name', name: t.slug })}
+                                >
+                                    <span className="card-name">{t.name}</span>
+                                    <span className="card-meta">
+                                        {t.sp_type ? `${t.sp_type} · ` : ''}
+                                        {t.n_exposures} exposures · {t.n_epochs} epochs
+                                    </span>
+                                </button>
+                            ))}
+                        </nav>
+                    </div>
+                ))}
                 {index.status === 'loading' && <p className="note">Loading target list…</p>}
                 {route.kind === 'bad' && <p className="warn">The address of this page holds no usable position. {BAD_POS}</p>}
                 {route.kind === 'guide' && <FindMover onExit={leaveGuide} />}
@@ -181,6 +194,7 @@ export default function App() {
                     <p className="note">No prepared targets are available; enter a star name or a position above.</p>
                 )}
                 {index.status !== 'loading' && <ValidationPanel names={names} />}
+                {index.status !== 'loading' && <FastMoversPanel onOpen={openTarget} />}
             </main>
         </div>
     )
