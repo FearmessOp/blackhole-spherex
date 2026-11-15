@@ -261,10 +261,11 @@ const enGuide = {
     'guide.ask.wise.long': 'At long wavelength a faint source appears and moves towards the marked Gaia star. Click it.',
     'guide.ask.wise.short':
         'At short wavelength this cold object is not seen; the marked source is a Gaia star, not the target. Switch to long wavelength, then click what appears and moves.',
-    'guide.where': '{arcsec} arcsec ({px} pixels) from the catalogue position of the target in epoch {e}',
-    'guide.fb.hit': 'Found. Your click was {where}.',
+    'guide.where': '{arcsec} arcsec ({px} pixels) from its nearest catalogue position (epoch {e} of {n})',
+    'guide.fb.hit':
+        'Found: this is the object that moves. Your click was {where}. The amber dots are its catalogue positions in all {n} epochs.',
     'guide.fb.shown': 'The amber marker now shows the catalogue position of the target.',
-    'guide.fb.neighbour': 'That is the marked Gaia star, not the target. Your click was {where}.',
+    'guide.fb.neighbour': 'That is the marked Gaia star. The target is the object that moves; your click was {where}.',
     'guide.fb.band': 'The target is not visible at short wavelength. Your click was {where}; switch to long wavelength.',
     'guide.fb.miss.hint': 'Not the mover. Your click was {where}. The difference image is shown as a hint.',
     'guide.fb.miss.again': 'Not the mover. Your click was {where}. Try again.',
@@ -276,7 +277,7 @@ const enGuide = {
         '{name}, a pair of brown dwarfs: measured proper motion (ePSF fit) {e} ± {ee} east and {n} ± {ne} north in mas/yr; SIMBAD gives {re} and {rn}. The arrow is drawn {k} times longer than the motion.',
     'guide.explain.wise':
         '{name}, seen only at long wavelength: from the first to the last epoch it moved {e} ± {ee} arcsec east and {n} ± {ne} north ({method}). The catalogue predicts {pe} and {pn}.',
-    'guide.click': 'Click on the image where you see something move.',
+    'guide.click': 'Click the object that moves. One click is enough.',
     'guide.click.badge': 'Click the image',
     'guide.stacked': '{n} exposures stacked',
     'guide.hint.title': 'Hint: epoch {b} minus epoch {a}',
@@ -309,10 +310,11 @@ const trGuide = {
         'Uzun dalga boyunda sönük bir kaynak beliriyor ve işaretli Gaia yıldızına doğru hareket ediyor. Ona tıklayın.',
     'guide.ask.wise.short':
         'Bu soğuk cisim kısa dalga boyunda görülmez; işaretli kaynak bir Gaia yıldızıdır, hedef değildir. Uzun dalga boyuna geçin, sonra beliren ve hareket eden şeye tıklayın.',
-    'guide.where': 'hedefin dönem {e} katalog konumundan {arcsec} arcsec ({px} piksel) uzakta',
-    'guide.fb.hit': 'Bulundu. Tıkladığınız yer {where}.',
+    'guide.where': 'en yakın katalog konumundan (dönem {e} / {n}) {arcsec} arcsec ({px} piksel) uzakta',
+    'guide.fb.hit':
+        'Bulundu: hareket eden cisim bu. Tıkladığınız yer {where}. Amber noktalar cismin {n} dönemdeki katalog konumları.',
     'guide.fb.shown': 'Amber işaret artık hedefin katalog konumunu gösteriyor.',
-    'guide.fb.neighbour': 'Bu, işaretli Gaia yıldızı; hedef değil. Tıkladığınız yer {where}.',
+    'guide.fb.neighbour': 'Bu, işaretli Gaia yıldızı; hareket eden hedef değil. Tıkladığınız yer hedefin {where}.',
     'guide.fb.band': 'Hedef kısa dalga boyunda görünmüyor. Tıkladığınız yer {where}; uzun dalga boyuna geçin.',
     'guide.fb.miss.hint': 'Hareket eden bu değil. Tıkladığınız yer {where}. Fark görüntüsü ipucu olarak gösteriliyor.',
     'guide.fb.miss.again': 'Hareket eden bu değil. Tıkladığınız yer {where}. Yeniden deneyin.',
@@ -324,7 +326,7 @@ const trGuide = {
         '{name}, bir kahverengi cüce çifti: ölçülen özdevinim (ePSF fit) doğuya {e} ± {ee}, kuzeye {n} ± {ne} mas/yr; SIMBAD {re} ve {rn} veriyor. Ok, hareketin {k} katı uzunlukta çizildi.',
     'guide.explain.wise':
         '{name}, yalnızca uzun dalga boyunda görülüyor: ilk dönemden son döneme doğuya {e} ± {ee} arcsec, kuzeye {n} ± {ne} hareket etti ({method}). Katalog {pe} ve {pn} öngörüyor.',
-    'guide.click': 'Görüntüde bir şeyin hareket ettiğini gördüğünüz yere tıklayın.',
+    'guide.click': 'Hareket eden cisme tıklayın. Tek tıklama yeterli.',
     'guide.click.badge': 'Görüntüye tıklayın',
     'guide.stacked': '{n} pozlama toplandı',
     'guide.hint.title': 'İpucu: dönem {b} eksi dönem {a}',

@@ -5,8 +5,10 @@ import type { Diff, Meta, Results, XY } from './types'
 
 // Guided mode "Find the mover": three prepared targets, blinked without the catalogue
 // marker until the visitor has clicked. The feedback is the distance of the click from
-// the catalogue position of the target in the epoch that was on screen. There is no
-// score. Every number shown comes from meta.json, results.json or diff.json.
+// the nearest of the target's catalogue positions over all epochs (the image blinks, so
+// the epoch on screen at the moment of the click is chance). After it is found, the
+// positions of all epochs are drawn as amber dots. There is no score. Every number shown
+// comes from meta.json, results.json or diff.json.
 
 type Step = {
     slug: string
@@ -28,7 +30,7 @@ const STEPS: Step[] = [
     }
 ]
 
-const HIT_PX = 2 // a click within 2 grid pixels of the catalogue position counts as found
+export const HIT_PX = 2 // a click within 2 grid pixels of the nearest catalogue position counts as found
 const BLINK_MS = 700
 
 type Data = { meta: Meta; res: Results; diff: Diff | null }
@@ -94,14 +96,23 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
     const hintBand = step.hint ? (diff?.bands.find((b) => b.id === bandId && b.distinct) ?? null) : null
 
     const onPick = (x: number, y: number) => {
-        const d = Math.hypot(x - ep.predicted.x, y - ep.predicted.y)
+        // Nearest catalogue position of the target over all epochs.
+        let d = Infinity
+        let near = 0
+        meta.epochs.forEach((e, k) => {
+            const dk = Math.hypot(x - e.predicted.x, y - e.predicted.y)
+            if (dk < d) {
+                d = dk
+                near = k
+            }
+        })
         const dn = nb ? Math.hypot(x - nb.x, y - nb.y) : Infinity
         let kind: Feedback['kind'] = 'miss'
         if (!inNeedBand) kind = dn <= HIT_PX ? 'neighbour' : 'band'
         else if (d <= HIT_PX) kind = 'hit'
         else if (dn <= HIT_PX) kind = 'neighbour'
         setPick({ x, y })
-        setFb({ kind, arcsec: d * scale, px: d, epoch: frame.epoch })
+        setFb({ kind, arcsec: d * scale, px: d, epoch: near })
         if (kind === 'miss' && hintBand) setHint(true)
     }
 
@@ -111,9 +122,10 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
     else if (step.slug === 'wise-0855') ask = inNeedBand ? t('guide.ask.wise.long') : t('guide.ask.wise.short')
 
     // Feedback: the real distance of the click from the catalogue position.
-    const where = fb ? t('guide.where', { arcsec: fb.arcsec.toFixed(1), px: fb.px.toFixed(1), e: fb.epoch + 1 }) : ''
+    const nEp = meta.epochs.length
+    const where = fb ? t('guide.where', { arcsec: fb.arcsec.toFixed(1), px: fb.px.toFixed(1), e: fb.epoch + 1, n: nEp }) : ''
     let feedback: string | null = null
-    if (fb?.kind === 'hit') feedback = t('guide.fb.hit', { where })
+    if (fb?.kind === 'hit') feedback = t('guide.fb.hit', { where, n: nEp })
     else if (fb?.kind === 'shown') feedback = t('guide.fb.shown')
     else if (fb?.kind === 'neighbour') feedback = t('guide.fb.neighbour', { where })
     else if (fb?.kind === 'band') feedback = t('guide.fb.band', { where })
@@ -180,9 +192,10 @@ function StepView({ step, data, isLast, onNext }: { step: Step; data: Data; isLa
                 neighbour={nb}
                 neighbourLabel={t('label.gaia')}
                 arrow={found ? res.fit?.arrow : null}
+                track={found && inNeedBand ? meta.epochs.map((e) => e.predicted) : null}
                 onPick={found ? undefined : onPick}
                 pickBadge={t('guide.click.badge')}
-                pick={pick}
+                pick={found ? null : pick}
                 caption={t('panel.epoch', {
                     i: frame.epoch + 1,
                     n: meta.epochs.length,

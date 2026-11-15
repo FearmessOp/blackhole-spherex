@@ -13,6 +13,7 @@ type Props = {
     neighbour?: XY | null // a catalogue star that is not the target
     neighbourLabel?: string
     arrow?: Arrow | null
+    track?: XY[] | null // catalogue positions of the target in all epochs: amber dots joined by a thin line
     onPick?: (x: number, y: number) => void // click on the image, in grid pixels (pixel centres at whole numbers)
     pickBadge?: string // short label drawn on a clickable image
     pick?: XY | null // the last click, drawn as a small ring
@@ -82,6 +83,15 @@ export default function SkyPanel(p: Props) {
                         <g className="pick" transform={`translate(${p.pick.x + 0.5} ${p.pick.y + 0.5})`}>
                             <circle className="case" r={0.7} />
                             <circle r={0.7} />
+                        </g>
+                    )}
+                    {p.track && p.track.length > 0 && (
+                        <g className="track">
+                            <polyline className="case" points={p.track.map((q) => `${q.x + 0.5},${q.y + 0.5}`).join(' ')} />
+                            <polyline points={p.track.map((q) => `${q.x + 0.5},${q.y + 0.5}`).join(' ')} />
+                            {p.track.map((q, k) => (
+                                <circle key={k} cx={q.x + 0.5} cy={q.y + 0.5} r={0.32} />
+                            ))}
                         </g>
                     )}
                     {p.marker && (

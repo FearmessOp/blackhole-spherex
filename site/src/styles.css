@@ -537,6 +537,24 @@ button.link {
     stroke-width: 0.12;
 }
 
+/* Catalogue positions of the target in all epochs (guided mode, after it is found) */
+.track polyline {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 0.08;
+}
+
+.track polyline.case {
+    stroke: #000;
+    stroke-width: 0.24;
+}
+
+.track circle {
+    fill: var(--accent);
+    stroke: #000;
+    stroke-width: 0.1;
+}
+
 /* The visitor's click: off-white ring with a dark casing. */
 .pick circle {
     fill: none;
