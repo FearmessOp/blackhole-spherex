@@ -1,0 +1,42 @@
+base: https://blackhole-spherex.vercel.app/
+targets in data/index.json: 15
+[1400] target barnard: ok heading="Barnard's Star" views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target eps-indi-b: ok heading='Epsilon Indi B' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target wise-0855: CHECK heading='WISE 0855-0714' views=4 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target rw-aur: ok heading='RW Aurigae' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target r-dra: ok heading='R Draconis' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target omi02-eri-b: ok heading='omi02 Eri B' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target ssspm-j1444-2019: ok heading='SSSPM J1444-2019' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target wolf-28: ok heading='Wolf 28' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target lawd-37: ok heading='LAWD 37' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target g-275-92: ok heading='G 275-92' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target lp-651-7: ok heading='LP 651-7' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target lehpm-3396: ok heading='LEHPM 3396' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target lsr-j1826-3014: ok heading='LSR J1826+3014' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target 2mass-j02511490-0352459: ok heading='2MASS J02511490-0352459' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[1400] target g-221-5: ok heading='G 221-5' views=2 tabs=3 overflow_per_tab=['no (1400/1400)', 'no (1400/1400)', 'no (1400/1400)'] 4xx=[] console_errors=[]
+[390] target barnard: ok heading="Barnard's Star" views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target eps-indi-b: ok heading='Epsilon Indi B' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target wise-0855: CHECK heading='WISE 0855-0714' views=4 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target rw-aur: ok heading='RW Aurigae' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target r-dra: ok heading='R Draconis' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target omi02-eri-b: ok heading='omi02 Eri B' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target ssspm-j1444-2019: ok heading='SSSPM J1444-2019' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target wolf-28: ok heading='Wolf 28' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target lawd-37: ok heading='LAWD 37' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target g-275-92: ok heading='G 275-92' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target lp-651-7: ok heading='LP 651-7' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target lehpm-3396: ok heading='LEHPM 3396' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target lsr-j1826-3014: ok heading='LSR J1826+3014' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target 2mass-j02511490-0352459: ok heading='2MASS J02511490-0352459' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+[390] target g-221-5: ok heading='G 221-5' views=2 tabs=3 overflow_per_tab=['no (390/390)', 'no (390/390)', 'no (390/390)'] 4xx=[] console_errors=[]
+targets ok: 28 of 30 (15 targets x 2 widths)
+position link ?ra=164.0924&dec=6.9952: state=shown heading='RA 164.09240°, Dec 6.99520° ?' canvases=3 overflow=no (1400/1400) 4xx=[] console_errors=[]
+lang default: html_lang='en' stored=None title='SPHEREx motion viewer'
+lang ?lang=tr: html_lang='tr' stored=None title='SPHEREx hareket görüntüleyici' url=https://blackhole-spherex.vercel.app/?target=eps-indi-b&lang=tr
+lang after choosing the third card: heading='WISE 0855-0714' url=https://blackhole-spherex.vercel.app/?target=wise-0855&lang=tr
+lang after clicking TR: html_lang='tr' stored='tr' url=https://blackhole-spherex.vercel.app/?target=wise-0855&lang=tr
+lang on a link without lang, after TR was clicked: html_lang='tr' title='SPHEREx hareket görüntüleyici' url=https://blackhole-spherex.vercel.app/?target=barnard&lang=tr
+lang after clicking EN: html_lang='en' stored='en' title='SPHEREx motion viewer' url=https://blackhole-spherex.vercel.app/?target=barnard
+lang part: 4xx=[] console_errors=[]
+done

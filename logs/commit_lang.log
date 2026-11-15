@@ -1,0 +1,9 @@
+warning: in the working copy of 'logs/build_design_9.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/commit_design.log', LF will be replaced by CRLF the next time Git touches it
+local: 
+b1efa309b839f580885e76e40ac9ac5a6bd510e1
+remote: 
+b1efa309b839f580885e76e40ac9ac5a6bd510e1	refs/heads/main
+status: 
+?? logs/commit_lang.log
+?? logs/preview_design.log

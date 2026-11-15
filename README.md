@@ -3,18 +3,32 @@
 Entry for the NASA Space Apps Challenge 2026, challenge "Planet X and SPHEREx".
 
 A public web tool that shows SPHEREx images of a patch of sky in time order, so
-that moving objects are easy to spot. For each target it blinks one stacked
-image per observing epoch next to the raw exposures, and reports what could be
-measured from the images.
+that moving objects are easy to spot. It blinks one stacked image per observing
+epoch next to the raw exposures, and reports what could be measured from the
+images.
 
-**Status:** work in progress (hackathon weekend, 14–15 November 2026).
-The site shows five prepared test targets and ten prepared fast movers with
-measurements, a guided mode ("Find the mover"), a difference image as a hint,
-two validation sections, and a **quick look at any star name or position**
-(search box, or `?target=` / `?ra=&dec=` in the URL). The quick look is
-unmasked and gives rough numbers only. Click-for-spectrum and an automatic
-search for unknown movers are not implemented. See
-[Known limitations](#known-limitations) and [PROGRESS.md](PROGRESS.md).
+What works and what was measured:
+
+- **Quick look at any star.** A star name or a position (search box, or
+  `?target=` / `?ra=&dec=` in the URL) is read from the SPHEREx archive and
+  blinked in the browser. It is unmasked and gives rough numbers only.
+- **Proper motion of Epsilon Indi B.** 3939.6 ± 24.6 mas/yr east and
+  −2440.7 ± 20.8 mas/yr north (ePSF fit on 384 exposures, statistical errors)
+  against 3982.0 and −2466.8 from SIMBAD. The measured parallax is 11% above
+  the SIMBAD value.
+- **Validation on 91 Gaia field stars.** The same fit is within 2 errors of
+  Gaia in proper motion east, north and parallax together for 75 of 91 stars;
+  79.1 are expected for Gaussian errors of the right size.
+- **Validation on fast movers.** Of ten stars with a large catalogue motion,
+  9 could be judged; 8 of them are within 2 errors of SIMBAD in both
+  proper-motion components (ePSF fit).
+
+Also on the site: fifteen prepared targets (five test targets and the ten fast
+movers), a guided mode ("Find the mover"), a difference image as a hint, short
+explanations behind "?" buttons, and English and Turkish text.
+Click-for-spectrum and an automatic search for unknown movers are not
+implemented. See [Known limitations](#known-limitations) and
+[PROGRESS.md](PROGRESS.md).
 A draft of the project-page text is in
 [docs/SUBMISSION_DRAFT.md](docs/SUBMISSION_DRAFT.md) (not yet confirmed by the team).
 
@@ -29,7 +43,7 @@ Links that open a view directly:
 - `https://blackhole-spherex.vercel.app/?ra=164.0924&dec=6.9952` (quick look by position, degrees)
 
 The site is deployed by Vercel from the `site/` directory on every push to `main`.
-The five prepared targets are static PNG and JSON files. For the quick look the
+The fifteen prepared targets are static PNG and JSON files. For the quick look the
 site calls one small function of its own (`site/api/lookup.js`: name → position
 at SIMBAD, exposure list at IRSA), and the browser then reads the image data
 straight from the public cloud copy of the SPHEREx archive.
@@ -73,6 +87,10 @@ Also on the site:
   same chain as Epsilon Indi B, as prepared targets of their own.
 - **Validation** and **Validation on fast movers**: the fit compared with Gaia
   on field stars and with SIMBAD on the fast movers (see below).
+- **Tabs, explanations, language.** Each prepared target has three tabs
+  (Images, Measurement, Validation). Section headings have a "?" button with a
+  short explanation, and "How to read this page" gives five short answers. The
+  text is in English and Turkish (`?lang=tr`); one table footnote stays English.
 
 For any other star name or position (**quick look**):
 
@@ -312,7 +330,10 @@ Checks that change nothing: `inspect_fits.py`, `parallax_check.py`,
 `raw_masked_fraction.py`, `flicker_diag.py`, `hash_site_data.py`,
 `check_terms.py`, `npm_licenses.py`, `range_probe.py`, `sia_probe.py`,
 `check_vercel_limits.py`, `epsf_check.py`, `test_stored_epsf.py`,
-`live_tour.py` (live-site tour). `wcs_reference.py` writes the astropy reference
+`live_tour.py` (tour of the site before the redesign), `design_shots.py`
+(screenshots, overflow, 4xx, console errors), `design_links.py` (all targets,
+position link, language) and `design_contrast.py` (contrast ratios of the style
+sheet). `wcs_reference.py` writes the astropy reference
 values for the quick-look tests (`data/quicklook/wcs_reference.json`).
 
 ## Running the site locally
@@ -326,7 +347,7 @@ npm run build
 npx vite preview
 ```
 
-The local preview serves the five prepared targets. The quick look needs the
+The local preview serves the fifteen prepared targets. The quick look needs the
 function `/api/lookup`, which only runs on Vercel; locally a search ends with
 "The lookup service did not answer".
 

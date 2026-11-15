@@ -78,5 +78,60 @@ not covered; it has a black outline.
 
 ## Round 2: live site
 
-Not done yet. To be added after the push: 1400 px and 390 px in both languages, quick look for a star that is not
-prepared, the three guide steps, all 15 targets, `?target=` and `?ra=&dec=` links.
+Live site: `https://blackhole-spherex.vercel.app`. Two pushes: `f7c8a9d` (redesign, `logs/commit_design.log`) and
+`b1efa30` (language fix, `logs/commit_lang.log`).
+
+| Run | Commit on the live site | Log | Images |
+|---|---|---|---|
+| live1 screenshots | `f7c8a9d` | `logs/design_shots_live1.log` | `cache/design/live1/` (104 files) |
+| live1 links | `f7c8a9d` | `logs/design_links_live1.log` | none |
+| live2 links | `b1efa30` | `logs/design_links_live2.log` | none |
+
+### Screenshots (`logs/design_shots_live1.log`)
+
+60 page states, as in round 1. No page overflow, no 4xx, no console error.
+
+- **Quick look, a star that is not prepared (Ross 128).** It loads at 1400 px and 390 px in both languages:
+  341 exposures listed in 3 epochs, 18 read in 2.4 s (5.1 MB in 36 requests).
+  Page heights: 1447 px (1400 px), 2435 px (390 px, English), 2504 px (390 px, Turkish).
+- **Guide.** Looked at by eye at 1400 px (steps 2 and 3) and at 390 px (steps 2 and 3, end). No defect seen.
+
+### Targets and links (`pipeline/design_links.py`)
+
+- **15 targets by `?target=`, two widths.** 28 of 30 loads print "ok" in both logs. The 2 CHECK lines are
+  WISE 0855 at both widths with `views=4`. The script expects 2 image panels; WISE 0855 has 2 more in its
+  short and long wavelength comparison. This is the criterion of the script, not a defect of the site.
+- **Position link `?ra=164.0924&dec=6.9952`.** `state=shown`, 3 canvases, no overflow, no 4xx, no console error
+  (both logs).
+- **Language.** Default is English. `?lang=tr` gives Turkish and stays in the address when another card is chosen.
+  A click on TR or EN is stored in localStorage.
+
+### Defect found and fixed
+
+- **A link without `lang`, opened after Turkish had been chosen, showed Turkish but kept the address without
+  `lang=tr`** (`logs/design_links_live1.log`: the address stayed `?target=barnard`). Copying that address would
+  have shared the English page.
+  Fix in `site/src/i18n.ts`: when Turkish comes from localStorage, `lang=tr` is added to the address
+  (`logs/build_design_9.log`). Checked locally (`logs/design_links_local1.log`) and on the live site
+  (`logs/design_links_live2.log`: the address becomes `?target=barnard&lang=tr`; a click on EN removes it).
+
+### Seen, not changed
+
+- **Ross 128 quick look, rough motion table: the east component has the opposite sign to the catalogue
+  prediction** (read from the live page, arcsec, east / north):
+
+  | Epochs | Predicted | Measured |
+  |---|---|---|
+  | 1 to 2 | +0.87 / −0.95 | −1.68 ± 0.75 / −1.07 ± 0.43 |
+  | 1 to 3 | +0.60 / −1.24 | −1.20 ± 0.79 / −1.57 ± 0.48 |
+  | 2 to 3 | −0.26 / −0.29 | +0.47 ± 0.44 / −0.50 ± 0.39 |
+
+  The north component agrees in sign in all three rows. The cause was not looked into; the measurement code was
+  not touched in the design block. These numbers are from the page, not from a log in the repo.
+- In the quick look at 1400 px the lower half of the column to the right of the image is empty.
+
+### Not looked at by eye in round 2
+
+The difference view, the "?" buttons other than the one on the stack panel, "How to read this page" at 390 px and
+1400 px, the RW Aurigae and R Draconis pages, guide step 1 on the live site, and most of the 104 screenshots of
+the live1 run. The live2 run made no screenshots; the pages of `b1efa30` were checked by script only.
