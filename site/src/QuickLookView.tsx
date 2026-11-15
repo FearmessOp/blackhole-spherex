@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { reducedMotion, useBlinkKeys } from './BlinkView'
 import { HelpTitle } from './Help'
 import SkyPanel from './SkyPanel'
-import { bandLabel, t, useLang, type Key } from './i18n'
+import { bandLabel, t, useLang, withLang, type Key } from './i18n'
 import {
     SCALE_ARCSEC,
     clippedMean,
@@ -89,6 +89,13 @@ const ERRORS: Record<string, Key> = {
     bad_request: 'quick.err.bad_request',
     no_answer: 'quick.err.no_answer'
 }
+
+// Exposure lists saved for archive outages (site/scripts/save_lookup.mjs, site/public/data/lookup/).
+// Used only when /api/lookup answers archive_unreachable or no_answer; the images are still read live.
+const SAVED: Record<string, string> = { 'fq pav': 'fq-pav', 'v* fq pav': 'fq-pav' }
+const SAVED_NAMES = ['FQ Pav']
+const savedSlug = (q: Query) =>
+    'target' in q ? (SAVED[q.target.trim().toLowerCase().replace(/\s+/g, ' ')] ?? null) : null
 
 type EpochView = {
     index: number
@@ -236,7 +243,10 @@ function EpochCanvas({ rgba, visible }: { rgba: Uint8ClampedArray; visible: bool
     return <canvas ref={ref} width={NPIX} height={NPIX} style={{ visibility: visible ? 'visible' : 'hidden' }} />
 }
 
-type LookupState = { status: 'loading' } | { status: 'error'; key: Key } | { status: 'ready'; data: Lookup }
+type LookupState =
+    | { status: 'loading' }
+    | { status: 'error'; key: Key }
+    | { status: 'ready'; data: Lookup; savedAt?: string }
 
 export default function QuickLookView({ query }: { query: Query }) {
     useLang()
@@ -257,6 +267,20 @@ export default function QuickLookView({ query }: { query: Query }) {
     useEffect(() => {
         const ctl = new AbortController()
         setLookup({ status: 'loading' })
+        // The archive's query service is down: use the saved exposure list, if this name has one.
+        const fail = async (key: Key) => {
+            const slug = savedSlug(query)
+            if (slug && (key === ERRORS.no_answer || key === ERRORS.archive_unreachable)) {
+                try {
+                    const r = await fetch(`${import.meta.env.BASE_URL}data/lookup/${slug}.json`, { signal: ctl.signal })
+                    const b = r.ok ? ((await r.json()) as Lookup & { saved_at?: string }) : null
+                    if (b && b.ok && b.exposures?.length) return setLookup({ status: 'ready', data: b, savedAt: b.saved_at ?? '' })
+                } catch {
+                    // no saved list: the error below is shown
+                }
+            }
+            if (!ctl.signal.aborted) setLookup({ status: 'error', key })
+        }
         fetch(`${API}?${queryString}`, { signal: ctl.signal })
             .then(async (r) => {
                 let body: Lookup | null = null
@@ -265,13 +289,13 @@ export default function QuickLookView({ query }: { query: Query }) {
                 } catch {
                     body = null // not JSON: the function is not there (local preview) or timed out
                 }
-                if (!body || typeof body.ok !== 'boolean') return setLookup({ status: 'error', key: ERRORS.no_answer })
-                if (!body.ok) return setLookup({ status: 'error', key: ERRORS[body.error ?? ''] ?? ERRORS.no_answer })
+                if (!body || typeof body.ok !== 'boolean') return void fail(ERRORS.no_answer)
+                if (!body.ok) return void fail(ERRORS[body.error ?? ''] ?? ERRORS.no_answer)
                 if (!body.exposures.length) return setLookup({ status: 'error', key: 'quick.err.no_exposures' })
                 setLookup({ status: 'ready', data: body })
             })
             .catch(() => {
-                if (!ctl.signal.aborted) setLookup({ status: 'error', key: ERRORS.no_answer })
+                if (!ctl.signal.aborted) void fail(ERRORS.no_answer)
             })
         return () => ctl.abort()
     }, [queryString, attempt])
@@ -354,6 +378,14 @@ export default function QuickLookView({ query }: { query: Query }) {
                 <button type="button" onClick={() => setAttempt(attempt + 1)}>
                     {t('quick.retry')}
                 </button>
+                <p className="note saved-list">
+                    {t('quick.saved.list')}{' '}
+                    {SAVED_NAMES.map((n) => (
+                        <a key={n} href={withLang(`${window.location.pathname}?target=${encodeURIComponent(n)}`)}>
+                            {n}
+                        </a>
+                    ))}
+                </p>
             </div>
         )
     }
@@ -363,6 +395,9 @@ export default function QuickLookView({ query }: { query: Query }) {
     const dif = scene?.diff ?? null
     const showDiff = view === 'diff' && dif !== null
     const partial = lookup.data.collections.filter((c) => !c.ok).map((c) => c.id)
+    const savedNote = lookup.savedAt ? (
+        <p className="warn">{t('quick.saved', { date: `${lookup.savedAt.slice(0, 16).replace('T', ' ')} UTC` })}</p>
+    ) : null
     // Rough motion table: in the side column next to the image, under the notes.
     const kMag = data?.target?.k_mag ?? null
     const tooBright = kMag !== null && kMag < K_SATURATED
@@ -427,6 +462,7 @@ export default function QuickLookView({ query }: { query: Query }) {
         <div className="target">
             {heading}
             {!(scene && cur) && banner}
+            {!(scene && cur) && savedNote}
             {partial.length > 0 && <p className="warn">{t('quick.partial', { ids: partial.join(', ') })}</p>}
             {sceneError && (
                 <p className="warn">{t(sceneError.key, sceneError.msg ? { msg: sceneError.msg } : undefined)}</p>
@@ -484,6 +520,7 @@ export default function QuickLookView({ query }: { query: Query }) {
                     )}
                     <div className="quick-side">
                         {banner}
+                        {savedNote}
                         {st && (
                             <p className="detail">
                                 {t('quick.stats', {

@@ -118,7 +118,8 @@ function splitCsv(line) {
 }
 
 // SIA CSV -> compact exposure rows. Returns null if the text is not the SIA table.
-function parseSia(text, collIndex) {
+// Exported for site/scripts/save_lookup.mjs (saved exposure lists for archive outages).
+export function parseSia(text, collIndex) {
     const lines = text.split(/\r?\n/).filter((ln) => ln.length > 0)
     if (!lines.length) return null
     const header = splitCsv(lines[0])

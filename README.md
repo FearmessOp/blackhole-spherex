@@ -193,6 +193,13 @@ same two targets, so the 9 of 9 is not an independent confirmation.
 
 ## Known limitations
 
+- **IRSA query service outage, 15 November 2026 (local time, UTC+3).** The SIA service answered "502" from 12:13
+  and was still down at 13:52 (team's observation). Measured here: at about 13:43 the live quick look for Ross 128
+  showed "The NASA archive (IRSA) is not answering right now" (`logs/quick_keys_check_live.log`); at 14:15:51 a SIA
+  query for `spherex_dr1` answered HTTP 502 in 0.67 s (`logs/irsa_probe_fix4.log`). The cause is not known to us.
+  During an outage the quick look works only for names with a saved exposure list (`site/public/data/lookup/`,
+  made by `site/scripts/save_lookup.mjs` from `data/sia/`; at present FQ Pav, 478 exposures, saved
+  2026-11-15 03:24 UTC); the images are still read live from the cloud copy. The prepared targets do not need IRSA.
 **Scope**
 
 - Measurements with masking, field-star alignment and a motion fit exist only

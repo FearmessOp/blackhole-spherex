@@ -394,6 +394,9 @@ const enQuick = {
     'quick.err.archive_unreachable':
         'The NASA archive (IRSA) is not answering right now, so the list of SPHEREx images could not be fetched. This is on the archive side; try again in a minute. The prepared targets above work without it.',
     'quick.retry': 'Try again',
+    'quick.saved':
+        "The archive's query service is not answering right now. This exposure list was saved on {date}; the images are still read live from the archive's cloud copy.",
+    'quick.saved.list': 'Saved exposure lists that work without the query service:',
     'quick.err.bad_request': 'Enter a star name, or RA and Dec in degrees (RA 0 to 360, Dec -90 to +90).',
     'quick.err.no_answer': 'The lookup service did not answer. Try again in a moment.',
     'quick.err.no_exposures': 'The public SPHEREx releases at IRSA hold no exposure of this position.',
@@ -440,6 +443,9 @@ const trQuick = {
     'quick.err.archive_unreachable':
         'NASA arşivi (IRSA) şu anda yanıt vermiyor, bu yüzden SPHEREx görüntülerinin listesi alınamadı. Sorun arşiv tarafında; bir dakika sonra yeniden deneyin. Yukarıdaki hazır hedefler arşiv olmadan da çalışır.',
     'quick.retry': 'Yeniden dene',
+    'quick.saved':
+        'Arşivin sorgu hizmeti şu anda yanıt vermiyor. Bu pozlama listesi {date} tarihinde kaydedildi; görüntüler yine arşivin bulut kopyasından canlı okunuyor.',
+    'quick.saved.list': 'Sorgu hizmeti olmadan çalışan kayıtlı pozlama listeleri:',
     'quick.err.bad_request': 'Bir yıldız adı ya da derece olarak RA ve Dec girin (RA 0 ile 360, Dec -90 ile +90).',
     'quick.err.no_answer': 'Arama hizmeti yanıt vermedi. Biraz sonra yeniden deneyin.',
     'quick.err.no_exposures': 'IRSA\'daki açık SPHEREx sürümlerinde bu konumun pozlaması yok.',
