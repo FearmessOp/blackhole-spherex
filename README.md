@@ -1,11 +1,17 @@
 # Blackhole 102 — SPHEREx motion viewer
 
+**English** · [Türkçe](README.tr.md)
+
 Entry for the NASA Space Apps Challenge 2026, challenge "Planet X and SPHEREx".
 
 A public web tool that shows SPHEREx images of a patch of sky in time order, so
 that moving objects are easy to spot. It blinks one stacked image per observing
 epoch next to the raw exposures, and reports what could be measured from the
 images.
+
+**Live site:** https://blackhole-spherex.vercel.app
+
+![Epsilon Indi B: epoch stacks next to the raw exposures](docs/screenshots/eps-indi-b.png)
 
 What works and what was measured:
 
@@ -50,6 +56,23 @@ The fifteen prepared targets are static PNG and JSON files. For the quick look t
 site calls one small function of its own (`site/api/lookup.js`: name → position
 at SIMBAD, exposure list at IRSA), and the browser then reads the image data
 straight from the public cloud copy of the SPHEREx archive.
+
+## Screenshots
+
+| WISE 0855-0714, long wavelength | Measurement tab |
+|---|---|
+| ![WISE 0855-0714](docs/screenshots/wise-0855.png) | ![Measurement tab](docs/screenshots/measurement.png) |
+
+| Find the mover (guide) | Game mode |
+|---|---|
+| ![Guide](docs/screenshots/guide.png) | ![Game](docs/screenshots/game.png) |
+
+| Quick look (FQ Pav) | Phone, Turkish |
+|---|---|
+| ![Quick look](docs/screenshots/quick-look.png) | ![Phone view in Turkish](docs/screenshots/mobile-tr.png) |
+
+Validation tab: [docs/screenshots/validation.png](docs/screenshots/validation.png).
+Screenshots taken from the live site on 15 November 2026.
 
 ## What the site shows
 
