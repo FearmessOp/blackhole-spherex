@@ -76,6 +76,7 @@ const enOpening = {
     'guide.start.sub': 'New here? Spot three real moving objects in about a minute.',
     'search.label': 'Any star or position',
     'search.placeholder': 'Star name (Wolf 359) or RA Dec in degrees (164.0924 6.9952)',
+    'search.placeholder.short': 'Star name or RA Dec (deg)',
     'search.show': 'Show',
     'search.badpos': 'RA must be between 0 and 360 degrees and Dec between -90 and +90 degrees.',
     'search.badurl': 'The address of this page holds no usable position.',
@@ -100,6 +101,7 @@ const trOpening = {
     'guide.start.sub': 'İlk kez mi buradasınız? Bir dakikada üç gerçek hareketli cismi bulun.',
     'search.label': 'Herhangi bir yıldız ya da konum',
     'search.placeholder': 'Yıldız adı (Wolf 359) ya da derece olarak RA Dec (164.0924 6.9952)',
+    'search.placeholder.short': 'Yıldız adı ya da RA Dec (derece)',
     'search.show': 'Göster',
     'search.badpos': 'RA 0 ile 360 derece, Dec -90 ile +90 derece arasında olmalı.',
     'search.badurl': 'Bu sayfanın adresinde kullanılabilir bir konum yok.',
@@ -161,7 +163,18 @@ const enPanels = {
         'The same epoch in two stacks. Each band has its own brightness scale; the amber marker is the catalogue position of the target.',
     'label.target': 'target, catalogue position',
     'label.neighbour': 'Gaia neighbour, not the target',
-    'label.gaia': 'Gaia star, not the target'
+    'label.gaia': 'Gaia star, not the target',
+    'sum.fit':
+        'This star moves across the sky by {v} arcsec per year; the catalogue says {c}. Its parallax (distance) comes out {pct}% {side} the catalogue.',
+    'sum.above': 'above',
+    'sum.below': 'below',
+    'sum.stack':
+        'Between the first and last epoch this object moved {v} arcsec; the catalogue predicts {c}. It is only seen at long wavelength.',
+    'sum.sat': 'Too bright for SPHEREx: the core is saturated in {a} of {b} exposures, so its position cannot be measured.',
+    'sum.nofit': 'Too few clean exposures to measure its motion: {u} of {b} are usable.',
+    'sum.none': 'No measurement for this target yet.',
+    'raw.black': 'Black pixels in the core: saturated, no value.',
+    'search.aria': 'Any star or position'
 } as const
 
 const trPanels = {
@@ -209,7 +222,18 @@ const trPanels = {
         'Aynı dönem, iki ayrı toplamda. Her bandın kendi parlaklık ölçeği var; amber işaret hedefin katalog konumudur.',
     'label.target': 'hedef, katalog konumu',
     'label.neighbour': 'Gaia komşusu, hedef değil',
-    'label.gaia': 'Gaia yıldızı, hedef değil'
+    'label.gaia': 'Gaia yıldızı, hedef değil',
+    'sum.fit':
+        'Bu yıldız gökyüzünde yılda {v} arcsec yol alıyor; katalog {c} diyor. Paralaksı (uzaklığı) kataloğun %{pct} {side} çıkıyor.',
+    'sum.above': 'üstünde',
+    'sum.below': 'altında',
+    'sum.stack':
+        'İlk ve son dönem arasında bu cisim {v} arcsec yol aldı; katalog {c} öngörüyor. Yalnızca uzun dalga boyunda görülüyor.',
+    'sum.sat': 'SPHEREx için fazla parlak: çekirdeği {b} pozlamanın {a} tanesinde doymuş, bu yüzden konumu ölçülemiyor.',
+    'sum.nofit': 'Hareketini ölçmek için temiz pozlama az: {b} pozlamanın {u} tanesi kullanılabilir.',
+    'sum.none': 'Bu hedef için henüz ölçüm yok.',
+    'raw.black': 'Çekirdekteki siyah pikseller: doymuş, değer yok.',
+    'search.aria': 'Herhangi bir yıldız ya da konum'
 }
 
 // ---------------------------------------------------------------- guided mode "Find the mover"

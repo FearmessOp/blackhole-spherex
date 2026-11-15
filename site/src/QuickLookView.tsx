@@ -341,6 +341,59 @@ export default function QuickLookView({ query }: { query: Query }) {
     const dif = scene?.diff ?? null
     const showDiff = view === 'diff' && dif !== null
     const partial = lookup.data.collections.filter((c) => !c.ok).map((c) => c.id)
+    // Rough motion table: in the side column next to the image, under the notes.
+    const motionTable =
+        scene && scene.motions.length > 0 ? (
+            <section className="results">
+                <h3>{t('quick.motion.title')}</h3>
+                <table className="motion">
+                    <thead>
+                        <tr>
+                            <th>{t('quick.motion.head')}</th>
+                            {data?.target && <th>{t('quick.motion.pred')}</th>}
+                            <th>{t('quick.motion.meas')}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {scene.motions.map((r) => (
+                            <tr key={`${r.from}-${r.to}`}>
+                                <td data-unit={t('quick.motion.unit')}>
+                                    {t('quick.motion.pair', { a: r.from + 1, b: r.to + 1 })}
+                                </td>
+                                {data?.target && (
+                                    <td data-label={t('quick.motion.pred')}>
+                                        {r.predicted ? (
+                                            <span className="pair">
+                                                {signed(r.predicted.east)} / {signed(r.predicted.north)}
+                                            </span>
+                                        ) : (
+                                            t('quick.motion.na')
+                                        )}
+                                    </td>
+                                )}
+                                <td data-label={t('quick.motion.meas')}>
+                                    {!r.motion ? (
+                                        t('quick.motion.none')
+                                    ) : !r.motion.measurable ? (
+                                        t('quick.motion.slow')
+                                    ) : (
+                                        <span className="pair">
+                                            {signed(r.motion.east)} ± {r.motion.eastErr.toFixed(2)} / {signed(r.motion.north)} ±{' '}
+                                            {r.motion.northErr.toFixed(2)}
+                                        </span>
+                                    )}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <p className="detail">
+                    {t('quick.motion.note', {
+                        where: t(data?.target ? 'quick.motion.where.cat' : 'quick.motion.where.entered')
+                    })}
+                </p>
+            </section>
+        ) : null
     return (
         <div className="target">
             {heading}
@@ -420,6 +473,7 @@ export default function QuickLookView({ query }: { query: Query }) {
                             {t('quick.grid')}{' '}
                             {data?.target ? t('quick.marker.cat', { source: data.target.source }) : t('quick.marker.entered')}
                         </p>
+                        {motionTable}
                     </div>
                 </div>
             )}
@@ -508,57 +562,6 @@ export default function QuickLookView({ query }: { query: Query }) {
                     </label>
                 </div>
             </div>
-            {scene && scene.motions.length > 0 && (
-                <section className="results">
-                    <h3>{t('quick.motion.title')}</h3>
-                    <table className="motion">
-                        <thead>
-                            <tr>
-                                <th>{t('quick.motion.head')}</th>
-                                {data?.target && <th>{t('quick.motion.pred')}</th>}
-                                <th>{t('quick.motion.meas')}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {scene.motions.map((r) => (
-                                <tr key={`${r.from}-${r.to}`}>
-                                    <td data-unit={t('quick.motion.unit')}>
-                                        {t('quick.motion.pair', { a: r.from + 1, b: r.to + 1 })}
-                                    </td>
-                                    {data?.target && (
-                                        <td data-label={t('quick.motion.pred')}>
-                                            {r.predicted ? (
-                                                <span className="pair">
-                                                    {signed(r.predicted.east)} / {signed(r.predicted.north)}
-                                                </span>
-                                            ) : (
-                                                t('quick.motion.na')
-                                            )}
-                                        </td>
-                                    )}
-                                    <td data-label={t('quick.motion.meas')}>
-                                        {!r.motion ? (
-                                            t('quick.motion.none')
-                                        ) : !r.motion.measurable ? (
-                                            t('quick.motion.slow')
-                                        ) : (
-                                            <span className="pair">
-                                                {signed(r.motion.east)} ± {r.motion.eastErr.toFixed(2)} / {signed(r.motion.north)} ±{' '}
-                                                {r.motion.northErr.toFixed(2)}
-                                            </span>
-                                        )}
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                    <p className="detail">
-                        {t('quick.motion.note', {
-                            where: t(data?.target ? 'quick.motion.where.cat' : 'quick.motion.where.entered')
-                        })}
-                    </p>
-                </section>
-            )}
         </div>
     )
 }

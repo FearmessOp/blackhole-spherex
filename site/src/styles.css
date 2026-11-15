@@ -93,9 +93,13 @@ p {
     padding: var(--s1) var(--s2);
 }
 
-/* The stage is as wide as two square image panels that still fit on the first screen. */
+/* The stage is as wide as two square image panels that still fit on the first screen, together with
+   the play bar and the result sentence under them. --chrome is the vertical space outside the
+   two images: at 430px the sentence ended 7 px above the bottom of a 1400x900 window
+   (logs/first_screen_local1.log, EN and TR); 440px leaves about 17 px. */
 .stage {
-    max-width: clamp(900px, calc(2 * (100vh - 290px) + 72px), 1400px);
+    --chrome: 440px;
+    max-width: clamp(900px, calc(2 * (100vh - var(--chrome)) + 72px), 1400px);
     margin: 0 auto;
     padding: var(--s3) var(--s4) var(--s5);
 }
@@ -240,12 +244,17 @@ button.link {
     font-size: 14px;
 }
 
-/* Target selector: five name cards and one drop-down list for the fast movers, in one row */
+/* Target selector: five name cards, one drop-down list for the fast movers and the three tabs, in one row */
 .picker {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--s2);
-    margin-bottom: var(--s3);
+    margin-bottom: var(--s2);
+}
+
+.picker .tabs {
+    margin-left: auto;
 }
 
 .card {
@@ -558,6 +567,40 @@ button.link {
     font-family: var(--mono);
 }
 
+/* Play / pause and the epoch buttons, directly under the image panels */
+.playbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s2);
+    margin-bottom: var(--s2);
+}
+
+.playbar .play {
+    min-width: 88px;
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.playbar-label {
+    margin-left: var(--s2);
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* The main result in one plain sentence */
+.summary {
+    margin-bottom: var(--s3);
+    padding: var(--s2) var(--s3);
+    border-left: 3px solid var(--accent);
+    background: var(--panel);
+    font-size: 15px;
+}
+
+.raw-note {
+    color: var(--text);
+}
+
 /* Controls */
 .controls {
     display: flex;
@@ -807,7 +850,32 @@ button.link {
     }
 
     .tagline {
-        font-size: 13px;
+        display: none;
+    }
+
+    .picker {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .picker>* {
+        flex: none;
+    }
+
+    .fast-pick {
+        flex: none;
+        max-width: 220px;
+    }
+
+    .guide-start {
+        flex-direction: row;
+        align-items: baseline;
+        gap: var(--s2);
+        white-space: nowrap;
+    }
+
+    .guide-start span {
+        display: none;
     }
 
     .stage {
@@ -820,14 +888,8 @@ button.link {
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .tabs {
-        width: 100%;
+    .picker .tabs {
         margin-left: 0;
-    }
-
-    .tabs button {
-        flex: 1 1 0;
-        padding: var(--s2) var(--s1);
     }
 
     .quick-side,

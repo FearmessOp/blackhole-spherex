@@ -12,11 +12,12 @@ type Props = {
     marker: boolean
     dets: number[] | null // null = all detectors
     predicted: XY[] // catalogue position per epoch
+    note?: string // short line under the panel (black saturated pixels)
 }
 
 const RAW_MS = 200
 
-export default function RawView({ base, scaleArcsec, playing, marker, dets, predicted }: Props) {
+export default function RawView({ base, scaleArcsec, playing, marker, dets, predicted, note }: Props) {
     useLang()
     const [raw, setRaw] = useState<Raw | null>(null)
     const [failed, setFailed] = useState(false)
@@ -71,13 +72,23 @@ export default function RawView({ base, scaleArcsec, playing, marker, dets, pred
                 backgroundPosition: `${(col / (raw.cols - 1)) * 100}% ${rows > 1 ? (row / (rows - 1)) * 100 : 0}%`
             }}
             caption={t('raw.caption', { w: f.wave_um.toFixed(2), d: f.det })}
-            detail={t('raw.detail', {
-                t: f.t.replace('T', ' '),
-                e: f.epoch + 1,
-                rel: f.release.toUpperCase(),
-                i: (pos % count) + 1,
-                n: count
-            })}
+            detail={
+                <>
+                    {note && (
+                        <span className="raw-note">
+                            {note}
+                            <br />
+                        </span>
+                    )}
+                    {t('raw.detail', {
+                        t: f.t.replace('T', ' '),
+                        e: f.epoch + 1,
+                        rel: f.release.toUpperCase(),
+                        i: (pos % count) + 1,
+                        n: count
+                    })}
+                </>
+            }
         />
     )
 }

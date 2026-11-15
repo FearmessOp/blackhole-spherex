@@ -7,7 +7,7 @@ import { bandLabel, diffCaption, t, useLang, type Key } from './i18n'
 import type { Arrow, Band, Diff, Meta, Results, XY } from './types'
 
 export type Tab = 'images' | 'measurement' | 'validation'
-const TABS: [Tab, Key][] = [
+export const TABS: [Tab, Key][] = [
     ['images', 'tab.images'],
     ['measurement', 'tab.measurement'],
     ['validation', 'tab.validation']
@@ -76,9 +76,42 @@ function StackPanel({ base, meta, band, epoch, title, help, marker, markerLabel,
     )
 }
 
-type Props = { slug: string; tab: Tab; onTab: (tab: Tab) => void; validation: ReactNode }
+// One plain sentence with the main result, read from results.json.
+// stack_motion (WISE 0855): the first-to-last epoch pair, method "two" (Gaussian fit, neighbour
+// modelled), the one the Measurement tab and the guide put first; falls back to the first method.
+function summary(res: Results): string {
+    const sat = res.saturation
+    const saturated = sat !== null && sat.overflow > sat.exposures / 2
+    const fit = res.fit
+    if (fit) {
+        const m = fit.methods.find((x) => x.id === fit.arrow.method) ?? fit.methods[0]
+        return t('sum.fit', {
+            v: (Math.hypot(m.pm_east, m.pm_north) / 1000).toFixed(2),
+            c: (Math.hypot(fit.reference.pm_east, fit.reference.pm_north) / 1000).toFixed(2),
+            pct: Math.abs(m.plx_excess_pct).toFixed(0),
+            side: t(m.plx_excess_pct >= 0 ? 'sum.above' : 'sum.below')
+        })
+    }
+    const sm = res.stack_motion
+    if (sm && sm.pairs.length) {
+        const last = Math.max(...sm.pairs.map((p) => p.to))
+        const first = Math.min(...sm.pairs.map((p) => p.from))
+        const p = sm.pairs.find((x) => x.from === first && x.to === last) ?? sm.pairs[sm.pairs.length - 1]
+        const m = p.methods.find((x) => x.id === 'two') ?? p.methods[0]
+        return t('sum.stack', {
+            v: Math.hypot(m.east, m.north).toFixed(2),
+            c: Math.hypot(p.predicted.east, p.predicted.north).toFixed(2)
+        })
+    }
+    if (saturated && sat) return t('sum.sat', { a: sat.overflow, b: sat.exposures })
+    const nf = res.fit_not_shown
+    if (nf) return t('sum.nofit', { u: nf.usable, b: nf.exposures })
+    return t('sum.none')
+}
 
-export default function BlinkView({ slug, tab, onTab, validation }: Props) {
+type Props = { slug: string; tab: Tab; validation: ReactNode }
+
+export default function BlinkView({ slug, tab, validation }: Props) {
     useLang()
     const base = `${import.meta.env.BASE_URL}data/${slug}/`
     const [data, setData] = useState<{ meta: Meta; res: Results; diff: Diff | null } | null>(null)
@@ -140,26 +173,10 @@ export default function BlinkView({ slug, tab, onTab, validation }: Props) {
     const neighbour = res.stack_motion?.neighbour ?? null
     const neighbourXY = neighbour?.xy?.[epoch] ?? null
 
+    const blackCore = (res.saturation?.core_empty ?? 0) > 0
+
     return (
         <div className="target">
-            <div className="target-head">
-                <h2>{meta.name}</h2>
-                <div className="tabs" role="tablist">
-                    {TABS.map(([id, key]) => (
-                        <button
-                            key={id}
-                            type="button"
-                            role="tab"
-                            aria-selected={id === tab}
-                            className={id === tab ? 'on' : ''}
-                            onClick={() => onTab(id)}
-                        >
-                            {t(key)}
-                        </button>
-                    ))}
-                </div>
-            </div>
-
             {tab === 'images' && (
                 <>
                     <div className="views">
@@ -204,18 +221,33 @@ export default function BlinkView({ slug, tab, onTab, validation }: Props) {
                             marker={marker}
                             dets={band.dets}
                             predicted={meta.epochs.map((e) => e.predicted)}
+                            note={blackCore ? t('raw.black') : undefined}
                         />
                     </div>
 
+                    <div className="playbar">
+                        <button type="button" className="play" onClick={() => setPlaying(!playing)}>
+                            {playing ? t('ctl.pause') : t('ctl.play')}
+                        </button>
+                        <span className="playbar-label">{t('ctl.epoch')}</span>
+                        {band.frames.map((f, i) => (
+                            <button
+                                key={f.png}
+                                type="button"
+                                className={i === pos % nFrames ? 'on' : ''}
+                                onClick={() => {
+                                    setPlaying(false)
+                                    setPos(i)
+                                }}
+                            >
+                                {f.epoch + 1}
+                            </button>
+                        ))}
+                    </div>
+
+                    <p className="summary">{summary(res)}</p>
+
                     <div className="controls">
-                        <div className="group">
-                            <h4>{t('ctl.playback')}</h4>
-                            <div className="row">
-                                <button type="button" className="play" onClick={() => setPlaying(!playing)}>
-                                    {playing ? t('ctl.pause') : t('ctl.play')}
-                                </button>
-                            </div>
-                        </div>
                         {diff && (
                             <div className="group">
                                 <HelpTitle as="h4" help="help.diff">
@@ -237,24 +269,6 @@ export default function BlinkView({ slug, tab, onTab, validation }: Props) {
                                 </div>
                             </div>
                         )}
-                        <div className="group">
-                            <h4>{t('ctl.epoch')}</h4>
-                            <div className="row">
-                                {band.frames.map((f, i) => (
-                                    <button
-                                        key={f.png}
-                                        type="button"
-                                        className={i === pos % nFrames ? 'on' : ''}
-                                        onClick={() => {
-                                            setPlaying(false)
-                                            setPos(i)
-                                        }}
-                                    >
-                                        {f.epoch + 1}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
                         <div className="group">
                             <h4>{t('ctl.speed')}</h4>
                             <div className="row">

@@ -52,7 +52,8 @@ export type FitMethod = {
     plx_excess_pct: number
 }
 
-export type Arrow = { x: number; y: number; dx: number; dy: number; span_years: number }
+// method: id of the fit method whose proper motion the arrow shows ("psf" = ePSF fit)
+export type Arrow = { x: number; y: number; dx: number; dy: number; span_years: number; method: string }
 
 export type Fit = {
     reference: { pm_east: number; pm_north: number; plx: number; source: string; bibcode: string }

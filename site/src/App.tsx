@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
-import BlinkView from './BlinkView'
+import BlinkView, { TABS, type Tab } from './BlinkView'
 import FastMoversPanel from './FastMoversPanel'
 import FindMover from './FindMover'
 import { HowTo, LangSwitch } from './Help'
@@ -116,7 +116,15 @@ export default function App() {
     }
 
     // The open tab is kept here, so that it survives a change of target.
-    const [tab, setTab] = useState<'images' | 'measurement' | 'validation'>('images')
+    const [tab, setTab] = useState<Tab>('images')
+    // The short search hint on narrow screens, so that it is not cut off.
+    const [narrow, setNarrow] = useState(() => window.matchMedia('(max-width: 720px)').matches)
+    useEffect(() => {
+        const mq = window.matchMedia('(max-width: 720px)')
+        const on = () => setNarrow(mq.matches)
+        mq.addEventListener('change', on)
+        return () => mq.removeEventListener('change', on)
+    }, [])
     const targets = index.status === 'ready' ? index.targets : []
     const names: Record<string, string> = Object.fromEntries(targets.map((x) => [x.slug, x.name]))
     // Five test targets as cards; the ten fast movers (a test of the fit) in one drop-down list.
@@ -175,15 +183,15 @@ export default function App() {
                         {howTo && <HowTo onClose={() => setHowTo(false)} />}
                         <div className="top">
                             <form className="search" onSubmit={submit}>
-                                <label htmlFor="search-input">{t('search.label')}</label>
                                 <div className="row">
                                     <input
                                         id="search-input"
                                         ref={searchInput}
                                         type="text"
+                                        aria-label={t('search.aria')}
                                         value={text}
                                         onChange={(e) => setText(e.target.value)}
-                                        placeholder={t('search.placeholder')}
+                                        placeholder={narrow ? t('search.placeholder.short') : t('search.placeholder')}
                                         autoComplete="off"
                                         spellCheck={false}
                                     />
@@ -227,6 +235,22 @@ export default function App() {
                                         ))}
                                     </select>
                                 )}
+                                {prepared && (
+                                    <div className="tabs" role="tablist">
+                                        {TABS.map(([id, key]) => (
+                                            <button
+                                                key={id}
+                                                type="button"
+                                                role="tab"
+                                                aria-selected={id === tab}
+                                                className={id === tab ? 'on' : ''}
+                                                onClick={() => setTab(id)}
+                                            >
+                                                {t(key)}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
                             </nav>
                         )}
                         {index.status === 'loading' && <p className="note">{t('targets.loading')}</p>}
@@ -236,7 +260,7 @@ export default function App() {
                             </p>
                         )}
                         {prepared && (
-                            <BlinkView key={prepared.slug} slug={prepared.slug} tab={tab} onTab={setTab} validation={validation} />
+                            <BlinkView key={prepared.slug} slug={prepared.slug} tab={tab} validation={validation} />
                         )}
                         {query && <QuickLookView key={JSON.stringify(query)} query={query} />}
                         {index.status === 'empty' && route.kind === 'none' && <p className="note">{t('targets.empty')}</p>}

@@ -35,6 +35,12 @@ export default function SkyPanel(p: Props) {
     const bar = BAR_ARCSEC / p.scaleArcsec
     const a = p.arrow
     const len = a ? ARROW_SCALE * Math.hypot(a.dx, a.dy) : 0
+    // The arrow starts at the inner gap of the marker (1.5 px), so that it does not cover the star;
+    // its length stays ARROW_SCALE times the motion, so tip and label move out by the same 1.5 px.
+    const GAP = 1.5
+    const ux = a && len > 0 ? (ARROW_SCALE * a.dx) / len : 0
+    const uy = a && len > 0 ? (ARROW_SCALE * a.dy) / len : 0
+    const end = GAP + len
     // Keeps a centred label inside the panel (rough width: 0.27 em per character on each side).
     const clampX = (x: number, text: string) => {
         const half = 0.27 * font * text.length
@@ -42,7 +48,7 @@ export default function SkyPanel(p: Props) {
     }
     // The arrow label sits under the arrow tip; if that is the line of the marker label, it moves one line down.
     const markerLabelY = p.marker && p.markerLabel ? p.marker.y + 0.5 + 3 + 1.2 * font : null
-    let arrowLabelY = a ? a.y + 0.5 + ARROW_SCALE * a.dy + 6 * u : 0
+    let arrowLabelY = a ? a.y + 0.5 + ARROW_SCALE * a.dy + GAP * uy + 6 * u : 0
     if (a && markerLabelY !== null && Math.abs(arrowLabelY - markerLabelY) < 1.3 * font) arrowLabelY = markerLabelY + 1.3 * font
     const nb = p.neighbour
     // The pointer to the neighbour comes from above, on the side away from the target marker.
@@ -123,14 +129,14 @@ export default function SkyPanel(p: Props) {
                                 transform={`translate(${a.x + 0.5} ${a.y + 0.5}) rotate(${(Math.atan2(a.dy, a.dx) * 180) / Math.PI})`}
                             >
                                 {/* dark casing first, so the arrow stays visible on bright pixels */}
-                                <line className="case" x1={0} y1={0} x2={len} y2={0} />
-                                <polygon className="case" points={`${len + 0.5},0 ${len - 0.4},-0.4 ${len - 0.4},0.4`} />
-                                <line x1={0} y1={0} x2={len} y2={0} />
-                                <polygon points={`${len + 0.5},0 ${len - 0.4},-0.4 ${len - 0.4},0.4`} />
+                                <line className="case" x1={GAP} y1={0} x2={end} y2={0} />
+                                <polygon className="case" points={`${end + 0.5},0 ${end - 0.4},-0.4 ${end - 0.4},0.4`} />
+                                <line x1={GAP} y1={0} x2={end} y2={0} />
+                                <polygon points={`${end + 0.5},0 ${end - 0.4},-0.4 ${end - 0.4},0.4`} />
                             </g>
                             <text
                                 className="arrow-label"
-                                x={a.x + 0.5 + ARROW_SCALE * a.dx}
+                                x={clampX(a.x + 0.5 + ARROW_SCALE * a.dx + GAP * ux, t('sky.motion', { k: ARROW_SCALE }))}
                                 y={arrowLabelY}
                                 fontSize={font}
                                 textAnchor="middle"
