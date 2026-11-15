@@ -76,9 +76,9 @@ beklenen 79,1).
 - **İngilizce ve Türkçe** metinler, "?" düğmelerinin arkasında kısa açıklamalar,
   klavye kısayolları.
 
-| Rehber | Oyun |
+| Rehber | Doğrulama sekmesi |
 |---|---|
-| ![Rehber](docs/screenshots/guide.png) | ![Oyun](docs/screenshots/game.png) |
+| ![Rehber](docs/screenshots/guide.png) | ![Doğrulama sekmesi](docs/screenshots/validation.png) |
 
 | Hızlı bakış | Telefon, Türkçe |
 |---|---|

@@ -63,9 +63,9 @@ straight from the public cloud copy of the SPHEREx archive.
 |---|---|
 | ![WISE 0855-0714](docs/screenshots/wise-0855.png) | ![Measurement tab](docs/screenshots/measurement.png) |
 
-| Find the mover (guide) | Game mode |
+| Find the mover (guide) | Validation tab |
 |---|---|
-| ![Guide](docs/screenshots/guide.png) | ![Game](docs/screenshots/game.png) |
+| ![Guide](docs/screenshots/guide.png) | ![Validation tab](docs/screenshots/validation.png) |
 
 | Quick look (FQ Pav) | Phone, Turkish |
 |---|---|
