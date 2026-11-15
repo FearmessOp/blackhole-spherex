@@ -27,6 +27,15 @@ let current: Lang = initialLang()
 const listeners = new Set<() => void>()
 document.documentElement.lang = current
 
+// Turkish taken from localStorage: the address gets lang=tr too, so that a copied link keeps the language.
+if (current === 'tr') {
+    const url = new URL(window.location.href)
+    if (url.searchParams.get('lang') !== 'tr') {
+        url.searchParams.set('lang', 'tr')
+        window.history.replaceState(null, '', url)
+    }
+}
+
 export const getLang = (): Lang => current
 
 // Adds ?lang=tr to an address of this site so that a shared link keeps the language.

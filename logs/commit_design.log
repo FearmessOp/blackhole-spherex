@@ -1,0 +1,17 @@
+warning: in the working copy of 'logs/build_design_1.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/build_design_2.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/build_design_3.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/build_design_4.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/build_design_5.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/build_design_6.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/build_design_7.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/build_design_8.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/build_i18n.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/commit_t0.log', LF will be replaced by CRLF the next time Git touches it
+local: 
+f7c8a9d69ae83eb9deeb5fe141cf8ef91dbd3bde
+remote: 
+f7c8a9d69ae83eb9deeb5fe141cf8ef91dbd3bde	refs/heads/main
+status: 
+?? logs/commit_design.log
+?? logs/preview_design.log
