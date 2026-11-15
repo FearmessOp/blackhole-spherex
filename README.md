@@ -8,11 +8,15 @@ image per observing epoch next to the raw exposures, and reports what could be
 measured from the images.
 
 **Status:** work in progress (hackathon weekend, 14–15 November 2026).
-The site shows five prepared targets with measurements, and a **quick look at
-any star name or position** (search box, or `?target=` / `?ra=&dec=` in the
-URL). The quick look is unmasked and gives rough numbers only.
-Click-for-spectrum and a search for movers are not implemented. See
+The site shows five prepared test targets and ten prepared fast movers with
+measurements, a guided mode ("Find the mover"), a difference image as a hint,
+two validation sections, and a **quick look at any star name or position**
+(search box, or `?target=` / `?ra=&dec=` in the URL). The quick look is
+unmasked and gives rough numbers only. Click-for-spectrum and an automatic
+search for unknown movers are not implemented. See
 [Known limitations](#known-limitations) and [PROGRESS.md](PROGRESS.md).
+A draft of the project-page text is in
+[docs/SUBMISSION_DRAFT.md](docs/SUBMISSION_DRAFT.md) (not yet confirmed by the team).
 
 ## Live site
 
@@ -54,6 +58,21 @@ WISE 0855-0714, RW Aurigae, R Draconis):
   to the catalogue values, and a warning where they could not.
 
 All brightness scales are fixed per target and band; pixels are not smoothed.
+
+Also on the site:
+
+- **Find the mover.** A guided mode with three steps: Barnard's Star
+  (saturated), Epsilon Indi B (with the difference hint) and WISE 0855-0714
+  (seen only at long wavelength). Each step has "Show me" and then reveals the
+  measured motion.
+- **Difference image.** Last epoch minus first epoch, offered as a hint only for
+  bands where both lobes pass three fixed criteria: Epsilon Indi B in all three
+  bands, WISE 0855-0714 in "all" and D5+6 but not in D1–3
+  (`logs/diff_image_eps-indi-b.log`, `logs/diff_image_wise-0855.log`).
+- **Fast movers.** Ten stars with a large catalogue motion, run through the
+  same chain as Epsilon Indi B, as prepared targets of their own.
+- **Validation** and **Validation on fast movers**: the fit compared with Gaia
+  on field stars and with SIMBAD on the fast movers (see below).
 
 For any other star name or position (**quick look**):
 
@@ -112,6 +131,29 @@ values; `logs/flicker_<slug>.log`):
 | RW Aurigae | 74.7% | 0.8% |
 | R Draconis | 96.4% | 0.9% |
 
+**Control test on 91 Gaia DR3 field stars** in the five fields, ePSF fit, aligned
+(`logs/validation_field_stars.log`): measured minus Gaia within 2 errors for 85
+(proper motion east), 84 (north) and 85 (parallax) of 91 stars, all three for 75;
+86.9 and 79.1 expected for Gaussian errors of the right size. Without the
+alignment the median parallax difference is −54.0 mas (ePSF) and +115.7 mas
+(centroid), and 17 and 15 of 91 stars are within 2 errors.
+
+**Ten fast movers** (`logs/fast_movers_table.log`). A target is judged if it has
+at least 30 usable exposures in at least 3 epochs of at least 5; 9 of 10 are.
+Counts of targets within 2 errors of SIMBAD:
+
+| Method | pm east | pm north | both | parallax |
+|---|---|---|---|---|
+| ePSF fit | 8 | 9 | 8 | 9 |
+| Windowed centroid | 8 | 8 | 7 | 7 |
+
+- ePSF outside 2 errors: LAWD 37 east, +2724.7 ± 23.2 against +2661.6 mas/yr.
+- omi02 Eri B is not judged: 8 of 432 exposures usable (OVERFLOW in 399), and the
+  stack centroid lies about 8 arcsec from the catalogue position, near a Gaia
+  star of G = 9.78 (`logs/omi02_eri_b_neighbours.log`).
+- The selection rule is the one of the field-star test, but it was added to the
+  fast-mover table after the omi02 Eri B fit had been seen.
+
 **Quick look, checked against astropy and against the full pipeline:**
 
 | Check | Result | Log |
@@ -132,9 +174,12 @@ same two targets, so the 9 of 9 is not an independent confirmation.
 **Scope**
 
 - Measurements with masking, field-star alignment and a motion fit exist only
-  for the five prepared targets. Any other position gets the quick look.
-- There is no spectrum on click, no search for movers, no Gaia or WISE
-  catalogue overlay, no frame subtraction and no choice of field size.
+  for the fifteen prepared targets. Any other position gets the quick look.
+- There is no spectrum on click, no automatic search for unknown movers, no Gaia
+  or WISE catalogue overlay and no choice of field size. The difference image
+  exists for Epsilon Indi B and WISE 0855-0714 only.
+- With 3 epochs (all fast movers except LSR J1826+3014) the parallax cannot be
+  checked by leaving one epoch out.
 
 **Quick look**
 
@@ -259,11 +304,15 @@ file in `logs/`.
 | 7 | `stack_astrometry.py`, `neighbours.py`, `neighbour_test.py` | Target position on epoch stacks; nearby Gaia stars; two-source fit |
 | 8 | `saturation_check.py`, `flicker.py <slug>` | Saturated cores per target; flicker of constant stars |
 | 9 | `build_results.py` | Copies all measured numbers into `site/public/data/<slug>/results.json` |
+| 10 | `diff_image.py` | Difference image last minus first epoch, with the three criteria for the hint |
+| 11 | `validation_field_stars.py` | Control test of the fit on Gaia field stars |
+| 12 | `select_fast_movers.py`, `run_fast_movers.py`, `fast_movers_table.py` | Fast movers: selection at SIMBAD, measurement chain on 0.2 deg cutouts, table against SIMBAD |
 
 Checks that change nothing: `inspect_fits.py`, `parallax_check.py`,
 `raw_masked_fraction.py`, `flicker_diag.py`, `hash_site_data.py`,
 `check_terms.py`, `npm_licenses.py`, `range_probe.py`, `sia_probe.py`,
-`check_vercel_limits.py`. `wcs_reference.py` writes the astropy reference
+`check_vercel_limits.py`, `epsf_check.py`, `test_stored_epsf.py`,
+`live_tour.py` (live-site tour). `wcs_reference.py` writes the astropy reference
 values for the quick-look tests (`data/quicklook/wcs_reference.json`).
 
 ## Running the site locally

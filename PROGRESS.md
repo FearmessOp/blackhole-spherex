@@ -3,6 +3,72 @@
 Team Blackhole 102, NASA Space Apps Challenge 2026, "Planet X and SPHEREx".
 Times are local (UTC+3). Every number below comes from the log file named next to it.
 
+## Status at 2026-11-15 04:05
+
+Night work list, blocks 1 to 5. Sections further down describe the state at their own time.
+
+### Commits (all pushed; remote hash checked with `git ls-remote` after each push)
+
+| Commit | Content | Log |
+|---|---|---|
+| `d2a868b`, `2a6b7c1` | Fast-mover selection and download logs | `logs/download_fast.log`, `logs/download_fast_retry.log` |
+| `13d6652` | Difference image, `--strip-epsf` | `logs/diff_image_*.log` |
+| `b20ab45` | Find the mover (guided mode) | `logs/guide_blink_check.log` |
+| `55b1708` | `has_diff` in results.json; `diff.json` only requested where it exists (fixed a live 404) | `logs/has_diff_live_check.log` |
+| `ace40a7` | Guided mode keeps data with its slug (fixed a live 404 on `wise-0855/d123_e3.png`) | `logs/guide_live_404_check.log`, `logs/guide_live_after_fix.log` |
+| `e73c7d5` | Ten fast movers as prepared targets, "Validation on fast movers" section, parallax sentence names each method | `logs/commit_block4.log`, `logs/live_check_block4.log`, `logs/live_check_block4_strict.log` |
+| `db2a421` | `docs/SUBMISSION_DRAFT.md` (English draft, SI field empty) | `logs/commit_submission_draft.log` |
+
+### Downloads
+
+3799 ok + 2 cached + 3 failed (HTTP 503) in the first run; the 3 were fetched on
+retry (`logs/download_fast.log`, `logs/download_fast_retry.log`).
+
+### Fast movers (`logs/fast_movers_table.log`)
+
+- 9 of 10 judged (at least 30 usable exposures, at least 3 epochs of at least 5).
+  Within 2 errors of SIMBAD, ePSF fit: pm east 8, pm north 9, both 8, parallax 9;
+  windowed centroid: 8, 8, 7, 7.
+- ePSF outside 2 errors: LAWD 37 east, +2724.7 ± 23.2 against +2661.6 mas/yr.
+- omi02 Eri B not judged: OVERFLOW in 399 of 432 exposures, 8 usable (3, 1, 4 per
+  epoch), bootstrap errors in the millions of mas. The stack centroid lies 8.0, 7.8
+  and 7.93 arcsec from the catalogue position; a Gaia star (DR3 3195919254111314816,
+  G = 9.78) lies 4.15 W / 6.66 N arcsec away (`logs/omi02_eri_b_neighbours.log`).
+- **The selection rule was added to `fast_movers_table.py` after the omi02 Eri B fit
+  had been seen.** Without it the script counted omi02 Eri B as within 2 errors
+  because its errors were huge. The constants (30 / 3 / 5) are those of
+  `validation_field_stars.py` lines 42–44, fixed before the field-star results.
+
+### Live site checks
+
+- After `e73c7d5`: bundle `index-B6vxSKmh.js` served (`logs/live_bundle_block4.log`);
+  15 pages, no 4xx, no HTML for `/data/` URLs, no console errors
+  (`logs/live_check_block4.log`). The first selector also counted the validation
+  tables; with a strict selector omi02 Eri B has no fit table and 3 warnings
+  (`logs/live_check_block4_strict.log`).
+- Full tour, 900 and 390 px (`pipeline/live_tour.py`, `logs/live_tour.log`): five
+  prepared targets and the guided mode (3 steps, ends with "Play again"); no
+  horizontal overflow, no 4xx, no console errors. The quick-look lines of that log
+  are not valid (the script read a target card); they were repeated in
+  `logs/live_tour_quick.log`: Wolf 359 291 exposures, Ross 128 341, Teegarden's Star
+  337, 3 epochs each, 18 read in 2.2–2.4 s, 3 motion rows, no overflow.
+- Seen by eye: the fast-mover table at 900 and 390 px (at 390 px it scrolls
+  sideways inside its section, the page does not); Epsilon Indi B and guided step 3
+  at 390 px (screenshots in `cache/tour/`, not in git).
+- WISE 0855 results text is 112 characters shorter at 390 px: the motion table
+  header is hidden on narrow screens on purpose (`logs/live_tour_wise_chars.log`).
+
+### Other
+
+- Port 3000: the earlier PID 20456 was gone; the process now on port 3000
+  (`node server.js`, PID 24252) belongs to another program and was not touched.
+- A process not started by this work: `C:\Python313\python.exe -m http.server 4321
+  --bind 127.0.0.1 --directory viz3d` (PID 25276, started 03:22:13). Not touched.
+- Tool incident: three writes of `site/src/GuideView.tsx` reported success and left
+  a 0-byte file. The component was written as `FindMover.tsx`; the empty file was
+  removed. Every written file was checked on disk afterwards.
+- README "Use of SI" unchanged (`logs/readme_si_unchanged.log`).
+
 ## Status at 2026-11-14 22:20
 
 Sections further down describe the state at their own time. Where they say that

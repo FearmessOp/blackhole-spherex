@@ -1,0 +1,19 @@
+[900] prepared barnard: overflow=no (900/900) 4xx=[] console_errors=[] results_chars=481 tables=0
+[900] prepared eps-indi-b: overflow=no (900/900) 4xx=[] console_errors=[] results_chars=734 tables=1
+[900] prepared wise-0855: overflow=no (900/900) 4xx=[] console_errors=[] results_chars=846 tables=1
+[900] prepared rw-aur: overflow=no (900/900) 4xx=[] console_errors=[] results_chars=397 tables=0
+[900] prepared r-dra: overflow=no (900/900) 4xx=[] console_errors=[] results_chars=479 tables=0
+[900] quick Wolf 359: overflow=no (900/900) 4xx=[] console_errors=[] state=shown seconds=5.2 lines=['M4V · 364 exposures · 3 epochs', 'T1V+T6V · 467 exposures · 4 epochs']
+[900] quick Ross 128: overflow=no (900/900) 4xx=[] console_errors=[] state=shown seconds=3.2 lines=['M4V · 364 exposures · 3 epochs', 'T1V+T6V · 467 exposures · 4 epochs']
+[900] quick Teegarden's Star: overflow=no (900/900) 4xx=[] console_errors=[] state=shown seconds=3.3 lines=['M4V · 364 exposures · 3 epochs', 'T1V+T6V · 467 exposures · 4 epochs']
+[900] guide: overflow=no (900/900) 4xx=[] console_errors=[] steps=3 end_text_has_play_again=True
+[390] prepared barnard: overflow=no (390/390) 4xx=[] console_errors=[] results_chars=481 tables=0
+[390] prepared eps-indi-b: overflow=no (390/390) 4xx=[] console_errors=[] results_chars=734 tables=1
+[390] prepared wise-0855: overflow=no (390/390) 4xx=[] console_errors=[] results_chars=734 tables=1
+[390] prepared rw-aur: overflow=no (390/390) 4xx=[] console_errors=[] results_chars=397 tables=0
+[390] prepared r-dra: overflow=no (390/390) 4xx=[] console_errors=[] results_chars=479 tables=0
+[390] quick Wolf 359: overflow=no (390/390) 4xx=[] console_errors=[] state=shown seconds=3.2 lines=['M4V · 364 exposures · 3 epochs', 'T1V+T6V · 467 exposures · 4 epochs']
+[390] quick Ross 128: overflow=no (390/390) 4xx=[] console_errors=[] state=shown seconds=2.2 lines=['M4V · 364 exposures · 3 epochs', 'T1V+T6V · 467 exposures · 4 epochs']
+[390] quick Teegarden's Star: overflow=no (390/390) 4xx=[] console_errors=[] state=shown seconds=2.2 lines=['M4V · 364 exposures · 3 epochs', 'T1V+T6V · 467 exposures · 4 epochs']
+[390] guide: overflow=no (390/390) 4xx=[] console_errors=[] steps=3 end_text_has_play_again=True
+done
