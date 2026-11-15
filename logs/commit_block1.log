@@ -1,0 +1,13 @@
+warning: in the working copy of 'data/sia/fq-pav_spherex_dr1.csv', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/sia/fq-pav_spherex_qr3.csv', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/sia/ogle-lmc-lpv-47121_spherex_dr1.csv', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'data/sia/ogle-lmc-lpv-47121_spherex_qr3.csv', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/build_block1.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/build_progress.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/commit_s3.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/sia_probe_s4.csv', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'logs/vizier_probe_cfa.tsv', LF will be replaced by CRLF the next time Git touches it
+fdcd3e0f3d097f45fa86fb995898ef1ade4ccf10
+fdcd3e0f3d097f45fa86fb995898ef1ade4ccf10	refs/heads/main
+?? logs/commit_block1.log
+?? logs/preview_design.log
